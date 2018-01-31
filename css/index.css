@@ -23,6 +23,17 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+}
+
+nav ul {
+  width: 700px;
+  margin: 0 auto;
+  list-style-type: none;
+}
+
+nav ul li {
+  display: inline;
 }
 
 h1 {

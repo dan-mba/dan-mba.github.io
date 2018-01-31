@@ -1,4 +1,14 @@
+html {
+  background-color: #202020;
+}
+
 body {
   margin: 0 auto;
   width: 700px;
+  background-color: #f5f5f5;
+}
+
+nav {
+  background-color: #202020;
+  color: #fff;
 }

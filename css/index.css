@@ -20,6 +20,9 @@ nav {
   background-color: #202020;
   color: #fff;
   height: 4em;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 h1 {

@@ -31,12 +31,12 @@ nav ul {
   margin: 0 auto;
   list-style-type: none;
   font-size: 1.3em;
-  display: inline-block;
   vertical-align: middle
 }
 
 nav ul li {
   width: 100px;
+  display: inline-block;
 }
 
 div.main {

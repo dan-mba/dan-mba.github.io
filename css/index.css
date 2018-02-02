@@ -30,7 +30,8 @@ nav ul {
   width: 700px;
   margin: 0 auto;
   list-style-type: none;
-  font-size: 1.75em;
+  font-size: 1.3em;
+  vertical-align: middle
 }
 
 nav ul li {

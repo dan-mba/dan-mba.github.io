@@ -30,7 +30,7 @@ nav ul {
   width: 700px;
   margin: 0 auto;
   list-style-type: none;
-  font-size: 2.5em;
+  font-size: 1.75em;
 }
 
 nav ul li {
@@ -42,7 +42,7 @@ nav ul li {
 
 div.main {
   margin: 4em 5px 0;
-  min-length: 700px;
+  min-height: 700px;
 }
 
 h1 {

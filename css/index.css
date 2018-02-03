@@ -22,7 +22,9 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  vertical-align: middle;
+  
+  display: flex;
+  align-items: center;
 }
 
 #topnav {
@@ -30,17 +32,12 @@ nav {
   margin: 0 auto;
   padding: 0 10px;
   font-size: 1.3em;
-  vertical-align: middle;
   
   display: -ms-grid;
   display: grid;
   
   -ms-grid-columns: 25% 25% 25% 25%;
   grid-template-columns: 25% 25% 25% 25%;
-}
-
-#topnav div {
-  vertical-align: middle;
 }
 
 div.main {

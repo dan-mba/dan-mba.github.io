@@ -25,6 +25,8 @@ nav {
   
   display: flex;
   align-items: center;
+  
+  z-index: 99;
 }
 
 #topnav {
@@ -32,7 +34,6 @@ nav {
   margin: 0 auto;
   padding: 0 10px;
   font-size: 1.3em;
-  z-index: 99;
   
   display: -ms-grid;
   display: grid;

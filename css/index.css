@@ -36,8 +36,8 @@ nav {
   display: -ms-grid;
   display: grid;
   
-  -ms-grid-columns: 1f 1f 1f 50%;
-  grid-template-columns: 1f 1f 1f 50%;
+  -ms-grid-columns: 1fr 1fr 1fr 50%;
+  grid-template-columns: 1fr 1fr 1fr 50%;
 }
 
 div.main {

@@ -32,6 +32,7 @@ nav {
 #topnav {
   width: 700px;
   margin: 0 auto;
+  padding: 0 10px;
   font-size: 1.3em;
   
   display: -ms-grid;

@@ -5,14 +5,12 @@
   outline: 0;
 }
 
-html {
-  background-color: #d8d8d8;
-  color: #111;
-}
-
 body {
   margin: 0 auto;
   width: 700px;
+  
+  background-color: #d8d8d8;
+  color: #111;
 }
 
 nav {

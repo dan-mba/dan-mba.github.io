@@ -7,20 +7,15 @@
 
 html {
   background-color: #303030;
+  color: #eee;
 }
 
 body {
   margin: 0 auto;
   width: 700px;
-  
-  background-color: #d8d8d8;
-  color: #101010;
 }
 
 nav {
-  background-color: #303030;
-  color: #eee;
-  
   line-height: 4em;
   
   position: fixed;
@@ -49,6 +44,9 @@ nav {
 div.main {
   margin: 4em 5px 0;
   min-height: 700px;
+  
+  background-color: rgba(232, 232, 232, 0.9);
+  color: #111;
 }
 
 h1 {

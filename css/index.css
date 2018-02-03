@@ -17,6 +17,7 @@ body {
 
 nav {
   height: 3em;
+  background-color: #303030;
   
   position: fixed;
   top: 0;

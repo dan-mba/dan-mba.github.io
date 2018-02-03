@@ -29,6 +29,7 @@ nav {
   margin: 0 auto;
   padding: 0 10px;
   font-size: 1.3em;
+  vertical-align: middle;
   
   display: -ms-grid;
   display: grid;
@@ -45,7 +46,7 @@ div.main {
   margin: 3em 5px 0;
   min-height: 700px;
   
-  background-color: rgba(232, 232, 232, 0.8);
+  background-color: rgba(232, 232, 232, 0.9);
   color: #111;
 }
 

@@ -12,6 +12,7 @@ html {
 body {
   margin: 0 auto;
   width: 700px;
+  
   background-color: #d8d8d8;
   color: #202020;
 }
@@ -19,23 +20,28 @@ body {
 nav {
   background-color: #202020;
   color: #fff;
+  
   line-height: 4em;
+  
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
 }
 
-nav ul {
+#topnav {
   width: 700px;
   margin: 0 auto;
-  list-style-type: none;
   font-size: 1.3em;
+  
+  display: -ms-grid;
+  display: grid;
+  
+  -ms-grid-columns: 25% 25% 25% 25%;
+  grid-template-columns: 25% 25% 25% 25%;
 }
 
-nav ul li {
-  width: 100px;
-  display: inline-block;
+#topnav div {
   vertical-align: middle;
 }
 

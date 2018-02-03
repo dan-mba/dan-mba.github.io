@@ -16,7 +16,7 @@ body {
 }
 
 nav {
-  line-height: 4em;
+  height: 3em;
   
   position: fixed;
   top: 0;
@@ -42,7 +42,7 @@ nav {
 }
 
 div.main {
-  margin: 4em 5px 0;
+  margin: 3em 5px 0;
   min-height: 700px;
   
   background-color: rgba(232, 232, 232, 0.8);

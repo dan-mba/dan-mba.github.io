@@ -14,7 +14,7 @@ body {
 }
 
 nav {
-  height: 3em;
+  height: 4em;
   background-color: #303030;
   color: #eee;
   
@@ -28,20 +28,20 @@ nav {
 }
 
 #topnav {
-  width: 680px;
+  width: 700px;
   margin: 0 auto;
-  padding: 0 10px;
-  font-size: 1.3em;
+  font-size: 1.1em;
+  text-align: center;
   
   display: -ms-grid;
   display: grid;
   
-  -ms-grid-columns: 1fr 1fr 1fr 45%;
-  grid-template-columns: 1fr 1fr 1fr 45%;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 35%;
+  grid-template-columns: 1fr 1fr 1fr 1fr 35%;
 }
 
 div.main {
-  margin: 3em 5px 0;
+  margin: 4em 5px 0;
   min-height: 700px;
 }
 

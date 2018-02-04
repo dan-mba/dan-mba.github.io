@@ -32,6 +32,7 @@ nav {
   margin: 0 auto;
   font-size: 1.1em;
   text-align: center;
+  vertical-align: bottom;
   
   display: -ms-grid;
   display: grid;

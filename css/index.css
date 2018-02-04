@@ -30,7 +30,7 @@ nav {
 #topnav {
   width: 700px;
   margin: 0 auto;
-  font-size: 1.1em;
+  font-size: 0.9em;
   text-align: center;
   vertical-align: bottom;
   
@@ -39,6 +39,10 @@ nav {
   
   -ms-grid-columns: 1fr 1fr 1fr 1fr 30%;
   grid-template-columns: 1fr 1fr 1fr 1fr 30%;
+}
+
+i.material-icons {
+  font-size: 2em;
 }
 
 div.main {

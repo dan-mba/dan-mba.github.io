@@ -27,9 +27,6 @@ nav {
   align-items: center;
 }
 
-@media (max-width: 775px) {
-  #topnav { width: 90%; }
-}
 
 #topnav {
   width: 700px;
@@ -44,6 +41,10 @@ nav {
   
   -ms-grid-columns: 1fr 1fr 1fr 1fr 30%;
   grid-template-columns: 1fr 1fr 1fr 1fr 30%;
+}
+
+@media (max-width: 775px) {
+  #topnav { width: 90%; }
 }
 
 i.material-icons {

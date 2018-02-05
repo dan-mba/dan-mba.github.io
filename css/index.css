@@ -68,6 +68,11 @@ i.material-icons {
 #topnav div.active {
   border-bottom-color: #eee;
 }
+
+#topnav a {
+  text-decoration: none;
+}
+
 /*
 
 Main Body Settings

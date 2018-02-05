@@ -71,6 +71,7 @@ i.material-icons {
 
 #topnav a {
   text-decoration: none;
+  color: inherit;
 }
 
 /*

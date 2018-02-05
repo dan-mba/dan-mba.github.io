@@ -42,7 +42,7 @@ nav {
   grid-template-columns: 1fr 1fr 1fr 1fr 30%;
 }
 
-@media (max-width: 775px) {
+@media (max-width: 700px) {
   #topnav {
     width: 100%;
     padding: 0 5px;

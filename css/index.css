@@ -78,6 +78,14 @@ div.main {
   margin: 4em 5px 0;
 }
 
+div.main div {
+  display: none;
+}
+
+div.main div.active {
+  display: block;
+}
+
 h1 {
   text-align: center;
 }

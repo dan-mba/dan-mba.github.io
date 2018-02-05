@@ -36,7 +36,6 @@ nav {
 
 #topnav {
   width: 700px;
-  border-bottom: 5px solid #303030;
   
   margin: 0 auto;
   font-size: 0.9em;
@@ -61,6 +60,10 @@ nav {
 
 i.material-icons {
   font-size: 2em;
+}
+
+#topnav div {
+  border-bottom: 5px solid #303030;
 }
 
 .active {

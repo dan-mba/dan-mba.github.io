@@ -58,11 +58,11 @@ nav {
 
 i.material-icons {
   font-size: 2em;
+  display: block;
 }
 
 #topnav div {
   border-bottom: 3px solid #303030;
-  white-space: pre-line;
 }
 
 #topnav div.active {

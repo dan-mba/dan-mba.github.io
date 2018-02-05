@@ -28,8 +28,9 @@ nav {
 }
 
 @media (max-width: 775px) {
-  width: 90%;
+  #topnav { width: 90%; }
 }
+
 #topnav {
   width: 700px;
   

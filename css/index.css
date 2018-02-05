@@ -29,6 +29,7 @@ nav {
 
 #topnav {
   max-width: 700px;
+  min-width: 350px;
   margin: 0 auto;
   font-size: 0.9em;
   text-align: center;

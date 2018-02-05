@@ -63,6 +63,7 @@ i.material-icons {
 
 #topnav div {
   border-bottom: 3px solid #303030;
+  white-space: pre-line;
 }
 
 #topnav div.active {

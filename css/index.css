@@ -36,6 +36,7 @@ nav {
 
 #topnav {
   width: 700px;
+  height: 100%;
   
   margin: 0 auto;
   font-size: 0.9em;
@@ -63,7 +64,7 @@ i.material-icons {
 }
 
 #topnav div {
-  border-bottom: 5px solid #303030;
+  border-bottom: 3px solid #303030;
 }
 
 #topnav div.active {

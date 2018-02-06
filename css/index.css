@@ -84,7 +84,7 @@ div.main {
   margin: 4em 5px 0;
 }
 
-div.main div {
+div.main > div {
   display: none;
 }
 

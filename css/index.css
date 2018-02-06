@@ -96,6 +96,6 @@ h1 {
   text-align: center;
 }
 
-#linkedinbox > span {
-  margin: 0 auto;
+#linkedinbox {
+  text-align: center;
 }

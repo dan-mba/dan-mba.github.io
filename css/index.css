@@ -95,3 +95,7 @@ div.main div.active {
 h1 {
   text-align: center;
 }
+
+#linkedinbox > span {
+  margin: 0 auto;
+}

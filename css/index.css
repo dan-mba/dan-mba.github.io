@@ -100,8 +100,12 @@ h1 {
 /*
     Experince Tab
 */
-.jobimg{
+
+.jobimg {
   float: left;
+  height: 100%
+}
+.jobimg img{
   width: 70px;
   margin-right: 8px;
   margin-top: 5px;
@@ -109,7 +113,7 @@ h1 {
 
 .jobtitle {
   font-size: 1.1em;
-  fomt-weight: bold;
+  font-weight: bold;
 }
 
 .jobinfo{

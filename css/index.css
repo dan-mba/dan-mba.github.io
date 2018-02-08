@@ -119,7 +119,7 @@ h1 {
 .jobinfo{
   overflow: hidden;
 }
-.jobinfo::after {
+.jobdesc::after {
   clear: both;
 }
 

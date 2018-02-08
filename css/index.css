@@ -96,10 +96,26 @@ h1 {
   text-align: center;
 }
 
+
+/*
+    Experince Tab
+*/
+.jobimg{
+  float: left;
+  width: 60px;
+}
+
 .jobtitle {
   font-size: 1.2em;
 }
 
+.jobinfo::after {
+  clear: both;
+}
+
+/*
+    Contacts Tab
+*/
 #linkedinbox {
   text-align: center;
 }

@@ -123,6 +123,11 @@ h1 {
   clear: both;
 }
 
+@media (max-width: 700px){
+  .jobdesc{
+    clear: both;
+  }
+}
 /*
     Contacts Tab
 */

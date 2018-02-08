@@ -103,12 +103,16 @@ h1 {
 .jobimg{
   float: left;
   width: 60px;
+  margin-right: 5px;
 }
 
 .jobtitle {
   font-size: 1.2em;
 }
 
+.jobinfo{
+  overflow: hidden;
+}
 .jobinfo::after {
   clear: both;
 }

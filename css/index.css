@@ -103,12 +103,12 @@ h1 {
 
 .jobimg {
   float: left;
-  height: 100%
+  height: 100%;
+  margin-right: 10px;
+  margin-top: 5px;
 }
 .jobimg img{
   width: 100px;
-  margin-right: 10px;
-  margin-top: 5px;
 }
 
 .jobtitle {
@@ -128,7 +128,7 @@ h1 {
     clear: both;
   }
   
-  .jobimg img {
+  .jobimg {
     margin-right: 5px;
   }
 }

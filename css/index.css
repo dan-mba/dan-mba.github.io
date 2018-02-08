@@ -104,10 +104,12 @@ h1 {
   float: left;
   width: 70px;
   margin-right: 8px;
+  margin-top: 5px;
 }
 
 .jobtitle {
-  font-size: 1.2em;
+  font-size: 1.1em;
+  fomt-weight: bold;
 }
 
 .jobinfo{

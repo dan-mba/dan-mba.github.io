@@ -12,7 +12,7 @@ body {
   background-color: #d8d8d8;
   color: #111;
   
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 /*
@@ -25,6 +25,7 @@ nav {
   height: 4em;
   background-color: #303030;
   color: #eee;
+  font-family: 'Martel', serif;
   
   position: fixed;
   top: 0;
@@ -121,7 +122,7 @@ h1 {
 }
 
 .jobtitle {
-  font-family: 'Vesper Libre', serif;
+  font-family: 'Martel', serif;
   font-size: 1.1em;
   font-weight: bold;
 }

@@ -11,6 +11,8 @@ body {
   
   background-color: #d8d8d8;
   color: #111;
+  
+  font-family: 'Open Sans', sans-serif;
 }
 
 /*
@@ -119,6 +121,7 @@ h1 {
 }
 
 .jobtitle {
+  font-family: 'PT Sans Narrow', sans-serif;
   font-size: 1.1em;
   font-weight: bold;
 }

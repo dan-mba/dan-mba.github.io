@@ -44,6 +44,7 @@ nav {
   display: grid;
   
   -ms-grid-columns: 1fr 1fr 1fr 1fr 30%;
+  -ms-grid-rows: 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 30%;
 }
 

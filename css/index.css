@@ -127,6 +127,7 @@ h1 {
 
 .jobdesc {
   -ms-grid-column: 2;
+  -ms-grid-row: 2;
   grid-column: 2 / 3;
 }
 
@@ -142,6 +143,7 @@ h1 {
   
   .jobdesc {
     -ms-grid-column-span: 2;
+    -ms-grid-column:1;
     grid-column: span 2;
   }
 }

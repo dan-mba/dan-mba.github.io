@@ -100,10 +100,15 @@ h1 {
 /*
     Experince Tab
 */
+#experience > div {
+  display: -ms-grid;
+  display: grid;
+  
+  -ms-grid-columns: 110px 1fr;
+  grid-template-columns: 110px 1fr;
+}
 
 .jobimg {
-  float: left;
-  height: 100%;
   margin-right: 10px;
   margin-top: 5px;
 }
@@ -116,20 +121,19 @@ h1 {
   font-weight: bold;
 }
 
-.jobinfo{
-  overflow: hidden;
-}
-.jobdesc::after {
-  clear: both;
-}
-
 @media (max-width: 700px){
-  .jobdesc{
-    clear: both;
+  #experience > div {
+    -ms-grid-columns: 105px 1fr;
+    grid-template-columns: 105px 1fr;
   }
   
   .jobimg {
     margin-right: 5px;
+  }
+  
+  .jobdesc {
+    -ms-grid-column-span: 2;
+    grid-column: span 2;
   }
 }
 /*

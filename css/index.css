@@ -124,7 +124,7 @@ h1 {
   -ms-grid-column: 2;
 }
 
-.jobtitle {
+#experience > div > div.jobtitle {
   font-family: 'Roboto Condensed', serif;
   font-size: 1.1em;
   font-weight: bold;

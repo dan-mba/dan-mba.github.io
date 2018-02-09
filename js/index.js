@@ -5,4 +5,6 @@ $(function() {
     $(this).parent().addClass("active");
     $($(this).data("id")).addClass("active");
   });
+  
+  $('head').append('<link href="/css/chrome.css" rel="stylesheet" />');
 });

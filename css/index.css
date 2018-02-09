@@ -119,6 +119,10 @@ h1 {
   width: 100px;
 }
 
+.jobinfo {
+  -ms-grid-column: 2;
+}
+
 .jobtitle {
   font-family: 'Roboto Condensed', serif;
   font-size: 1.1em;

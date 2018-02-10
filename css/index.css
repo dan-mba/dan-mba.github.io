@@ -156,7 +156,7 @@ h1 {
     Contacts Tab
 */
 
-div LI-profile-badge {
+div.LI-profile-badge {
   width: 280px;
   margin 10 auto;
 }

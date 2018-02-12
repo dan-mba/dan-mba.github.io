@@ -158,6 +158,11 @@ h1 {
     -ms-grid-column:1;
     grid-column: span 2;
   }
+  
+  #experience ul {
+    margin-top: 10px;
+  }
+  
 }
 
 /* jQuery UI Accordion options */

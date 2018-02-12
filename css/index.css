@@ -188,7 +188,7 @@ h1 {
 
 #experience .ui-accordion-content {
   border: 0;
-  padding: 0 0 0 1em;
+  padding: 0 0 0 8px;
   color: inherit;
   background: inherit;
   overflow: inherit;

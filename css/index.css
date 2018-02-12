@@ -152,6 +152,14 @@ h1 {
     grid-column: span 2;
   }
 }
+
+/* jQuery UI Accordion options */
+#experience .ui-widget {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
 /*
     Contacts Tab
 */

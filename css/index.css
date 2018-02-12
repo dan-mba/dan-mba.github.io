@@ -185,6 +185,8 @@ h1 {
   color: inherit;
   background: inherit;
   font-weight: bold;
+  font-family: 'Roboto Condensed', serif;
+  font-size: 1.1em;
 }
 
 #experience .ui-accordion-content {

@@ -8,6 +8,7 @@ $(function() {
   
   $("#fourblocks .jobdesc").accordion({
     active: false,
-    collapsible: true
+    collapsible: true,
+    heightStyle: "content"
   });
 });

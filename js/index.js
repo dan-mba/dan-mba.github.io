@@ -5,4 +5,9 @@ $(function() {
     $(this).parent().addClass("active");
     $($(this).data("id")).addClass("active");
   });
+  
+  $("#fourblocks .jobdesc").accordion({
+    active: false,
+    collapsible: true
+  });
 });

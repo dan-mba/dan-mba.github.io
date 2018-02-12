@@ -13,6 +13,9 @@ body {
   color: #111;
 }
 
+ul {
+  list-style-position: inside;
+}
 /*
 
 Navagation Bar Settings

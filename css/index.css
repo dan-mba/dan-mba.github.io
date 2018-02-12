@@ -139,8 +139,12 @@ h1 {
   grid-column: 2 / 3;
 }
 
-#experience ul {
-  margin-top: 10px;
+#experience ul, #experience p {
+  margin-bottom: 10px;
+}
+
+#experience ul:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 700px){

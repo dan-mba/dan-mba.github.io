@@ -117,7 +117,7 @@ h1 {
   margin-top: 5px;
 }
 .jobimg img{
-  width: 90px;
+  width: 100px;
 }
 
 .jobinfo {
@@ -144,6 +144,10 @@ h1 {
   
   .jobimg {
     margin-right: 5px;
+  }
+  
+  .jobimg img {
+    width: 90px;
   }
   
   .jobdesc {

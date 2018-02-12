@@ -14,13 +14,10 @@ body {
 }
 
 ul {
-  list-style-position: inside;
+  list-style-position: outside;
+  margin-left: 1em;
 }
 
-li {
-  padding-left: 15px;
-  text-indent: -15px;
-}
 /*
 
 Navagation Bar Settings

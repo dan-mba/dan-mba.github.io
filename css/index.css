@@ -88,7 +88,7 @@ Main Body Settings
 */
 
 div.main {
-  margin: 4em 5px 0;
+  margin: 4em 2px 0;
 }
 
 div.main > div {
@@ -185,7 +185,6 @@ h1 {
   color: inherit;
   background: inherit;
   font-weight: bold;
-  font-size: 1.05em
 }
 
 #experience .ui-accordion-content {

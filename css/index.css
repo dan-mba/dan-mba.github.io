@@ -160,6 +160,19 @@ h1 {
   line-height: inherit;
 }
 
+#experience .ui-accordion-header {
+  border: 0;
+  padding: 0;
+  color: inherit;
+  background: inherit;
+}
+
+#experience .ui-accordion-content {
+  border: 0;
+  padding: 0;
+  color: inherit;
+  background: inherit;
+}
 /*
     Contacts Tab
 */

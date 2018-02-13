@@ -151,7 +151,7 @@ h1 {
   margin-bottom: 0;
 }
 
-#experience ul, #experience ul:only-child, #experience p {
+#experience ul, #experience ul:last-child:only-child, #experience p {
   margin-bottom: 10px;
 }
 

@@ -147,13 +147,12 @@ h1 {
   display: block;
 }
 
+#experience ul:last-child {
+  margin-bottom: 0;
+}
 
 #experience ul, #experience ul:only-child, #experience p {
   margin-bottom: 10px;
-}
-
-#experience ul:last-child {
-  margin-bottom: 0;
 }
 
 @media (max-width: 700px){

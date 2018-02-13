@@ -1,4 +1,7 @@
 $(function() {
+  /*
+      Nav Bar Click Handler
+  */
   $("#topnav a").on("click", function () {
     $("#topnav div").removeClass("active");
     $("div.main div").removeClass("active");
@@ -6,7 +9,7 @@ $(function() {
     $($(this).data("id")).addClass("active");
   });
   
-  $("#fourblocks .jobdesc").accordion({
+  $("#experience .jobdesc").accordion({
     active: false,
     collapsible: true,
     heightStyle: "content"
@@ -18,4 +21,6 @@ $(function() {
     $("nav a[href='" + window.location.hash + "']").parent().addClass("active");
     $(window.location.hash).addClass("active");    
   }
+  
+ $("#contact a:only-child").css("text-align","center"); 
 });

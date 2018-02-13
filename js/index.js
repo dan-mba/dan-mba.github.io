@@ -15,7 +15,7 @@ $(function() {
   if(window.location.hash) {
     $("#topnav div").removeClass("active");
     $("div.main div").removeClass("active");
-    $("nav a").find("[data-id='" + window.location.hash + "']").addClass("active");
+    $("nav a[href='" + window.location.hash + "']").addClass("active");
     $(window.location.hash).addClass("active");    
   }
 });

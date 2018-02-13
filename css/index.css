@@ -148,7 +148,7 @@ h1 {
 }
 
 
-#experience ul, #experience p {
+#experience ul, #experience ul:only-child, #experience p {
   margin-bottom: 10px;
 }
 

@@ -16,6 +16,7 @@ $(function() {
     $("#topnav div").removeClass("active");
     $("div.main div").removeClass("active");
     $("nav a[href='" + window.location.hash + "']").addClass("active");
+    console.log("nav a[href='" + window.location.hash + "']");
     $(window.location.hash).addClass("active");    
   }
 });

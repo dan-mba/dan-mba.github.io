@@ -6,10 +6,11 @@ $(function() {
   $("#topnav a").on("click", function () {
     $("#topnav div").removeClass("active");
     $("div.main div").removeClass("active");
+    $("div.main").hide().show();
     $(this).parent().addClass("active");
     $($(this).data("id")).addClass("active");
     $("div.main").hide().show(0);
-    console.log($($(this).data("id")).offset().top);
+
   });
   
   

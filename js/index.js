@@ -7,7 +7,7 @@ $(function() {
     $("div.main div").removeClass("active");
     $(this).parent().addClass("active");
     $($(this).data("id")).addClass("active");
-    $("div.main").scrollTop(0);
+    $($(this).data("id")).scrollTop(0);
   });
   
   $("#experience .jobdesc").accordion({
@@ -20,9 +20,9 @@ $(function() {
     $("#topnav div").removeClass("active");
     $("div.main div").removeClass("active");
     $("nav a[href='" + window.location.hash + "']").parent().addClass("active");
-    $(window.location.hash).addClass("active");    
+    $(window.location.hash).addClass("active");
+    $(window.location.hash).scrollTop(0);
   }
   
   $("#contact a:only-child").parent().css("text-align","center"); 
-  $("div.main").scrollTop(0);
 });

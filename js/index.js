@@ -7,7 +7,7 @@ $(function() {
     $("div.main div").removeClass("active");
     $(this).parent().addClass("active");
     $($(this).data("id")).addClass("active");
-    $("body").scrollTop(0);
+    console.log($("div.main").scrollTop(0));
   });
   
   $("#experience .jobdesc").accordion({
@@ -21,7 +21,7 @@ $(function() {
     $("div.main div").removeClass("active");
     $("nav a[href='" + window.location.hash + "']").parent().addClass("active");
     $(window.location.hash).addClass("active");
-    $("body").scrollTop(0);
+    console.log($("div.main").scrollTop(0));
   }
   
   $("#contact a:only-child").parent().css("text-align","center"); 

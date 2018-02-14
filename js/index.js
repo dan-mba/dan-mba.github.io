@@ -21,7 +21,7 @@ $(function() {
     $("div.main div").removeClass("active");
     $("nav a[href='" + window.location.hash + "']").parent().addClass("active");
     $(window.location.hash).addClass("active");
-    $("div.main").hide.show(0);
+    $("div.main").hide().show(0);
   }
   
   $("#contact a:only-child").parent().css("text-align","center"); 

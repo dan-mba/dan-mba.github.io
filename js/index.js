@@ -8,7 +8,7 @@ $(function() {
     $("div.main div").removeClass("active");
     $(this).parent().addClass("active");
     $($(this).data("id")).addClass("active");
-    $($(this).data("id")).hide().show(0);
+    $("div.main").hide().show(0);
   });
   
   

@@ -23,5 +23,6 @@ $(function() {
     $(window.location.hash).addClass("active");    
   }
   
- $("#contact a:only-child").parent().css("text-align","center"); 
+  $("#contact a:only-child").parent().css("text-align","center"); 
+  $("div.main").scrollTop(0);
 });

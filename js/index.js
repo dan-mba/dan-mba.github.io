@@ -2,6 +2,7 @@ $(function() {
   /*
       Nav Bar Click Handler
   */
+  /*
   $("#topnav a").on("click", function () {
     $("#topnav div").removeClass("active");
     $("div.main div").removeClass("active");
@@ -10,6 +11,7 @@ $(function() {
     $("div.main").hide().show(0);
     console.log("In click");
   });
+  */
   
   $("#experience .jobdesc").accordion({
     active: false,

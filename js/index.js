@@ -6,11 +6,8 @@ $(function() {
   $("#topnav a").on("click", function () {
     $("#topnav div").removeClass("active");
     $("div.main div").removeClass("active");
-//    $("div.main").hide().show();
     $(this).parent().addClass("active");
     $($(this).data("id")).addClass("active");
-//    $("div.main").hide().show(0);
-
   });
   
   
@@ -25,7 +22,6 @@ $(function() {
     $("div.main div").removeClass("active");
     $("nav a[href='" + window.location.hash + "']").parent().addClass("active");
     $(window.location.hash).addClass("active");
-//    $("div.main").hide().show(0);
   }
   
   $("#contact a:only-child").parent().css("text-align","center"); 

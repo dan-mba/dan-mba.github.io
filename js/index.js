@@ -8,6 +8,7 @@ $(function() {
     $(this).parent().addClass("active");
     $($(this).data("id")).addClass("active");
     $("div.main").hide().show(0);
+    console.log("In click");
   });
   
   $("#experience .jobdesc").accordion({

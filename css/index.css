@@ -98,7 +98,7 @@ div.main > div {
 
 div.main div.active {
   display: block;
-  margin-top: 5em;
+  padding-top: 5em;
 }
 
 h1 {

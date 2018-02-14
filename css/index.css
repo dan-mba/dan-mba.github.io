@@ -89,7 +89,7 @@ Main Body Settings
 */
 
 div.main {
-  padding: 5em 2px 0;
+  margin: 0 2px;
 }
 
 div.main > div {
@@ -98,6 +98,7 @@ div.main > div {
 
 div.main div.active {
   display: block;
+  margin-top: 5em;
 }
 
 h1 {

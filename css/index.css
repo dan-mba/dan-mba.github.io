@@ -232,6 +232,11 @@ h1 {
   font-weight: bold;
 }
 
+#education span.small {
+  display: none;
+}
+
+
 @media (max-width: 700px){
   #education > div {
     -ms-grid-columns: 95px 1fr;
@@ -248,6 +253,14 @@ h1 {
   
   .eddesc {
     padding-top: 2px;
+  }
+  
+  #education span.big {
+    display: none;
+  }
+  
+  #education span.small {
+    display: inherit;
   }
 }
 

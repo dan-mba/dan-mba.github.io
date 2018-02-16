@@ -49,18 +49,15 @@ nav {
   display: -ms-grid;
   display: grid;
   
-  -ms-grid-columns: 1fr 1fr 1fr 1fr 30%;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
   -ms-grid-rows: 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 30%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 @media (max-width: 700px) {
   #topnav {
     width: 100%;
     padding: 0 5px;
-    
-    -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 }
 

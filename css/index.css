@@ -200,6 +200,53 @@ h1 {
   background: inherit;
   overflow: inherit;
 }
+
+/*
+    Education Tab
+*/
+#education > div {
+  margin-bottom: 15px;
+  
+  display: -ms-grid;
+  display: grid;
+  
+  -ms-grid-columns: 130px 1fr;
+  grid-template-columns: 130px 1fr;
+}
+
+.edimg {
+  margin-right: 10px;
+  margin-top: 5px;
+}
+.jobimg img{
+  width: 120px;
+}
+
+.eddesc {
+  -ms-grid-column: 2;
+}
+
+#education span.degree {
+  font-family: 'Roboto Condensed', serif;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+@media (max-width: 700px){
+  #education > div {
+    -ms-grid-columns: 95px 1fr;
+    grid-template-columns: 95px 1fr;
+  }
+  
+  .edimg {
+    margin-right: 5px;
+  }
+  
+  .edimg img {
+    width: 90px;
+  }
+}
+
 /*
     Contacts Tab
 */

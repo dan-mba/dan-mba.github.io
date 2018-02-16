@@ -216,7 +216,6 @@ h1 {
 
 .edimg {
   margin-right: 10px;
-  margin-top: 5px;
 }
 .edimg img{
   width: 120px;
@@ -224,6 +223,7 @@ h1 {
 
 .eddesc {
   -ms-grid-column: 2;
+  padding-top: 10px;
 }
 
 #education span.degree {
@@ -244,6 +244,10 @@ h1 {
   
   .edimg img {
     width: 90px;
+  }
+  
+  .eddesc {
+    padding-top: 2px;
   }
 }
 

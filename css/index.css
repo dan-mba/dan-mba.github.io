@@ -85,7 +85,8 @@ Footer
 
 */
 footer {
-  height: 40px;
+  height: 60px;
+  line-height: 60px;
   background-color: #303030;
   color: #eee;
   font-family: 'Roboto Condensed', serif;

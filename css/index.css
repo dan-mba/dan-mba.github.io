@@ -109,11 +109,15 @@ footer {
   display: -ms-grid;
   display: grid;
   
-  -ms-grid-columns: 1fr 50px;
+  -ms-grid-columns: 1fr 48px;
   -ms-grid-rows: 1fr;
-  grid-template-columns: 1fr 50px;
+  grid-template-columns: 1fr 48px;
 }
 
+#botfoot a {
+  height: 34px;
+  margin 2px;
+}
 @media (max-width: 700px) {
   #botfoot {
     width: 100%;

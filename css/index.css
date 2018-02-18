@@ -147,7 +147,7 @@ div.main > div {
 
 div.main div.active {
   display: block;
-  padding-top: 5em;
+  padding: 5em 0 70px;
 }
 
 h1 {

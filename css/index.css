@@ -115,6 +115,7 @@ footer {
 }
 
 #botfoot a {
+  display: block;
   height: 34px;
   margin: 2px;
 }

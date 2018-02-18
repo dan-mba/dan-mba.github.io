@@ -81,6 +81,47 @@ nav i.material-icons {
 
 /*
 
+Footer
+
+*/
+footer {
+  height: 40px;
+  background-color: #303030;
+  color: #eee;
+  font-family: 'Roboto Condensed', serif;
+  
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+}
+
+
+#botfoot {
+  width: 700px;
+  height: 100%;
+   
+  margin: 0 auto;
+  font-size: 34px;
+  
+  display: -ms-grid;
+  display: grid;
+  
+  -ms-grid-columns: 1fr 50px;
+  -ms-grid-rows: 1fr;
+  grid-template-columns: 1fr 50px;
+}
+
+@media (max-width: 700px) {
+  #botfoot {
+    width: 100%;
+  }
+}
+
+
+/*
+
 Main Body Settings
 
 */

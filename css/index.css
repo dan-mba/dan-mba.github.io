@@ -119,6 +119,11 @@ footer {
   height: 34px;
   margin: 2px;
 }
+
+#name{
+  margin-left: 5px;
+}
+
 @media (max-width: 700px) {
   #botfoot {
     width: 100%;

@@ -116,7 +116,7 @@ footer {
 
 #botfoot a {
   height: 34px;
-  margin 2px;
+  margin: 2px;
 }
 @media (max-width: 700px) {
   #botfoot {

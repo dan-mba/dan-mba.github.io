@@ -23,7 +23,7 @@ Navagation Bar Settings
 */
 
 nav {
-  height: 4em;
+  height: 108px;
   background-color: #303030;
   color: #eee;
   font-family: 'Roboto Condensed', serif;
@@ -35,6 +35,28 @@ nav {
   z-index: 50;
 }
 
+#tophead {
+  width: 700px;
+  height: 44px;
+  line-height: 44px;
+  background-color: #303030;
+   
+  margin: 0 auto;
+  font-size: 34px;
+  
+  display: -ms-grid;
+  display: grid;
+  
+  -ms-grid-columns: 1fr 48px;
+  -ms-grid-rows: 1fr;
+  grid-template-columns: 1fr 48px;
+}
+
+#tophead a {
+  display: block;
+  height: 34px;
+  margin: 2px;
+}
 
 #topnav {
   width: 700px;
@@ -53,7 +75,7 @@ nav {
 }
 
 @media (max-width: 700px) {
-  #topnav {
+  #topnav, #tophead {
     width: 100%;
     padding: 0 5px;
   }
@@ -76,53 +98,6 @@ nav i.material-icons {
   text-decoration: none;
   color: inherit;
 }
-
-/*
-Footer
-*/
-footer {
-  height: 60px;
-  line-height: 60px;
-  color: #eee;
-  font-family: 'Roboto Condensed', serif;
-  
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 50;
-}
-
-
-#botfoot {
-  width: 700px;
-  height: 100%;
-  background-color: #303030;
-   
-  margin: 0 auto;
-  padding: 0 5px;
-  font-size: 34px;
-  
-  display: -ms-grid;
-  display: grid;
-  
-  -ms-grid-columns: 1fr 48px;
-  -ms-grid-rows: 1fr;
-  grid-template-columns: 1fr 48px;
-}
-
-#botfoot a {
-  display: block;
-  height: 34px;
-  margin: 2px;
-}
-
-@media (max-width: 700px) {
-  #botfoot {
-    width: 100%;
-  }
-}
-
 
 /*
 Main Body Settings

@@ -91,19 +91,15 @@ footer {
   color: #eee;
   font-family: 'Roboto Condensed', serif;
   
-  position: fixed;
-  bottom: 0;
-  left: 0;
   width: 100%;
-  z-index: 50;
 }
 
 
 #botfoot {
-  width: 700px;
+  width: 100%;
   height: 100%;
    
-  margin: 0 auto;
+  margin: 5px auto;
   font-size: 34px;
   
   display: -ms-grid;
@@ -119,17 +115,6 @@ footer {
   height: 34px;
   margin: 2px;
 }
-
-#name{
-  margin-left: 5px;
-}
-
-@media (max-width: 700px) {
-  #botfoot {
-    width: 100%;
-  }
-}
-
 
 /*
 

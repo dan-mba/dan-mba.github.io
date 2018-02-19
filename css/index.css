@@ -87,15 +87,19 @@ footer {
   color: #eee;
   font-family: 'Roboto Condensed', serif;
   
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
+  z-index: 50;
 }
 
 
 #botfoot {
-  width: 100%;
+  width: 700px;
   height: 100%;
    
-  margin: 5px auto;
+  margin: 0 auto;
   font-size: 34px;
   
   display: -ms-grid;
@@ -111,6 +115,17 @@ footer {
   height: 34px;
   margin: 2px;
 }
+
+#name{
+  margin-left: 5px;
+}
+
+@media (max-width: 700px) {
+  #botfoot {
+    width: 100%;
+  }
+}
+
 
 /*
 Main Body Settings

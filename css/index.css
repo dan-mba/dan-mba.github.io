@@ -83,7 +83,6 @@ Footer
 footer {
   height: 60px;
   line-height: 60px;
-  background-color: #303030;
   color: #eee;
   font-family: 'Roboto Condensed', serif;
   
@@ -98,8 +97,10 @@ footer {
 #botfoot {
   width: 700px;
   height: 100%;
+  background-color: #303030;
    
   margin: 0 auto;
+  padding: 0 5px;
   font-size: 34px;
   
   display: -ms-grid;
@@ -114,10 +115,6 @@ footer {
   display: block;
   height: 34px;
   margin: 2px;
-}
-
-#name{
-  margin-left: 5px;
 }
 
 @media (max-width: 700px) {

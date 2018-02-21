@@ -127,6 +127,11 @@ h1 {
   text-align: center;
 }
 
+@media (max-width:700px) {
+  div.main {
+    margin: 0 5px;
+  }
+}
 
 /*
     Experince Tab

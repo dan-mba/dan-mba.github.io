@@ -298,5 +298,8 @@ h1 {
     display: block;
     margin: 0 auto;
   }
-  
+ 
+  #contact p {
+    margin-top: 15px;
+  }
  }

@@ -77,7 +77,14 @@ nav {
 @media (max-width: 700px) {
   #topnav, #tophead {
     width: 100%;
-    padding: 0 5px;
+  }
+  
+  #name {
+    margin-left: 5px;
+  }
+  
+  #liimg {
+    margin-right: 5px;
   }
 }
 

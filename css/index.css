@@ -287,7 +287,16 @@ h1 {
     Contacts Tab
 */
 
-div.LI-profile-badge {
-  width: 280px;
-  margin: 10px auto;
+#bcmap {
+  float: left;
+  margin-right: 10px;
+}
+
+@media (max-width:600px) {
+  #bcmap {
+    float: none;
+    text-align: center;
+    display: block;
+    margin-right: 0;
+  }
 }

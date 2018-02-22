@@ -132,6 +132,13 @@ h1 {
     margin: 0 5px;
   }
 }
+/*
+    Home Tab
+*/
+
+#home p {
+  margin: 10px 5px;
+}
 
 /*
     Experince Tab

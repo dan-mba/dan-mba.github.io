@@ -315,6 +315,8 @@ h1 {
 #bcmap {
   float: left;
   margin-right: 10px;
+  height: 200px;
+  width: 200px;
 }
 
 @media (max-width:600px) {

@@ -313,12 +313,10 @@ h1 {
 */
 #contact.active{
   display: flex;
-  flex-direction: column;
   align-content: center;
 }
 
 #bcmap {
-  float: left;
   margin-right: 10px;
   height: 200px;
   width: 200px;
@@ -326,7 +324,6 @@ h1 {
 
 @media (max-width:600px) {
   #bcmap {
-    float: none;
     display: block;
     margin: 0 auto;
   }

@@ -313,7 +313,7 @@ h1 {
 */
 #contact.active{
   display: flex;
-  align-content: center;
+  align-items: center;
 }
 
 #bcmap {

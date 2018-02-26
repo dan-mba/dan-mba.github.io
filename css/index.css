@@ -311,6 +311,11 @@ h1 {
 /*
     Contacts Tab
 */
+#contact.active{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
 
 #bcmap {
   float: left;
@@ -328,5 +333,9 @@ h1 {
  
   #contact p {
     margin-top: 15px;
+  }
+  
+  #contact.active {
+    display: block
   }
  }

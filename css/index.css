@@ -93,6 +93,12 @@ nav i.material-icons {
   display: block;
 }
 
+@media (min-width: 700px) {
+  nav {
+    background: radial-gradient(#303030, #303030 350px, #000 100%);
+  }
+}
+
 #topnav div {
   border-bottom: 5px solid #303030;
 }

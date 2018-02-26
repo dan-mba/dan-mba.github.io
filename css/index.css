@@ -95,7 +95,7 @@ nav i.material-icons {
 
 @media (min-width: 700px) {
   nav {
-    background: radial-gradient(circle at center, #303030, #303030 360px, #707070 100%);
+    background: radial-gradient(circle at center, #303030, #303030 360px, #5c5c5c 100%);
   }
 }
 

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>GPS Fleet Map</title>
+  <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-url-parser/2.3.1/purl.min.js"></script>
+</head>
+<body>
+  <img id="gpsmap" width="600">
+  <div id="zoom" style="margin: 0 auto 20px; padding: 0;line-height: 24px;">
+    <button type="button" id="movelt" >&#9664;</button> 
+    <button type="button" id="moveup" >&#9650;</button> 
+    <button type="button" id="zoomin" >+</button> 
+    <button type="button" id="zoomout" href="">-</button>
+    <button type="button" id="movedn" >&#9660;</button> 
+    <button type="button" id="movert" >&#9654;</button> 
+  </div>
+  <table id="gpsrslt">
+    <tr>
+      <th style="width:100px;">Label</th>
+      <th style="width:250px;">Machine</th>
+      <th style="width:180px;">GPS Location</th>
+      <th style="width:100px;">Hours</th>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,38 @@
+td {
+  white-space:pre; text-align: center;
+}
+
+td,th {
+  border: 1px solid black;
+  font-size: 18px;
+}
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 40px;
+}
+
+body {
+  width: 650px;
+  margin: 0 auto;
+}
+
+div {
+  font-size: 20px;
+  text-align:center;
+}
+
+img {
+  display: block;
+  text-align: center;
+  margin: 20px auto 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  margin: 0 5px;
+}

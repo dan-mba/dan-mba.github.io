@@ -1,31 +1,34 @@
-    var gpsid="";
-    var zoom=10;
-    var mapbase = "https://maps.google.com/maps/api/staticmap?size=600x600&maptype=hybrid&scale=2&key=AIzaSyA7qfDGOtHcq-bUMRsTXzFUmg4HYdSAiAI";
-    var colorlist = ["0xff0000",  "0xff8000", "0xffff00", "0x00ff00", "0x00ffff", "0x0000ff", "0x7f00ff", "0xff00ff", "0xffffff", "0x009900"];
-    var coorlist = [];
-    var cntr;
+var gpsid="";
+var zoom=10;
+var mapbase = "https://maps.google.com/maps/api/staticmap?size=600x600&maptype=hybrid&scale=2&key=AIzaSyA7qfDGOtHcq-bUMRsTXzFUmg4HYdSAiAI";
+var colorlist = ["0xff0000",  "0xff8000", "0xffff00", "0x00ff00", "0x00ffff", "0x0000ff", "0x7f00ff", "0xff00ff", "0xffffff", "0x009900"];
+var coorlist = [];
+var cntr;
+var viewportWidth;
 
-    $(window).on("load", function(){
-      var url = $.url();
-      var endpoint = url.attr('path');
-      var params = url.param();
+$(window).on("load", function(){
+  var url = $.url();
+  var endpoint = url.attr('path');
+  var params = url.param();
 
-     $("#zoom").hide();
-     /*
-     var gps= url.param('gpsid');
-      if (gps!==undefined){
-        gpsid = gps;
-      }
-      */
+  viewportWidth = $(window).width();
+  if (viewportWidth < 610) $("img").prop("width",viewportWidth-10);
+  $("#zoom").hide();
+/*
+  var gps= url.param('gpsid');
+  if (gps!==undefined){
+    gpsid = gps;
+  }
+*/
       
-      getgps();
-      $("#zoomin").click(zoomin);
-      $("#zoomout").click(zoomout);
-      $("#movelt").click(movelt);
-      $("#movert").click(movert);
-      $("#moveup").click(moveup);
-      $("#movedn").click(movedn);
-    });
+  getgps();
+  $("#zoomin").click(zoomin);
+  $("#zoomout").click(zoomout);
+  $("#movelt").click(movelt);
+  $("#movert").click(movert);
+  $("#moveup").click(moveup);
+  $("#movedn").click(movedn);
+});
 
     function getgps(){
     /*

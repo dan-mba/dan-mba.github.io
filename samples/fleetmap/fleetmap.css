@@ -17,6 +17,12 @@ body {
   margin: 0 auto;
 }
 
+@media (min-width:650px) {
+  body {
+    width: 100%;
+  }
+}
+
 div {
   font-size: 20px;
   text-align:center;

@@ -34,7 +34,14 @@
       xhr.done(function(data){
     */
     
-    var data = { list: [] };
+    var data = { list: [
+                 {  name : "Generator X600 123456",
+                    location : {
+                        latitude : 9.3,
+                        longitude : -71.1
+                    }
+                ]
+               };
         var out = "<tr class='data'>";
         if (data.list.length === 0) {
           out += "<td colspan='7'>No Machines for this Client Id</td>";

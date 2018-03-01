@@ -5,6 +5,7 @@ var colorlist = ["0xff0000",  "0xff8000", "0xffff00", "0x00ff00", "0x00ffff", "0
 var coorlist = [];
 var cntr;
 var viewportWidth;
+var sizeDeleimter = " ";
 
 $(window).on("load", function(){
   var url = $.url();
@@ -30,65 +31,68 @@ $(window).on("load", function(){
   $("#movedn").click(movedn);
 });
 
-    function getgps(){
-    /*
-      var url = "https://gpsprovider.com/endpoint.json?token=XXX&clientId=" + gpsid;
-      var xhr = $.ajax(url,{dataType: "json"});
-      xhr.done(function(data){
-    */
-    
-    var data = { list: [
-                 {  name : "Generator X600 123456",
-                    location : {
-                        latitude : 9.2,
-                        longitude : -71.1
-                    }
-                 },
-                 {  name : "Skid Steer 450 654123",
-                    location : {
-                        latitude : 10.2,
-                        longitude : -67.5
-                    }
-                 },
-                 {  name : "Excavator 250 789456",
-                    location : {
-                        latitude : 11.0,
-                        longitude : -71.2
-                    }
-                 }
-                ]
-               };
-        var out = "<tr class='data'>";
-        if (data.list.length === 0) {
-          out += "<td colspan='7'>No Machines for this Client Id</td>";
-          out += "</tr>";
-          $("#gpsrslt").append(out);
-          return;
-        }
-
-        var map = mapbase;
-        for(var i=0; i < data.list.length; i++) {
-          out += "<td>" + String.fromCharCode(65+i) + "</td>";
-          out += "<td>" + data.list[i].name + "</td>";
-          out += "<td><a href='https://maps.google.com/?q=" + data.list[i].location.latitude + "," + data.list[i].location.longitude + "' target='_blank'>" +
-                      data.list[i].location.latitude + ",\n" + data.list[i].location.longitude +"</a></td>";
-          coorlist.push([data.list[i].location.latitude, data.list[i].location.longitude] );
+function getgps(){
+/*
+  var url = "https://gpsprovider.com/endpoint.json?token=XXX&clientId=" + gpsid;
+  var xhr = $.ajax(url,{dataType: "json"});
+  xhr.done(function(data){
+*/
  
-          map += "&markers=color:"+ colorlist[i%colorlist.length]+"|label:" +  String.fromCharCode(65+i) +"|" + data.list[i].location.latitude + "," + data.list[i].location.longitude;
-          out += "</tr>";
-          $("#gpsrslt").append(out);
-          out = "<tr>";
-        }
-          cntr = getLatLngCenter(coorlist);
+  /* Variable to mimic data returned from api. */
+  var data = { list: [
+               {  name : "Generator X600 123456",
+                  location : {
+                      latitude : 9.2,
+                      longitude : -71.1
+                  }
+               },
+               {  name : "Skid Steer 450 654123",
+                  location : {
+                      latitude : 10.2,
+                      longitude : -67.5
+                  }
+               },
+               {  name : "Excavator 250 789456",
+                  location : {
+                      latitude : 11.0,
+                      longitude : -71.2
+                  }
+               }
+              ]
+             };
+  
+  var out = "<tr class='data'>";
+  if (data.list.length === 0) {
+    out += "<td colspan='7'>No Machines for this Client Id</td>";
+    out += "</tr>";
+    $("#gpsrslt").append(out);
+    return;
+  }
 
-          var m = findmax(cntr,coorlist);
-          var z = Math.floor(-(Math.log2(m/.375)-10));
-          zoom = Math.min(17, z);
-          zoom = Math.max(5, zoom);
-          $("#gpsmap").attr("src",map+"&zoom="+zoom+"&center="+cntr[0]+","+cntr[1]);
-          $("#zoom").show();
-   //   });
-    }
+  var map = mapbase;
+  for(var i=0; i < data.list.length; i++) {
+    out += "<td>" + String.fromCharCode(65+i) + "</td>";
+    out += "<td>" + data.list[i].name.split(" ").join(sizeDelimeter) + "</td>";
+    out += "<td><a href='https://maps.google.com/?q=" + data.list[i].location.latitude + "," + data.list[i].location.longitude + "' target='_blank'>" +
+            data.list[i].location.latitude + "," + sizeDelimiter + data.list[i].location.longitude +"</a></td>";
+    coorlist.push([data.list[i].location.latitude, data.list[i].location.longitude] );
+ 
+    map += "&markers=color:"+ colorlist[i%colorlist.length]+"|label:" +  String.fromCharCode(65+i) +"|" + data.list[i].location.latitude + "," + data.list[i].location.longitude;
+    out += "</tr>";
+    $("#gpsrslt").append(out);
+    out = "<tr>";
+  }
+  
+  cntr = getLatLngCenter(coorlist);
+
+  var m = findmax(cntr,coorlist);
+  var z = Math.floor(-(Math.log2(m/.375)-10));
+  zoom = Math.min(17, z);
+  zoom = Math.max(5, zoom);
+  $("#gpsmap").attr("src",map+"&zoom="+zoom+"&center="+cntr[0]+","+cntr[1]);
+  $("#zoom").show();
+//   });
+}
 
     function zoomin(){
       var urlarr = $("#gpsmap").attr("src").split('&');

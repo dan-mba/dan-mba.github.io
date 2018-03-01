@@ -5,7 +5,7 @@ var colorlist = ["0xff0000",  "0xff8000", "0xffff00", "0x00ff00", "0x00ffff", "0
 var coorlist = [];
 var cntr;
 var viewportWidth;
-var sizeDeleimter = " ";
+var sizeDelimiter = " ";
 
 $(window).on("load", function(){
   var url = $.url();
@@ -72,7 +72,7 @@ function getgps(){
   var map = mapbase;
   for(var i=0; i < data.list.length; i++) {
     out += "<td>" + String.fromCharCode(65+i) + "</td>";
-    out += "<td>" + data.list[i].name.split(" ").join(sizeDelimeter) + "</td>";
+    out += "<td>" + data.list[i].name.split(" ").join(sizeDelimiter) + "</td>";
     out += "<td><a href='https://maps.google.com/?q=" + data.list[i].location.latitude + "," + data.list[i].location.longitude + "' target='_blank'>" +
             data.list[i].location.latitude + "," + sizeDelimiter + data.list[i].location.longitude +"</a></td>";
     coorlist.push([data.list[i].location.latitude, data.list[i].location.longitude] );

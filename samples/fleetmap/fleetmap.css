@@ -17,7 +17,7 @@ body {
   margin: 0 auto;
 }
 
-@media (min-width:650px) {
+@media (max-width:650px) {
   body {
     width: 100%;
   }

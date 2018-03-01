@@ -42,3 +42,27 @@ button {
   padding: 0;
   line-height: 24px;
 }
+
+#tableLabel {
+  width: 100px;
+}
+
+#tableLabel.small {
+  width: 80px;
+}
+
+#tableMach {
+  width: 250px;
+};
+
+#tableMach.small {
+  width: 130px;
+}
+
+#tableGps {
+  width: 180px;
+}
+
+#ableGps.small {
+  width: 130px;
+}

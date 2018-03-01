@@ -5,7 +5,7 @@ var colorlist = ["0xff0000",  "0xff8000", "0xffff00", "0x00ff00", "0x00ffff", "0
 var coorlist = [];
 var cntr;
 var viewportWidth;
-var sizeDelimiter = " ";
+var sizeDelimiter = "/n";
 
 $(window).on("load", function(){
   var url = $.url();

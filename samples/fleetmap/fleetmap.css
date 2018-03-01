@@ -53,7 +53,7 @@ button {
 
 #tableMach {
   width: 250px;
-};
+}
 
 #tableMach.small {
   width: 130px;
@@ -63,6 +63,6 @@ button {
   width: 180px;
 }
 
-#ableGps.small {
+#tableGps.small {
   width: 130px;
 }

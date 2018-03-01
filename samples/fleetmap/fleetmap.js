@@ -40,6 +40,7 @@
                         latitude : 9.3,
                         longitude : -71.1
                     }
+                 }
                 ]
                };
         var out = "<tr class='data'>";

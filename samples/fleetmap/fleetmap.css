@@ -36,3 +36,9 @@ a {
 button {
   margin: 0 5px;
 }
+
+#zoom {
+  margin: 0 auto 20px;
+  padding: 0;
+  line-height: 24px;
+}

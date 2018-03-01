@@ -5,7 +5,7 @@ var colorlist = ["0xff0000",  "0xff8000", "0xffff00", "0x00ff00", "0x00ffff", "0
 var coorlist = [];
 var cntr;
 var viewportWidth;
-var sizeDelimiter = "\n";
+var sizeDelimiter = " ";
 
 $(window).on("load", function(){
   var url = $.url();
@@ -14,6 +14,10 @@ $(window).on("load", function(){
 
   viewportWidth = $(window).width();
   if (viewportWidth < 610) $("img").prop("width",viewportWidth-10);
+  if (viewportWidth < 550) {
+    sizeDelimiter = "\n";
+    $("#gpsrslt th").addClass("small");
+  }
   $("#zoom").hide();
 /*
   var gps= url.param('gpsid');

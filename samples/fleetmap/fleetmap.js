@@ -37,8 +37,20 @@
     var data = { list: [
                  {  name : "Generator X600 123456",
                     location : {
-                        latitude : 9.3,
+                        latitude : 9.2,
                         longitude : -71.1
+                    }
+                 },
+                 {  name : "Skid Steer 450 654123",
+                    location : {
+                        latitude : 10.2,
+                        longitude : -67.5
+                    }
+                 },
+                 {  name : "Excavator 250 789456",
+                    location : {
+                        latitude : 11.0,
+                        longitude : -71.2
                     }
                  }
                 ]
@@ -58,8 +70,6 @@
           out += "<td><a href='https://maps.google.com/?q=" + data.list[i].location.latitude + "," + data.list[i].location.longitude + "' target='_blank'>" +
                       data.list[i].location.latitude + ",\n" + data.list[i].location.longitude +"</a></td>";
           coorlist.push([data.list[i].location.latitude, data.list[i].location.longitude] );
-          var hours = (data.list[i].preRun1 + data.list[i].run1 ) / 3600;
-          out+= "<td>" + hours.toFixed(2) + "</td>";
  
           map += "&markers=color:"+ colorlist[i%colorlist.length]+"|label:" +  String.fromCharCode(65+i) +"|" + data.list[i].location.latitude + "," + data.list[i].location.longitude;
           out += "</tr>";

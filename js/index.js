@@ -1,6 +1,6 @@
 $(function() {
   /*
-      Nav Bar Click Handler
+      Nav Bar click handler
   */
   
   $("#topnav a").on("click", function () {
@@ -10,6 +10,23 @@ $(function() {
     $($(this).data("id")).addClass("active");
   });
   
+  /*
+      Code & Samples click handlers
+  */
+  
+  $("#code a.sample").on("click", function () {
+    $("#code").removeClass("active");
+    $("#samples").addClass("active");
+  });
+  
+  $("#sampback a").on("click", function () {
+    $("#samples").removeClass("active");
+    $("#code").addClass("active");
+  });
+  
+  /*
+      Setup Experience tab accordions
+  */
   
   $("#experience .jobdesc").accordion({
     active: false,

@@ -309,7 +309,21 @@ h1 {
 }
 
 /*
-    Contacts Tab
+    Code Tab & Samples frame
+*/
+
+
+#samples.active {
+  padding: 108px 0 0;
+}
+
+#samples.active #sampback {
+  background-color: #303030;
+  color: #eee;
+}
+
+/*
+    Contact Tab
 */
 #contact.active{
   display: flex;

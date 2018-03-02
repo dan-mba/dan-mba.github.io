@@ -325,6 +325,7 @@ h1 {
 
 #sampback a {
   text-decoration: none;
+  color: inherit;
 }
 
 /*

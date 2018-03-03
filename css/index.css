@@ -337,6 +337,7 @@ h1 {
 }
 
 #sampback i {
+  vertical-align: middle !important;
   padding-top: 4px;
 }
 

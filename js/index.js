@@ -39,7 +39,7 @@ $(function() {
   if(window.location.hash) {
     $("#topnav div").removeClass("active");
     $("div.main div").removeClass("active");
-    $("nav a[href='" + window.location.hash + "']").parent().addClass("active");
+    $("#topnav a[href='" + window.location.hash + "']").parent().addClass("active");
     $(window.location.hash).addClass("active");
   }
   

@@ -335,6 +335,10 @@ h1 {
   color: inherit;
 }
 
+#sampback i {
+  vertical-align: middle ! important;
+}
+
 /*
     Contact Tab
 */

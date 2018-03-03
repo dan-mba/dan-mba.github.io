@@ -17,10 +17,12 @@ $(function() {
   $("#code a.sample").on("click", function () {
     $("#code").removeClass("active");
     $("#samples").addClass("active");
+    $("#sampback").addClass("active");
   });
   
   $("#sampback a").on("click", function () {
     $("#samples").removeClass("active");
+    $("#sampback").removeClass("active");
     $("#code").addClass("active");
   });
   

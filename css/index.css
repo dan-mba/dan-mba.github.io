@@ -23,7 +23,7 @@ Navagation Bar Settings
 */
 
 nav {
-  height: 108px;
+/*  height: 108px; */
   background-color: #303030;
   color: #eee;
   font-family: 'Roboto Condensed', serif;
@@ -314,12 +314,13 @@ h1 {
 
 
 #samples.active {
-  padding: 160px 0 0;
+  padding: 150px 0 0;
 }
 
 #sampback {
-  background-color: #303030;
-  color: #eee;
+  width: 700px;
+  height: 30px;
+  margin: 0 auto;
   font-size: 24px;
   display: none;
 }

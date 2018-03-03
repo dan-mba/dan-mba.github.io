@@ -314,13 +314,18 @@ h1 {
 
 
 #samples.active {
-  padding: 108px 0 0;
+  padding: 160px 0 0;
 }
 
 #sampback {
   background-color: #303030;
   color: #eee;
   font-size: 24px;
+  display: none;
+}
+
+#sampback.active {
+  display: block;
 }
 
 #sampback a {

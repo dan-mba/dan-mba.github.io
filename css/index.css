@@ -320,6 +320,7 @@ h1 {
 #sampback {
   width: 700px;
   height: 30px;
+  line-height: 30px;
   margin: 0 auto;
   font-size: 24px;
   display: none;
@@ -336,7 +337,7 @@ h1 {
 }
 
 #sampback i {
-  vertical-align: top ! important;
+  padding-top: 2px;
 }
 
 /*

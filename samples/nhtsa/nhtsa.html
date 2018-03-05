@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NHTSA Safety Ratings</title>
+  <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="nhtsa.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-url-parser/2.3.1/purl.min.js"></script>
+  <script src="nhtsa.js"></script>
+</head>
+<body>
+  <div id="nhtsa">
+    <div id="inpselect">
+      <select id="mdlyr"><option value="">Model Year:</option></select>
+      <select id="vehmake" class="nhtsa1">
+        <option value="">Make:</option>
+      </select>
+      <select id="vehmodel" class="nhtsa1 nhtsa2">
+        <option value="">Model:</option>
+      </select>
+      <select id="vehdesc" class="nhtsa1 nhtsa2">
+        <option value="">Vehicle Description:</option>
+      </select><br>
+    </div>
+    <div id="outdata">
+    </div>
+  </div>
+</body>
+</html>

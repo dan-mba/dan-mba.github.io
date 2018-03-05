@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="js/index.js"></script>
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
   </head>
-  <body>
+  <body ng-app="ResumeApp">
     <nav>
       <div id="tophead">
         <div id="name">Daniel Burkhardt</div>
@@ -33,7 +34,7 @@
         <a href="#code"><i class="material-icons">&#xE5C4;</i>Back to Samples List</a>
       </div>
     </nav>
-    <div class="main">
+    <div class="main" ng-controller="MainController">
       <div id="home" class="active">
         <h1>Introduction</h1>
         <p>This website was created as an addendum to my LinkedIn profile and resume.
@@ -225,7 +226,9 @@
       </div>
       <div id="code">
         <h1>Code Samples</h1>
-        <a class="sample" href="#code">Example</a>
+        <div class="sample" ng-repeat="app in apps">
+          <code-sample info="app"></code-sample>
+        </div>
       </div>
       <div id="samples">
         <h1>Sample App</h1>

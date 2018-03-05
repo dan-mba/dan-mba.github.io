@@ -2,6 +2,10 @@
 var endpoint = 'http://www.nhtsa.gov/webapi/api/SafetyRatings';
 var dataType = '?format=json';
 
+$(function() {
+  nhtsaStart();
+});
+
 /* Make API call to get model year data */
 function nhtsaStart(){
   var queryparms = '';

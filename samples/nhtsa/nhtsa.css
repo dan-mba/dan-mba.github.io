@@ -1,0 +1,16 @@
+#inpselect span{
+  font-size: 1.1em;
+}
+#outdata .thumbnail h5{
+  text-align: center;
+}
+#outdata .block1 {
+  margin-bottom: 10px;
+  margin-left: 0;
+}
+#mdlyr {
+  width: 8em;
+}
+#vehmake {
+  width: 12em;
+}

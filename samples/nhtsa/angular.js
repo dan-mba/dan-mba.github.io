@@ -9,6 +9,6 @@ app.directive('vehicleOutput', function () {
     templateUrl: 'angular.html',
     link: function(scope, element, attrs) {
       scope.VehicleDescription = "";
-    });
+    })
   };
 });

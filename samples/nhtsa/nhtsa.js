@@ -137,7 +137,7 @@ function showVehInfo(data) {
   var results = data.Results[0];
   var outstr = '';
   
-  outscope.VehicleDescription = results.VehicleDescription;
+  outscope.VehicleDescription = "test";
   outscope.$apply();
   /*
   outstr =  '<div class="block1 span10"><h4>' + results.VehicleDescription + '</h4>';

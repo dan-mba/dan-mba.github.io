@@ -4,13 +4,13 @@ var outscope;
 app.controller('outputController',
   function($scope){
     outscope = $scope;
-//    outscope.description = "Before";
-//    outscope.overallRating = "X";
+    outscope.description = "Before";
+    outscope.overallRating = "X";
   }
 );
 
 function updateOutput(results) {
-  outscope.$apply(function() {
+//  outscope.$apply(function() {
     outscope.overallRating = "test";
-  });
+//  });
 }

@@ -3,7 +3,7 @@ var outscope;
 
 app.controller('outputController',
   function($scope){
-    outscope = $scope
+    outscope = $scope;
 //    outscope.description = "Before";
 //    outscope.overallRating = "X";
   }

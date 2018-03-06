@@ -137,8 +137,10 @@ function showVehInfo(data) {
   var results = data.Results[0];
   var outstr = '';
   
-  outscope.VehicleDescription = "test";
-  outscope.$apply();
+  outscope.$apply(function() {
+    outscope.VehicleDescription = "test";
+  });
+
   /*
   outstr =  '<div class="block1 span10"><h4>' + results.VehicleDescription + '</h4>';
   if (results.VehiclePicture)

@@ -21,7 +21,7 @@ function fillModelYear(data) {
   for (var i=0; i < data.Count; i++) {
     $('#mdlyr').append('<option value="'+data.Results[i].ModelYear+'">'+data.Results[i].ModelYear+'</option>');
   }
-  $("#mdlyr").change(pickMdlYear);
+  $("#mdlyr").selectmenu({ change: pickMdlYear});
 }
 
 /* Make API call to get make data */

@@ -137,9 +137,7 @@ function showVehInfo(data) {
   var results = data.Results[0];
   var outstr = '';
   
-  outscope.$apply(function() {
-    outscope.description = "test";
-  });
+  updateOutput(results);
 
   /*
   outstr =  '<div class="block1 span10"><h4>' + results.VehicleDescription + '</h4>';

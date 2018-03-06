@@ -136,7 +136,11 @@ function getVehInfo(){
 function showVehInfo(data) {
   var results = data.Results[0];
   var outstr = '';
-    
+  
+  $scope.$apply(function() {
+    $scope.VehicleDescription = results.VehicleDescription;
+  });
+  /*
   outstr =  '<div class="block1 span10"><h4>' + results.VehicleDescription + '</h4>';
   if (results.VehiclePicture)
     outstr += '<img class="pull-right" src="' + results.VehiclePicture + '">';
@@ -178,4 +182,5 @@ function showVehInfo(data) {
   outstr += '</div></li></ul>';
 
   $("#outdata").append(outstr);
+  */
 }

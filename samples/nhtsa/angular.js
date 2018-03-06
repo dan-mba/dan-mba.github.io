@@ -5,12 +5,12 @@ app.controller('outputController',
   function($scope){
     outscope = $scope
 //    outscope.description = "Before";
-//    outscope.OverallRating = "X";
+//    outscope.overallRating = "X";
   }
 );
 
 function updateOutput(results) {
   outscope.$apply(function() {
-    outscope.description = "test";
+    outscope.overallRating = "test";
   });
 }

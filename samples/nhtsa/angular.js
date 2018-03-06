@@ -4,6 +4,7 @@ var outscope;
 app.controller('outputController',['$scope',
   function($scope){
     outscope = $scope
-    outscope.VehicleDescription = "Before";
+    outscope.description = "Before";
+    outscope.OverallRating = "X";
   }]
 );

@@ -138,8 +138,8 @@ function showVehInfo(data) {
   var outstr = '';
   
   outscope.$apply(function() {
-    scope.description = results.VehicleDescription;
-    scope.overallRating = makeStars(results.OverallRating);
+    outscope.description = results.VehicleDescription;
+    outscope.overallRating = makeStars(results.OverallRating);
   });
 
   /*

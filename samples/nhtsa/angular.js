@@ -6,6 +6,9 @@ app.directive('vehicleOutput', function () {
   return {
     restrict: 'E',
     scope: {},
-    templateUrl: 'angular.html'
+    templateUrl: 'angular.html',
+    link: function(scope, element, attrs) {
+      scope.VehicleDescription = "";
+    });
   };
 });

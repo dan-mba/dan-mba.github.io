@@ -139,7 +139,7 @@ function showVehInfo(data) {
   
   var scope = angular.element($("#outdata")).scope();
   scope.$apply(function() {
-    $scope.VehicleDescription = results.VehicleDescription;
+    scope.VehicleDescription = results.VehicleDescription;
   });
   /*
   outstr =  '<div class="block1 span10"><h4>' + results.VehicleDescription + '</h4>';

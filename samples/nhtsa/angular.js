@@ -3,7 +3,7 @@ var outscope;
 
 app.controller('outputController',['$scope',
   function($scope){
-    $scope.VehicleDescription = "Before";
-    outscope = $scope;
+    outscope = $scope
+    outscope.VehicleDescription = "Before";
   }]
 );

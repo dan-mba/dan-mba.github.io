@@ -8,10 +8,3 @@ app.controller('outputController',
     outscope.overallRating = "X";
   }
 );
-
-function updateOutput(results) {
-//  outscope.$apply(function() {
-    var scope = angular.element($("#outdata")).scope();
-    scope.overallRating = "test";
-//  });
-}

@@ -119,7 +119,7 @@ function makeStars(rating){
 
 /* Make API call to get vehicle information */
 function getVehInfo(){
-  $("#outdata").html('');
+//  $("#outdata").html('');
   if ($("#vehdesc").val() === ''){
     return;
   }
@@ -137,7 +137,10 @@ function showVehInfo(data) {
   var results = data.Results[0];
   var outstr = '';
   
-  updateOutput(results);
+  outscope.$apply(function() {
+    scope.description = results.VehicleDescription;
+    scope.overallRating = makeStars(results.OverallRating);
+  });
 
   /*
   outstr =  '<div class="block1 span10"><h4>' + results.VehicleDescription + '</h4>';

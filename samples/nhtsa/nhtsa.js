@@ -137,7 +137,8 @@ function showVehInfo(data) {
   var results = data.Results[0];
   var outstr = '';
   
-  $scope.$apply(function() {
+  var scope = angular.element($("#outdata")).scope();
+  scope.$apply(function() {
     $scope.VehicleDescription = results.VehicleDescription;
   });
   /*

@@ -7,10 +7,11 @@
   <link rel="stylesheet" href="nhtsa.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
   <script src="nhtsa.js"></script>
 </head>
-<body>
+<body ng-app="nhtsaApp">
   <div id="nhtsa">
     <div id="inpselect">
       <select id="mdlyr"><option value="">Model Year:</option></select>
@@ -24,7 +25,8 @@
         <option value="">Vehicle Description:</option>
       </select><br>
     </div>
-    <div id="outdata">
+    <div id="outdata" ng-controller="outputController">
+      <vehicle-output></vehicle-output>
     </div>
   </div>
 </body>

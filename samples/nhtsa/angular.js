@@ -11,6 +11,7 @@ app.controller('outputController',
 
 function updateOutput(results) {
 //  outscope.$apply(function() {
-    outscope.overallRating = "test";
+    var scope = angular.element($("#outdata")).scope();
+    scope.overallRating = "test";
 //  });
 }

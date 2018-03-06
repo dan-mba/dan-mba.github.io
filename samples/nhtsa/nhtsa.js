@@ -45,7 +45,7 @@ function fillVehMake(data) {
   for (var i=0; i < data.Count; i++) {
     $('#vehmake').append('<option value="'+data.Results[i].Make+'" class="jsadd">'+data.Results[i].Make+'</option>');
   }
-  $("#vehmake").change(pickVehMake);
+  $("#vehmake").selectmenu({change: pickVehMake});
 }
 
 /* Make API call to get model data */
@@ -70,7 +70,7 @@ function fillVehModel(data) {
     if (data.Results[i].Model.indexOf('/') !== -1) continue;
     $('#vehmodel').append('<option value="'+data.Results[i].Model+'" class="jsadd">'+data.Results[i].Model+'</option>');
   }
-  $("#vehmodel").change(pickVehModel);
+  $("#vehmodel").selectmenu({change: pickVehModel});
 }
 
 /* Make API call for vehicle descriptions */
@@ -95,7 +95,7 @@ function fillVehDesc(data) {
   for (var i=0; i < data.Count; i++) {
     $('#vehdesc').append('<option value="'+data.Results[i].VehicleId+'" class="jsadd">'+data.Results[i].VehicleDescription+'</option>');
   }
-  $("#vehdesc").change(getVehInfo);
+  $("#vehdesc").selectmenu({change: getVehInfo});
 }
 
 /* Convert integers 0-5 into star icons */

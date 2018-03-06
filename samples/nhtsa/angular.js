@@ -8,3 +8,9 @@ app.controller('outputController',
 //    outscope.OverallRating = "X";
   }
 );
+
+function updateOutput(results) {
+  outscope.$apply(function() {
+    outscope.description = "test";
+  });
+}

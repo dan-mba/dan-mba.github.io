@@ -138,7 +138,7 @@ function showVehInfo(data) {
   var outstr = '';
   
   outscope.$apply(function() {
-    outscope.VehicleDescription = "test";
+    outscope.description = "test";
   });
 
   /*

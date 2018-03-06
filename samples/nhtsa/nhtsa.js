@@ -1,5 +1,5 @@
 /* Global endpoint for NHTSA Safety API */
-var endpoint = 'https://www.nhtsa.gov/webapi/api/SafetyRatings';
+var endpoint = 'https://one.nhtsa.gov/webapi/api/SafetyRatings';
 var dataType = '?format=json';
 
 $(function() {

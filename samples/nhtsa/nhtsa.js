@@ -24,7 +24,7 @@ function fillModelYear(data) {
   for (var i=0; i < data.Count; i++) {
     $('#mdlyr').append('<option value="'+data.Results[i].ModelYear+'">'+data.Results[i].ModelYear+'</option>');
   }
-  $("#mdlyr").selectmenu({ change: pickMdlYear});
+  $("#mdlyr").on("selectmenuchange", pickMdlYear);
 }
 
 /* Make API call to get make data */
@@ -48,7 +48,7 @@ function fillVehMake(data) {
   for (var i=0; i < data.Count; i++) {
     $('#vehmake').append('<option value="'+data.Results[i].Make+'" class="jsadd">'+data.Results[i].Make+'</option>');
   }
-  $("#vehmake").selectmenu({change: pickVehMake});
+  $("#vehmake").on("selectmenuchange", pickVehMake);
 }
 
 /* Make API call to get model data */
@@ -73,7 +73,7 @@ function fillVehModel(data) {
     if (data.Results[i].Model.indexOf('/') !== -1) continue;
     $('#vehmodel').append('<option value="'+data.Results[i].Model+'" class="jsadd">'+data.Results[i].Model+'</option>');
   }
-  $("#vehmodel").selectmenu({change: pickVehModel});
+  $("#vehmodel").on("selectmenuchange", pickVehModel);
 }
 
 /* Make API call for vehicle descriptions */
@@ -98,7 +98,7 @@ function fillVehDesc(data) {
   for (var i=0; i < data.Count; i++) {
     $('#vehdesc').append('<option value="'+data.Results[i].VehicleId+'" class="jsadd">'+data.Results[i].VehicleDescription+'</option>');
   }
-  $("#vehdesc").selectmenu({change: getVehInfo});
+  $("#vehdesc").on("selectmenuchange", getVehInfo);
 }
 
 /* Convert integers 0-5 into star icons */

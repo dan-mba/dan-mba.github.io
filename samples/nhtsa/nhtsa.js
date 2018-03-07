@@ -5,7 +5,7 @@ var dataType = '?format=json';
 $(function() {
   $("#mdlyr").selectmenu({width:80});
   $("#vehmake").selectmenu({width:230});
-  $("#vehmodel").selectmenu();
+  $("#vehmodel").selectmenu({width:320});
   $("#vehdesc").selectmenu();
   nhtsaStart();
 });

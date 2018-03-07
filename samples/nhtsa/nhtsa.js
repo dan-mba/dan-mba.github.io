@@ -149,6 +149,7 @@ function showVehInfo(data) {
       outscope.picture = results.VehiclePicture;
     } else {
       outscope.picture = "";
+      $("#vehpic").attr("src","");
     }
     outscope.overallRating = makeStars(results.OverallRating);
   });

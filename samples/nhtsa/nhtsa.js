@@ -32,7 +32,7 @@ function pickMdlYear() {
   /* Reset chained select boxes */
   $(".nhtsa1 option").remove('.jsadd');
   $(".nhtsa1").off();
-  $("select").selectmenu('refresh');
+  $("select.nhtsa1").selectmenu('refresh');
   
   if ($("#mdlyr").val() === ''){
     return;
@@ -57,7 +57,7 @@ function pickVehMake(){
   /* Reset chained select boxes */
   $(".nhtsa2 option").remove('.jsadd');
   $(".nhtsa2").off();
-  $("select").selectmenu('refresh');
+  $("select.nhtsa2").selectmenu('refresh');
   
   if ($("#vehmake").val() === ''){
     return;
@@ -83,7 +83,7 @@ function pickVehModel(){
   /* Reset chained selection boxes */
   $("#vehdesc option").remove('.jsadd');
   $("#vehdesc").off();
-  $("select").selectmenu('refresh');
+  $("#vehdesc").selectmenu('refresh');
   
   if ($("#vehmodel").val() === ''){
     return;

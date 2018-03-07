@@ -32,7 +32,6 @@ function pickMdlYear() {
   /* Reset chained select boxes */
   $(".nhtsa1 option").remove('.jsadd');
   $(".nhtsa1").off();
-  $("select.nhtsa1").selectmenu('refresh');
   
   if ($("#mdlyr").val() === ''){
     return;
@@ -49,6 +48,7 @@ function fillVehMake(data) {
   for (var i=0; i < data.Count; i++) {
     $('#vehmake').append('<option value="'+data.Results[i].Make+'" class="jsadd">'+data.Results[i].Make+'</option>');
   }
+  $("select.nhtsa1").selectmenu("refresh");
   $("#vehmake").on("selectmenuchange", pickVehMake);
 }
 

@@ -3,8 +3,8 @@ var endpoint = 'https://one.nhtsa.gov/webapi/api/SafetyRatings';
 var dataType = '?format=json';
 
 $(function() {
-  $("#mdlyr").selectmenu({width:70});
-  $("#vehmake").selectmenu({width:200});
+  $("#mdlyr").selectmenu({width:80});
+  $("#vehmake").selectmenu({width:210});
   $("#vehmodel").selectmenu();
   $("#vehdesc").selectmenu();
   nhtsaStart();

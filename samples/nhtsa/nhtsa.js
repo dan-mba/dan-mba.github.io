@@ -74,7 +74,7 @@ function fillVehModel(data) {
     if (data.Results[i].Model.indexOf('/') !== -1) continue;
     $('#vehmodel').append('<option value="'+data.Results[i].Model+'" class="jsadd">'+data.Results[i].Model+'</option>');
   }
-  $("select.nhtsa2").slectmenu('refresh');
+  $("select.nhtsa2").selectmenu('refresh');
   $("#vehmodel").on("selectmenuchange", pickVehModel);
 }
 

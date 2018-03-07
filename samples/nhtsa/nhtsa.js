@@ -57,7 +57,7 @@ function pickVehMake(){
   /* Reset chained select boxes */
   $(".nhtsa2 option").remove('.jsadd');
   $(".nhtsa2").off();
-  $("select).selectmenu('refresh');
+  $("select").selectmenu('refresh');
   
   if ($("#vehmake").val() === ''){
     return;

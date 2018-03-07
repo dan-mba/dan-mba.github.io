@@ -106,6 +106,7 @@ function fillVehDesc(data) {
 
 /* Convert integers 0-5 into star icons */
 function makeStars(rating){
+  console.log(rating);
   if (isNaN(rating)) {
     return rating;
   }

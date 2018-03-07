@@ -139,6 +139,7 @@ function showVehInfo(data) {
   
   outscope.$apply(function() {
     outscope.description = results.VehicleDescription;
+    outscope.picture = results.VehiclePicture;
     outscope.overallRating = makeStars(results.OverallRating);
   });
 

@@ -168,7 +168,7 @@ function showVehInfo(data) {
     outstr='';
   });
 
-  $("#outdata").show();
+  $("#outdata").show(200);
   
   /*
   outstr =  '<div class="block1 span10"><h4>' + results.VehicleDescription + '</h4>';

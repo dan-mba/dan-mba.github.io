@@ -57,7 +57,6 @@ function pickVehMake(){
   /* Reset chained select boxes */
   $(".nhtsa2 option").remove('.jsadd');
   $(".nhtsa2").off();
-  $("select.nhtsa2").selectmenu('refresh');
   
   if ($("#vehmake").val() === ''){
     return;
@@ -75,6 +74,7 @@ function fillVehModel(data) {
     if (data.Results[i].Model.indexOf('/') !== -1) continue;
     $('#vehmodel').append('<option value="'+data.Results[i].Model+'" class="jsadd">'+data.Results[i].Model+'</option>');
   }
+  $("select.nhtsa2").slectmenu('refresh');
   $("#vehmodel").on("selectmenuchange", pickVehModel);
 }
 
@@ -83,7 +83,6 @@ function pickVehModel(){
   /* Reset chained selection boxes */
   $("#vehdesc option").remove('.jsadd');
   $("#vehdesc").off();
-  $("#vehdesc").selectmenu('refresh');
   
   if ($("#vehmodel").val() === ''){
     return;
@@ -101,6 +100,7 @@ function fillVehDesc(data) {
   for (var i=0; i < data.Count; i++) {
     $('#vehdesc').append('<option value="'+data.Results[i].VehicleId+'" class="jsadd">'+data.Results[i].VehicleDescription+'</option>');
   }
+  $("#vehdesc").selectmenu('refresh');
   $("#vehdesc").on("selectmenuchange", getVehInfo);
 }
 

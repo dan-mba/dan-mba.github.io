@@ -6,7 +6,7 @@ $(function() {
   $("#mdlyr").selectmenu({width:80});
   $("#vehmake").selectmenu({width:230});
   $("#vehmodel").selectmenu({width:320});
-  $("#vehdesc").selectmenu();
+  $("#vehdesc").selectmenu({width:320});
   nhtsaStart();
 });
 

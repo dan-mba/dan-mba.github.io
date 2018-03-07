@@ -13,5 +13,5 @@ img {
 }
 
 div.ui-selectmenu-menu ul {
-  height: 300px;
+  max-height: 300px;
 }

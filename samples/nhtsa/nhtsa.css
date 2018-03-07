@@ -11,3 +11,7 @@ img {
   padding: .2em;
   font-size: 1em;
 }
+
+div.ui-selectmenu-menu ul {
+  height: 300px;
+}

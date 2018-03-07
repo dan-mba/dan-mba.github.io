@@ -145,7 +145,11 @@ function showVehInfo(data) {
   
   outscope.$apply(function() {
     outscope.description = results.VehicleDescription;
-    outscope.picture = results.VehiclePicture;
+    if (results.VehiclePicture) {
+      outscope.picture = results.VehiclePicture;
+    } else {
+      outscope.picture = "";
+    }
     outscope.overallRating = makeStars(results.OverallRating);
   });
 

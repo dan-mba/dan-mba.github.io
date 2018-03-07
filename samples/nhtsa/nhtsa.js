@@ -152,6 +152,16 @@ function showVehInfo(data) {
       $("#vehpic").attr("src","");
     }
     outscope.overallRating = makeStars(results.OverallRating);
+    outscope.rolloverRating = makeStars(results.RolloverRating);
+    outscope.rolloverPossibility = results.RolloverPossibility;
+    
+    for (var x in results) {
+      if(x.indexOf('NHTSA') === 0) {
+        outstr += '<div>' + x.match(/[A-Z][a-z]+/g).join(" ") + ': ' + results[x] + '</div>';
+      }
+    }
+    outscope.nhtsaVars = outstr;
+    outstr='';
   });
 
   /*

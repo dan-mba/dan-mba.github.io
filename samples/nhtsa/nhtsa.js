@@ -4,7 +4,7 @@ var dataType = '?format=json';
 
 $(function() {
   $("#outdata").hide();
-  $("#mdlyr").selectmenu({width:80, style: 'dropdown'});
+  $("#mdlyr").selectmenu({width:80, maxHeight: 400);
   $("#vehmake").selectmenu({width:230});
   $("#vehmodel").selectmenu({width:320});
   $("#vehdesc").selectmenu({width:320});

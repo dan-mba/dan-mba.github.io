@@ -173,7 +173,7 @@ function showVehInfo(data) {
     
     if(results.OverallFrontCrashRating ==="Not Rated") {
       $("#crashRatings").css("display","none");
-      break;
+      return;
     }
     $("#crashRatings").css("display","");
     if (results.FrontCrashPicture) {

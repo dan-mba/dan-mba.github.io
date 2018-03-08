@@ -48,7 +48,7 @@ function pickMdlYear() {
 /* Generate option values for makes */
 function fillVehMake(data) {
   for (var i=0; i < data.Count; i++) {
-    $('#vehmake').append('<option value="'+data.Results[i].Make+'" class="jsadd">'+data.Results[i].Make+'</option>');
+    $('#vehmake').append('<option value="'+encodeURIComponent(data.Results[i].Make)+'" class="jsadd">'+data.Results[i].Make+'</option>');
   }
   $("select.nhtsa1").selectmenu("refresh");
   $("#vehmake").on("selectmenuchange", pickVehMake);
@@ -75,7 +75,7 @@ function pickVehMake(){
 function fillVehModel(data) {
   for (var i=0; i < data.Count; i++) {
     if (data.Results[i].Model.indexOf('/') !== -1) continue;
-    $('#vehmodel').append('<option value="'+data.Results[i].Model+'" class="jsadd">'+data.Results[i].Model+'</option>');
+    $('#vehmodel').append('<option value="'+encodeURIComponent(data.Results[i].Model)+'" class="jsadd">'+data.Results[i].Model+'</option>');
   }
   $("select.nhtsa2").selectmenu('refresh');
   $("#vehmodel").on("selectmenuchange", pickVehModel);

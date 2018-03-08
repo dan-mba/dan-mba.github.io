@@ -167,7 +167,7 @@ function showVehInfo(data) {
     outscope.nhtsaVars = outstr;
     outstr='';
     
-    outscope.complaints = results.ComplaintCount;
+    outscope.complaints = results.ComplaintsCount;
     outscope.recalls = results.RecallsCount;
     outscope.investigations = results.InvestigationCount;
     

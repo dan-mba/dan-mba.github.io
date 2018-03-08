@@ -180,6 +180,16 @@ function showVehInfo(data) {
     outscope.frontCrashRating = makeStars(results.OverallFrontCrashRating);
     outscope.driverSideRating = makeStars(results.FrontCrashDriversideRating);
     outscope.passengerSideRating = makeStars(results.FrontCrashPassengersideRating);
+    
+    if (results.SideCrashPicture) {
+      outscope.sideCrashPic = results.SideCrashPicture;
+    } else {
+      outscope.sideCrashPic = "";
+      $("#frcrashpic").attr("src","");
+    }
+    outscope.sideCrashRating = makeStars(results.OverallSideCrashRating);
+    outscope.sideDriverSideRating = makeStars(results.SideCrashDriversideRating);
+    outscope.sidePassengerSideRating = makeStars(results.SideCrashPassengersideRating);
   });
 
   $("#outdata").show(200);

@@ -200,7 +200,7 @@ function showVehInfo(data) {
     outscope.sidePoleCrashRating = makeStars(results.SidePoleCrashRating);
   });
 
-  $("#outdata").show(200);
+  $("#outdata").show(500);
   
   /*
   outstr =  '<div class="block1 span10"><h4>' + results.VehicleDescription + '</h4>';

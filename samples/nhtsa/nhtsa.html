@@ -28,7 +28,7 @@
       </select><br>
     </div>
     <div id="outdata" ng-controller="outputController">
-      <h3> {{ description }} </h3>
+      <h2> {{ description }} </h2>
       <img id="vehpic" ng-src="{{picture}}">
       <div>Overall Rating: <span ng-bind-html="overallRating"></span></div>
       <div>Rollover Rating: <span ng-bind-html="rolloverRating"></span></div>
@@ -37,6 +37,7 @@
       <div>Complaints Count: {{complaints}}</div>
       <div>Recalls Count: {{recalls}}</div>
       <div>Investigations Count: {{investigations}}</div>
+      <h4>Crash Ratings</h4>
       <img id="frcrashpic" ng-src="{{frontCrashPic}}">
       <div>Front Crash Rating: <span ng-bind-html="frontCrashRating"></span></div>
       <div>Driver Side Rating: <span ng-bind-html="driverSideRating"></span></div>

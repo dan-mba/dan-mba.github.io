@@ -171,6 +171,11 @@ function showVehInfo(data) {
     outscope.recalls = results.RecallsCount;
     outscope.investigations = results.InvestigationCount;
     
+    if(results.OverallFrontCrashRating ==="Not Rated") {
+      $("#crashRatings").css("display","none");
+      break;
+    }
+    $("#crashRatings").css("display","");
     if (results.FrontCrashPicture) {
       outscope.frontCrashPic = results.FrontCrashPicture;
     } else {

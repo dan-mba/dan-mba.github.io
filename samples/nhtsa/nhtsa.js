@@ -166,6 +166,20 @@ function showVehInfo(data) {
     }
     outscope.nhtsaVars = outstr;
     outstr='';
+    
+    outscope.complaints = results.ComplaintCount;
+    outscope.recalls = results.RecallsCount;
+    outscope.investigations = results.InvestigationCount;
+    
+    if (results.FrontCrashPicture) {
+      outscope.frontCrashPic = results.FrontCrashPicture;
+    } else {
+      outscope.frontCrashPic = "";
+      $("#frcrashpic").attr("src","");
+    }
+    outscope.frontCrashRating = makeStars(results.OverallFrontCrashRating);
+    outscope.driverSideRating = makeStars(results.FrontCrashDriversideRating);
+    outscope.passengerSideRating = makeStars(results.FrontCrashPassengersideRating);
   });
 
   $("#outdata").show(200);

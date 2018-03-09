@@ -32,7 +32,7 @@ function fillModelYear(data) {
 function pickMdlYear() {
   /* Reset chained select boxes */
 //  $(".nhtsa1 option").remove('.jsadd');
-  $(".select.nhtsa1 option:not(:first-child)").remove();
+  $("select.nhtsa1 option:not(:first-child)").remove();
   $(".nhtsa1").off();
   $("#outdata").hide();
   

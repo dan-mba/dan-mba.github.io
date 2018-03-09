@@ -59,7 +59,7 @@ function fillVehMake(data) {
 /* Make API call to get model data */
 function pickVehMake(){
   /* Reset chained select boxes */
-  $(".nhtsa2", $selects).remove('.jsadd');
+  $(".nhtsa2 option", $selects).remove('.jsadd');
   $(".nhtsa2", $selects).off();
   $("#outdata").hide();
   

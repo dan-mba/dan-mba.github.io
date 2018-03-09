@@ -20,15 +20,15 @@ div.ui-selectmenu-menu ul {
   float: right;
 }
 
-#crashratings img {
+#crashRatings img {
   float: right;
   margin-bottom: 10px;
 }
 
-#crashratings .last {
+#crashRatings .last {
   margin-bottom: 10px;
 }
 
-#crashratings .last::after {
+#crashRatings .last::after {
   clear: both;
 }

@@ -33,9 +33,8 @@ function fillModelYear(data) {
 /* Make API call to get make data */
 function pickMdlYear() {
   /* Reset chained select boxes */
-  $(".nhtsa1 option").remove('.jsadd');
-  $("select.nhtsa1 option:not(:first-child)").remove();
-  $("select.nhtsa1").off();
+  $(".nhtsa1", $selects).remove('.jsadd');
+  $(".nhtsa1", $selects).off();
   $("#outdata").hide();
   
   if ($("#mdlyr").val() === ''){

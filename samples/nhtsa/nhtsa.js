@@ -1,6 +1,7 @@
 /* Global endpoint for NHTSA Safety API */
 var endpoint = 'https://one.nhtsa.gov/webapi/api/SafetyRatings';
 var dataType = '?format=json';
+var $selects;
 
 $(function() {
   $("#outdata").hide();
@@ -8,6 +9,7 @@ $(function() {
   $("#vehmake").selectmenu({width:230});
   $("#vehmodel").selectmenu({width:320});
   $("#vehdesc").selectmenu({width:320});
+  $selects = $("#inpselect");
   nhtsaStart();
 });
 
@@ -31,9 +33,9 @@ function fillModelYear(data) {
 /* Make API call to get make data */
 function pickMdlYear() {
   /* Reset chained select boxes */
-//  $(".nhtsa1 option").remove('.jsadd');
+  $(".nhtsa1 option").remove('.jsadd');
   $("select.nhtsa1 option:not(:first-child)").remove();
-  $(".nhtsa1").off();
+  $("select.nhtsa1").off();
   $("#outdata").hide();
   
   if ($("#mdlyr").val() === ''){
@@ -58,8 +60,8 @@ function fillVehMake(data) {
 /* Make API call to get model data */
 function pickVehMake(){
   /* Reset chained select boxes */
-  $(".nhtsa2 option").remove('.jsadd');
-  $(".nhtsa2").off();
+  $(".nhtsa2", $selects).remove('.jsadd');
+  $(".nhtsa2", $selects).off();
   $("#outdata").hide();
   
   if ($("#vehmake").val() === ''){

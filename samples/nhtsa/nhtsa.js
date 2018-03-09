@@ -5,7 +5,7 @@ var $selects;
 
 $(function() {
   $("#outdata").hide();
-  $("#mdlyr").selectmenu({width:80});
+  $("#mdlyr").selectmenu({width:100});
   $("#vehmake").selectmenu({width:230});
   $("#vehmodel").selectmenu({width:320});
   $("#vehdesc").selectmenu({width:320});

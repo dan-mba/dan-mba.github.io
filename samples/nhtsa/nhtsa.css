@@ -15,3 +15,20 @@ img {
 div.ui-selectmenu-menu ul {
   max-height: 300px;
 }
+
+#vehpic {
+  float: right;
+}
+
+#crashratings img {
+  float: right;
+  margin-bottom: 10px;
+}
+
+#crashratings .last {
+  margin-bottom: 10px;
+}
+
+#crashratings .last::after {
+  clear: both;
+}

@@ -34,3 +34,22 @@ div.ui-selectmenu-menu ul {
   margin-bottom: 10px;
   clear: both;
 }
+
+@media (max-width:700px) {
+  body {
+    width: 100%;
+    marin: 0 5px;
+  }
+  
+  #vehpic {
+    float: none;
+  }
+  
+  #crashRatings img {
+    float: none;
+  }
+  
+  .ui-button {
+    font-size: 1.2em;
+  }
+}

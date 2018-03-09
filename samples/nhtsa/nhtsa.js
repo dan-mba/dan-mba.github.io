@@ -173,7 +173,7 @@ function showVehInfo(data) {
     outscope.recalls = results.RecallsCount;
     outscope.investigations = results.InvestigationCount;
     
-    if(results.OverallFrontCrashRating ==="Not Rated") {
+    if(results.FrontCrashDriversideRating ==="Not Rated") {
       $("#crashRatings").css("display","none");
       return;
     }

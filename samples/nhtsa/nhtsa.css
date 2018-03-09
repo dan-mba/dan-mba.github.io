@@ -29,6 +29,6 @@ div.ui-selectmenu-menu ul {
   margin-bottom: 10px;
 }
 
-#crashRatings .last::after {
+#crashRatings .last + * {
   clear: both;
 }

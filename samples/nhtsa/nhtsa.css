@@ -20,6 +20,10 @@ div.ui-selectmenu-menu ul {
   float: right;
 }
 
+#crashRatings {
+  clear: both;
+}
+
 #crashRatings img {
   float: right;
   margin-bottom: 10px;

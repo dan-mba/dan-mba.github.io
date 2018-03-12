@@ -164,7 +164,7 @@ h1 {
  }
 
 .jobimg img{
-  width: 100px;
+  width: 90px;
 }
 
 .jobinfo {
@@ -207,10 +207,7 @@ h1 {
     margin-right: 5px;
   }
   
-  .jobimg img {
-    width: 90px;
-  }
-  
+ 
   .jobdesc {
     -ms-grid-column-span: 2;
     -ms-grid-column:1;

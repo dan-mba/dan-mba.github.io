@@ -196,6 +196,11 @@ h1 {
   margin-bottom: 10px;
 }
 
+#ibmets .jobimg {
+  line-height: 84px;
+  margin-bottom: 5px;
+}
+
 @media (max-width: 700px){
   #experience > div {
     -ms-grid-columns: 95px 1fr;

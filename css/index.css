@@ -196,16 +196,6 @@ h1 {
   margin-bottom: 10px;
 }
 
-#ibmets .jobimg {
-  line-height: 84px;
-  height: 84px;
-  margin-bottom: 5px;
-}
-
-#ibmets  img {
-  vertical-align: middle;
-}
-
 @media (max-width: 700px){
   #experience > div {
     -ms-grid-columns: 95px 1fr;

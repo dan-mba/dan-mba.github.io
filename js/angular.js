@@ -6,6 +6,8 @@ app.controller('MainController',
     {
       title: "GPS Fleet Map",
       url: "",
+      source: "Fleet Map Source",
+      sourcelink: "",
       description: "Google map of gps fleet data."
     }
   ];

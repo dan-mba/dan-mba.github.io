@@ -338,6 +338,11 @@ h1 {
   padding-bottom: 3px;
 }
 
+a.ui-button, button.ui-button {
+  background-color: #303030;
+  color: #eee;
+}
+
 /*
     Contact Tab
 */

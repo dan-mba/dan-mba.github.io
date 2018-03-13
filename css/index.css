@@ -343,6 +343,8 @@ a.ui-button, button.ui-button {
   background-image: url("//download.jqueryui.com/themeroller/images/ui-bg_highlight-soft_35_222222_1x100.png");
   color: #eee;
   border-color: #303030;
+  font-size: 1em;
+  padding: 0.3em;
 }
 
 /*

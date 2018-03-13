@@ -347,6 +347,10 @@ a.ui-button, button.ui-button {
   padding: 0.3em;
 }
 
+a.ui-button {
+  margin-right: 30px;
+}
+
 /*
     Contact Tab
 */

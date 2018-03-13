@@ -52,7 +52,7 @@ function getgps(){
                },
                {  name : "Skid Steer 450 654123",
                   location : {
-                      latitude : 10.2,
+                      latitude : 10.3,
                       longitude : -67.5
                   }
                },

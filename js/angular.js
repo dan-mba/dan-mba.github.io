@@ -5,7 +5,7 @@ app.controller('MainController',
   $scope.apps = [
     {
       title: "GPS Fleet Map",
-      url: "",
+      url: "GPS URL",
       source: "Fleet Map Source",
       sourcelink: "",
       description: "Google map of gps fleet data."
@@ -21,10 +21,11 @@ app.directive('codeSample', function() {
     },
     templateUrl: 'js/codeSample.html',
     link: function(scope, element, attrs) {
-      scope.showCode = function () {
+      scope.showCode = function (url) {
         $("#code").removeClass("active");
         $("#samples").addClass("active");
-        $("#sampback").addClass("active");      
+        $("#sampback").addClass("active");
+        $("#samples h1").text(url);
       };
     }
   };

@@ -208,48 +208,4 @@ function showVehInfo(data) {
   });
 
   $("#outdata").show(1000);
-  
-  /*
-  outstr =  '<div class="block1 span10"><h4>' + results.VehicleDescription + '</h4>';
-  if (results.VehiclePicture)
-    outstr += '<img class="pull-right" src="' + results.VehiclePicture + '">';
-  outstr += '<div>Overall Rating: ' + makeStars(results.OverallRating) + '</div>';
-  outstr += '<div>Rollover Rating: ' + makeStars(results.RolloverRating) + '</div>';
-  outstr += '<div>Rollover Possibility: ' + results.RolloverPossibility + '</div>';
-  for (var x in results) {
-    if(x.indexOf('NHTSA') === 0) {
-      outstr += '<div>' + x.match(/[A-Z][a-z]+/g).join(" ") + ': ' + results[x] + '</div>';
-    }
-  }
-  outstr += '<div>Complaints Count: ' + results.ComplaintsCount + '</div>';
-  outstr += '<div>Recalls Count: ' + results.RecallsCount + '</div>';
-  outstr += '<div>Investigation Count: ' + results.InvestigationCount + '</div>';
-  outstr += '</div>'
-    
-  $("#outdata").append(outstr);
-    
-  outstr = '<ul class="thumbnails"><li class="span4"><div class="thumbnail">';
-  if (results.FrontCrashPicture)
-    outstr += '<img src="' + results.FrontCrashPicture + '">';
-  outstr += '<div>Front Crash Rating: ' + makeStars(results.OverallFrontCrashRating) + '</div>';
-  outstr += '<div>Driver Side Rating: ' + makeStars(results.FrontCrashDriversideRating) + '</div>';
-  outstr += '<div>Passenger Side Rating: ' + makeStars(results.FrontCrashPassengersideRating) + '</div>';
-  outstr += '</div></li>';
-      
-  outstr += '<li class="span4"><div class="thumbnail">';
-  if (results.SideCrashPicture)
-    outstr += '<img src="' + results.SideCrashPicture + '">';
-  outstr += '<div>Side Crash Rating: ' + makeStars(results.OverallSideCrashRating) + '</div>';
-  outstr += '<div>Driver Side Rating: ' + makeStars(results.SideCrashDriversideRating) + '</div>';
-  outstr += '<div>Passenger Side Rating: ' + makeStars(results.SideCrashPassengersideRating) + '</div>';
-  outstr += '</div></li>';
-    
-  outstr += '<li class="span4"><div class="thumbnail">';
-  if (results.SidePolePicture)
-    outstr += '<img src="' + results.SidePolePicture + '">';
-  outstr += '<div>Side Pole Crash Rating: ' + makeStars(results.OverallSideCrashRating) + '</div>';
-  outstr += '</div></li></ul>';
-
-  $("#outdata").append(outstr);
-  */
 }

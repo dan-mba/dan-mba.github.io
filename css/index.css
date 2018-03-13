@@ -340,6 +340,7 @@ h1 {
 
 a.ui-button, button.ui-button {
   background-color: #303030;
+  background-image: url("//download.jqueryui.com/themeroller/images/ui-bg_highlight-soft_35_222222_1x100.png");
   color: #eee;
 }
 

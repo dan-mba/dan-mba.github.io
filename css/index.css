@@ -363,6 +363,7 @@ iframe {
   width: 100%;
   background-color: transparent;
   display: block;
+  overflow: hidden;
 }
 
 /*

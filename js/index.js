@@ -9,6 +9,7 @@ $(function() {
     $(this).parent().addClass("active");
     $($(this).data("id")).addClass("active");
     $("#sampback").removeClass("active");
+    $("#samples iframe").off();
     $("#samples iframe").attr('src','');
   });
   
@@ -26,6 +27,7 @@ $(function() {
     $("#samples").removeClass("active");
     $("#sampback").removeClass("active");
     $("#code").addClass("active");
+    $("#Samples iframe").off();
     $("#samples iframe").attr('src','');
     $("#samples iframe").height("100%");
   });

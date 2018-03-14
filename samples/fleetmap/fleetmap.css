@@ -36,7 +36,7 @@ img {
   width:600px;
 }
 
-@madia (max-width:610px) {
+@media (max-width:610px) {
   img { width: calc(100% - 10px); }
 }
 

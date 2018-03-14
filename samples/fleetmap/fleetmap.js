@@ -13,7 +13,7 @@ $(window).on("load", function(){
   var params = url.param();
 
   viewportWidth = $(window).width();
-  if (viewportWidth < 610) $("img").prop("width",viewportWidth-10);
+//  if (viewportWidth < 610) $("img").prop("width",viewportWidth-10);
   if (viewportWidth < 550) {
     sizeDelimiter = "\n";
     $("#gpsrslt th").addClass("small");

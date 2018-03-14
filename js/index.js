@@ -24,6 +24,7 @@ $(function() {
     $("#samples").removeClass("active");
     $("#sampback").removeClass("active");
     $("#code").addClass("active");
+    $("#samples iframe").attr('src','');
   });
   
   /*

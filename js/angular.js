@@ -26,6 +26,11 @@ app.directive('codeSample', function() {
         $("#samples").addClass("active");
         $("#sampback").addClass("active");
         $("#samples iframe").attr('src',url);
+        $("#samples iframe").on("load", function() {
+          var height = $("#samples iframe").contents().find("html").height();
+          console.log(height);
+          $("#samples iframe").height(height);
+        });
       };
     }
   };

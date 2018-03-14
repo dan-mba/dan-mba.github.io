@@ -372,6 +372,12 @@ iframe {
   display: block;
 }
 
+@media (max-width:700px) {
+  iframe {
+    width: calc(100% - 18px);
+  }
+}
+
 /*
     Contact Tab
 */

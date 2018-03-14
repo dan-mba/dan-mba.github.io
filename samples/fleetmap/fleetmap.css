@@ -33,6 +33,11 @@ img {
   text-align: center;
   margin: 20px auto 0;
   padding: 0;
+  width:600px;
+}
+
+@madia (max-width:610px) {
+  img { width: calc(100% - 10px); }
 }
 
 a {

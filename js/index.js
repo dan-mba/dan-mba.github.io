@@ -27,7 +27,7 @@ $(function() {
     $("#sampback").removeClass("active");
     $("#code").addClass("active");
     $("#samples iframe").attr('src','');
-    $("body").height("100%");
+    $("#samples iframe").height("100%");
   });
   
   /*

@@ -25,12 +25,12 @@ app.directive('codeSample', function() {
         $("#code").removeClass("active");
         $("#samples").addClass("active");
         $("#sampback").addClass("active");
-        $("#samples iframe").attr('src',url);
         $("#samples iframe").on("load", function() {
           var height = $("#samples iframe").contents().find("html").height();
           console.log(height);
           $("#samples iframe").height(Math.ceil(height)+2);
         });
+        $("#samples iframe").attr('src',url);
       };
     }
   };

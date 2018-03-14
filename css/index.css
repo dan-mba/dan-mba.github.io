@@ -354,6 +354,13 @@ button.ui-button {
   margin-right: 30px;
 }
 
+ifrmae {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: transparent;
+}
+
 /*
     Contact Tab
 */

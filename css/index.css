@@ -314,7 +314,8 @@ h1 {
 
 
 #samples.active {
-  padding: 150px 0 0;
+  padding: 139px 0 0;
+  overflow: hidden;
 }
 
 #sampback {

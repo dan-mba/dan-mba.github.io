@@ -321,7 +321,7 @@ h1 {
 
 #samples.active {
   padding: 139px 0 0;
-  height: calc(100%-139px);
+  height: calc(100% - 139px);
 }
 
 #sampback {

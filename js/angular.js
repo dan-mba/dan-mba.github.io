@@ -5,7 +5,7 @@ app.controller('MainController',
   $scope.apps = [
     {
       title: "GPS Fleet Map",
-      url: "bad.html",
+      url: "samples/fleetmap/fleetmap.html",
       source: "Fleet Map Source",
       sourcelink: "",
       description: "Google map of gps fleet data."

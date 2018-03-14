@@ -333,6 +333,10 @@ h1 {
   text-align: center;
 }
 
+@media (max-width:700px) {
+  #sampback { width: 100%; }
+}
+
 #sampback.active {
   display: block;
 }

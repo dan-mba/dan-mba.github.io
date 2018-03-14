@@ -25,7 +25,7 @@ app.directive('codeSample', function() {
         $("#code").removeClass("active");
         $("#samples").addClass("active");
         $("#sampback").addClass("active");
-        $("#samples h1").text(url);
+        $("#samples iframe").attr('src',url);
       };
     }
   };

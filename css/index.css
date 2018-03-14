@@ -127,7 +127,6 @@ Main Body Settings
 div.main {
   margin: 0 2px;
   height: 100%;
-  overflow: hidden;
 }
 
 div.main > div {
@@ -323,7 +322,6 @@ h1 {
 #samples.active {
   padding: 139px 0 0;
   height: 100%;
-  overflow: hidden;
 }
 
 #sampback {
@@ -366,7 +364,6 @@ button.ui-button {
 iframe {
   height: 100%;
   width: 100%;
-  overflow: hidden;
   background-color: transparent;
 }
 

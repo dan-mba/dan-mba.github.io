@@ -5,14 +5,9 @@
   outline: 0;
 }
 
-html {
-  height: 100%;
-}
-
 body {
   margin: 0 auto;
   max-width: 700px;
-  height: 100%;
   
   background-color: #d8d8d8;
   color: #111;
@@ -126,7 +121,6 @@ Main Body Settings
 
 div.main {
   margin: 0 2px;
-  height: 100%;
 }
 
 div.main > div {
@@ -321,7 +315,6 @@ h1 {
 
 #samples.active {
   padding: 139px 0 0;
-  height: calc(100% - 139px);
 }
 
 #sampback {

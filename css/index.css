@@ -8,6 +8,7 @@
 body {
   margin: 0 auto;
   max-width: 700px;
+  overflow: hidden;
   
   background-color: #d8d8d8;
   color: #111;

@@ -29,7 +29,7 @@ app.directive('codeSample', function() {
         $("#samples iframe").on("load", function() {
           var height = $("#samples iframe").contents().find("html").height();
           console.log(height);
-          $("#samples iframe").height(height);
+          $("#samples iframe").height(Math.ceil(height)+2);
         });
       };
     }

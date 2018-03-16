@@ -312,9 +312,12 @@ h1 {
     Code Tab & Samples frame
 */
 
-
 #samples.active {
   padding: 139px 0 0;
+}
+
+div.samples {
+  margin-bottom: 10px;
 }
 
 #sampback {

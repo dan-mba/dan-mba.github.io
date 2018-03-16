@@ -27,6 +27,7 @@ $(function() {
     $("#samples").removeClass("active");
     $("#sampback").removeClass("active");
     $("#code").addClass("active");
+    $("#topnav").show();
     $("#samples iframe").off();
     $("#samples iframe").attr('src','');
     $("#samples iframe").height("100%");

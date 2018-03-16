@@ -9,6 +9,13 @@ app.controller('MainController',
       source: "Fleet Map Source",
       sourcelink: "",
       description: "Google map of gps fleet data."
+    },
+    {
+      title: "NHTSA Safety Ratings",
+      url: "samples/nhtsa/nhtsa.html",
+      source: "NHTSA Source",
+      sourcelink: "",
+      description: "Application to display data from the NHTSA Saftey Rating API"
     }
   ];
 }]);

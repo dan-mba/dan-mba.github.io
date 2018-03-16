@@ -213,5 +213,5 @@ function showVehInfo(data) {
 }
 
 function framesize() {
-  $("#samples iframe", window.parent.document).height(Math.ceil($('html').height())+2);  
+  $("#samples iframe", window.parent.document).height(Math.max(Math.ceil($('html').height())+2),450);  
 }

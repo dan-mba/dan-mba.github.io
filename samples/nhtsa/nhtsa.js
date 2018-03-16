@@ -210,5 +210,6 @@ function showVehInfo(data) {
   to(function() {
     $("#outdata").show();
     $("#samples iframe",window.parent.document).height(Math.ceil($("html").height())+2);
+    console.log("In to");
   }, 100, false);
 }

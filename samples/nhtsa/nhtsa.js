@@ -207,7 +207,7 @@ function showVehInfo(data) {
     outscope.sidePoleCrashRating = makeStars(results.SidePoleCrashRating);
   });
 
-  $timeut(function() {
+  $timeout(function() {
     $("#outdata").show();
     $("#samples iframe",window.parent.document).trigger("load");
   }, 1000, false);

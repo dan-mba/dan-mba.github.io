@@ -35,7 +35,7 @@ function pickMdlYear() {
   /* Reset chained select boxes */
   $(".nhtsa1 option", $selects).remove('.jsadd');
   $(".nhtsa1", $selects).off();
-  $("#outdata").hide();
+  $("#outdata").hide(framesize);
   
   if ($("#mdlyr").val() === ''){
     return;
@@ -61,7 +61,7 @@ function pickVehMake(){
   /* Reset chained select boxes */
   $(".nhtsa2 option", $selects).remove('.jsadd');
   $(".nhtsa2", $selects).off();
-  $("#outdata").hide();
+  $("#outdata").hide(framesize);
   
   if ($("#vehmake").val() === ''){
     return;
@@ -88,7 +88,7 @@ function pickVehModel(){
   /* Reset chained selection boxes */
   $("#vehdesc option").remove('.jsadd');
   $("#vehdesc").off();
-  $("#outdata").hide();
+  $("#outdata").hide(framesize);
   
   if ($("#vehmodel").val() === ''){
     return;
@@ -208,8 +208,10 @@ function showVehInfo(data) {
   });
 
   to(function() {
-    $("#outdata").show();
-    $("#samples iframe",window.parent.document).height(Math.ceil($("html").height())+2);
-    console.log("In to");
+    $("#outdata").show(framesize);
   }, 100, false);
+}
+
+function framesize() {
+  $("#samples iframe", window.parent.document).height(Math.ceil($('html').height())+2);  
 }

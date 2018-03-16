@@ -32,6 +32,7 @@ app.directive('codeSample', function() {
         $("#code").removeClass("active");
         $("#samples").addClass("active");
         $("#sampback").addClass("active");
+        $("#topnav").hide();
         $("#samples iframe").on("load", function() {
           var height = $("#samples iframe").contents().find("html").height();
           console.log(height);

@@ -6,6 +6,9 @@ $(function() {
   $("#topnav a").on("click", function () {
     $("#topnav div").removeClass("active");
     $("div.main div").removeClass("active");
+    $($(this).data("id")).find("img[data-src]").each(function() {
+      $(this).attr("src",$(this).data("src"));
+    });
     $(this).parent().addClass("active");
     $($(this).data("id")).addClass("active");
     $("#sampback").removeClass("active");
@@ -49,6 +52,4 @@ $(function() {
     $("#topnav a[href='" + window.location.hash + "']").parent().addClass("active");
     $(window.location.hash).addClass("active");
   }
-  
-  $("#contact a:only-child").parent().css("text-align","center"); 
 });

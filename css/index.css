@@ -162,6 +162,10 @@ h1 {
   grid-template-columns: 100px 1fr;
 }
 
+#experience > div:last-child {
+  margin-bottom: 5px;
+}
+
 .jobimg {
   margin-right: 10px;
  }

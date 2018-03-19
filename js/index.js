@@ -49,6 +49,9 @@ $(function() {
   if(window.location.hash) {
     $("#topnav div").removeClass("active");
     $("div.main div").removeClass("active");
+    $(window.location.hash).find("img[data-src]").each(function() {
+      $(this).attr("src",$(this).data("src"));
+    });    
     $("#topnav a[href='" + window.location.hash + "']").parent().addClass("active");
     $(window.location.hash).addClass("active");
   }

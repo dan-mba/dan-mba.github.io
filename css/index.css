@@ -412,6 +412,7 @@ iframe {
   margin-right: 10px;
   height: 200px;
   width: 200px;
+  flex-shrink: 0;
 }
 
 @media (max-width:600px) {

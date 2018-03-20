@@ -345,9 +345,9 @@ fieldset {
 }
 
 legend {
-  width: auto;
+  width: 160px;
   padding: 0 5px;
-  margin: 0 auto;
+  margin-left: calc(50% - 80px - 5px);
   font-weight: bold;
 }
 

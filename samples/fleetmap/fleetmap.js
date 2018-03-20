@@ -90,7 +90,7 @@ function getgps(){
   cntr = getLatLngCenter(coorlist);
 
   var m = findmax(cntr,coorlist);
-  var z = Math.floor(-(Math.log2(m/.375)-10));
+  var z = Math.floor(-((Math.log(m/.375)/Math.log(2))-10));
   zoom = Math.min(17, z);
   zoom = Math.max(5, zoom);
   $("#gpsmap").attr("src",map+"&zoom="+zoom+"&center="+cntr[0]+","+cntr[1]);

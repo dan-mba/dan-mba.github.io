@@ -349,6 +349,10 @@ legend {
   padding: 0 5px;
   margin-left: calc(50% - 80px - 5px);
   font-weight: bold;
+  background-color: #303030;
+  background-image: url("//download.jqueryui.com/themeroller/images/ui-bg_highlight-soft_35_222222_1x100.png");
+  color: #eee;
+  border: 1px solid #303030;
 }
 
 #sampback.active {

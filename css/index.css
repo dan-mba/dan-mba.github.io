@@ -344,6 +344,13 @@ fieldset {
   border-radius: 10px;
 }
 
+legend {
+  width: auto;
+  padding: 0 5px;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
 #sampback.active {
   display: block;
 }

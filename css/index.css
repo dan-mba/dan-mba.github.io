@@ -352,6 +352,8 @@ legend {
   background: #303030 url("//download.jqueryui.com/themeroller/images/ui-bg_highlight-soft_35_222222_1x100.png") 50% 50% repeat-x;
   color: #eee;
   border: 1px solid #303030;
+  border-radius: 50% 10%;
+  text-align: center;
 }
 
 #sampback.active {

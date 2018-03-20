@@ -368,7 +368,15 @@ a.ui-button, button.ui-button {
 }
 
 button.ui-button {
-  margin-right: 5px;
+  float: left;
+}
+
+a.ui-button {
+  float: right;
+}
+
+#samples div.clear {
+  clear: both;
 }
 
 iframe {

@@ -6,15 +6,13 @@ app.controller('MainController',
     {
       title: "GPS Fleet Map",
       url: "samples/fleetmap/fleetmap.html",
-      source: "Fleet Map Source",
-      sourcelink: "",
+      source: "",
       description: "Google map of gps fleet data."
     },
     {
       title: "NHTSA Safety Ratings",
       url: "samples/nhtsa/nhtsa.html",
-      source: "NHTSA Source",
-      sourcelink: "",
+      source: "",
       description: "Application to display data from the NHTSA Saftey Rating API"
     }
   ];

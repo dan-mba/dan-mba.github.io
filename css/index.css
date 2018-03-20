@@ -5,10 +5,6 @@
   outline: 0;
 }
 
-html, body {
-  height: 100%;
-}
-
 body {
   margin: 0 auto;
   max-width: 700px;

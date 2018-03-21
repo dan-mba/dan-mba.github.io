@@ -4,7 +4,7 @@ $(function() {
   /*
       Nav Bar click handler
   */
-  if ($.isNumberic(window.document.documentMode)) isIE = 1;
+  if ($.isNumeric(window.document.documentMode)) isIE = 1;
   
   $("#topnav a").on("click", function () {
     $("#topnav div").removeClass("active");

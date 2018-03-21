@@ -28,6 +28,7 @@ app.directive('codeSample', function() {
     link: function(scope, element, attrs) {
       scope.showCode = function (url) {
         if(isIE != 0) {
+          $("#code button").blur();
           var win = window.open(url,"_blank");
           win.focus();
          }

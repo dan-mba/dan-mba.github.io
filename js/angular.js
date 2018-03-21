@@ -30,6 +30,7 @@ app.directive('codeSample', function() {
         if(isIE != 0) {
           var win = window.open(url,"_blank");
           win.focus();
+          $(this).hide().show();
           return;
         }
         $("#code").removeClass("active");

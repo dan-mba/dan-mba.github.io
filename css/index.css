@@ -357,6 +357,10 @@ legend {
   text-align: center;
 }
 
+#fieldset p {
+  margin-bottom: 0.5em;
+}
+
 #sampback.active {
   display: block;
 }

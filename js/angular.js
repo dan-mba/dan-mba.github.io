@@ -31,18 +31,18 @@ app.directive('codeSample', function() {
           var win = window.open(url,"_blank");
           win.focus();
           $(this).hide().show();
-          return;
         }
-        $("#code").removeClass("active");
-        $("#samples").addClass("active");
-        $("#sampback").addClass("active");
-        $("#topnav").hide();
-        $("#samples iframe").on("load", function() {
-          var height = $("#samples iframe").contents().find("html").height();
-          console.log(height);
-          $("#samples iframe").height(Math.ceil(height)+2);
-        });
-        $("#samples iframe").attr('src',url);
+        else {
+          $("#code").removeClass("active");
+          $("#samples").addClass("active");
+          $("#sampback").addClass("active");
+          $("#topnav").hide();
+          $("#samples iframe").on("load", function() {
+            var height = $("#samples iframe").contents().find("html").height();
+            $("#samples iframe").height(Math.ceil(height)+2);
+          });
+          $("#samples iframe").attr('src',url);
+        }
       };
     }
   };

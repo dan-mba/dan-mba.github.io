@@ -27,6 +27,11 @@ app.directive('codeSample', function() {
     templateUrl: 'js/codeSample.html',
     link: function(scope, element, attrs) {
       scope.showCode = function (url) {
+        if(isIE != 0) {
+          var win = window.open(url,"_blank");
+          win.focus();
+          return;
+        }
         $("#code").removeClass("active");
         $("#samples").addClass("active");
         $("#sampback").addClass("active");

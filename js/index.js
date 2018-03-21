@@ -1,3 +1,5 @@
+var isIE = 1;
+
 $(function() {
   /*
       Nav Bar click handler

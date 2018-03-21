@@ -16,6 +16,10 @@ div.ui-selectmenu-menu ul {
   max-height: 300px;
 }
 
+div.ui-menu-item-wrapper {
+  padding-right: 3px;
+}
+
 #vehpic {
   float: right;
 }

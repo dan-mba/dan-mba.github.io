@@ -29,9 +29,8 @@ app.directive('codeSample', function() {
       scope.showCode = function (url) {
         if(isIE != 0) {
           var win = window.open(url,"_blank");
-          win.focus();
-          $(this).hide().show();
-        }
+//          win.focus();
+         }
         else {
           $("#code").removeClass("active");
           $("#samples").addClass("active");

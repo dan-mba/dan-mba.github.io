@@ -196,11 +196,6 @@ h1 {
   grid-column: 2 / 3;
 }
 
-#experience i.material-icons {
-  font-size: 32px;
-  display: block;
-}
-
 #experience ul:last-child {
   margin-bottom: 0;
 }
@@ -220,7 +215,6 @@ h1 {
     margin-right: 5px;
   }
   
- 
   .jobdesc {
     -ms-grid-column-span: 2;
     -ms-grid-column:1;
@@ -290,7 +284,6 @@ h1 {
   display: none;
 }
 
-
 @media (max-width: 500px){
   #education > div {
     -ms-grid-columns: 95px 1fr;
@@ -319,29 +312,10 @@ h1 {
 }
 
 /*
-    Code Tab & Samples frame
+    Code Tab
 */
-
-#samples.active {
-  padding: 75px 0 0;
-}
-
 div.sample {
   margin-bottom: 1.5em;
-}
-
-#sampback {
-  width: 700px;
-  height: 30px;
-  line-height: 30px;
-  margin: 0 auto;
-  font-size: 24px;
-  display: none;
-  text-align: center;
-}
-
-@media (max-width:700px) {
-  #sampback { width: 100%; }
 }
 
 fieldset {
@@ -367,20 +341,6 @@ fieldset p {
   margin-bottom: 0.5em;
 }
 
-#sampback.active {
-  display: block;
-}
-
-#sampback a {
-  text-decoration: none;
-  color: inherit;
-}
-
-#sampback i {
-  vertical-align: middle !important;
-  padding-bottom: 3px;
-}
-
 a.ui-button, button.ui-button {
   background-color: #303030;
   background-image: url("//download.jqueryui.com/themeroller/images/ui-bg_highlight-soft_35_222222_1x100.png");
@@ -398,8 +358,44 @@ a.ui-button {
   float: right;
 }
 
-#samples div.clear {
+#code div.clear {
   clear: both;
+}
+
+/*
+    Samples frame
+*/
+
+#samples.active {
+  padding: 75px 0 0;
+}
+
+#sampback {
+  width: 700px;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 auto;
+  font-size: 24px;
+  display: none;
+  text-align: center;
+}
+
+#sampback.active {
+  display: block;
+}
+
+#sampback a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#sampback i {
+  vertical-align: middle !important;
+  padding-bottom: 3px;
+}
+
+@media (max-width:700px) {
+  #sampback { width: 100%; }
 }
 
 iframe {

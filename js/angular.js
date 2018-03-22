@@ -27,6 +27,7 @@ app.directive('codeSample', function() {
     templateUrl: 'js/codeSample.html',
     link: function(scope, element, attrs) {
       scope.showCode = function (url) {
+        /* IE will not display in iframes correctly, so I open apps in a new tab */
         if(isIE != 0) {
           $("#code button").blur();
           var win = window.open(url,"_blank");

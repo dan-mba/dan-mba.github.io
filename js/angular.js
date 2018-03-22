@@ -39,7 +39,7 @@ app.directive('codeSample', function() {
           $("#topnav").hide();
           $("#samples iframe").on("load", function() {
             var height = $("#samples iframe").contents().find("html").height();
-            $("#samples iframe").height(Math.ceil(height)+2);
+            $("#samples iframe").height(Math.max(Math.ceil(height)+2, $(window).height()-75));
           });
           $("#samples iframe").attr('src',url);
         }

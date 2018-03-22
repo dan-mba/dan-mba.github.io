@@ -13,6 +13,7 @@ body {
   color: #111;
 }
 
+/* indent 2nd line of text in bullet lists */
 ul {
   list-style-position: outside;
   margin-left: 1em;
@@ -23,7 +24,6 @@ Navagation Bar Settings
 */
 
 nav {
-/*  height: 108px; */
   background-color: #303030;
   color: #eee;
   font-family: 'Roboto Condensed', serif;
@@ -34,10 +34,8 @@ nav {
   width: 100%;
   z-index: 50;
 }
-#topnav div:hover {
-  color: #303030;
-  background-color: #eee;
-}
+
+/* Heading with name & LinkedIn logo */
 #tophead {
   width: 700px;
   height: 44px;
@@ -61,6 +59,7 @@ nav {
   margin: 2px;
 }
 
+/* Navigation Bar */
 #topnav {
   width: 700px;
   height: 64px;
@@ -77,6 +76,30 @@ nav {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
+#topnav div:hover {
+  color: #303030;
+  background-color: #eee;
+}
+
+#topnav div {
+  border-bottom: 5px solid #303030;
+}
+
+#topnav div.active {
+  border-bottom-color: #eee;
+}
+
+#topnav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#topnav i.material-icons {
+  font-size: 36px;
+  display: block;
+}
+
+/* Adjust Navigation Bar for screens less than 700 px wide */
 @media (max-width: 700px) {
   #topnav, #tophead {
     width: 100%;
@@ -91,28 +114,11 @@ nav {
   }
 }
 
-#topnav i.material-icons {
-  font-size: 36px;
-  display: block;
-}
-
+/* Use gradient for edges of Nav Bar on larger screens */
 @media (min-width: 700px) {
   nav {
     background: radial-gradient(circle at center, #303030, #303030 360px, #5c5c5c 100%);
   }
-}
-
-#topnav div {
-  border-bottom: 5px solid #303030;
-}
-
-#topnav div.active {
-  border-bottom-color: #eee;
-}
-
-#topnav a {
-  text-decoration: none;
-  color: inherit;
 }
 
 /*

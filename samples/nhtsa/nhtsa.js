@@ -59,14 +59,14 @@ function fillVehMake(data) {
     makes += '<option value="'+data.Results[i].Make.replace(/&/g, "_")+'" class="jsadd">'+data.Results[i].Make+'</option>';
   }
   $("#vehmake").html(makes);
-  $("select.nhtsa1").selectmenu("refresh");
+  $("select.nhtsa1",$selects).selectmenu("refresh");
   $("#vehmake").on("selectmenuchange", pickVehMake);
 }
 
 /* Make API call to get model data */
 function pickVehMake(){
   /* Reset chained select boxes */
-  $(".nhtsa2 option", $selects).remove('.jsadd');
+  $("#vehdesc").html('<option value="">Vehicle Description:</option>');
   $(".nhtsa2", $selects).off();
   $("#outdata").hide(framesize);
   
@@ -82,21 +82,20 @@ function pickVehMake(){
 
 /* Generate option values for models */
 function fillVehModel(data) {
-  var models = "";
+  var models = "<option value="">Model:</option>";
   
   for (var i=0; i < data.Count; i++) {
     if (data.Results[i].Model.indexOf('/') !== -1) continue;
     models += '<option value="'+data.Results[i].Model.replace(/&/g, "_")+'" class="jsadd">'+data.Results[i].Model+'</option>';
   }
-  $("#vehmodel").append(models);
-  $("select.nhtsa2").selectmenu('refresh');
+  $("#vehmodel").html(models);
+  $("select.nhtsa2",$selects).selectmenu('refresh');
   $("#vehmodel").on("selectmenuchange", pickVehModel);
 }
 
 /* Make API call for vehicle descriptions */
 function pickVehModel(){
   /* Reset chained selection boxes */
-  $("#vehdesc option").remove('.jsadd');
   $("#vehdesc").off();
   $("#outdata").hide(framesize);
   
@@ -113,12 +112,12 @@ function pickVehModel(){
 
 /* Generate option values for vehicle descriptions */
 function fillVehDesc(data) {
-  var desc = "";
+  var desc = "<option value="">Vehicle Description:</option>";
   
   for (var i=0; i < data.Count; i++) {
     desc += '<option value="'+data.Results[i].VehicleId+'" class="jsadd">'+data.Results[i].VehicleDescription+'</option>';
   }
-  $("#vehdesc").append(desc);
+  $("#vehdesc").html(desc);
   $("#vehdesc").selectmenu('refresh');
   $("#vehdesc").on("selectmenuchange", getVehInfo);
 }

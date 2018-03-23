@@ -80,10 +80,13 @@ function pickVehMake(){
 
 /* Generate option values for models */
 function fillVehModel(data) {
+  var models = "";
+  
   for (var i=0; i < data.Count; i++) {
     if (data.Results[i].Model.indexOf('/') !== -1) continue;
-    $('#vehmodel').append('<option value="'+data.Results[i].Model.replace(/&/g, "_")+'" class="jsadd">'+data.Results[i].Model+'</option>');
+    models += '<option value="'+data.Results[i].Model.replace(/&/g, "_")+'" class="jsadd">'+data.Results[i].Model+'</option>';
   }
+  $("#vehmodel").append(models);
   $("select.nhtsa2").selectmenu('refresh');
   $("#vehmodel").on("selectmenuchange", pickVehModel);
 }
@@ -108,9 +111,12 @@ function pickVehModel(){
 
 /* Generate option values for vehicle descriptions */
 function fillVehDesc(data) {
+  var desc = "";
+  
   for (var i=0; i < data.Count; i++) {
-    $('#vehdesc').append('<option value="'+data.Results[i].VehicleId+'" class="jsadd">'+data.Results[i].VehicleDescription+'</option>');
+    desc += '<option value="'+data.Results[i].VehicleId+'" class="jsadd">'+data.Results[i].VehicleDescription+'</option>';
   }
+  $("#vehdesc").append(desc);
   $("#vehdesc").selectmenu('refresh');
   $("#vehdesc").on("selectmenuchange", getVehInfo);
 }
@@ -136,7 +142,6 @@ function makeStars(rating){
 
 /* Make API call to get vehicle information */
 function getVehInfo(){
-//  $("#outdata").html('');
   if ($("#vehdesc").val() === ''){
     return;
   }

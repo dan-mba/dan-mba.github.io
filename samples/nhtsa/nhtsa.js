@@ -2,6 +2,8 @@
 var endpoint = 'https://one.nhtsa.gov/webapi/api/SafetyRatings';
 var dataType = '?format=json';
 var $selects;
+var $iframe;
+var parentHeight;
 
 $(function() {
   $("#outdata").hide();
@@ -10,6 +12,8 @@ $(function() {
   $("#vehmodel").selectmenu({width:320});
   $("#vehdesc").selectmenu({width:320});
   $selects = $("#inpselect");
+  $iframe = $("#samples iframe", window.parent.document);
+  parentHeight = $(parent.window).height()-75;
   nhtsaStart();
 });
 
@@ -224,5 +228,5 @@ function showVehInfo(data) {
 }
 
 function framesize() {
-  $("#samples iframe", window.parent.document).height(Math.max(Math.ceil($('html').height())+2,$(parent.window).height()-75));  
+  $($iframe).height(Math.max(Math.ceil($('html').height())+2,parentHeight));  
 }

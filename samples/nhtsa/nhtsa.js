@@ -30,6 +30,7 @@ function fillModelYear(data) {
     years +='<option value="'+data.Results[i].ModelYear+'">'+data.Results[i].ModelYear+'</option>';
   }
   $("#mdlyr").html(years);
+  $("#mdlyr").selectmenu("refresh");
   $("#mdlyr").on("selectmenuchange", pickMdlYear);
 }
 

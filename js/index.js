@@ -9,6 +9,7 @@ $(function() {
   $("#topnav a").on("click", function () {
     $("#topnav div").removeClass("active");
     $("div.main div").removeClass("active");
+    /* Lazy Load Images */
     $($(this).data("id")).find("img[data-src]").each(function() {
       $(this).attr("src",$(this).data("src"));
     });
@@ -52,6 +53,7 @@ $(function() {
   if(window.location.hash) {
     $("#topnav div").removeClass("active");
     $("div.main div").removeClass("active");
+    /* Lazy Load Images */
     $(window.location.hash).find("img[data-src]").each(function() {
       $(this).attr("src",$(this).data("src"));
     });    

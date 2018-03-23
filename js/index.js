@@ -1,11 +1,11 @@
 var isIE = 0;
 
 $(function() {
-  /*
-      Nav Bar click handler
-  */
   if ($.isNumeric(window.document.documentMode)) isIE = 1;
   
+  /*
+      Nav Bar Click Handler
+  */
   $("#topnav a").on("click", function () {
     $("#topnav div").removeClass("active");
     $("div.main div").removeClass("active");
@@ -21,15 +21,8 @@ $(function() {
   });
   
   /*
-      Code & Samples click handlers
+      Samples click handler
   */
-/*  
-  $("#code a.sample").on("click", function () {
-    $("#code").removeClass("active");
-    $("#samples").addClass("active");
-    $("#sampback").addClass("active");
-  });
-*/  
   $("#sampback a").on("click", function () {
     $("#samples").removeClass("active");
     $("#sampback").removeClass("active");

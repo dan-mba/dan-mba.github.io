@@ -24,7 +24,7 @@ function nhtsaStart(){
 
 /* Generate option values for model years */
 function fillModelYear(data) {
-  var years = "<option value="">Year:</option>";
+  var years = '<option value="">Year:</option>';
   
   for (var i=0; i < data.Count; i++) {
     years +='<option value="'+data.Results[i].ModelYear+'">'+data.Results[i].ModelYear+'</option>';
@@ -52,7 +52,7 @@ function pickMdlYear() {
 
 /* Generate option values for makes */
 function fillVehMake(data) {
-  var makes = "<option value="">Make:</option>";
+  var makes = '<option value="">Make:</option>';
   for (var i=0; i < data.Count; i++) {
     makes += '<option value="'+data.Results[i].Make.replace(/&/g, "_")+'" class="jsadd">'+data.Results[i].Make+'</option>';
   }

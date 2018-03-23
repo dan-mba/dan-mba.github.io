@@ -82,7 +82,7 @@ function pickVehMake(){
 
 /* Generate option values for models */
 function fillVehModel(data) {
-  var models = "<option value="">Model:</option>";
+  var models = '<option value="">Model:</option>';
   
   for (var i=0; i < data.Count; i++) {
     if (data.Results[i].Model.indexOf('/') !== -1) continue;
@@ -112,7 +112,7 @@ function pickVehModel(){
 
 /* Generate option values for vehicle descriptions */
 function fillVehDesc(data) {
-  var desc = "<option value="">Vehicle Description:</option>";
+  var desc = '<option value="">Vehicle Description:</option>';
   
   for (var i=0; i < data.Count; i++) {
     desc += '<option value="'+data.Results[i].VehicleId+'" class="jsadd">'+data.Results[i].VehicleDescription+'</option>';

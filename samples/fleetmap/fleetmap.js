@@ -13,7 +13,6 @@ $(window).on("load", function(){
   var params = url.param();
 
   viewportWidth = $(window).width();
-//  if (viewportWidth < 610) $("img").prop("width",viewportWidth-10);
   if (viewportWidth < 550) {
     sizeDelimiter = "\n";
     $("#gpsrslt th").addClass("small");
@@ -95,71 +94,70 @@ function getgps(){
   zoom = Math.max(5, zoom);
   $("#gpsmap").attr("src",map+"&zoom="+zoom+"&center="+cntr[0]+","+cntr[1]);
   $("#zoom").show();
-//   });
 }
 
-    function zoomin(){
-      var urlarr = $("#gpsmap").attr("src").split('&');
-      urlarr.pop();
-      urlarr.pop();
-      if (zoom > 17) return;
-      zoom++;
-     $("#gpsmap").attr("src",urlarr.join('&')+"&zoom="+zoom+"&center="+cntr[0]+","+cntr[1]);
-    }
+function zoomin(){
+  var urlarr = $("#gpsmap").attr("src").split('&');
+  urlarr.pop();
+  urlarr.pop();
+  if (zoom > 17) return;
+  zoom++;
+  $("#gpsmap").attr("src",urlarr.join('&')+"&zoom="+zoom+"&center="+cntr[0]+","+cntr[1]);
+}
 
-    function zoomout(){
-      var urlarr = $("#gpsmap").attr("src").split('&');
-      urlarr.pop();
-      urlarr.pop();
-      if (zoom < 5) return;
-      zoom--;
-      $("#gpsmap").attr("src",urlarr.join('&')+"&zoom="+zoom+"&center="+cntr[0]+","+cntr[1]);
-    }
+function zoomout(){
+  var urlarr = $("#gpsmap").attr("src").split('&');
+  urlarr.pop();
+  urlarr.pop();
+  if (zoom < 5) return;
+  zoom--;
+  $("#gpsmap").attr("src",urlarr.join('&')+"&zoom="+zoom+"&center="+cntr[0]+","+cntr[1]);
+}
 
-    function moveup(){
-      var urlarr = $("#gpsmap").attr("src").split('&');
-      urlarr.pop();
-      urlarr.pop();
-      var m = .2*Math.pow(2,10-zoom);
-      cntr[0] += m;
-      $("#gpsmap").attr("src",urlarr.join('&')+"&zoom="+zoom+"&center="+cntr[0]+","+cntr[1]);
-    }
+function moveup(){
+  var urlarr = $("#gpsmap").attr("src").split('&');
+  urlarr.pop();
+  urlarr.pop();
+  var m = .2*Math.pow(2,10-zoom);
+  cntr[0] += m;
+  $("#gpsmap").attr("src",urlarr.join('&')+"&zoom="+zoom+"&center="+cntr[0]+","+cntr[1]);
+}
 
-    function movedn(){
-      var urlarr = $("#gpsmap").attr("src").split('&');
-      urlarr.pop();
-      urlarr.pop();
-      var m = .2*Math.pow(2,10-zoom);
-      cntr[0] -= m;
-      $("#gpsmap").attr("src",urlarr.join('&')+"&zoom="+zoom+"&center="+cntr[0]+","+cntr[1]);
-    }
+function movedn(){
+  var urlarr = $("#gpsmap").attr("src").split('&');
+  urlarr.pop();
+  urlarr.pop();
+  var m = .2*Math.pow(2,10-zoom);
+  cntr[0] -= m;
+  $("#gpsmap").attr("src",urlarr.join('&')+"&zoom="+zoom+"&center="+cntr[0]+","+cntr[1]);
+}
 
-    function movelt(){
-      var urlarr = $("#gpsmap").attr("src").split('&');
-      urlarr.pop();
-      urlarr.pop();
-      var m = .2*Math.pow(2,10-zoom);
-      cntr[1] -= m;
-      $("#gpsmap").attr("src",urlarr.join('&')+"&zoom="+zoom+"&center="+cntr[0]+","+cntr[1]);
-    }
+function movelt(){
+  var urlarr = $("#gpsmap").attr("src").split('&');
+  urlarr.pop();
+  urlarr.pop();
+  var m = .2*Math.pow(2,10-zoom);
+  cntr[1] -= m;
+  $("#gpsmap").attr("src",urlarr.join('&')+"&zoom="+zoom+"&center="+cntr[0]+","+cntr[1]);
+}
 
-    function movert(){
-      var urlarr = $("#gpsmap").attr("src").split('&');
-      urlarr.pop();
-      urlarr.pop();
-      var m = .2*Math.pow(2,10-zoom);
-      cntr[1] += m;
-      $("#gpsmap").attr("src",urlarr.join('&')+"&zoom="+zoom+"&center="+cntr[0]+","+cntr[1]);
-    }
+function movert(){
+  var urlarr = $("#gpsmap").attr("src").split('&');
+  urlarr.pop();
+  urlarr.pop();
+  var m = .2*Math.pow(2,10-zoom);
+  cntr[1] += m;
+  $("#gpsmap").attr("src",urlarr.join('&')+"&zoom="+zoom+"&center="+cntr[0]+","+cntr[1]);
+}
 
-    function findmax(cntr, list){
-      var max = 0;
-      for(var i=0; i <list.length; i++) {
-        var m = Math.max(Math.abs(cntr[0]-list[i][0]), Math.abs(cntr[1]-list[i][1]));
-        max = Math.max(max, m);
-      }
-      return max;
-    }
+function findmax(cntr, list){
+  var max = 0;
+  for(var i=0; i <list.length; i++) {
+    var m = Math.max(Math.abs(cntr[0]-list[i][0]), Math.abs(cntr[1]-list[i][1]));
+    max = Math.max(max, m);
+  }
+  return max;
+}
 /*
 
 Code to find center of lat/long group

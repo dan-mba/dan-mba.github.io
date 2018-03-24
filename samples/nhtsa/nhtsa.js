@@ -60,7 +60,7 @@ function pickMdlYear() {
 function fillVehMake(data) {
   var makes = '<option value="">Make:</option>';
   for (var i=0; i < data.Count; i++) {
-    makes += '<option value="'+data.Results[i].Make.replace(/&/g, "_")+'" class="jsadd">'+data.Results[i].Make+'</option>';
+    makes += '<option value="'+data.Results[i].Make.replace("&", "_", "g")+'" class="jsadd">'+data.Results[i].Make+'</option>';
   }
   $("#vehmake").html(makes);
   $("#vehmake,#vehmodel,#vehdesc").selectmenu("refresh");
@@ -90,7 +90,7 @@ function fillVehModel(data) {
   
   for (var i=0; i < data.Count; i++) {
     if (data.Results[i].Model.indexOf('/') !== -1) continue;
-    models += '<option value="'+data.Results[i].Model.replace(/&/g, "_")+'" class="jsadd">'+data.Results[i].Model+'</option>';
+    models += '<option value="'+data.Results[i].Model.replace("&", "_", "g")+'" class="jsadd">'+data.Results[i].Model+'</option>';
   }
   $("#vehmodel").html(models);
   $("#vehmodel,#vehdesc").selectmenu('refresh');

@@ -45,7 +45,7 @@ function pickMdlYear() {
   /* Reset chained select boxes */
   $("#vehmodel").html('<option value="">Model:</option>');
   $("#vehdesc").html('<option value="">Vehicle Description:</option>');
-  $("#vehmodel,#vehdesc,#vehmake").off("selectmenuchange");
+  $("#vehmodel,#vehdesc,#vehmake").off();
   $("#outdata").hide(framesize);
   
   if ($("#mdlyr").val() === ''){

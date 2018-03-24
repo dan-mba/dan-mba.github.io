@@ -43,7 +43,7 @@ function pickMdlYear() {
   /* Reset chained select boxes */
   $("#vehmodel").html('<option value="">Model:</option>');
   $("#vehdesc").html('<option value="">Vehicle Description:</option>');
-  $(".nhtsa1", $selects).off();
+  $("#vehmodel,#vehdesc,#vehmake").off();
   $("#outdata").hide(framesize);
   
   if ($("#mdlyr").val() === ''){
@@ -63,7 +63,7 @@ function fillVehMake(data) {
     makes += '<option value="'+data.Results[i].Make.replace(/&/g, "_")+'" class="jsadd">'+data.Results[i].Make+'</option>';
   }
   $("#vehmake").html(makes);
-  $("select.nhtsa1",$selects).selectmenu("refresh");
+  $("#vehmake,#vehmodel,#vehdesc").selectmenu("refresh");
   $("#vehmake").on("selectmenuchange", pickVehMake);
 }
 
@@ -71,7 +71,7 @@ function fillVehMake(data) {
 function pickVehMake(){
   /* Reset chained select boxes */
   $("#vehdesc").html('<option value="">Vehicle Description:</option>');
-  $(".nhtsa2", $selects).off();
+  $("#vehmodel,#vehdesc").off();
   $("#outdata").hide(framesize);
   
   if ($("#vehmake").val() === ''){
@@ -93,7 +93,7 @@ function fillVehModel(data) {
     models += '<option value="'+data.Results[i].Model.replace(/&/g, "_")+'" class="jsadd">'+data.Results[i].Model+'</option>';
   }
   $("#vehmodel").html(models);
-  $("select.nhtsa2",$selects).selectmenu('refresh');
+  $("#vehmodel,#vehdesc").selectmenu('refresh');
   $("#vehmodel").on("selectmenuchange", pickVehModel);
 }
 

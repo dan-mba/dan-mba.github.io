@@ -83,6 +83,7 @@ nav {
 
 #topnav div {
   border-bottom: 5px solid #303030;
+  transition: all 0.5s;
 }
 
 #topnav div.active {

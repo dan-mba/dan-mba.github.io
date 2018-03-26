@@ -31,12 +31,15 @@ div {
 button {
   background: #999;
   color: #111;
+  border:1px solid #999;
+  border-radius: 2px;
   transition: all 0.5s;
 }
 
-button:focus {
+button:hover {
   color: #999;
   background: #111;
+  border: 1px solid #111;
 }
 
 img {

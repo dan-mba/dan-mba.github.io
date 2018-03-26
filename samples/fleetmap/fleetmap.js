@@ -117,7 +117,7 @@ function zoomout(){
 }
 
 function moveup(){
-  $("#zoom button).blur();
+  $("#zoom button").blur();
   var urlarr = $("#gpsmap").attr("src").split('&');
   urlarr.pop();
   urlarr.pop();

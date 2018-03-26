@@ -97,6 +97,7 @@ function getgps(){
 }
 
 function zoomin(){
+  $("#zoom button").blur();
   var urlarr = $("#gpsmap").attr("src").split('&');
   urlarr.pop();
   urlarr.pop();
@@ -106,6 +107,7 @@ function zoomin(){
 }
 
 function zoomout(){
+  $("#zoom button").blur();
   var urlarr = $("#gpsmap").attr("src").split('&');
   urlarr.pop();
   urlarr.pop();
@@ -124,6 +126,7 @@ function moveup(){
 }
 
 function movedn(){
+  $("#zoom button").blur()
   var urlarr = $("#gpsmap").attr("src").split('&');
   urlarr.pop();
   urlarr.pop();
@@ -133,6 +136,7 @@ function movedn(){
 }
 
 function movelt(){
+  $("#zoom button").blur();
   var urlarr = $("#gpsmap").attr("src").split('&');
   urlarr.pop();
   urlarr.pop();
@@ -142,6 +146,7 @@ function movelt(){
 }
 
 function movert(){
+  $("#zoom button").blur();
   var urlarr = $("#gpsmap").attr("src").split('&');
   urlarr.pop();
   urlarr.pop();

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA_Compatible" content="IE=Edge" />
+  <!--meta http-equiv="X-UA_Compatible" content="IE=Edge" /-->
   <title>NHTSA Safety Ratings</title>
   <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="nhtsa.css">
@@ -14,7 +14,7 @@
   <script src="nhtsa.js"></script>
   <script src="angular.js"></script>
 </head>
-<body ng-app="nhtsaApp">
+<body data-ng-app="nhtsaApp">
   <div id="nhtsa">
     <div id="inpselect">
       <select id="mdlyr">
@@ -30,30 +30,30 @@
         <option value="">Vehicle Description:</option>
       </select><br>
     </div>
-    <div id="outdata" ng-controller="outputController">
+    <div id="outdata" data-ng-controller="outputController" style="display:none">
       <h2> {{ description }} </h2>
-      <img id="vehpic" ng-src="{{picture}}">
-      <div>Overall Rating: <span ng-bind-html="overallRating"></span></div>
-      <div>Rollover Rating: <span ng-bind-html="rolloverRating"></span></div>
+      <img id="vehpic" data-ng-src="{{picture}}" src="#" alt="">
+      <div>Overall Rating: <span data-ng-bind-html="overallRating"></span></div>
+      <div>Rollover Rating: <span data-ng-bind-html="rolloverRating"></span></div>
       <div>Rollover Possibility: {{rolloverPossibility}}</div>
-      <div ng-bind-html="nhtsaVars"></div>
+      <div data-ng-bind-html="nhtsaVars"></div>
       <div>Complaints Count: {{complaints}}</div>
       <div>Recalls Count: {{recalls}}</div>
       <div>Investigations Count: {{investigations}}</div>
       <div id="crashRatings">
         <h4>Crash Ratings</h4>
-        <img id="frcrashpic" ng-src="{{frontCrashPic}}">
-        <div>Front Crash Rating: <span ng-bind-html="frontCrashRating"></span></div>
-        <div>Driver Side Rating: <span ng-bind-html="driverSideRating"></span></div>
-        <div>Passenger Side Rating: <span ng-bind-html="passengerSideRating"></span></div>
+        <img id="frcrashpic" data-ng-src="{{frontCrashPic}}" src="#" alt="">
+        <div>Front Crash Rating: <span data-ng-bind-html="frontCrashRating"></span></div>
+        <div>Driver Side Rating: <span data-ng-bind-html="driverSideRating"></span></div>
+        <div>Passenger Side Rating: <span data-ng-bind-html="passengerSideRating"></span></div>
         <div class="last"></div>
-        <img id="sidecrashpic" ng-src="{{sideCrashPic}}">
-        <div>Side Crash Rating: <span ng-bind-html="sideCrashRating"></span></div>
-        <div>Driver Side Rating: <span ng-bind-html="sideDriverSideRating"></span></div>
-        <div>Passenger Side Rating: <span ng-bind-html="sidePassengerSideRating"></span></div>
+        <img id="sidecrashpic" data-ng-src="{{sideCrashPic}}" src="#" alt="">
+        <div>Side Crash Rating: <span data-ng-bind-html="sideCrashRating"></span></div>
+        <div>Driver Side Rating: <span data-ng-bind-html="sideDriverSideRating"></span></div>
+        <div>Passenger Side Rating: <span data-ng-bind-html="sidePassengerSideRating"></span></div>
         <div class="last"></div>
-        <img id="sidepolecrashpic" ng-src="{{sidePoleCrashPic}}">
-        <div>Side Pole Crash Rating: <span ng-bind-html="sidePoleCrashRating"></span></div>
+        <img id="sidepolecrashpic" data-ng-src="{{sidePoleCrashPic}}" src="#" alt="">
+        <div>Side Pole Crash Rating: <span data-ng-bind-html="sidePoleCrashRating"></span></div>
       </div>
     </div>
   </div>

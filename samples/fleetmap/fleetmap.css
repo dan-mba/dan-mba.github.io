@@ -34,7 +34,7 @@ button {
   transition: all 0.5s;
 }
 
-button::focus {
+button:focus {
   color: #999;
   background: #111;
 }

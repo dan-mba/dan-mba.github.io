@@ -28,6 +28,17 @@ div {
   text-align:center;
 }
 
+button {
+  background: #999;
+  color: #111;
+  transition: all 0.5s;
+}
+
+button::focus {
+  color: #999;
+  background: #111;
+}
+
 img {
   display: block;
   text-align: center;

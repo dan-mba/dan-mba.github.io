@@ -7,7 +7,6 @@ var parentHeight;
 var repReg;
 
 $(function() {
-  $("#outdata").hide();
   $("#mdlyr").selectmenu({width:100});
   $("#vehmake").selectmenu({width:230});
   $("#vehmodel").selectmenu({width:320});

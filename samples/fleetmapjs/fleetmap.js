@@ -81,7 +81,7 @@ function initMap() {
     var marker = new google.maps.Marker({
       position: {lat: data.list[i].location.latitude, lng: data.list[i].location.longitude},
       map: map,
-      title: data.list[i].name.split(" ").slice(,-1).join(" ")
+      title: data.list[i].name.split(" ").slice(0,-1).join(" ")
     });
 }
 

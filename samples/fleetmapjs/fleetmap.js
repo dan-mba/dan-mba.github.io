@@ -69,7 +69,12 @@ function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: zoom,
     center: {lat: cntr[0], lng: cntr[1]},
-    mapTypeId: 'hybrid'
+    mapTypeId: 'hybrid',
+    fullscreenControl: false,
+    streetViewControl: false,
+    mapTypeControl: false,
+    maxZoom: 17,
+    minZoom: 5
   });
 }
 

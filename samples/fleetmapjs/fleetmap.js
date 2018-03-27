@@ -76,6 +76,13 @@ function initMap() {
     maxZoom: 17,
     minZoom: 5
   });
+  
+  for (var i=0; i <data.list.length; i++) {
+    var marker = new google.maps.Marker({
+      position: {lat: data.list[i].location.latitude, lng: data.list[i].location.longitude},
+      map: map,
+      title: data.list[i].name.split(" ").slice(,-1).join(" ")
+    });
 }
 
 function findmax(cntr, list){

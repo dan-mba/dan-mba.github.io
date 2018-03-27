@@ -3,7 +3,7 @@ var zoom=10;
 var colorlist = ["0xff0000",  "0xff8000", "0xffff00", "0x00ff00", "0x00ffff", "0x0000ff", "0x7f00ff", "0xff00ff", "0xffffff", "0x009900"];
 var coorlist = [];
 var cntr;
-var viewportWidth;
+var mapWidth;
 
 function initMap() {
 /*
@@ -12,7 +12,7 @@ function initMap() {
   var params = url.param();
 */
 
-  viewportWidth = $(window).width();
+  mapWidth = $("#map").width();
 
 /*
   var gps= url.param('gpsid');
@@ -62,7 +62,7 @@ function initMap() {
   cntr = getLatLngCenter(coorlist);
 
   var m = findmax(cntr,coorlist);
-  var z = Math.floor(-((Math.log(m/.375)/Math.log(2))-10));
+  var z = Math.floor(-((Math.log(m/(.375*mapWidth/600))/Math.log(2))-10));
   zoom = Math.min(17, z);
   zoom = Math.max(5, zoom);
 

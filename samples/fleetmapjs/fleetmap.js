@@ -83,6 +83,7 @@ function initMap() {
       map: map,
       title: data.list[i].name.split(" ").slice(0,-1).join(" ")
     });
+  }
 }
 
 function findmax(cntr, list){

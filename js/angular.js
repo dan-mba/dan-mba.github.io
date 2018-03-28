@@ -14,6 +14,12 @@ app.controller('MainController',
                     "so I could ensure all the items would be displayed on the initial map."
     },
     {
+      title: "GPS Javascript Fleet Map",
+      url: "samples/fleetmapjs/fleetmap.html",
+      source: "",
+      description: "This is an updated vrsion of the Static Fleet Map that uses the Google Maps Javascript API."
+    },
+    {
       title: "NHTSA Safety Ratings",
       url: "samples/nhtsa/nhtsa.html",
       source: "",

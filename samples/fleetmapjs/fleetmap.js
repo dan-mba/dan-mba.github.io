@@ -1,6 +1,7 @@
 var gpsid="";
 var zoom=10;
-var colorlist = ["0xff0000",  "0xff8000", "0xffff00", "0x00ff00", "0x00ffff", "0x0000ff", "0x7f00ff", "0xff00ff", "0xffffff", "0x009900"];
+var colorbase = "https://maps.google.com/mapfiles/ms/icons/"
+var colorlist = ["yellow","blue","green","ltblue","orange","pink","purple","red"];
 var coorlist = [];
 var cntr;
 var mapWidth;
@@ -81,7 +82,8 @@ function initMap() {
     var marker = new google.maps.Marker({
       position: {lat: data.list[i].location.latitude, lng: data.list[i].location.longitude},
       map: map,
-      title: data.list[i].name.split(" ").slice(0,-1).join(" ")
+      title: data.list[i].name.split(" ").slice(0,-1).join(" "),
+      icon: colorbase+colorlist[i%8]+"-dot.png"
     });
   }
 }

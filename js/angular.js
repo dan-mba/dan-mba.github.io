@@ -4,10 +4,14 @@ app.controller('MainController',
 ['$scope', function($scope) {
   $scope.apps = [
     {
-      title: "GPS Fleet Map",
+      title: "GPS Static Fleet Map",
       url: "samples/fleetmap/fleetmap.html",
       source: "",
-      description: "Google map of gps fleet data."
+      description: "I developed this application to take data from the GPS provider & display it on a map." +
+                    "This app uses the Google Static Maps API. I used this API because at the time it could be used without a key." +
+                    "Because the maps this API provides are static images, I had to devlop an interface to allow you to zoom & move arround the map." +
+                    "I also needed to determine the geographical center of the coordinates and the maximum latitude & longitude distance from the center," +
+                    "so I could ensure all the items would be displayed on the initial map."
     },
     {
       title: "NHTSA Safety Ratings",

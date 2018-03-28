@@ -8,22 +8,27 @@ app.controller('MainController',
       url: "samples/fleetmap/fleetmap.html",
       source: "",
       description: "I developed this application to take data from the GPS provider & display it on a map. " +
-                    "This app uses the Google Static Maps API. I used this API because at the time it could be used without a key. " +
-                    "Because the maps this API provides are static images, I had to devlop an interface to allow you to zoom & move arround the map. " +
-                    "I also needed to determine the geographical center of the coordinates and the maximum latitude & longitude distance from the center, " +
-                    "so I could ensure all the items would be displayed on the initial map."
+                  "This app uses the Google Static Maps API. I used this API because at the time it could be used without a key. " +
+                  "Because the maps this API provides are static images, I had to devlop an interface to allow you to zoom " +
+                  "& move arround the map. I also needed to determine the geographical center of the coordinates " +
+                  "and the maximum latitude & longitude distance from the center, " +
+                  "so I could ensure all the items would be displayed on the initial map."
     },
     {
       title: "GPS Javascript Fleet Map",
       url: "samples/fleetmapjs/fleetmap.html",
       source: "",
-      description: "This is an updated vrsion of the Static Fleet Map that uses the Google Maps Javascript API."
+      description: "This is an updated version of the Static Fleet Map that uses the Google Maps Javascript API."
     },
     {
       title: "NHTSA Safety Ratings",
       url: "samples/nhtsa/nhtsa.html",
       source: "",
-      description: "Application to display data from the NHTSA Saftey Rating API"
+      description: "I developed this application as I was learning how to access REST APIs. " +
+                  "This application acceseses data from the NHTSA 5 Star Safety Ratings API and " +
+                  "displays the available data for the vehicle model selected. " +
+                  "I recently updatded the app to use jQueryUI stylized select menus for a more modern look " +
+                  "& AngularJS for improved formatting & code readability."
     }
   ];
 }]);

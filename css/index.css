@@ -156,6 +156,12 @@ h1 {
   margin: 10px 5px;
 }
 
+@media (max-width:700px) {
+  #home div.list {
+    margin: 0 5px;
+  }
+}
+
 /*
     Experince Tab
 */
@@ -429,7 +435,7 @@ iframe {
   }
  
   #contact p {
-    margin-top: 15px;
+    margin: 15px 5px 0;
   }
   
   #contact.active {

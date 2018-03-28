@@ -85,6 +85,17 @@ function initMap() {
       title: data.list[i].name.split(" ").slice(0,-1).join(" "),
       icon: colorbase+colorlist[i%8]+"-dot.png"
     });
+    
+    var dialog = '<div class="machine">' + data.list[i].name.split(" ").slice(0,-1).join(" ") + "</div>" +
+        '<div class="serial">' + data.list[i].name.split(" ").slice(-1) + "</div>" +
+        '<div class="link"><a href="https://maps.google.com/?q=' + data.list[i].location.latitude + "," + data.list[i].location.longitude + '" target="_blank">' +
+        'Open Map in New Tab</a></div>';
+    var infowindow = new google.maps.InfoWindow({
+      content: dialog
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map,marker);
+    });
   }
 }
 

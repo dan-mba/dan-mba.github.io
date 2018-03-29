@@ -369,7 +369,7 @@ button.ui-button {
   float: left;
 }
 
-a.ui-button {
+button.source {
   float: right;
 }
 

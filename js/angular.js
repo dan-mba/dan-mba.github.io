@@ -45,9 +45,10 @@ app.directive('codeSample', function() {
     },
     templateUrl: 'js/codeSample.html',
     link: function(scope, element, attrs) {
-      scope.showCode = function (url) {
+      scope.showCode = function (url, isSource) {
         /* IE will not display in iframes correctly, so I open apps in a new tab */
-        if(isIE != 0) {
+        /* The same codes is used to open source links to fix a stuck focus when using anchor links */
+        if((isIE != 0) || isSource) {
           $("#code button").blur();
           var win = window.open(url,"_blank");
           win.focus();
@@ -63,9 +64,6 @@ app.directive('codeSample', function() {
           });
           $("#samples iframe").attr('src',url);
         }
-      };
-      scope.clearButton = function() {
-        $("#code a").blur();
       };
     }
   };

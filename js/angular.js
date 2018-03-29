@@ -64,6 +64,9 @@ app.directive('codeSample', function() {
           $("#samples iframe").attr('src',url);
         }
       };
+      scope.clearButton = function() {
+        $("#code a").blur();
+      }
     }
   };
 });

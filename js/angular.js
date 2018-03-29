@@ -19,7 +19,7 @@ app.controller('MainController',
       url: "samples/fleetmapjs/fleetmap.html",
       source: "",
       description: "This is an updated version of the Static Fleet Map that uses the Google Maps Javascript API. " +
-                  "I created this after finding out Google updated their maps API TOS to require a key for all usage. " +
+                  "I created this after finding out Google updated their Maps API TOS to require a key for all usage. " +
                   "Using the Javascript API allowed me to create a map with clickable location markers to display the " +
                   "relevant data right on the map in an info bubble."
       

@@ -66,7 +66,7 @@ app.directive('codeSample', function() {
       };
       scope.clearButton = function() {
         $("#code a").blur();
-      }
+      };
     }
   };
 });

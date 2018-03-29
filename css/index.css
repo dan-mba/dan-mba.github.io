@@ -357,6 +357,10 @@ a.ui-button, button.ui-button {
   padding: 0.3em;
 }
 
+a:link.ui-button {
+  color: inherit;
+}
+
 button.ui-button {
   float: left;
 }

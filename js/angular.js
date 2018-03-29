@@ -18,7 +18,11 @@ app.controller('MainController',
       title: "GPS Javascript Fleet Map",
       url: "samples/fleetmapjs/fleetmap.html",
       source: "",
-      description: "This is an updated version of the Static Fleet Map that uses the Google Maps Javascript API."
+      description: "This is an updated version of the Static Fleet Map that uses the Google Maps Javascript API. " +
+                  "I created this after finding out Google updated their maps API TOS to require a key for all usage. " +
+                  "Using the Javascript API allowed me to create a map with clickable location markers to display the " +
+                  "relevant data right on the map in an info bubble."
+      
     },
     {
       title: "NHTSA Safety Ratings",

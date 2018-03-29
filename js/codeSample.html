@@ -2,6 +2,6 @@
   <legend>{{ info.title }}</legend>
   <p>{{ info.description }}</p>
   <button class="ui-button ui-widget ui-corner-all" ng-click="showCode(info.url)">App</button>
-  <a class="ui-button ui-widget ui-corner-all" ng-href="{{info.source}}" target="_blank">Source Code</a>
+  <a class="ui-button ui-widget ui-corner-all" ng-href="{{info.source}}" ng-click="clearButton" target="_blank">Source Code</a>
   <div class="clear"></div>
 </fieldset>

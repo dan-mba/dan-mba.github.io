@@ -357,8 +357,8 @@ a.ui-button, button.ui-button {
   padding: 0.3em;
 }
 
-a:link.ui-button {
-  color: inherit;
+a.ui-button:link {
+  color: #eee;
 }
 
 button.ui-button {

@@ -27,7 +27,7 @@ app.controller('MainController',
     {
       title: "NHTSA Safety Ratings",
       url: "samples/nhtsa/nhtsa.html",
-      source: "https://github.com/dan-mba/dan-mba.github.io/tree/master/samples/nhtsa",
+      source: "//github.com/dan-mba/dan-mba.github.io/tree/master/samples/nhtsa",
       description: "I developed this application as I was learning how to access REST APIs. " +
                   "This application accesses data from the NHTSA 5 Star Safety Ratings API and " +
                   "displays the available data for the vehicle model selected. " +

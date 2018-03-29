@@ -1,7 +1,7 @@
 <fieldset>
   <legend>{{ info.title }}</legend>
   <p>{{ info.description }}</p>
-  <button class="ui-button ui-widget ui-corner-all" ng-click="showCode(info.url)">App</button>
-  <a class="ui-button ui-widget ui-corner-all" ng-href="{{info.source}}" ng-click="clearButton" target="_blank">Source Code</a>
+  <button class="ui-button ui-widget ui-corner-all" ng-click="showCode(info.url,false)">App</button>
+  <button class="ui-button ui-widget ui-corner-all" ng-click="showCode(info.source,true)">Source Code</a>
   <div class="clear"></div>
 </fieldset>

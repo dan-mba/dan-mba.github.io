@@ -6,7 +6,7 @@ app.controller('MainController',
     {
       title: "GPS Static Fleet Map",
       url: "samples/fleetmap/fleetmap.html",
-      source: "",
+      source: "//github.com/dan-mba/dan-mba.github.io/tree/master/samples/fleetmap",
       description: "I developed this application to take data from the GPS provider & display it on a map. " +
                   "This app uses the Google Static Maps API. I used this API because at the time it could be used without a key. " +
                   "Because the maps this API provides are static images, I had to develop an interface to allow you to zoom " +
@@ -17,7 +17,7 @@ app.controller('MainController',
     {
       title: "GPS JavaScript Fleet Map",
       url: "samples/fleetmapjs/fleetmap.html",
-      source: "",
+      source: "//github.com/dan-mba/dan-mba.github.io/tree/master/samples/fleetmapjs",
       description: "This is an updated version of the Static Fleet Map that uses the Google Maps JavaScript API. " +
                   "I created this after finding out Google updated their Maps API TOS to require a key for all usage. " +
                   "Using the JavaScript API allowed me to create a map with clickable location markers to display the " +
@@ -27,7 +27,7 @@ app.controller('MainController',
     {
       title: "NHTSA Safety Ratings",
       url: "samples/nhtsa/nhtsa.html",
-      source: "",
+      source: "https://github.com/dan-mba/dan-mba.github.io/tree/master/samples/nhtsa",
       description: "I developed this application as I was learning how to access REST APIs. " +
                   "This application accesses data from the NHTSA 5 Star Safety Ratings API and " +
                   "displays the available data for the vehicle model selected. " +

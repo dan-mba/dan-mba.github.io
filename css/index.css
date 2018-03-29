@@ -357,8 +357,12 @@ a.ui-button, button.ui-button {
   padding: 0.3em;
 }
 
-a.ui-button:link {
+a.ui-button:link, a.ui-button:visited {
   color: #eee;
+}
+
+a.ui-button:hover, a.ui-button:focus, a.ui-button:active {
+  color: #212121;
 }
 
 button.ui-button {

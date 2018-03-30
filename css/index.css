@@ -332,8 +332,8 @@ fieldset {
 }
 
 legend {
-  width: 290px;
-  margin-left: calc(50% - 145px);
+  width: 300px;
+  margin-left: calc(50% - 150px);
   font-weight: bold;
   font-family: Verdana, Arial, sans-serif;
   font-size: 1.2em;

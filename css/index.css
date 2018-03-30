@@ -332,8 +332,8 @@ fieldset {
 }
 
 legend {
-  width: 12em;
-  margin-left: calc(50% - 125px);
+  width: 13em;
+  margin-left: calc(50% - 6.5em);
   font-weight: bold;
   font-size: 1.3em;
   line-height: 1.4em;
@@ -348,21 +348,13 @@ fieldset p {
   margin-bottom: 0.5em;
 }
 
-a.ui-button, button.ui-button {
+button.ui-button {
   background-color: #303030;
   background-image: url("//download.jqueryui.com/themeroller/images/ui-bg_highlight-soft_35_222222_1x100.png");
   color: #eee;
   border-color: #303030;
   font-size: 1em;
   padding: 0.3em;
-}
-
-a.ui-button:link, a.ui-button:visited {
-  color: #eee;
-}
-
-a.ui-button:hover, a.ui-button:focus, a.ui-button:active {
-  color: #212121;
 }
 
 button.ui-button {

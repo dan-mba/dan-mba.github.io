@@ -53,7 +53,8 @@ $(function() {
     $("#topnav a[href='" + window.location.hash + "']").parent().addClass("active");
     $(window.location.hash).addClass("active");
   }
-  $(document).on("visibilitychange mozvisibilitychange webkitvisibilitychange", function() {
+  
+  $(window).unload(function() {
     $("#code button").blur();
   });
 });

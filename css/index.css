@@ -349,7 +349,7 @@ fieldset p {
   margin-bottom: 0.5em;
 }
 
-button.ui-button {
+button.ui-button, #code button.touch {
   background-color: #303030;
   background-image: url("//download.jqueryui.com/themeroller/images/ui-bg_highlight-soft_35_222222_1x100.png");
   color: #eee;
@@ -370,6 +370,8 @@ button.source {
   clear: both;
 }
 
+#code button.touch {
+  color:inherit;
 /*
     Samples frame
 */

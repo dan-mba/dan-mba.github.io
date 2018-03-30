@@ -335,6 +335,7 @@ legend {
   width: 13em;
   margin-left: calc(50% - 6.5em);
   font-weight: bold;
+  font-family: Verdana, Arial, sans-serif;
   font-size: 1.3em;
   line-height: 1.4em;
   background: #303030 url("//download.jqueryui.com/themeroller/images/ui-bg_highlight-soft_35_222222_1x100.png") 50% 50% repeat-x;

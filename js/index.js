@@ -53,4 +53,8 @@ $(function() {
     $("#topnav a[href='" + window.location.hash + "']").parent().addClass("active");
     $(window.location.hash).addClass("active");
   }
+  
+  $(window).one('touchstart', function() {
+    $("#code button").addClass('touch');
+  });
 });

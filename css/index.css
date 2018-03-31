@@ -332,8 +332,8 @@ fieldset {
 }
 
 legend {
-  width: 300px;
-  margin-left: calc(50% - 150px);
+  width: 260px;
+  margin-left: calc(50% - 130px);
   font-weight: bold;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 1.2em;
@@ -347,6 +347,7 @@ legend {
 
 fieldset p {
   margin-bottom: 0.5em;
+  font-family: 'IBM Plex Serif', serif;
 }
 
 button.ui-button, #code button.touch {

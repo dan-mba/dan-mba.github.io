@@ -232,7 +232,7 @@ h1 {
 
 /* jQuery UI Accordion options */
 #experience .ui-widget {
-  font-family: inherit;
+  font-family: 'Times New Roman', serif;
   font-size: inherit;
   line-height: inherit;
 }

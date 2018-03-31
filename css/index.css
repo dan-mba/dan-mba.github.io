@@ -26,7 +26,7 @@ Navagation Bar Settings
 nav {
   background-color: #303030;
   color: #eee;
-  font-family: 'Roboto Condensed', serif;
+  font-family: 'Roboto Condensed', sans-serif;
   
   position: fixed;
   top: 0;
@@ -192,7 +192,7 @@ h1 {
 }
 
 #experience span.jobtitle {
-  font-family: 'Roboto Condensed', serif;
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: 1.1em;
   font-weight: bold;
 }
@@ -232,7 +232,7 @@ h1 {
 
 /* jQuery UI Accordion options */
 #experience .ui-widget {
-  font-family: 'Times New Roman', serif;
+  font-family: 'IBM Plex Serif', serif;
   font-size: inherit;
   line-height: inherit;
 }
@@ -244,7 +244,7 @@ h1 {
   color: inherit;
   background: inherit;
   font-weight: bold;
-  font-family: 'Roboto Condensed', serif;
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: 1.05em;
 }
 
@@ -282,7 +282,7 @@ h1 {
 }
 
 #education span.degree {
-  font-family: 'Roboto Condensed', serif;
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: 1.1em;
   font-weight: bold;
 }
@@ -335,7 +335,7 @@ legend {
   width: 300px;
   margin-left: calc(50% - 150px);
   font-weight: bold;
-  font-family: Verdana, Arial, sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: 1.2em;
   line-height: 1.4em;
   background: #303030 url("//download.jqueryui.com/themeroller/images/ui-bg_highlight-soft_35_222222_1x100.png") 50% 50% repeat-x;

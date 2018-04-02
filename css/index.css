@@ -156,6 +156,10 @@ h1 {
   margin: 10px 5px;
 }
 
+#home a, #home a:link, #home a:visited {
+  color: #111;
+}
+
 @media (max-width:700px) {
   #home div.list {
     margin: 0 5px;

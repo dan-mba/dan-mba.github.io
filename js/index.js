@@ -20,7 +20,9 @@ $(function() {
     $("#samples iframe").attr('src','');
     
     /* Google Analytics */
-    ga('set', 'page', $(this).data("id").slice(1));
+    var pagename = $this.data("id").slice(1);
+    if (pagename == "#home") pagename = "";
+    ga('set', 'page', pagename);
     ga('send','pageview')
   });
   
@@ -58,7 +60,9 @@ $(function() {
     $(window.location.hash).addClass("active");
     
     /* Google Analytics */
-    ga('set', 'page', window.location.hash.slice(1));
+    var pagename = window.location.hash.slice(1);
+    if (pagename == "#home") pagename = "";
+    ga('set', 'page', pagename);
     ga('send','pageview')
   }
   

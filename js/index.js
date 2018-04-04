@@ -20,7 +20,7 @@ $(function() {
     $("#samples iframe").attr('src','');
     
     /* Google Analytics */
-    var pagename = $this.data("id").slice(1);
+    var pagename = $(this).data("id").slice(1);
     if (pagename == "#home") pagename = "";
     ga('set', 'page', pagename);
     ga('send','pageview')

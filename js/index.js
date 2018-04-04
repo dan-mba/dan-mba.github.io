@@ -18,6 +18,10 @@ $(function() {
     $("#sampback").removeClass("active");
     $("#samples iframe").off();
     $("#samples iframe").attr('src','');
+    
+    /* Google Analytics */
+    ga('set', 'page', $(this).data("id").slice(1));
+    ga('send','pageview')
   });
   
   /*
@@ -52,6 +56,10 @@ $(function() {
     });    
     $("#topnav a[href='" + window.location.hash + "']").parent().addClass("active");
     $(window.location.hash).addClass("active");
+    
+    /* Google Analytics */
+    ga('set', 'page', window.location.hash.slice(1));
+    ga('send','pageview')
   }
   
   $(window).one('touchstart', function() {

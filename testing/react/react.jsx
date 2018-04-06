@@ -1,10 +1,10 @@
-var Greeting = React.createClass({
-  render: function() {
+class Greeting extends React.Component{
+  render() {
     return (
       <p>Hello World</p>
-    )
+    );
   }
-});
+}
 
 ReactDOM.render(
   <Greeting/>,

@@ -8,5 +8,5 @@ class Greeting extends React.Component{
 
 ReactDOM.render(
   <Greeting/>,
-  document.getElement.ById('main-div')
+  document.getElementById('main-div')
 );

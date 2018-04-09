@@ -93,7 +93,7 @@ app.directive('codeSample', function() {
       };
       
       if (scope.info.apiname) {
-        scope.info.description += "<br/><a href='" + scope.info.apisite + "' target='_blank'>" + 
+        scope.info.description += "<br/>API: <a href='" + scope.info.apisite + "' target='_blank'>" + 
           scope.info.apiname + "</a>";
       }
     }

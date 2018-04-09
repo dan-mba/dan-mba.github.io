@@ -65,6 +65,8 @@ app.directive('codeSample', function() {
           $("#samples iframe").attr('src',url);
         }
       };
+      
+      scope.description += " Test!";
     }
   };
 });

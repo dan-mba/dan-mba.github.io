@@ -1,4 +1,4 @@
-var app = angular.module('ResumeApp', []);
+var app = angular.module('ResumeApp', ['ngSanitize']);
 var libraries = {
   angularjs : {
     name: "AngularJS 1.x",

@@ -96,6 +96,18 @@ app.directive('codeSample', function() {
         scope.info.description += "<br/>API: <a href='" + scope.info.apisite + "' target='_blank'>" + 
           scope.info.apiname + "</a>";
       }
+      
+      if (scope.info.libraries.length) {
+        if (scope.info.libraries.length > 1) {
+          scope.info.description += "<br/>Libraries: ";
+        } else {
+          scope.info.description += "<br/>Library: ";
+        }
+        for(var i=0; i < scope.info.libraries.length; i++) {
+          if(i>0) scope.info.description += ", ";
+          scope.info.description += "<a href='" + libraries[scope.info.libraries[i]].site + "' target='_blank'>" +
+            libraries[scope.info.libraries[i]].name + "</a>";
+        }
     }
   };
 });

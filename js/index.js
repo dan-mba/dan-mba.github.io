@@ -22,6 +22,7 @@ $(function() {
     /* Google Analytics */
     var pagename = $(this).data("id").slice(1);
     if (pagename == "home") pagename = "";
+    console.log("Click");
     ga('set', 'page', pagename);
     ga('send','pageview')
   });
@@ -64,6 +65,7 @@ $(function() {
     if (pagename == "home") pagename = "";
     ga('set', 'page', pagename);
     ga('send','pageview');
+    console.log("hash");
   }
   
   $(window).one('touchstart', function() {

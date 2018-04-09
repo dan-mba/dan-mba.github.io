@@ -66,7 +66,7 @@ app.directive('codeSample', function() {
         }
       };
       
-      scope.description += " Test!";
+      scope.info.description += " Test!";
     }
   };
 });

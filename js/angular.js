@@ -1,4 +1,22 @@
 var app = angular.module('ResumeApp', []);
+var libraries = {
+  angularjs : {
+    name: "AngularJS 1.x",
+    site: "//angularjs.org/"
+  },
+  fontawesome : {
+    name: "Font Awecome",
+    site: "//fontawesome.com/"
+  },
+  jquery : {
+    name: "jQuery",
+    site: "//jquery.com/"
+  },
+  jqueryui : {
+    name: "jQuery UI",
+    site: "//jqueryui.com/"
+  }
+};
 
 app.controller('MainController',
 ['$scope', function($scope) {
@@ -12,7 +30,10 @@ app.controller('MainController',
                   "Because the maps this API provides are static images, I had to develop an interface to allow you to zoom " +
                   "& move around the map. I also needed to determine the geographical center of the coordinates " +
                   "and the maximum latitude & longitude distance from the center, " +
-                  "so I could ensure all the items would be displayed on the initial map."
+                  "so I could ensure all the items would be displayed on the initial map.",
+      apiname: "Google Static Maps API",
+      apisite: "//developers.google.com/maps/documentation/static-maps/",
+      libraries: ['jquery']
     },
     {
       title: "GPS JavaScript Fleet Map",
@@ -21,8 +42,10 @@ app.controller('MainController',
       description: "This is an updated version of the Static Fleet Map that uses the Google Maps JavaScript API. " +
                   "I created this after finding out Google updated their Maps API TOS to require a key for all usage. " +
                   "Using the JavaScript API allowed me to create a map with clickable location markers to display the " +
-                  "relevant data right on the map in an info bubble."
-      
+                  "relevant data right on the map in an info bubble.",
+      apiname: "Google Maps JavaScript API",
+      apisite: "//developers.google.com/maps/documentation/javascript/",
+      libraries: []
     },
     {
       title: "NHTSA Safety Ratings",
@@ -32,7 +55,10 @@ app.controller('MainController',
                   "This application accesses data from the NHTSA 5 Star Safety Ratings API and " +
                   "displays the available data for the vehicle model selected. " +
                   "I recently updated the app to use jQueryUI stylized select menus for a more modern look " +
-                  "& AngularJS for improved formatting & code readability."
+                  "& AngularJS for improved formatting & code readability.",
+      apiname: "NHTSA NCAP - 5 Star Safety Ratings API",
+      apisite: "https://one.nhtsa.gov/webapi/Default.aspx?SafetyRatings/API/5",
+      libraries: ['jquery','jqueryui','angularjs','fontawesome']
     }
   ];
 }]);
@@ -66,7 +92,10 @@ app.directive('codeSample', function() {
         }
       };
       
-      scope.info.description += " Test!";
+      if (scope.info.apiname) {
+        scope.info.description += "<br/><a href='" + scope.info.apisite + "' target='_blank'>" + 
+          scope.info.apiname + "</a>";
+      }
     }
   };
 });

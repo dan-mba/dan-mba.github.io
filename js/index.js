@@ -21,7 +21,7 @@ $(function() {
     
     /* Google Analytics */
     var pagename = $(this).data("id").slice(1);
-    if (pagename == "#home") pagename = "";
+    if (pagename == "home") pagename = "";
     ga('set', 'page', pagename);
     ga('send','pageview')
   });
@@ -61,9 +61,9 @@ $(function() {
     
     /* Google Analytics */
     var pagename = window.location.hash.slice(1);
-    if (pagename == "#home") pagename = "";
+    if (pagename == "home") pagename = "";
     ga('set', 'page', pagename);
-    ga('send','pageview')
+    ga('send','pageview');
   }
   
   $(window).one('touchstart', function() {

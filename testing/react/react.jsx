@@ -29,7 +29,7 @@ class Year extends React.Component{
       }
       
       this.setState({ isLoaded: true, years : newYears });
-    });
+    }.bind(this));
   }
   
   render() {

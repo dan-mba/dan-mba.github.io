@@ -18,7 +18,7 @@ class Year extends React.Component{
   }
   
   componentDidMount(){
-    var xhr = $.ajax({ url: endpoint+datatype.
+    var xhr = $.ajax({ url: endpoint+datatype,
                        dataType: 'jsonp'
                     });
     xhr.done( function(data) {

@@ -47,7 +47,7 @@ class Year extends React.Component{
         id="year"
         onChange={this.handleChange}>
         
-        <option value="">Year:</value>
+        <option value="">Year:</option>
         {modelYears}
       </select>
     );

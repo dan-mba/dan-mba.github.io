@@ -25,7 +25,7 @@ class Year extends React.Component{
       var newYears = [];
       
       for(var i=0; i < data.Count; i++) {
-        newYears.push(data.results[i].ModelYear);
+        newYears.push(data.Results[i].ModelYear);
       }
       
       this.setState({ isLoaded: true, years : newYears });

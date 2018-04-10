@@ -12,7 +12,7 @@ class Year extends React.Component{
     this.handleChange = this.handleChange.bind(this);
   }
   
-  handleCahnge(e){
+  handleChange(e){
     const year = e.target.value;
     this.props.onChange(year);
   }

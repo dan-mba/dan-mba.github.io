@@ -205,7 +205,7 @@ class Vehicle extends React.Component{
       (year.length == 0) || (make.length == 0) || (model.length == 0)) return;
     
     var self = this;
-    var xhr = $.ajax({ url: endpoint+'/modelyear/'+year+'/make/'+make+datatype,
+    var xhr = $.ajax({ url: endpoint+'/modelyear/'+year+'/make/'+make+'/model/'+model+datatype,
                        dataType: 'jsonp',
                        year: year,
                        make: make,

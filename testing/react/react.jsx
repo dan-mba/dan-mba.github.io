@@ -215,7 +215,7 @@ class campaign extends React.Component{
     const pStyle = {whiteSpace: 'pre'};
     return (
       <p style={pStyle}>
-        {this.campaigns}
+        {this.state.campaigns}
       </p>
     );
   } 

@@ -139,7 +139,7 @@ class Model extends React.Component{
     
     var self = this;
     var xhr = $.ajax({ url: endpoint+'/modelyear/'+year+'/make/'+make+datatype,
-                       dataType: 'jsonp'
+                       dataType: 'jsonp',
                        year: year,
                        make: make
                     });

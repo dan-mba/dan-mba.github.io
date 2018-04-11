@@ -143,7 +143,7 @@ class Model extends React.Component{
                        year: year,
                        make: make
                     });
-    xhr.done( function(data,self) {
+    xhr.done( function(data) {
       var newModels = [];
       
       for(var i=0; i < data.Count; i++) {
@@ -184,6 +184,7 @@ class Recall extends React.Component{
     this.state = { year: "", make: "", model: "" }
     this.changeYear = this.changeYear.bind(this);
     this.changeMake = this.changeMake.bind(this);
+    this.changeModel = this.changeModel.bind(this);
   }
   
   changeYear(newYear) {

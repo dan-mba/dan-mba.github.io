@@ -171,7 +171,7 @@ class Model extends React.Component{
         onChange={this.handleChange}>
         
         <option value="">Model:</option>
-        {makes}
+        {models}
       </select>
     );
   } 

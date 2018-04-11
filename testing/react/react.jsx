@@ -177,7 +177,7 @@ class Model extends React.Component{
   } 
 }
 
-class campaign extends React.Component{
+class Campaign extends React.Component{
   constructor(props) {
     super(props);
     this.state = {

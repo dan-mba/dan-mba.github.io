@@ -143,7 +143,7 @@ class Model extends React.Component{
                        year: year,
                        make: make
                     });
-    xhr.done( function(data) {
+    xhr.done( function(data,self) {
       var newModels = [];
       
       for(var i=0; i < data.Count; i++) {

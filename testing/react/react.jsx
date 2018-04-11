@@ -54,22 +54,83 @@ class Year extends React.Component{
   } 
 }
 
+
+class Make extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoaded : false,
+      makes : []
+    };
+    
+    this.handleChange = this.handleChange.bind(this);
+  }
+  
+  handleChange(e){
+    const make = e.target.value;
+    this.props.onChange(make);
+  }
+  
+  componentDidMount(){
+    const year = this.props.year;
+    var xhr = $.ajax({ url: endpoint+'/modelyear/'+year+datatype,
+                       dataType: 'jsonp'
+                    });
+    xhr.done( function(data) {
+      var newMakes = [];
+      
+      for(var i=0; i < data.Count; i++) {
+        newMakes.push(data.Results[i].Make);
+      }
+      
+      this.setState({ isLoaded: true, makes : newMakes });
+    }.bind(this));
+  }
+  
+  render() {
+    var makes = [];
+    if(this.state.isLoaded) {
+      makes = this.state.makes.map((make) =>
+        <option value={make.replace('/&/g','_')} key={make}>
+          {make}
+        </option>
+      );
+    }
+    
+    return (
+      <select
+        id="make"
+        onChange={this.handleChange}>
+        
+        <option value="">Make:</option>
+        {makes}
+      </select>
+    );
+  } 
+}
+
 class Recall extends React.Component{
   constructor(props) {
     super(props);
     
-    this.state = { year: "" }
-    this.changeYear = this.changeYear.bind(this)
+    this.state = { year: "", make: "", model: "" }
+    this.changeYear = this.changeYear.bind(this);
+    this.changeMake = this.changeMake.bind(this);
   }
   
   changeYear(newYear) {
     this.setState({ year: newYear});
   }
   
+  changeMake(newMake) {
+    this.setState({make: newMake});
+  }
+  
   render() {
     return (
       <div>
         <Year onChange={this.changeYear} />
+        <Make onChange={this.changeMake} year={this.state.year} />
       </div>
     );
   }

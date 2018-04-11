@@ -150,14 +150,14 @@ class Model extends React.Component{
         newModels.push(data.Results[i].Model);
       }
       
-      self.setState({ isLoaded: true, modelss : newModels, year: this.year, make: this.make });
+      self.setState({ isLoaded: true, models : newModels, year: this.year, make: this.make });
     });
   }
   
   render() {
     var models = [];
     if(this.state.isLoaded && (this.props.year == this.state.year) && (this.props.model == this.state.model)) {
-      models = this.state.modelss.map((model) =>
+      models = this.state.models.map((model) =>
         <option value={model.replace('/&/g','_')} key={model}>
           {model}
         </option>
@@ -218,7 +218,7 @@ class Vehicle extends React.Component{
         newVehicles.push([data.Results[i].VehicleDescription,data.Results[i].VehicleId]);
       }
       
-      self.setState({ isLoaded: true, modelss : newModels, year: this.year, make: this.make, model: this.model });
+      self.setState({ isLoaded: true, vehicles : newVehicles, year: this.year, make: this.make, model: this.model });
     });
   }
   

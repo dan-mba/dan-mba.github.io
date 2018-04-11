@@ -215,7 +215,7 @@ class Vehicle extends React.Component{
       var newVehicles = [];
       
       for(var i=0; i < data.Count; i++) {
-        newVehicles.push([data.Results[i].VehicleDescription,data.Results[i].VehicleId]);
+        newVehicles.push({name: data.Results[i].VehicleDescription,id: data.Results[i].VehicleId});
       }
       
       self.setState({ isLoaded: true, vehicles : newVehicles, year: this.year, make: this.make, model: this.model });
@@ -227,8 +227,8 @@ class Vehicle extends React.Component{
     if(this.state.isLoaded && (this.props.year == this.state.year) && (this.props.model == this.state.model) &&
       (this.props.model == this.state.model)) {
       vehicles = this.state.vehicles.map((vehicle) =>
-        <option value={vehicle[1]} key={vehicle[1]}>
-          {vehicle[0]}
+        <option value={vehicle.id} key={vehicle.id}>
+          {vehicle.name}
         </option>
       );
     }

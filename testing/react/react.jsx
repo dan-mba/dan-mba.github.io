@@ -71,7 +71,7 @@ class Make extends React.Component{
     this.props.onChange(make);
   }
   
-  componentDidMount(){
+  componentDidUpdate(){
     const year = this.props.year;
     var xhr = $.ajax({ url: endpoint+'/modelyear/'+year+datatype,
                        dataType: 'jsonp'

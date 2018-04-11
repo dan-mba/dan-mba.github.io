@@ -91,7 +91,7 @@ class Make extends React.Component{
   
   render() {
     var makes = [];
-    if(this.state.isLoaded) {
+    if(this.state.isLoaded &&(this.props.year == this.state.year) {
       makes = this.state.makes.map((make) =>
         <option value={make.replace('/&/g','_')} key={make}>
           {make}
@@ -121,7 +121,7 @@ class Recall extends React.Component{
   }
   
   changeYear(newYear) {
-    this.setState({ year: newYear});
+    this.setState({ year: newYear, make: ""});
   }
   
   changeMake(newMake) {

@@ -177,7 +177,7 @@ class Model extends React.Component{
   } 
 }
 
-class Vehicle extends React.Component{
+class campaign extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -185,15 +185,8 @@ class Vehicle extends React.Component{
       year: "",
       make: "",
       model: "",
-      vehicles : []
+      campaigns : ""
     };
-    
-    this.handleChange = this.handleChange.bind(this);
-  }
-  
-  handleChange(e){
-    const vehicle = e.target.value;
-    this.props.onChange(vehicle);
   }
   
   componentDidUpdate(){
@@ -212,36 +205,17 @@ class Vehicle extends React.Component{
                        model: model
                     });
     xhr.done( function(data) {
-      var newVehicles = [];
+      var newCampaigns =JSON.stringify(data.Results, null, 2);
       
-      for(var i=0; i < data.Count; i++) {
-        newVehicles.push({name: data.Results[i].VehicleDescription,id: data.Results[i].VehicleId});
-      }
-      
-      self.setState({ isLoaded: true, vehicles : newVehicles, year: this.year, make: this.make, model: this.model });
+      self.setState({ isLoaded: true, campaigns : newCampaigns, year: this.year, make: this.make, model: this.model });
     });
   }
   
   render() {
-    var vehicles = [];
-    if(this.state.isLoaded && (this.props.year == this.state.year) && (this.props.model == this.state.model) &&
-      (this.props.model == this.state.model)) {
-      vehicles = this.state.vehicles.map((vehicle) =>
-        <option value={vehicle.id} key={vehicle.id}>
-          {vehicle.name}
-        </option>
-      );
-    }
-    
     return (
-      <select
-        id="vehicle"
-        defaultValue=""
-        onChange={this.handleChange}>
-        
-        <option value="">Vehicle:</option>
-        {vehicles}
-      </select>
+      <p style={white-space: 'pre'}>
+        {this.campaigns}
+      </p>
     );
   } 
 }
@@ -250,27 +224,22 @@ class Recall extends React.Component{
   constructor(props) {
     super(props);
     
-    this.state = { year: "", make: "", model: "", vehicle: "" }
+    this.state = { year: "", make: "", model: ""}
     this.changeYear = this.changeYear.bind(this);
     this.changeMake = this.changeMake.bind(this);
     this.changeModel = this.changeModel.bind(this);
-    this.changeVehicle = this.changeVehicle.bind(this);
   }
   
   changeYear(newYear) {
-    this.setState({ year: newYear, make: "", model: "", vehicle: ""});
+    this.setState({ year: newYear, make: "", model: ""});
   }
   
   changeMake(newMake) {
-    this.setState({make: newMake, model: "", vehicle: ""});
+    this.setState({make: newMake, model: ""});
   }
   
   changeModel(newModel) {
-    this.setState({model: newModel, vehicle: ""});
-  }
-  
-  changeVehicle(newVehicle) {
-    this.setState({vehicle: newVehicle});
+    this.setState({model: newModel});
   }
   
   render() {
@@ -279,7 +248,7 @@ class Recall extends React.Component{
         <Year onChange={this.changeYear} />
         <Make onChange={this.changeMake} year={this.state.year} />
         <Model onChange={this.changeModel} year={this.state.year} make={this.state.make} />
-        <Vehicle onChange={this.changeVehicle} year={this.state.year} make={this.state.make} model={this.state.model} />
+        <Campaign year={this.state.year} make={this.state.make} model={this.state.model} />
       </div>
     );
   }

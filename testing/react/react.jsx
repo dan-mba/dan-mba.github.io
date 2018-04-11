@@ -194,8 +194,11 @@ class Campaign extends React.Component{
     const make = this.props.make;
     const model = this.props.model;
     
-    if((this.state.isLoaded && (year == this.state.year) && (make == this.state.make) && (model == this.state.model)) || 
-      (year.length == 0) || (make.length == 0) || (model.length == 0)) return;
+    if(this.state.isLoaded && (year == this.state.year) && (make == this.state.make) && (model == this.state.model)) return;
+    if((year.length == 0) || (make.length == 0) || (model.length == 0)) {
+      this.setState({ isLoaded: false, campaigns: ""});
+      return;
+    }
     
     var self = this;
     var xhr = $.ajax({ url: endpoint+'/modelyear/'+year+'/make/'+make+'/model/'+model+datatype,

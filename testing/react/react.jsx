@@ -177,26 +177,100 @@ class Model extends React.Component{
   } 
 }
 
+class Vehicle extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoaded : false,
+      year: "",
+      make: "",
+      model: "",
+      vehicles : []
+    };
+    
+    this.handleChange = this.handleChange.bind(this);
+  }
+  
+  handleChange(e){
+    const vehicle = e.target.value;
+    this.props.onChange(vehicle);
+  }
+  
+  componentDidUpdate(){
+    const year = this.props.year;
+    const make = this.props.make;
+    const model = this.props.model;
+    
+    if((this.state.isLoaded && (year == this.state.year) && (make == this.state.make) && (model == this.state.model)) || 
+      (year.length == 0) || (make.length == 0) || (model.length == 0)) return;
+    
+    var self = this;
+    var xhr = $.ajax({ url: endpoint+'/modelyear/'+year+'/make/'+make+datatype,
+                       dataType: 'jsonp',
+                       year: year,
+                       make: make,
+                       model: model
+                    });
+    xhr.done( function(data) {
+      var newVehicles = [];
+      
+      for(var i=0; i < data.Count; i++) {
+        newVehicles.push([data.Results[i].VehicleDescription,data.Results[i].VehicleId]);
+      }
+      
+      self.setState({ isLoaded: true, modelss : newModels, year: this.year, make: this.make, model: this.model });
+    });
+  }
+  
+  render() {
+    var vehicles = [];
+    if(this.state.isLoaded && (this.props.year == this.state.year) && (this.props.model == this.state.model) &&
+      (this.props.model == this.state.model)) {
+      vehicles = this.state.vehicles.map((vehicle) =>
+        <option value={vehicle[1]} key={vehicle[1]}>
+          {vehicle[0]}
+        </option>
+      );
+    }
+    
+    return (
+      <select
+        id="vehicle"
+        defaultValue=""
+        onChange={this.handleChange}>
+        
+        <option value="">Vehicle:</option>
+        {vehicles}
+      </select>
+    );
+  } 
+}
+
 class Recall extends React.Component{
   constructor(props) {
     super(props);
     
-    this.state = { year: "", make: "", model: "" }
+    this.state = { year: "", make: "", model: "", vehicle: "" }
     this.changeYear = this.changeYear.bind(this);
     this.changeMake = this.changeMake.bind(this);
     this.changeModel = this.changeModel.bind(this);
+    this.changeVehicle = this.changeVehicle.bind(this);
   }
   
   changeYear(newYear) {
-    this.setState({ year: newYear, make: "", model: ""});
+    this.setState({ year: newYear, make: "", model: "", vehicle: ""});
   }
   
   changeMake(newMake) {
-    this.setState({make: newMake, model: ""});
+    this.setState({make: newMake, model: "", vehicle: ""});
   }
   
   changeModel(newModel) {
-    this.setState({model: newModel});
+    this.setState({model: newModel, vehicle: ""});
+  }
+  
+  changeVehicle(newVehicle) {
+    this.setState({vehicle: newVehicle});
   }
   
   render() {
@@ -205,6 +279,7 @@ class Recall extends React.Component{
         <Year onChange={this.changeYear} />
         <Make onChange={this.changeMake} year={this.state.year} />
         <Model onChange={this.changeModel} year={this.state.year} make={this.state.make} />
+        <Vehicle onChange={this.changeVehicle} year={this.state.year} make={this.state.make} model={this.state.model} />
       </div>
     );
   }

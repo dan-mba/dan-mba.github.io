@@ -74,7 +74,7 @@ class Make extends React.Component{
   
   componentDidUpdate(){
     const year = this.props.year;
-    if(this.state.isLoaded && (year == this.state.year)) return;
+    if((this.state.isLoaded && (year == this.state.year)) || (year.length == 0)) return;
     var xhr = $.ajax({ url: endpoint+'/modelyear/'+year+datatype,
                        dataType: 'jsonp'
                     });
@@ -112,6 +112,71 @@ class Make extends React.Component{
   } 
 }
 
+class Model extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoaded : false,
+      year: "",
+      make: "",
+      models : []
+    };
+    
+    this.handleChange = this.handleChange.bind(this);
+  }
+  
+  handleChange(e){
+    const model = e.target.value;
+    this.props.onChange(model);
+  }
+  
+  componentDidUpdate(){
+    const year = this.props.year;
+    const make = this.props.make;
+    
+    if((this.state.isLoaded && (year == this.state.year) && (make == this.state.make)) || 
+      (year.length == 0) || (make.length == 0)) return;
+    
+    var self = this;
+    var xhr = $.ajax({ url: endpoint+'/modelyear/'+year+'/make/'+make+datatype,
+                       dataType: 'jsonp'
+                       year: year,
+                       make: make
+                    });
+    xhr.done( function(data) {
+      var newModels = [];
+      
+      for(var i=0; i < data.Count; i++) {
+        newModels.push(data.Results[i].Model);
+      }
+      
+      self.setState({ isLoaded: true, modelss : newModels, year: this.year, make: this.make });
+    });
+  }
+  
+  render() {
+    var models = [];
+    if(this.state.isLoaded && (this.props.year == this.state.year) && (this.props.model == this.state.model)) {
+      models = this.state.modelss.map((model) =>
+        <option value={model.replace('/&/g','_')} key={model}>
+          {model}
+        </option>
+      );
+    }
+    
+    return (
+      <select
+        id="model"
+        defaultValue=""
+        onChange={this.handleChange}>
+        
+        <option value="">Model:</option>
+        {makes}
+      </select>
+    );
+  } 
+}
+
 class Recall extends React.Component{
   constructor(props) {
     super(props);
@@ -122,11 +187,15 @@ class Recall extends React.Component{
   }
   
   changeYear(newYear) {
-    this.setState({ year: newYear, make: ""});
+    this.setState({ year: newYear, make: "", model: ""});
   }
   
   changeMake(newMake) {
-    this.setState({make: newMake});
+    this.setState({make: newMake, model: ""});
+  }
+  
+  changeModel(newModel) {
+    this.setState({model: newModel});
   }
   
   render() {
@@ -134,6 +203,7 @@ class Recall extends React.Component{
       <div>
         <Year onChange={this.changeYear} />
         <Make onChange={this.changeMake} year={this.state.year} />
+        <Model onChange={this.changeModel} year={this.state.year} make={this.state.make} />
       </div>
     );
   }

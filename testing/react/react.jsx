@@ -195,8 +195,8 @@ class Campaign extends React.Component{
     const model = this.props.model;
     
     if(this.state.isLoaded && (year == this.state.year) && (make == this.state.make) && (model == this.state.model)) return;
-    if((year.length == 0) || (make.length == 0) || (model.length == 0)) {
-      this.setState({ isLoaded: false, campaigns: ""});
+    if(this.state.isLoaded &&((year.length == 0) || (make.length == 0) || (model.length == 0))) {
+      this.setState({ isLoaded: false, campaigns: "", make: "", model: "", year: ""});
       return;
     }
     

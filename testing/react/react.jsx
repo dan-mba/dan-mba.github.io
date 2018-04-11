@@ -104,7 +104,7 @@ class Make extends React.Component{
         id="make"
         onChange={this.handleChange}>
         
-        <option value="">Make:</option>
+        <option value="" selected>Make:</option>
         {makes}
       </select>
     );

@@ -60,6 +60,7 @@ class Make extends React.Component{
     super(props);
     this.state = {
       isLoaded : false,
+      year: "",
       makes : []
     };
     
@@ -73,6 +74,7 @@ class Make extends React.Component{
   
   componentDidUpdate(){
     const year = this.props.year;
+    if(this.state.isLoaded && (year == this.state.year)) return;
     var xhr = $.ajax({ url: endpoint+'/modelyear/'+year+datatype,
                        dataType: 'jsonp'
                     });
@@ -83,7 +85,7 @@ class Make extends React.Component{
         newMakes.push(data.Results[i].Make);
       }
       
-      this.setState({ isLoaded: true, makes : newMakes });
+      this.setState({ isLoaded: true, makes : newMakes, year: data.Results[0].ModelYear });
     }.bind(this));
   }
   

@@ -91,7 +91,7 @@ class Make extends React.Component{
   
   render() {
     var makes = [];
-    if(this.state.isLoaded &&(this.props.year == this.state.year) {
+    if(this.state.isLoaded &&(this.props.year == this.state.year)) {
       makes = this.state.makes.map((make) =>
         <option value={make.replace('/&/g','_')} key={make}>
           {make}

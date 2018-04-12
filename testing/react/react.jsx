@@ -216,15 +216,17 @@ class Campaign extends React.Component{
   
   render() {
     var campaigns = [];
-    var d = new Date()
+    var d = function(date) {
+      var newDate = new Date(parseInt(date.substr(6)));
+      return newDate.toString();
+    }
+                             
     const pStyle = {whiteSpace: 'pre'};
-    console.log('In Campaign Render');
     if(this.state.campaigns.length) {
-      console.log('building campaigns');
       campaigns = this.state.campaigns.map((campaign) =>
         <div key={campaign.NHTSACampaignNumber}>
           <div>Campaign Number: {campaign.NHTSACampaignNumber}</div>
-          <div>Report Received Date: {d.setTime(parseInt(campaign.ReportReceivedDate.substr(6))).toString()}</div>
+          <div>Report Received Date: {d(campaign.ReportReceivedDate)}</div>
           <div>Summary: {campaign.Summary}</div>
         </div>
       );

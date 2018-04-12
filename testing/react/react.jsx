@@ -224,6 +224,9 @@ class Campaign extends React.Component{
           <div>Report Received Date: {Date(parseInt(campaign.ReportReceivedDate.substr(6))).toString()}</div>
           <div>Summary: {campaign.Summary}</div>
         </div>
+      );
+    }
+                                           
     return (
       <div>
         {campaigns}

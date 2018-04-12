@@ -18,7 +18,7 @@ Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-
 
 .selectdiv:after {
     content: '\f078';
-    font: normal normal normal 17px/1 FontAwesome;
+    font: normal normal normal 17px/1 "Font Awesome 5 Free";
     color: #0ebeff;
     right: 11px;
     top: 6px;

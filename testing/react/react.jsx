@@ -202,7 +202,7 @@ class Model extends React.Component{
     }
     
     return (
-      <div style={StyleSelectDiv}>
+      <div style={styleSelectDiv}>
         <select
           id="model"
           style={styleSelect}

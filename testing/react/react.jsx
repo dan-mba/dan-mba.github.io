@@ -1,20 +1,6 @@
 const endpoint = "https://one.nhtsa.gov/webapi/api/Recalls/vehicle";
 const datatype = "?format=json";
 
-const styleSelectDiv = {  fontFamily : 'Verdana, Arial, sans-serif',
-                          fontSize : '1em',
-                          color: '#111',
-                          background: '#e6e6e6',
-                          border: '1px solid #d3d3d3',
-                          borderRadius: 4,
-                          overflow: 'hidden'
-                        };
-const styleSelect = { border: 'none',
-                      boxShadow: 'none',
-                      background: 'transparent',
-                      WebkitAppearance: 'none'
-                    };
-
 /**********
 
 Year Component
@@ -63,10 +49,9 @@ class Year extends React.Component{
     }
     
     return (
-      <div style={styleSelectDiv}>
+      <div classNamne='selectdiv'>
         <select
           id="year"
-          style={styleSelect}
           onChange={this.handleChange}>
         
           <option value="">Year:</option>
@@ -128,10 +113,9 @@ class Make extends React.Component{
     }
     
     return (
-      <div style={styleSelectDiv}>
+      <div className='selectdiv'>
         <select
           id="make"
-          style={styleSelect}
           defaultValue=""
           onChange={this.handleChange}>
         
@@ -202,10 +186,9 @@ class Model extends React.Component{
     }
     
     return (
-      <div style={styleSelectDiv}>
+      <div className='selectdiv'>
         <select
           id="model"
-          style={styleSelect}
           defaultValue=""
           onChange={this.handleChange}>
         

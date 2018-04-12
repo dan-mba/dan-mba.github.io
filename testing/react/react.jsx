@@ -221,7 +221,7 @@ class Campaign extends React.Component{
     if(this.state.campaigns.length) {
       console.log('building campaigns');
       campaigns = this.state.campaigns.map((campaign) =>
-        <div>
+        <div key={campaign.NHTSACampaignNumber}>
           <div>Campaign Number: {campaign.NHTSACampaignNumber}</div>
           <div>Report Received Date: {Date(parseInt(campaign.ReportReceivedDate.substr(6))).toString()}</div>
           <div>Summary: {campaign.Summary}</div>

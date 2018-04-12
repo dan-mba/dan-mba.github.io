@@ -218,7 +218,7 @@ class Campaign extends React.Component{
     var campaigns = [];
     var d = function(date) {
       var newDate = new Date(parseInt(date.substr(6)));
-      return newDate.toString();
+      return newDate.toString().split(" ").slice(0,4).join(" ");
     }
                              
     const pStyle = {whiteSpace: 'pre'};

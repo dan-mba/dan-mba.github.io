@@ -185,7 +185,7 @@ class Campaign extends React.Component{
       year: "",
       make: "",
       model: "",
-      campaigns : ""
+      campaigns : []
     };
   }
   
@@ -196,7 +196,7 @@ class Campaign extends React.Component{
     
     if(this.state.isLoaded && (year == this.state.year) && (make == this.state.make) && (model == this.state.model)) return;
     if((year.length == 0) || (make.length == 0) || (model.length == 0)) {
-      if(this.state.isLoaded) this.setState({ isLoaded: false, campaigns: "", make: "", model: "", year: ""});
+      if(this.state.isLoaded) this.setState({ isLoaded: false, campaigns: [], make: "", model: "", year: ""});
       return;
     }
     
@@ -208,18 +208,26 @@ class Campaign extends React.Component{
                        model: model
                     });
     xhr.done( function(data) {
-      var newCampaigns =JSON.stringify(data.Results, null, 2);
+      var newCampaigns = data.Results, null, 2);
       
       self.setState({ isLoaded: true, campaigns : newCampaigns, year: this.year, make: this.make, model: this.model });
     });
   }
   
   render() {
+    var campaigns = []
     const pStyle = {whiteSpace: 'pre'};
+    if(!this.state.campaigns.length) {
+      campaigns = this.state.campaigns.map((campaign) =>
+        <div>
+          <div>Campaign Number: {campaign.NHTSACampaignNumber}</div>
+          <div>Report Received Date: {Date(parseInt(campaign.ReportReceivedDate.substr(6))).toString()}</div>
+          <div>Summary: {campaign.Summary}</div>
+        </div>
     return (
-      <p style={pStyle}>
-        {this.state.campaigns}
-      </p>
+      <div>
+        {campaigns}
+      </div>
     );
   } 
 }

@@ -1,6 +1,20 @@
 const endpoint = "https://one.nhtsa.gov/webapi/api/Recalls/vehicle";
 const datatype = "?format=json";
 
+const styleSelect = { fontFamily : 'Verdana, Arial, sans-serif',
+                      fontSize : '1em',
+                      color: '#111',
+                      backgbound: '#e6e6e6',
+                      border: '1px solid #d3d3d3',
+                      borderRadius: 4
+                    };
+
+/**********
+
+Year Component
+Gets year data from server & generates select statement
+
+**********/
 class Year extends React.Component{
   constructor(props) {
     super(props);
@@ -45,6 +59,7 @@ class Year extends React.Component{
     return (
       <select
         id="year"
+        style={styleSelect}
         onChange={this.handleChange}>
         
         <option value="">Year:</option>
@@ -54,7 +69,12 @@ class Year extends React.Component{
   } 
 }
 
+/**********
 
+Make Componet
+Gets make data from server & generates select statement
+
+**********/
 class Make extends React.Component{
   constructor(props) {
     super(props);
@@ -102,6 +122,7 @@ class Make extends React.Component{
     return (
       <select
         id="make"
+        style={styleSelect}
         defaultValue=""
         onChange={this.handleChange}>
         
@@ -112,6 +133,12 @@ class Make extends React.Component{
   } 
 }
 
+/**********
+
+Model Component
+Gets Model options from server & generates select statement
+
+**********/
 class Model extends React.Component{
   constructor(props) {
     super(props);
@@ -167,6 +194,7 @@ class Model extends React.Component{
     return (
       <select
         id="model"
+        style={styleSelect}
         defaultValue=""
         onChange={this.handleChange}>
         
@@ -177,6 +205,12 @@ class Model extends React.Component{
   } 
 }
 
+/**********
+
+Campaign Component
+Gets campaign data from server & displays it
+
+**********/
 class Campaign extends React.Component{
   constructor(props) {
     super(props);
@@ -240,6 +274,12 @@ class Campaign extends React.Component{
   } 
 }
 
+/**********
+
+Recall Componet
+Parent component that handles the communication between the children
+
+**********/
 class Recall extends React.Component{
   constructor(props) {
     super(props);

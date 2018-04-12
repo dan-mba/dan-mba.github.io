@@ -1,12 +1,18 @@
 const endpoint = "https://one.nhtsa.gov/webapi/api/Recalls/vehicle";
 const datatype = "?format=json";
 
-const styleSelect = { fontFamily : 'Verdana, Arial, sans-serif',
-                      fontSize : '1em',
-                      color: '#111',
-                      background: '#e6e6e6',
-                      border: '1px solid #d3d3d3',
-                      borderRadius: 4
+const styleSelectDiv = {  fontFamily : 'Verdana, Arial, sans-serif',
+                          fontSize : '1em',
+                          color: '#111',
+                          background: '#e6e6e6',
+                          border: '1px solid #d3d3d3',
+                          borderRadius: 4,
+                          overflow: 'hidden'
+                        };
+const styleSelect = { border: 'none',
+                      boxShadow: 'none',
+                      background: 'transparent',
+                      WebkitAppearance: 'none'
                     };
 
 /**********
@@ -57,14 +63,16 @@ class Year extends React.Component{
     }
     
     return (
-      <select
-        id="year"
-        style={styleSelect}
-        onChange={this.handleChange}>
+      <div style={styleSelectDiv}>
+        <select
+          id="year"
+          style={styleSelect}
+          onChange={this.handleChange}>
         
-        <option value="">Year:</option>
-        {modelYears}
-      </select>
+          <option value="">Year:</option>
+          {modelYears}
+        </select>
+      </div>
     );
   } 
 }
@@ -120,15 +128,17 @@ class Make extends React.Component{
     }
     
     return (
-      <select
-        id="make"
-        style={styleSelect}
-        defaultValue=""
-        onChange={this.handleChange}>
+      <div style={styleSelectDiv}>
+        <select
+          id="make"
+          style={styleSelect}
+          defaultValue=""
+          onChange={this.handleChange}>
         
-        <option value="">Make:</option>
-        {makes}
-      </select>
+          <option value="">Make:</option>
+          {makes}
+        </select>
+      </div>
     );
   } 
 }
@@ -192,15 +202,17 @@ class Model extends React.Component{
     }
     
     return (
-      <select
-        id="model"
-        style={styleSelect}
-        defaultValue=""
-        onChange={this.handleChange}>
+      <div style={StyleSelectDiv}>
+        <select
+          id="model"
+          style={styleSelect}
+          defaultValue=""
+          onChange={this.handleChange}>
         
-        <option value="">Model:</option>
-        {models}
-      </select>
+          <option value="">Model:</option>
+          {models}
+        </select>
+      </div>
     );
   } 
 }

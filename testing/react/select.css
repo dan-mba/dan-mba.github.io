@@ -20,7 +20,7 @@ Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-
     content: '\f078';
     font-size: 17px;
     line-height: 1;
-    font-family: "Font Awesome 5 Free";
+    font-family: "Font Awesome\ 5 Free";
     font-weight: 400;
     color: #0ebeff;
     right: 11px;

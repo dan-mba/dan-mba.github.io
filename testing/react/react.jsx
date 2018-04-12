@@ -49,7 +49,7 @@ class Year extends React.Component{
     }
     
     return (
-      <div classNamne='selectdiv'>
+      <div className='selectdiv'>
         <select
           id="year"
           onChange={this.handleChange}>

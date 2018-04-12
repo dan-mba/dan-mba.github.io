@@ -215,7 +215,8 @@ class Campaign extends React.Component{
   }
   
   render() {
-    var campaigns = []
+    var campaigns = [];
+    var d = new Date()
     const pStyle = {whiteSpace: 'pre'};
     console.log('In Campaign Render');
     if(this.state.campaigns.length) {
@@ -223,7 +224,7 @@ class Campaign extends React.Component{
       campaigns = this.state.campaigns.map((campaign) =>
         <div key={campaign.NHTSACampaignNumber}>
           <div>Campaign Number: {campaign.NHTSACampaignNumber}</div>
-          <div>Report Received Date: {Date(parseInt(campaign.ReportReceivedDate.substr(6))).toString()}</div>
+          <div>Report Received Date: {d.setTime(parseInt(campaign.ReportReceivedDate.substr(6))).toString()}</div>
           <div>Summary: {campaign.Summary}</div>
         </div>
       );

@@ -4,7 +4,7 @@ const datatype = "?format=json";
 const styleSelect = { fontFamily : 'Verdana, Arial, sans-serif',
                       fontSize : '1em',
                       color: '#111',
-                      backgbound: '#e6e6e6',
+                      background: '#e6e6e6',
                       border: '1px solid #d3d3d3',
                       borderRadius: 4
                     };

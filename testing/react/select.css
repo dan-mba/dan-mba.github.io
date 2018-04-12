@@ -13,6 +13,7 @@ Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-
   float: left;
   min-width: 200px;
   margin: 50px 33%;
+  display: inline-block;
 }
 
 .selectdiv:after {

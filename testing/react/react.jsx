@@ -208,7 +208,7 @@ class Campaign extends React.Component{
                        model: model
                     });
     xhr.done( function(data) {
-      var newCampaigns = data.Results, null, 2);
+      var newCampaigns = data.Results;
       
       self.setState({ isLoaded: true, campaigns : newCampaigns, year: this.year, make: this.make, model: this.model });
     });

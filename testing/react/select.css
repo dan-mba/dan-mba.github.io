@@ -14,6 +14,10 @@ body {
 #model {
   width: 220px;
 }
+
+div.campaign {
+  margin 5px 0 10px;
+}
 /*
 Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-drop-down-selector-arrow-icon/
 */

@@ -24,12 +24,11 @@ Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-
     line-height: 1;
     font-family: Font Awesome\ 5 Free;
     font-weight: 900;
-    color: #0ebeff;
+    color: #111;
     right: 11px;
     top: 6px;
     height: 34px;
     padding: 15px 0px 0px 8px;
-    border-left: 1px solid #0ebeff;
     position: absolute;
     pointer-events: none;
 }
@@ -54,10 +53,10 @@ display: none;
   padding: 0px 24px;
   font-size: 16px;
   line-height: 1.75;
-  color: #333;
-  background-color: #ffffff;
+  color: #111;
+  background-color: #e6e6e6;
   background-image: none;
-  border: 1px solid #0ebeff;
+  border: 1px solid #d3d3d3;
   -ms-word-break: normal;
   word-break: normal;
 }

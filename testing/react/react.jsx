@@ -49,11 +49,8 @@ class Year extends React.Component{
     }
     
     return (
-      <div className='selectdiv'>
-        <select
-          id="year"
-          onChange={this.handleChange}>
-        
+      <div className='selectdiv' id='year'>
+        <select onChange={this.handleChange}>
           <option value="">Year:</option>
           {modelYears}
         </select>
@@ -113,9 +110,8 @@ class Make extends React.Component{
     }
     
     return (
-      <div className='selectdiv'>
+      <div className='selectdiv' id='make'>
         <select
-          id="make"
           defaultValue=""
           onChange={this.handleChange}>
         
@@ -186,9 +182,8 @@ class Model extends React.Component{
     }
     
     return (
-      <div className='selectdiv'>
+      <div className='selectdiv' id='model'>
         <select
-          id="model"
           defaultValue=""
           onChange={this.handleChange}>
         

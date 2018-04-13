@@ -5,6 +5,15 @@ body {
   margin: 0 auto;
 }
 
+#year {
+  width: 100px;
+}
+#make {
+  width: 220px;
+}
+#model {
+  width: 220px;
+}
 /*
 Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-drop-down-selector-arrow-icon/
 */
@@ -13,7 +22,7 @@ Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-
   /*Don't really need this just for demo styling*/
   
 /*  float: left;*/
-  min-width: 200px;
+/*  min-width: 200px; */
   margin: 5px;
   display: inline-block;
 }

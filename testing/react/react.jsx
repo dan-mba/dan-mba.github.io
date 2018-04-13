@@ -248,7 +248,7 @@ class Campaign extends React.Component{
     const pStyle = {whiteSpace: 'pre'};
     if(this.state.campaigns.length) {
       campaigns = this.state.campaigns.map((campaign) =>
-        <div key={campaign.NHTSACampaignNumber}>
+        <div key={campaign.NHTSACampaignNumber} className='campaign'>
           <div>Campaign Number: {campaign.NHTSACampaignNumber}</div>
           <div>Report Received Date: {d(campaign.ReportReceivedDate)}</div>
           <div>Summary: {campaign.Summary}</div>

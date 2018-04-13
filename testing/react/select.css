@@ -45,7 +45,7 @@ display: none;
   appearance: none;
   /* Add some styling */
   
-  display: inline-block;
+  display:block;
   width: 100%;
   max-width: 320px;
   height: 50px;

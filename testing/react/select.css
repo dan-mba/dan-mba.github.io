@@ -6,10 +6,10 @@ body {
 }
 
 #year {
-  width: 100px;
+  width: 80px;
 }
 #make {
-  width: 220px;
+  width: 270px;
 }
 #model {
   width: 220px;
@@ -34,10 +34,10 @@ Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-
     font-family: Font Awesome\ 5 Free;
     font-weight: 900;
     color: #111;
-    right: 11px;
+    right: 5px;
     top: 6px;
     height: 34px;
-    padding: 15px 0px 0px 8px;
+    padding: 15px 0px 0px 5px;
     position: absolute;
     pointer-events: none;
 }
@@ -59,7 +59,7 @@ display: none;
   height: 50px;
   float: right;
   margin: 5px 0px;
-  padding: 0px 24px;
+  padding: 0px 8px 0px 12px;
   font-size: 16px;
   line-height: 1.75;
   color: #111;

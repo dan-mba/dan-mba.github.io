@@ -57,6 +57,7 @@ display: none;
   background-color: #e6e6e6;
   background-image: none;
   border: 1px solid #d3d3d3;
+  border-radius: 5px;
   -ms-word-break: normal;
   word-break: normal;
 }

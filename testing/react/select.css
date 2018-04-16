@@ -34,14 +34,13 @@ Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-
 
 .selectdiv:after {
     content: '\f078';
-    font-size: 20px;
+    font-size: 12px;
     line-height: 1;
     font-family: Font Awesome\ 5 Free;
     font-weight: 900;
     color: #111;
     right: 5px;
-    top: 2px;
-    padding: 15px 0px 0px 5px;
+    top: 11px;
     position: absolute;
     pointer-events: none;
 }
@@ -60,16 +59,16 @@ display: none;
   display:block;
   width: 100%;
   max-width: 320px;
-  height: 50px;
+  height: 36px;
   float: right;
   margin: 0;
   padding: 0px 5px 0px 0px;
-  font-size: 16px;
+  font-size: 18px;
   font-family: 'Roboto Condensed',sans-serif;
-  line-height: 1.75;
+  line-height: 36px;
   color: #111;
   background: #bbb;
-  background: linear-gradient(#bbb, #999);
+  background: linear-gradient(#ccc, #aaa);
   border: 1px solid #bbb;
   border-radius: 5px;
   -ms-word-break: normal;

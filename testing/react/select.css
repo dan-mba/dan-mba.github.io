@@ -35,11 +35,8 @@ Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-
 */
 .selectdiv {
   position: relative;
-  /*Don't really need this just for demo styling*/
-  
-/*  float: left;*/
-/*  min-width: 200px; */
-  margin: 2px;
+
+  margin: 1px;
 }
 
 .selectdiv:after {

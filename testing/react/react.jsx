@@ -246,7 +246,7 @@ class Campaign extends React.Component{
       return newDate.toString().split(" ").slice(0,4).join(" ");
     }
                              
-    const bStyle = {fontWeight: bold};
+    const bStyle = {fontWeight: 'bold'};
     if(this.state.campaigns.length) {
       campaigns = this.state.campaigns.map((campaign) =>
         <div key={campaign.NHTSACampaignNumber} className='campaign'>

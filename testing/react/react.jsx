@@ -32,7 +32,8 @@ class Year extends React.Component{
     xhr.done( function(data) {
       var newYears = [];
       
-      for(var i=0; i < data.Count; i++) {
+      /* Start at 1 because the value at Results[0] is erroneus */
+      for(var i=1; i < data.Count; i++) {
         newYears.push(data.Results[i].ModelYear);
       }
       

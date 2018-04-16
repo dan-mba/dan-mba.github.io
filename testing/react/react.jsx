@@ -246,15 +246,15 @@ class Campaign extends React.Component{
       return newDate.toString().split(" ").slice(0,4).join(" ");
     }
                              
-    const pStyle = {whiteSpace: 'pre'};
+    const bStyle = {fontWeight: bold};
     if(this.state.campaigns.length) {
       campaigns = this.state.campaigns.map((campaign) =>
         <div key={campaign.NHTSACampaignNumber} className='campaign'>
-          <div>Campaign Number: {campaign.NHTSACampaignNumber}</div>
-          <div>Report Received Date: {d(campaign.ReportReceivedDate)}</div>
-          <div>Summary: {campaign.Summary}</div>
-          <div>Problem: {campaign.Conequence}</div>
-          <div>Remedy: {campaign.Remedy}</div>
+          <div><span style={bStyle}>Campaign Number</span>: {campaign.NHTSACampaignNumber}</div>
+          <div><span style={bStyle}>Report Received Date</span>: {d(campaign.ReportReceivedDate)}</div>
+          <div><span style={bStyle}>Summary</span>: {campaign.Summary}</div>
+          <div><span style={bStyle}>Problem</span>: {campaign.Conequence}</div>
+          <div><span style={bStyle}>Remedy</span>: {campaign.Remedy}</div>
         </div>
       );
     }

@@ -17,7 +17,7 @@ body {
   flex: 0 0 80px;
 }
 #make {
-  flex: 0 0 310px;
+  flex: 0 0 270px;
 }
 #model {
   flex: 0 0 220px;
@@ -37,7 +37,7 @@ Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-
 .selectdiv {
   position: relative;
 
-  margin: 1px;
+  margin: 2px;
 }
 
 .selectdiv:after {

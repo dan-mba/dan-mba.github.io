@@ -25,6 +25,7 @@ body {
 
 div.campaign {
   margin: 5px 0 10px;
+  display: flex;
 }
 /*
 Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-drop-down-selector-arrow-icon/
@@ -36,7 +37,6 @@ Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-
 /*  float: left;*/
 /*  min-width: 200px; */
   margin: 2px;
-  display: inline-block;
 }
 
 .selectdiv:after {

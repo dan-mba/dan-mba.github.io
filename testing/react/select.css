@@ -14,13 +14,13 @@ body {
 }
 
 #year {
-  width: 80px;
+  flex: 0 0 80px;
 }
 #make {
-  width: 310px;
+  flex: 0 0 310px;
 }
 #model {
-  width: 220px;
+  flex: 0 0 220px;
 }
 
 div.campaign {

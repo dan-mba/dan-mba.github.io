@@ -58,6 +58,9 @@ Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-
 select::-ms-expand {
 display: none;
 }
+select:-ms-value {
+  background: transparent;
+}
 
 .selectdiv select {
   -webkit-appearance: none;

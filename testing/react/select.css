@@ -36,7 +36,8 @@ Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-
 */
 .selectdiv {
   position: relative;
-
+  border: 1px solid #bbb;
+  border-radius: 5px;
   margin: 2px;
 }
 
@@ -77,8 +78,6 @@ display: none;
   color: #111;
   background: #bbb;
   background: linear-gradient(#ccc, #aaa);
-  border: 1px solid #bbb;
-  border-radius: 5px;
   -ms-word-break: normal;
   word-break: normal;
 }

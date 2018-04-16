@@ -253,6 +253,8 @@ class Campaign extends React.Component{
           <div>Campaign Number: {campaign.NHTSACampaignNumber}</div>
           <div>Report Received Date: {d(campaign.ReportReceivedDate)}</div>
           <div>Summary: {campaign.Summary}</div>
+          <div>Problem: {campaign.Conequence}</div>
+          <div>Remedy: {campaign.Remedy}</div>
         </div>
       );
     }

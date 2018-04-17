@@ -14,10 +14,10 @@ body {
 }
 
 #year {
-  flex: 0 0 80px;
+  flex: 0 0 65px;
 }
 #make {
-  flex: 0 0 270px;
+  flex: 0 0 285px;
 }
 #model {
   flex: 0 0 220px;

@@ -85,7 +85,7 @@ select:-ms-value {
   word-break: normal;
 }
 
-@media screen and (-webkit-min-device-pixel-ration:0) {
+@media screen and (-webkit-min-device-pixel-ratio:0) {
   /* Fix padding on webkit based browsers */
   select { text-indent: 5px; }
 }

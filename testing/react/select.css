@@ -17,7 +17,7 @@ body {
   flex: 0 0 65px;
 }
 #make {
-  flex: 0 0 285px;
+  flex: 0 0 290px;
 }
 #model {
   flex: 0 0 220px;
@@ -43,13 +43,13 @@ Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-
 
 .selectdiv:after {
     content: '\f078';
-    font-size: 12px;
+    font-size: 10px;
     line-height: 1;
     font-family: Font Awesome\ 5 Free;
     font-weight: 900;
     color: #eee;
-    right: 5px;
-    top: 11px;
+    right: 3px;
+    top: 15px;
     position: absolute;
     pointer-events: none;
 }
@@ -74,7 +74,7 @@ select:-ms-value {
   height: 40px;
   float: right;
   margin: 0;
-  padding-left: 5px;
+  padding-left: 3px;
   font-size: 20px;
   font-family: 'Roboto Condensed',sans-serif;
   line-height: 40px;

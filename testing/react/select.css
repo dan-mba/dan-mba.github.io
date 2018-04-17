@@ -36,7 +36,7 @@ Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-
 */
 .selectdiv {
   position: relative;
-  border: 1px solid #999;
+  border: 1px solid #303030;
   border-radius: 5px;
   margin: 2px;
 }
@@ -78,9 +78,9 @@ select:-ms-value {
   font-size: 18px;
   font-family: 'Roboto Condensed',sans-serif;
   line-height: 36px;
-  color: #111;
-  background: #bbb;
-  background: linear-gradient(#ccc, #999);
+  color: #eee;
+  background: #404040;
+  background: linear-gradient(#505050, #303030);
   -ms-word-break: normal;
   word-break: normal;
 }

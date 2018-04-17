@@ -84,3 +84,7 @@ select:-ms-value {
   -ms-word-break: normal;
   word-break: normal;
 }
+
+option {
+  background-color: #404040;
+}

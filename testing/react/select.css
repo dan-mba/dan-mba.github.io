@@ -32,6 +32,14 @@ div.selectBox {
   flex-flow: row wrap;
   justify-content: center;
 }
+
+@media (min-width: 367px) and (max-width: 592px) {
+  div.selectBox {
+    width: 367px;
+    margin: 0 auto;
+    justify-content: left;
+  }
+}
 /*
 Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-drop-down-selector-arrow-icon/
 */

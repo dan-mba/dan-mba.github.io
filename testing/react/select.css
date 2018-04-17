@@ -71,23 +71,18 @@ select:-ms-value {
   display:block;
   width: 100%;
   max-width: 320px;
-  height: 36px;
+  height: 40px;
   float: right;
   margin: 0;
-  padding-left 5px;
-  font-size: 18px;
+  padding-left: 5px;
+  font-size: 20px;
   font-family: 'Roboto Condensed',sans-serif;
-  line-height: 36px;
+  line-height: 40px;
   color: #eee;
   background: #404040;
   background: linear-gradient(#505050, #303030);
   -ms-word-break: normal;
   word-break: normal;
-}
-
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  /* Fix padding on webkit based browsers */
-  select { text-indent: 5px; }
 }
 
 option {

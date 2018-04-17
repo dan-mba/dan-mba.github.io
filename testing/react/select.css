@@ -85,6 +85,11 @@ select:-ms-value {
   word-break: normal;
 }
 
+@media screen and (-webkit-min-device-pixel-ration:0) {
+  /* Fix padding on webkit based browsers */
+  text-indent: 5px;
+}
+
 option {
   background-color: #404040;
 }

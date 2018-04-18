@@ -251,14 +251,15 @@ class Campaign extends React.Component{
     }
                              
     const bStyle = {fontWeight: 'bold'};
+    const tStyle = {fontweight: 'bold', textAlign: 'center'};
     if(this.state.campaigns.length) {
       campaigns = this.state.campaigns.map((campaign) =>
         <div key={campaign.NHTSACampaignNumber} className='campaign'>
           <div><span style={bStyle}>Campaign Number</span>: {campaign.NHTSACampaignNumber}</div>
           <div><span style={bStyle}>Report Received Date</span>: {d(campaign.ReportReceivedDate)}</div>
-          <div><span style={bStyle}>Summary</span>: {campaign.Summary}</div>
-          <div><span style={bStyle}>Problem</span>: {campaign.Conequence}</div>
-          <div><span style={bStyle}>Remedy</span>: {campaign.Remedy}</div>
+          <div><div style={tStyle}>Summary</div>{campaign.Summary}</div>
+          <div><div style={tStyle}>Problem</div>{campaign.Conequence}</div>
+          <div><div style={tStyle}>Remedy</div>{campaign.Remedy}</div>
         </div>
       );
     }

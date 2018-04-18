@@ -24,11 +24,14 @@ body {
 }
 
 div.campaignBox {
-  margin: 0 5px;
+  margin: 0 3px;
 }
 
 div.campaign {
   margin: 15px 0 0;
+  padding: 0 3px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 div.selectBox {

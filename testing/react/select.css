@@ -13,6 +13,10 @@ body {
   margin: 0 auto;
 }
 
+#main-div {
+  margin-bottom: 10px;
+}
+
 #year {
   flex: 0 0 65px;
 }

@@ -264,7 +264,7 @@ class Campaign extends React.Component{
     }
                                            
     return (
-      <div>
+      <div className="campaignBox">
         {campaigns}
       </div>
     );

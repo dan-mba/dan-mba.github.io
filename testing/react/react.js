@@ -21,6 +21,7 @@ class Year extends React.Component {
   handleChange(e) {
     const year = e.target.value;
     this.props.onChange(year);
+    $("select").blur();
   }
 
   componentDidMount() {
@@ -30,7 +31,8 @@ class Year extends React.Component {
     xhr.done(function (data) {
       var newYears = [];
 
-      for (var i = 0; i < data.Count; i++) {
+      /* Start at 1 because the value at Results[0] is erroneus */
+      for (var i = 1; i < data.Count; i++) {
         newYears.push(data.Results[i].ModelYear);
       }
 
@@ -86,6 +88,7 @@ class Make extends React.Component {
   handleChange(e) {
     const make = e.target.value;
     this.props.onChange(make);
+    $("select").blur();
   }
 
   componentDidUpdate() {
@@ -156,6 +159,7 @@ class Model extends React.Component {
   handleChange(e) {
     const model = e.target.value;
     this.props.onChange(model);
+    $("select").blur();
   }
 
   componentDidUpdate() {
@@ -261,6 +265,7 @@ class Campaign extends React.Component {
     };
 
     const bStyle = { fontWeight: 'bold' };
+    const tStyle = { fontWeight: 'bold', textAlign: 'center' };
     if (this.state.campaigns.length) {
       campaigns = this.state.campaigns.map(campaign => React.createElement(
         "div",
@@ -291,33 +296,30 @@ class Campaign extends React.Component {
           "div",
           null,
           React.createElement(
-            "span",
-            { style: bStyle },
+            "div",
+            { style: tStyle },
             "Summary"
           ),
-          ": ",
           campaign.Summary
         ),
         React.createElement(
           "div",
           null,
           React.createElement(
-            "span",
-            { style: bStyle },
+            "div",
+            { style: tStyle },
             "Problem"
           ),
-          ": ",
           campaign.Conequence
         ),
         React.createElement(
           "div",
           null,
           React.createElement(
-            "span",
-            { style: bStyle },
+            "div",
+            { style: tStyle },
             "Remedy"
           ),
-          ": ",
           campaign.Remedy
         )
       ));
@@ -325,7 +327,7 @@ class Campaign extends React.Component {
 
     return React.createElement(
       "div",
-      null,
+      { className: "campaignBox" },
       campaigns
     );
   }
@@ -363,9 +365,13 @@ class Recall extends React.Component {
     return React.createElement(
       "div",
       null,
-      React.createElement(Year, { onChange: this.changeYear }),
-      React.createElement(Make, { onChange: this.changeMake, year: this.state.year }),
-      React.createElement(Model, { onChange: this.changeModel, year: this.state.year, make: this.state.make }),
+      React.createElement(
+        "div",
+        { className: "selectBox" },
+        React.createElement(Year, { onChange: this.changeYear }),
+        React.createElement(Make, { onChange: this.changeMake, year: this.state.year }),
+        React.createElement(Model, { onChange: this.changeModel, year: this.state.year, make: this.state.make })
+      ),
       React.createElement(Campaign, { year: this.state.year, make: this.state.make, model: this.state.model })
     );
   }

@@ -251,7 +251,7 @@ class Campaign extends React.Component{
     }
                              
     const bStyle = {fontWeight: 'bold'};
-    const tStyle = {fontweight: 'bold', textAlign: 'center'};
+    const tStyle = {fontWeight: 'bold', textAlign: 'center'};
     if(this.state.campaigns.length) {
       campaigns = this.state.campaigns.map((campaign) =>
         <div key={campaign.NHTSACampaignNumber} className='campaign'>

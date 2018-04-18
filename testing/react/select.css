@@ -23,8 +23,12 @@ body {
   flex: 0 0 220px;
 }
 
+div.campaignBox {
+  margin: 0 5px;
+}
+
 div.campaign {
-  margin: 5px 0 10px;
+  margin: 15px 0 0;
 }
 
 div.selectBox {

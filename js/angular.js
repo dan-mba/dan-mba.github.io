@@ -15,6 +15,14 @@ var libraries = {
   jqueryui : {
     name: "jQuery UI",
     site: "//jqueryui.com/"
+  },
+  react: {
+    name: "React",
+    site: "//reactjs.org/"
+  },
+  babel: {
+    name: "Babel Compiler",
+    site: "//babeljs.io/"
   }
 };
 

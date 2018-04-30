@@ -281,7 +281,7 @@ class Recall extends React.Component{
   constructor(props) {
     super(props);
     
-    this.state = { year: "", make: "", model: ""}
+    this.state = { year: "", make: "", model: "", parent: 0}
     this.changeYear = this.changeYear.bind(this);
     this.changeMake = this.changeMake.bind(this);
     this.changeModel = this.changeModel.bind(this);
@@ -297,6 +297,18 @@ class Recall extends React.Component{
   
   changeModel(newModel) {
     this.setState({model: newModel});
+  }
+  
+  componentDidUpdate() {
+    var parent_height;
+    if(this.state.parent == 0) {
+      parent_height = $(parent.window).height()-75;
+      this.setState({parent: parent_height});
+    } else {
+      parent_height = this.state.parent;
+    }
+    
+    $("#samples iframe", window.parent.document).height(Math.max(Math.ceil($('html').height())+2,parent_height));
   }
   
   render() {

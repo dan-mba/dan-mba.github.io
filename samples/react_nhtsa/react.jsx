@@ -213,7 +213,8 @@ class Campaign extends React.Component{
       year: "",
       make: "",
       model: "",
-      campaigns : []
+      campaigns : [],
+      parent: 0
     };
   }
   
@@ -221,6 +222,19 @@ class Campaign extends React.Component{
     const year = this.props.year;
     const make = this.props.make;
     const model = this.props.model;
+    
+    var parent_height;
+    if(this.state.parent == 0) {
+      parent_height = $(parent.window).height()-75;
+      this.setState({parent: parent_height});
+    } else {
+      parent_height = this.state.parent;
+    }
+    
+    var item_height = ReactDOM.findDOMNode(this).offsetHeight + 128;
+    console.log(parent_height);
+    console.log(item_height);
+    $("#samples iframe", window.parent.document).height(Math.max(item_height,parent_height));
     
     if(this.state.isLoaded && (year == this.state.year) && (make == this.state.make) && (model == this.state.model)) return;
     if((year.length == 0) || (make.length == 0) || (model.length == 0)) {
@@ -297,21 +311,6 @@ class Recall extends React.Component{
   
   changeModel(newModel) {
     this.setState({model: newModel});
-  }
-  
-  componentDidUpdate() {
-    var parent_height;
-    if(this.state.parent == 0) {
-      parent_height = $(parent.window).height()-75;
-      this.setState({parent: parent_height});
-    } else {
-      parent_height = this.state.parent;
-    }
-    
-    var item_height = ReactDOM.findDOMNode(this).offsetHeight + 68;
-    console.log(parent_height);
-    console.log(item_height);
-    $("#samples iframe", window.parent.document).height(Math.max(item_height,parent_height));
   }
   
   render() {

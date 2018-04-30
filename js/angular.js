@@ -67,6 +67,15 @@ app.controller('MainController',
       apiname: "NHTSA NCAP - 5 Star Safety Ratings API",
       apisite: "https://one.nhtsa.gov/webapi/Default.aspx?SafetyRatings/API/5",
       libraries: ['jquery','jqueryui','angularjs','fontawesome']
+    },
+    {
+      title: "NHTSA Recalls",
+      url: "samples/react_nhtsa/react.html",
+      source: "//github.com/dan-mba/dan-mba.github.io/tree/master/samples/react_nhtsa",
+      description: "react NHTSA app",
+      apiname: "NHTSA's Office of Defect Investigation - Recalls",
+      apisite: "https://one.nhtsa.gov/webapi/Default.aspx?Recalls/API/83",
+      libraries: ['react','babel','jquery','fontawesome']
     }
   ];
 }]);

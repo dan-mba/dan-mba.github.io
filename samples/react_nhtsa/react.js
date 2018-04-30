@@ -228,7 +228,8 @@ class Campaign extends React.Component {
       year: "",
       make: "",
       model: "",
-      campaigns: []
+      campaigns: [],
+      parent: 0
     };
   }
 
@@ -236,6 +237,17 @@ class Campaign extends React.Component {
     const year = this.props.year;
     const make = this.props.make;
     const model = this.props.model;
+
+    var parent_height;
+    if (this.state.parent == 0) {
+      parent_height = $(parent.window).height() - 75;
+      this.setState({ parent: parent_height });
+    } else {
+      parent_height = this.state.parent;
+    }
+
+    var item_height = ReactDOM.findDOMNode(this).offsetHeight + 128;
+    $("#samples iframe", window.parent.document).height(Math.max(item_height, parent_height));
 
     if (this.state.isLoaded && year == this.state.year && make == this.state.make && model == this.state.model) return;
     if (year.length == 0 || make.length == 0 || model.length == 0) {
@@ -343,7 +355,7 @@ class Recall extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { year: "", make: "", model: "" };
+    this.state = { year: "", make: "", model: "", parent: 0 };
     this.changeYear = this.changeYear.bind(this);
     this.changeMake = this.changeMake.bind(this);
     this.changeModel = this.changeModel.bind(this);

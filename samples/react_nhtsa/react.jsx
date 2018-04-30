@@ -309,7 +309,8 @@ class Recall extends React.Component{
     }
     
     var item_height = ReactDOM.findDOMNode(this).offsetHeight + 68;
-    
+    console.log(parent_height);
+    console.log(item_height);
     $("#samples iframe", window.parent.document).height(Math.max(item_height,parent_height));
   }
   

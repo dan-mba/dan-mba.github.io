@@ -72,8 +72,10 @@ app.controller('MainController',
       title: "NHTSA Recalls",
       url: "samples/react_nhtsa/react.html",
       source: "//github.com/dan-mba/dan-mba.github.io/tree/master/samples/react_nhtsa",
-      description: "react NHTSA app",
-      apiname: "NHTSA's Office of Defect Investigation - Recalls",
+      description: "I developed this application while learning to use the React JavaScript library. " +
+                  "This application acceses data form the NHTSA Recall API and displays the data for the selected model. " +
+                  "I also used this app to learn how to style select menus using css only."
+      apiname: "NHTSA's Office of Defect Investigation - Recalls API",
       apisite: "https://one.nhtsa.gov/webapi/Default.aspx?Recalls/API/83",
       libraries: ['react','babel','jquery','fontawesome']
     }

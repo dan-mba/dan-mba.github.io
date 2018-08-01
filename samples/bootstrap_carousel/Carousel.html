@@ -210,8 +210,9 @@
         $($iframe).height(Math.max(Math.ceil($('html').height())+2,parentHeight));
 
         $("#myCarousel").on("slid.bs.carousel",function(){
-           $("#carCaption").hide().html($("div.carousel-item.active p").html()).slideDown();
-           $($iframe).height(Math.max(Math.ceil($('html').height())+2,parentHeight));
+           $("#carCaption").hide().html($("div.carousel-item.active p").html()).slideDown(function(){
+             $($iframe).height(Math.max(Math.ceil($('html').height())+2,parentHeight));
+           });
         });
       });
     </script>

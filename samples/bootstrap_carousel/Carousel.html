@@ -46,12 +46,16 @@
       span.carousel-control-prev-icon {
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ddd' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
       }
+      a[href] {
+        color: #000;
+        text-decoration: underline;
+      }
     </style>
   </head>
   <body>
     <div id="widthBox">
       <h1>My IBM Career</h1>
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="15000">
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -62,8 +66,6 @@
         <li data-target="#myCarousel" data-slide-to="6"></li>
         <li data-target="#myCarousel" data-slide-to="7"></li>
         <li data-target="#myCarousel" data-slide-to="8"></li>
-        <!--li data-target="#myCarousel" data-slide-to="9"></li>
-        <li data-target="#myCarousel" data-slide-to="10"></li-->
       </ol>
       <!-- Carousel items -->
       <div class="carousel-inner">

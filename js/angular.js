@@ -110,9 +110,9 @@ app.directive('codeSample', function() {
           $("#samples iframe").on("load", function() {
             var height = $("#samples iframe").contents().find("html").height();
             $("#samples iframe").height(Math.max(Math.ceil(height)+2, $(window).height()-75));
-            $("#samples iframe").toggle();
+/*            $("#samples iframe").toggle(); */
           });
-          $("#samples iframe").toggle(0);
+/*          $("#samples iframe").toggle(0); */
           $("#samples iframe").attr('src',url);
         }
       };

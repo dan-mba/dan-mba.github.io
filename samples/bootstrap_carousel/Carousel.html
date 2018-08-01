@@ -209,11 +209,11 @@
 
         $(".carousel").carousel(0);
         $("#carCaption").html($("div.carousel-item.active p").html());
-        $($iframe).height(Math.max(Math.ceil($('html').height())+2,parentHeight));
+        $($iframe).height(Math.max(Math.ceil($('html').height())+4,parentHeight));
 
         $("#myCarousel").on("slid.bs.carousel",function(){
            $("#carCaption").hide().html($("div.carousel-item.active p").html()).slideDown(function(){
-             $($iframe).height(Math.max(Math.ceil($('html').height())+2,parentHeight));
+             $($iframe).height(Math.max(Math.ceil($('html').height())+4,parentHeight));
            });
         });
       });

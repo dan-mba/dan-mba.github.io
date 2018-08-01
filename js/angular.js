@@ -23,6 +23,10 @@ var libraries = {
   babel: {
     name: "Babel Compiler",
     site: "//babeljs.io/"
+  },
+  bootstrap: {
+    name: "Bootstrap",
+    site: "//getbootstrap.com/"
   }
 };
 

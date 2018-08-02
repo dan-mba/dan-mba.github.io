@@ -9,10 +9,10 @@ $(function() {
   $("#topnav a").on("click", function () {
     $("#topnav div").removeClass("active");
     $("div.main div").removeClass("active");
-    /* Lazy Load Images */
+    /* Lazy Load Map Image
     $($(this).data("id")).find("img[data-src]").each(function() {
       $(this).attr("src",$(this).data("src"));
-    });
+    }); */
 
     $(this).parent().addClass("active");
     $($(this).data("id")).addClass("active");
@@ -53,10 +53,10 @@ $(function() {
   if(window.location.hash) {
     $("#topnav div").removeClass("active");
     $("div.main div").removeClass("active");
-    /* Lazy Load Images */
+    /* Lazy Load Images
     $(window.location.hash).find("img[data-src]").each(function() {
       $(this).attr("src",$(this).data("src"));
-    });
+    }); */
 
     $("#topnav a[href='" + window.location.hash + "']").parent().addClass("active");
     $(window.location.hash).addClass("active");

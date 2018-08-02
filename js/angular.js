@@ -111,7 +111,7 @@ app.directive('codeSample', function() {
             var fHeight = $("#samples iframe").contents().find("html").height();
             console.log(fHeight);
             $("#samples iframe").height(Math.max(Math.ceil(fHeight)+2, $(window).height()-75));
-            $("#samples").animate({"visibility":"visible"},"fast"); 
+            $("#samples").animate({visibility:"visible"},"fast"); 
           });
           $("#samples").css("visibility","hidden");
           $("#samples iframe").attr('src',url);

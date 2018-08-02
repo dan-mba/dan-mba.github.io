@@ -108,8 +108,9 @@ app.directive('codeSample', function() {
           $("#sampback").addClass("active");
           $("#topnav").hide();
           $("#samples iframe").on("load", function() {
-            var height = $("#samples iframe").contents().find("html").height();
-            $("#samples iframe").height(Math.max(Math.ceil(height)+2, $(window).height()-75));
+            var fHeight = $("#samples iframe").contents().find("html").height();
+            console.log(fHeight);
+            $("#samples iframe").height(Math.max(Math.ceil(fHeight)+2, $(window).height()-75));
             $("#samples").toggle(); 
           });
           $("#samples").toggle(0);

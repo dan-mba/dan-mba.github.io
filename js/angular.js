@@ -89,6 +89,7 @@ app.controller('MainController',
       description: "This is an update of a part of previos version of my resume website. " +
                   "It is a carousel of images and decriptions showing the different parts of my IBM career.",
       libraries: ['jquery', 'bootstrap']
+    }
   ];
 }]);
 

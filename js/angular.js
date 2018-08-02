@@ -82,7 +82,13 @@ app.controller('MainController',
       apiname: "NHTSA's Office of Defect Investigation - Recalls API",
       apisite: "https://one.nhtsa.gov/webapi/Default.aspx?Recalls/API/83",
       libraries: ['react','babel','jquery','fontawesome']
-    }
+    },
+    {
+      title: "IBM Career Carousel",
+      url: "samples/bootstrap_carousel/Carousel.html",
+      description: "This is an update of a part of previos version of my resume website. " +
+                  "It is a carousel of images and decriptions showing the different parts of my IBM career.",
+      libraries: ['jquery', 'bootstrap']
   ];
 }]);
 

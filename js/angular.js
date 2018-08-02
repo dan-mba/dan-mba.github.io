@@ -111,9 +111,9 @@ app.directive('codeSample', function() {
             var fHeight = $("#samples iframe").contents().find("html").height();
             console.log(fHeight);
             $("#samples iframe").height(Math.max(Math.ceil(fHeight)+2, $(window).height()-75));
-            $("#samples").toggle(); 
+            $("#samples").css("visibility","visible"); 
           });
-          $("#samples").toggle(0);
+          $("#samples").css("visibility","hidden");
           $("#samples iframe").attr('src',url);
         }
       };

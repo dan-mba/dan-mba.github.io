@@ -287,7 +287,8 @@ h1 {
 
 .eddesc {
   -ms-grid-column: 2;
-  padding-top: 10px;
+  display: flex;
+  align-items: center;
 }
 
 #education span.degree {
@@ -312,10 +313,6 @@ h1 {
   
   .edimg img {
     width: 90px;
-  }
-  
-  .eddesc {
-    padding-top: 2px;
   }
   
   #education span.big {

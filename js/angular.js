@@ -86,6 +86,7 @@ app.controller('MainController',
     {
       title: "IBM Career Carousel",
       url: "samples/bootstrap_carousel/Carousel.html",
+      source: "//github.com/dan-mba/dan-mba.github.io/tree/master/samples/bootstrap_carousel",
       description: "This is an update of a part of previos version of my resume website. " +
                   "It is a carousel of images and decriptions showing the different parts of my IBM career.",
       libraries: ['jquery', 'bootstrap']

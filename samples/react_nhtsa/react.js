@@ -1,3 +1,8 @@
+import "babel-polyfill";
+import React from 'react';
+import { render } from 'react-dom';
+
+
 const endpoint = "https://one.nhtsa.gov/webapi/api/Recalls/vehicle";
 const datatype = "?format=json";
 

@@ -127,7 +127,7 @@ app.directive('codeSample', function() {
       };
       
       if (scope.info.apiname) {
-        scope.info.description += "<br/>API: <a href='" + scope.info.apisite + "' target='_blank'>" + 
+        scope.info.description += "<br/>API: <a href='" + scope.info.apisite + "' target='_blank' rel='noopener'>" + 
           scope.info.apiname + "</a>";
       }
       
@@ -139,7 +139,7 @@ app.directive('codeSample', function() {
         }
         for(var i=0; i < scope.info.libraries.length; i++) {
           if(i>0) scope.info.description += ", ";
-          scope.info.description += "<a href='" + libraries[scope.info.libraries[i]].site + "' target='_blank'>" +
+          scope.info.description += "<a href='" + libraries[scope.info.libraries[i]].site + "' target='_blank' rel='noopener'>" +
             libraries[scope.info.libraries[i]].name + "</a>";
         }
       }

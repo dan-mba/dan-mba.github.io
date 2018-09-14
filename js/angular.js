@@ -132,7 +132,11 @@ app.directive('codeSample', function() {
       }
       
       if (scope.info.libraries.length) {
-        scope.info.description += "<div class='lib'>";
+        if(scope.info.apiname){
+          scope.info.description += "<div>";
+        } else {
+          scope.info.description += "<div class='api'>";
+        }
         if (scope.info.libraries.length > 1) {
           scope.info.description += "Libraries: ";
         } else {

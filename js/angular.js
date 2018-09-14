@@ -77,8 +77,8 @@ app.controller('MainController',
       url: "samples/react_nhtsa/react.html",
       source: "//github.com/dan-mba/dan-mba.github.io/tree/master/samples/react_nhtsa",
       description: "I developed this application while learning to use the React JavaScript library. " +
-                  "This application acceses data form the NHTSA Recall API and displays the data for the selected model. " +
-                  "I also used this app to learn how to style select menus using css only.",
+                  "This application accesses data form the NHTSA Recall API and displays the data for the selected model. " +
+                  "I also used this app to learn how to style select menus using CSS only.",
       apiname: "NHTSA's Office of Defect Investigation - Recalls API",
       apisite: "https://one.nhtsa.gov/webapi/Default.aspx?Recalls/API/83",
       libraries: ['react','babel','jquery','fontawesome']
@@ -87,8 +87,8 @@ app.controller('MainController',
       title: "IBM Career Carousel",
       url: "samples/bootstrap_carousel/Carousel.html",
       source: "//github.com/dan-mba/dan-mba.github.io/tree/master/samples/bootstrap_carousel",
-      description: "This is an update of a part of previos version of my resume website. " +
-                  "It is a carousel of images and decriptions showing the different parts of my IBM career.",
+      description: "This is an update of a part of previous version of my resume website. " +
+                  "It is a carousel of images and descriptions showing the different parts of my IBM career.",
       libraries: ['jquery', 'bootstrap']
     }
   ];

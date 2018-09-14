@@ -143,7 +143,7 @@ app.directive('codeSample', function() {
           scope.info.description += "<a href='" + libraries[scope.info.libraries[i]].site + "' target='_blank' rel='noopener'>" +
             libraries[scope.info.libraries[i]].name + "</a>";
         }
-        scope.info.description += "</div>
+        scope.info.description += "</div>";
       }
     }
   };

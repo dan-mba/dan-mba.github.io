@@ -125,20 +125,17 @@ app.directive('codeSample', function() {
           $("#samples iframe").attr('src',url);
         }
       };
-      if (scope.info.apiname || scope.info.libraries.length) {
-        scope.info.description += "<br/><span style='margin-top:1em;'>"
-      }
-      
+            
       if (scope.info.apiname) {
-        scope.info.description += "API: <a href='" + scope.info.apisite + "' target='_blank' rel='noopener'>" + 
+        scope.info.description += "<br/>API: <a href='" + scope.info.apisite + "' target='_blank' rel='noopener'>" + 
           scope.info.apiname + "</a>";
       }
       
       if (scope.info.libraries.length) {
         if (scope.info.libraries.length > 1) {
-          scope.info.description += "Libraries: ";
+          scope.info.description += "<br/>Libraries: ";
         } else {
-          scope.info.description += "Library: ";
+          scope.info.description += "<br/>Library: ";
         }
         for(var i=0; i < scope.info.libraries.length; i++) {
           if(i>0) scope.info.description += ", ";

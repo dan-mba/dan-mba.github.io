@@ -127,21 +127,23 @@ app.directive('codeSample', function() {
       };
             
       if (scope.info.apiname) {
-        scope.info.description += "<br/><span class='api'>API: <a href='" + scope.info.apisite + "' target='_blank' rel='noopener'>" + 
-          scope.info.apiname + "</a></span";
+        scope.info.description += "<div class='api'>API: <a href='" + scope.info.apisite + "' target='_blank' rel='noopener'>" + 
+          scope.info.apiname + "</a></div>";
       }
       
       if (scope.info.libraries.length) {
+        scope.info.description += "<div class='lib'>";
         if (scope.info.libraries.length > 1) {
-          scope.info.description += "<br/>Libraries: ";
+          scope.info.description += "Libraries: ";
         } else {
-          scope.info.description += "<br/>Library: ";
+          scope.info.description += "Library: ";
         }
         for(var i=0; i < scope.info.libraries.length; i++) {
           if(i>0) scope.info.description += ", ";
           scope.info.description += "<a href='" + libraries[scope.info.libraries[i]].site + "' target='_blank' rel='noopener'>" +
             libraries[scope.info.libraries[i]].name + "</a>";
         }
+        scope.info.description += "</div>
       }
     }
   };

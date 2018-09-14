@@ -127,7 +127,7 @@ app.directive('codeSample', function() {
       };
       
       if (scope.info.apiname) {
-        scope.info.description += "<br/>API: <a href='" + scope.info.apisite + "' target='_blank' rel='noopener'>" + 
+        scope.info.description += "<br style='margin-bottom:1em;'/>API: <a href='" + scope.info.apisite + "' target='_blank' rel='noopener'>" + 
           scope.info.apiname + "</a>";
       }
       

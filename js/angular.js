@@ -127,8 +127,8 @@ app.directive('codeSample', function() {
       };
             
       if (scope.info.apiname) {
-        scope.info.description += "<br/>API: <a href='" + scope.info.apisite + "' target='_blank' rel='noopener'>" + 
-          scope.info.apiname + "</a>";
+        scope.info.description += "<br/><span class='api'>API: <a href='" + scope.info.apisite + "' target='_blank' rel='noopener'>" + 
+          scope.info.apiname + "</a></span";
       }
       
       if (scope.info.libraries.length) {

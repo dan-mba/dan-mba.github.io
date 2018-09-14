@@ -361,6 +361,10 @@ fieldset p {
   color: #111;
 }
 
+.api {
+  margin-top: 1em;
+}
+
 button.ui-button, #code button.touch {
   background-color: #303030;
   background-image: url("//download.jqueryui.com/themeroller/images/ui-bg_highlight-soft_35_222222_1x100.png");

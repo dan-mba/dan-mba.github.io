@@ -1,0 +1,29 @@
+#chart-container {
+  max-width: 800px;
+  margin: 2vh auto;
+  padding: 2vh 2vw;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+#bar-chart {
+  height: 85vh;
+}
+
+@media (min-height: 530px) {
+  #bar-chart {
+    height: 450px;
+  }
+}
+
+#tooltip {
+  position: absolute;
+  background-color: #333;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116949045-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-116949045-1');
+    </script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>US GDP Bar Chart</title>
+    <link rel="stylesheet" href="chart.css">
+  </head>
+<body>
+  <div id="chart-container">
+    <div id="title" style="text-align:center; font-size:2em;">United States GDP</div>
+    <div id="subhead" style="text-align:center;font-size:1.2em;">(In Trillion Dollars)</div>
+    <div id="bar-chart"></div>
+    <div id="tooltip" class="hidden"></div>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+  <script src="chart.js"></script>
+</body>

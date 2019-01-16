@@ -1,4 +1,4 @@
-const DATAURL = "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json";
+const DATAURL = "https://dan-mba.github.io/samples/d3BarChart/GDP-data.json";
 
 function billions(num) {
   if (num > 1000)

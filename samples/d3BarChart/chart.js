@@ -48,6 +48,7 @@ $(document).ready(function(){
 /*            .style("left",d3.event.pageX+"px") */
             .style("right", function(d) {
               const count = svg.selectAll("rect").size();
+              console.log(count);
               console.log(i);
               return ((bar_w * (count-i)) - (100 * (count - i) / count)) + "px";
             })

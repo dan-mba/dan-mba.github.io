@@ -1,5 +1,5 @@
 #chart-container {
-  max-width: 800px;
+  max-width: 696px;
   margin: 2vh auto;
   padding: 2vh 2vw;
   background-color: transparent;
@@ -7,13 +7,8 @@
 }
 
 #bar-chart {
-  height: 85vh;
-}
-
-@media (min-height: 530px) {
-  #bar-chart {
-    height: 450px;
-  }
+  max-height: 85vh;
+  height: 450px;
 }
 
 #tooltip {

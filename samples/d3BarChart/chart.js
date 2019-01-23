@@ -49,7 +49,7 @@ $(document).ready(function(){
             .style("right", function(d) {
               const count = svg.selectAll("rect").size();
               console.log(i);
-              return ((bar_w * count) - 100 + (100 * i / count)) + "px";
+              return ((bar_w * (count-i)) - (100 * (count - i) / count)) + "px";
             })
             .style("top",function(d) {
               const box = d3.select("#bar-chart svg").node().getBBox();

@@ -42,10 +42,14 @@ $(document).ready(function(){
        .attr("class","bar")
        .attr("data-date", (d) => d[0])
        .attr("data-gdp", (d) => d[1])
-       .on("mouseover",function(d) {
+       .on("mouseover",function(d,i) {
           d3.select("#tooltip")
             .classed("hidden",false)
-            .style("left",d3.event.pageX+"px")
+/*            .style("left",d3.event.pageX+"px") */
+            .style("right", function(d,i) {
+              const count = svg.selectAll("rect").size();
+              return (d3.event.pageX + 100 - (100 * i / count)) + "px";
+            })
             .style("top",function(d) {
               const box = d3.select("#bar-chart svg").node().getBBox();
               return (box.y + box.height - yPadding - 30) + "px";

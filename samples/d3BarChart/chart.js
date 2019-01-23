@@ -32,7 +32,7 @@ $(window).on('load', function(){
                   .attr("width", w)
                   .attr("height", h);
     
-    const box = d3.select("#bar-chart svg").node.getBBox();
+    const box = d3.select("#bar-chart svg").node().getBBox();
     
     svg.selectAll("rect")
        .data(data.data)

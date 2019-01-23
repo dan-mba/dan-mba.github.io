@@ -48,7 +48,7 @@ $(document).ready(function(){
 /*            .style("left",d3.event.pageX+"px") */
             .style("right", function(d,i) {
               const count = svg.selectAll("rect").size();
-              return (d3.event.pageX + 100 - (100 * i / count)) + "px";
+              return ((bar_w * count) - 100 + (100 * i / count)) + "px";
             })
             .style("top",function(d) {
               const box = d3.select("#bar-chart svg").node().getBBox();

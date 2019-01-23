@@ -46,7 +46,7 @@ $(document).ready(function(){
           d3.select("#tooltip")
             .classed("hidden",false)
 /*            .style("left",d3.event.pageX+"px") */
-            .style("right", function(d,i) {
+            .style("right", function(d) {
               const count = svg.selectAll("rect").size();
               console.log(i);
               return ((bar_w * count) - 100 + (100 * i / count)) + "px";

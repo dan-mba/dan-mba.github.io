@@ -33,6 +33,8 @@ $(window).on('load', function(){
                   .attr("height", h);
     
     const box = d3.select("#bar-chart svg").node().getBBox();
+    console.log(box.x);
+    console.log(box.width);
     
     svg.selectAll("rect")
        .data(data.data)
@@ -49,12 +51,12 @@ $(window).on('load', function(){
           d3.select("#tooltip")
             .classed("hidden",false)
             .style("left", function(d) {
+              console.log(d3.evebt.pageX);
               if (d3.event.pageX > box.x + box.width - xPadding - 100)
                 return (d3.event.pageX - 100) + "px"
               return d3.event.pageX + "px";
             })
             .style("top",function(d) {
-/*              const box = d3.select("#bar-chart svg").node().getBBox();*/
               return (box.y + box.height - yPadding - 30) + "px";
             })
             .html("$" + billions(d[1])+ " <br>" + d[0])

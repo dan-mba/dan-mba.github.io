@@ -5,7 +5,7 @@ function billions(num) {
     return (num/1000).toLocaleString() + " trillion";
   return num.toLocaleString() + " billion";
 }
-$(document).ready(function(){
+$(window).load(function(){
   let xhr = $.ajax({url: DATAURL,
                     dataType: 'json'
                    });

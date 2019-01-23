@@ -16,6 +16,7 @@ $(window).on('load', function(){
     console.log(w/1.5);
     const xPadding = 20;
     const yPadding = 40;
+    var count;
     
     const bar_w = (w-2*xPadding)/data.data.length;
     const yScale = d3.scaleLinear()
@@ -46,7 +47,6 @@ $(window).on('load', function(){
           d3.select("#tooltip")
             .classed("hidden",false)
             .style("right", function(d) {
-              const count = svg.selectAll("rect").size();
               return ((bar_w * (count-i)) - (100 * (count - i) / count) + xPadding) + "px";
             })
             .style("top",function(d) {
@@ -61,7 +61,7 @@ $(window).on('load', function(){
             .classed("hidden", true);
        })
 
-    
+    count = svg.selectAll("rect").size();
     
     const xAxis = d3.axisBottom(xScale);
     const yAxis = d3.axisLeft(yScale);

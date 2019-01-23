@@ -46,7 +46,6 @@ $(window).on('load', function(){
           d3.select("#tooltip")
             .classed("hidden",false)
             .style("left", function(d) {
-              console.log(d3.event.pageX);
               if (d3.event.pageX > box.x + box.width - xPadding - 100)
                 return (d3.event.pageX - 100) + "px"
               return d3.event.pageX + "px";
@@ -63,8 +62,6 @@ $(window).on('load', function(){
        })
 
     const box = d3.select("#bar-chart svg").node().getBBox();
-    console.log(box.x);
-    console.log(box.width);
     
     const xAxis = d3.axisBottom(xScale);
     const yAxis = d3.axisLeft(yScale);

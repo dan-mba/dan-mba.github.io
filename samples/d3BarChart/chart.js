@@ -48,6 +48,7 @@ $(document).ready(function(){
 /*            .style("left",d3.event.pageX+"px") */
             .style("right", function(d,i) {
               const count = svg.selectAll("rect").size();
+              console.log(i);
               return ((bar_w * count) - 100 + (100 * i / count)) + "px";
             })
             .style("top",function(d) {

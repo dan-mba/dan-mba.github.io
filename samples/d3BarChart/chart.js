@@ -45,12 +45,9 @@ $(document).ready(function(){
        .on("mouseover",function(d,i) {
           d3.select("#tooltip")
             .classed("hidden",false)
-/*            .style("left",d3.event.pageX+"px") */
             .style("right", function(d) {
               const count = svg.selectAll("rect").size();
-              console.log(count);
-              console.log(i);
-              return ((bar_w * (count-i)) - (100 * (count - i) / count)) + "px";
+              return ((bar_w * (count-i)) - (100 * (count - i) / count) + xPadding) + "px";
             })
             .style("top",function(d) {
               const box = d3.select("#bar-chart svg").node().getBBox();

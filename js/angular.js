@@ -5,7 +5,7 @@ var libraries = {
     site: "//angularjs.org/"
   },
   fontawesome : {
-    name: "Font Awecome",
+    name: "Font Awesome",
     site: "//fontawesome.com/"
   },
   jquery : {
@@ -27,6 +27,22 @@ var libraries = {
   bootstrap: {
     name: "Bootstrap",
     site: "//getbootstrap.com/"
+  },
+  node: {
+    name: "Node.js",
+    site: "https://nodejs.org/"
+  },
+  express: {
+    name: "Express",
+    site: "https://expressjs.com/"
+  },
+  mongoose: {
+    name: "Mongoose",
+    site: "https://mongoosejs.com/"
+  },
+  d3: {
+    name: "D3",
+    site: "https://d3js.org/"
   }
 };
 

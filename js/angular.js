@@ -5,7 +5,7 @@ var libraries = {
     site: "//angularjs.org/"
   },
   fontawesome : {
-    name: "Font Awecome",
+    name: "Font Awesome",
     site: "//fontawesome.com/"
   },
   jquery : {

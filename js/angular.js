@@ -103,6 +103,26 @@ app.controller('MainController',
       description: "This application uses the Bootstrap carousel component to display a slideshow of " +
                   "images & descriptions from the different parts of my IBM career.",
       libraries: ['jquery', 'bootstrap']
+    },
+    {
+      title: "SVG Bar Chart of GDP",
+      url: "https://dan-mba.github.io/samples/d3BarChart/chart.html",
+      source: "https://github/dan-mba/dan-mba.github.io/tree/master/samples/d3BarChart",
+      description: "This application uses the D3 JavaScript library to display a bar chart " +
+                  "of quarterly US GDP values. It takes data from a json file and converts it " +
+                  "to SVG for display.",
+      libraries: ['jquery','d3']
+    },
+    {
+      title: "URL Shortener",
+      url: "https://mixed-hail.glitch.me",
+      source: "https://glitch.com/edit/#!/mixed-hail",
+      newtab: true,
+      description: "This application is a simple URL shortener run on the Node.js runtime. " +
+                  "The front-end is served by Express and uses jQuery to parse the data returned from a POST request. " +
+                  "The back-end uses Express to handle the POST and Mongoose to store the URLs in a MongoDB database. " +
+                  "It is hosted on Glitch and will open in a new tab to avoid CORS issues.",
+      libraries: ['node','express','mongoose','jquery']
     }
   ];
 }]);

@@ -18,6 +18,8 @@ $(window).on('load', function(){
     const yPadding = 40;
     
     const bar_w = (w-2*xPadding)/data.data.length;
+    
+    // Configure scaling functions
     const yScale = d3.scaleLinear()
                      .domain([0,d3.max(data.data, (d) => d[1]/1000)])
                      .range([h-yPadding,yPadding]);
@@ -26,11 +28,13 @@ $(window).on('load', function(){
                               new Date(d3.max(data.data,(d) => d[0]))])
                      .range([xPadding,w-xPadding])
     
+    // Configure SVG area
     const svg = d3.select("#bar-chart")
                   .append("svg")
                   .attr("width", w)
                   .attr("height", h);
     
+    // Draw bars
     svg.selectAll("rect")
        .data(data.data)
        .enter()
@@ -42,6 +46,7 @@ $(window).on('load', function(){
        .attr("class","bar")
        .attr("data-date", (d) => d[0])
        .attr("data-gdp", (d) => d[1])
+        // Setup tooltip
        .on("mouseover",function(d,i) {
           d3.select("#tooltip")
             .classed("hidden",false)
@@ -62,7 +67,8 @@ $(window).on('load', function(){
        })
 
     const box = d3.select("#bar-chart svg").node().getBBox();
-    
+
+    // Setup Axis labels
     const xAxis = d3.axisBottom(xScale);
     const yAxis = d3.axisLeft(yScale);
     

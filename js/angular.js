@@ -30,19 +30,19 @@ var libraries = {
   },
   node: {
     name: "Node.js",
-    site: "https://nodejs.org/"
+    site: "//nodejs.org/"
   },
   express: {
     name: "Express",
-    site: "https://expressjs.com/"
+    site: "//expressjs.com/"
   },
   mongoose: {
     name: "Mongoose",
-    site: "https://mongoosejs.com/"
+    site: "//mongoosejs.com/"
   },
   d3: {
     name: "D3",
-    site: "https://d3js.org/"
+    site: "//d3js.org/"
   }
 };
 
@@ -106,8 +106,8 @@ app.controller('MainController',
     },
     {
       title: "SVG Bar Chart of GDP",
-      url: "https://dan-mba.github.io/samples/d3BarChart/chart.html",
-      source: "https://github/dan-mba/dan-mba.github.io/tree/master/samples/d3BarChart",
+      url: "samples/d3BarChart/chart.html",
+      source: "//github/dan-mba/dan-mba.github.io/tree/master/samples/d3BarChart",
       description: "This application uses the D3 JavaScript library to display a bar chart " +
                   "of quarterly US GDP values. It takes data from a json file and converts it " +
                   "to SVG for display.",

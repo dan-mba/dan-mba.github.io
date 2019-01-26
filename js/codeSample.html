@@ -1,7 +1,7 @@
 <fieldset>
   <legend>{{ info.title }}</legend>
   <p data-ng-bind-html="info.description"></p>
-  <button class="ui-button ui-widget ui-corner-all" data-ng-click="showCode(info.url,false)">App</button>
-  <button class="ui-button ui-widget ui-corner-all source" data-ng-click="showCode(info.source,true)">Source Code</a>
+  <button class="ui-button ui-widget ui-corner-all" data-ng-click="showCode(info.url,info.newtab)">App</button>
+  <button class="ui-button ui-widget ui-corner-all source" data-ng-click="showCode(info.source,true)">Source Code</button>
   <div class="clear"></div>
 </fieldset>

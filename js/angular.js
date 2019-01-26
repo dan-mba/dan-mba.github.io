@@ -27,6 +27,22 @@ var libraries = {
   bootstrap: {
     name: "Bootstrap",
     site: "//getbootstrap.com/"
+  },
+  node: {
+    name: "Node.js",
+    site: "//nodejs.org/"
+  },
+  express: {
+    name: "Express",
+    site: "//expressjs.com/"
+  },
+  mongoose: {
+    name: "Mongoose",
+    site: "//mongoosejs.com/"
+  },
+  d3: {
+    name: "D3",
+    site: "//d3js.org/"
   }
 };
 
@@ -37,12 +53,12 @@ app.controller('MainController',
       title: "GPS Static Fleet Map",
       url: "samples/fleetmap/fleetmap.html",
       source: "//github.com/dan-mba/dan-mba.github.io/tree/master/samples/fleetmap",
-      description: "I developed this application to take data from the GPS provider & display it on a map. " +
-                  "This app uses the Google Static Maps API. I used this API because at the time it could be used without a key. " +
-                  "Because the maps this API provides are static images, I had to develop an interface to allow you to zoom " +
-                  "& move around the map. I also needed to determine the geographical center of the coordinates " +
-                  "and the maximum latitude & longitude distance from the center, " +
-                  "so I could ensure all the items would be displayed on the initial map.",
+      description: "This application takes data from the GPS provider (simulated for this example) & displays it on a map. " +
+                  "It uses the Google Static Maps API, because at the time it could be used for free without a key. " +
+                  "Because this API provides static images, I had to develop an interface to allow you to zoom " +
+                  "& move around the map. I also needed to determine the geographical center " +
+                  "and maximum & minimum latitude & longitude " +
+                  "to ensure all items would be displayed on the initial map.",
       apiname: "Google Static Maps API",
       apisite: "//developers.google.com/maps/documentation/static-maps/",
       libraries: ['jquery']
@@ -51,10 +67,9 @@ app.controller('MainController',
       title: "GPS JavaScript Fleet Map",
       url: "samples/fleetmapjs/fleetmap.html",
       source: "//github.com/dan-mba/dan-mba.github.io/tree/master/samples/fleetmapjs",
-      description: "This is an updated version of the Static Fleet Map that uses the Google Maps JavaScript API. " +
-                  "I created this after finding out Google updated their Maps API TOS to require a key for all usage. " +
-                  "Using the JavaScript API allowed me to create a map with clickable location markers to display the " +
-                  "relevant data right on the map in an info bubble.",
+      description: "An updated version of the Static Fleet Map developed using the Google Maps JavaScript API. " +
+                   "Using the JavaScript API allowed me to create a map with clickable location markers to display the " +
+                   "relevant data right on the map in an info bubble.",
       apiname: "Google Maps JavaScript API",
       apisite: "//developers.google.com/maps/documentation/javascript/",
       libraries: []
@@ -63,11 +78,9 @@ app.controller('MainController',
       title: "NHTSA Safety Ratings",
       url: "samples/nhtsa/nhtsa.html",
       source: "//github.com/dan-mba/dan-mba.github.io/tree/master/samples/nhtsa",
-      description: "I developed this application as I was learning how to access REST APIs. " +
-                  "This application accesses data from the NHTSA 5 Star Safety Ratings API and " +
-                  "displays the available data for the vehicle model selected. " +
-                  "I recently updated the app to use jQueryUI stylized select menus for a more modern look " +
-                  "& AngularJS for improved formatting & code readability.",
+      description: "This application accesses data from the NHTSA 5 Star Safety Ratings REST API and " +
+                  "uses AngularJS to display the available data for the vehicle model selected. " +
+                  "It also takes advantage of jQueryUI stylized select menus.",
       apiname: "NHTSA NCAP - 5 Star Safety Ratings API",
       apisite: "https://one.nhtsa.gov/webapi/Default.aspx?SafetyRatings/API/5",
       libraries: ['jquery','jqueryui','angularjs','fontawesome']
@@ -76,9 +89,9 @@ app.controller('MainController',
       title: "NHTSA Recalls",
       url: "samples/react_nhtsa/react.html",
       source: "//github.com/dan-mba/dan-mba.github.io/tree/master/samples/react_nhtsa",
-      description: "I developed this application while learning to use the React JavaScript library. " +
-                  "This application accesses data form the NHTSA Recall API and displays the data for the selected model. " +
-                  "I also used this app to learn how to style select menus using CSS only.",
+      description: "This application uses the React JavaScript library to display data from " +
+                  "the NHTSA Recall REST API for the selected model. " +
+                  "It also styles the select menus using CSS only.",
       apiname: "NHTSA's Office of Defect Investigation - Recalls API",
       apisite: "https://one.nhtsa.gov/webapi/Default.aspx?Recalls/API/83",
       libraries: ['react','babel','jquery','fontawesome']
@@ -87,9 +100,29 @@ app.controller('MainController',
       title: "IBM Career Carousel",
       url: "samples/bootstrap_carousel/Carousel.html",
       source: "//github.com/dan-mba/dan-mba.github.io/tree/master/samples/bootstrap_carousel",
-      description: "This is an update of a part of previous version of my resume website. " +
-                  "It is a carousel of images and descriptions showing the different parts of my IBM career.",
+      description: "This application uses the Bootstrap carousel component to display a slideshow of " +
+                  "images & descriptions from the different parts of my IBM career.",
       libraries: ['jquery', 'bootstrap']
+    },
+    {
+      title: "SVG Bar Chart of GDP",
+      url: "samples/d3BarChart/chart.html",
+      source: "//github/dan-mba/dan-mba.github.io/tree/master/samples/d3BarChart",
+      description: "This application uses the D3 JavaScript library to display a bar chart " +
+                  "of quarterly US GDP values. It takes data from a json file and converts it " +
+                  "to SVG for display.",
+      libraries: ['jquery','d3']
+    },
+    {
+      title: "URL Shortener",
+      url: "https://mixed-hail.glitch.me",
+      source: "https://glitch.com/edit/#!/mixed-hail",
+      newtab: true,
+      description: "This application is a simple URL shortener run on the Node.js runtime. " +
+                  "The front-end is served by Express and uses jQuery to parse the data returned from a POST request. " +
+                  "The back-end uses Express to handle the POST and Mongoose to store the URLs in a MongoDB database. " +
+                  "It is hosted on Glitch and will open in a new tab to avoid CORS issues.",
+      libraries: ['node','express','mongoose','jquery']
     }
   ];
 }]);

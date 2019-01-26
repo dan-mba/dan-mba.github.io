@@ -107,7 +107,7 @@ app.controller('MainController',
     {
       title: "SVG Bar Chart of GDP",
       url: "samples/d3BarChart/chart.html",
-      source: "//github/dan-mba/dan-mba.github.io/tree/master/samples/d3BarChart",
+      source: "//github.com/dan-mba/dan-mba.github.io/tree/master/samples/d3BarChart",
       description: "This application uses the D3 JavaScript library to display a bar chart " +
                   "of quarterly US GDP values. It takes data from a json file and converts it " +
                   "to SVG for display.",
@@ -141,7 +141,7 @@ app.directive('codeSample', function() {
         if((isIE != 0) || isSource) {
           $("#code button").blur();
           var win = window.open(url,"_blank");
-          win.focus();
+          if (!win) win.focus();
          }
         else {
           $("#code").removeClass("active");

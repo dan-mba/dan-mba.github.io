@@ -9,6 +9,7 @@
 #bar-chart {
   max-height: 85vh;
   height: 450px;
+  position: relative;
 }
 
 #tooltip {

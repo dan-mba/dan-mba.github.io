@@ -67,6 +67,8 @@ $(window).on('load', function(){
        })
 
     const box = d3.select("#bar-chart svg").node().getBBox();
+    console.log(box.y);
+    console.log(box.top);
 
     // Setup Axis labels
     const xAxis = d3.axisBottom(xScale);

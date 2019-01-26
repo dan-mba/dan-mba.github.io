@@ -52,11 +52,11 @@ $(window).on('load', function(){
             .classed("hidden",false)
             .style("left", function(d) {
               if (d3.event.pageX > box.x + box.width - xPadding - 110)
-                return (d3.event.pageX - 110) + "px"
-              return d3.event.pageX + "px";
+                return (d3.event.pageX - 110 - xPadding) + "px"
+              return (d3.event.pageX - xPadding) + "px";
             })
             .style("top",function(d) {
-              return (yPadding + (.2 * box.height)) + "px";
+              return (yPadding + (.1 * box.height)) + "px";
             })
             .html("$" + billions(d[1])+ " <br>" + d[0])
             .attr("data-date",d[0]);

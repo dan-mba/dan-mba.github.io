@@ -51,12 +51,12 @@ $(window).on('load', function(){
           d3.select("#tooltip")
             .classed("hidden",false)
             .style("left", function(d) {
-              if (d3.event.pageX > box.x + box.width - xPadding - 100)
-                return (d3.event.pageX - 100) + "px"
+              if (d3.event.pageX > box.x + box.width - xPadding - 110)
+                return (d3.event.pageX - 110) + "px"
               return d3.event.pageX + "px";
             })
             .style("top",function(d) {
-              return (box.y + box.height - yPadding - 30) + "px";
+              return (yPadding + (.2 * box.height) + "px";
             })
             .html("$" + billions(d[1])+ " <br>" + d[0])
             .attr("data-date",d[0]);
@@ -67,8 +67,6 @@ $(window).on('load', function(){
        })
 
     const box = d3.select("#bar-chart svg").node().getBBox();
-    console.log(box.y);
-    console.log(box.top);
 
     // Setup Axis labels
     const xAxis = d3.axisBottom(xScale);

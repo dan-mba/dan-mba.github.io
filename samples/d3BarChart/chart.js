@@ -56,7 +56,7 @@ $(window).on('load', function(){
               return d3.event.pageX + "px";
             })
             .style("top",function(d) {
-              return (yPadding + (.2 * box.height) + "px";
+              return (yPadding + (.2 * box.height)) + "px";
             })
             .html("$" + billions(d[1])+ " <br>" + d[0])
             .attr("data-date",d[0]);

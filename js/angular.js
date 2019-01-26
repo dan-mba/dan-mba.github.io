@@ -141,7 +141,7 @@ app.directive('codeSample', function() {
         if((isIE != 0) || isSource) {
           $("#code button").blur();
           var win = window.open(url,"_blank");
-          if (!win) win.focus();
+          if (win) win.focus();
          }
         else {
           $("#code").removeClass("active");

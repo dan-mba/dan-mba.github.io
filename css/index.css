@@ -352,7 +352,7 @@ legend {
   text-align: center;
 }
 
-fieldset p {
+fieldset p, div.pClass {
   margin-bottom: 0.5em;
   font-family: 'IBM Plex Serif', serif;
 }

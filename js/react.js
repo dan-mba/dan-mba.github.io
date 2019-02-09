@@ -45,9 +45,7 @@ var libraries = {
   }
 };
 
-app.controller('MainController',
-['$scope', function($scope) {
-  $scope.apps = [
+var sampApps = [
     {
       title: "GPS Static Fleet Map",
       url: "samples/fleetmap/fleetmap.html",
@@ -124,7 +122,7 @@ app.controller('MainController',
       libraries: ['node','express','mongoose','jquery']
     }
   ];
-}]);
+
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 

@@ -34,7 +34,7 @@
     <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700%7CIBM+Plex+Serif" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
   </head>
-  <body data-ng-app="ResumeApp">
+  <body>
     <nav>
       <div id="tophead">
         <div id="name">Daniel Burkhardt</div>
@@ -55,7 +55,7 @@
         <a href="#code"><i class="material-icons">arrow_back</i>Back to Code List</a>
       </div>
     </nav>
-    <div class="main" data-ng-controller="MainController">
+    <div class="main">
       <div id="home" class="active">
         <h1>Introduction</h1>
         <p>I created this website as an addendum to my resume and LinkedIn profile.
@@ -303,9 +303,6 @@
         </div>
       </div>
       <div id="code">
-        <div class="sample" data-ng-repeat="app in apps">
-          <code-sample info="app"></code-sample>
-        </div>
       </div>
       <div id="samples">
         <iframe src="#"></iframe>
@@ -322,9 +319,9 @@
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-sanitize.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/react/16.8.0/umd/react.production.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/react-dom/16.8.0/umd/react-dom.production.min.js"></script>
     <script src="js/index.js"></script>
-    <script src="js/angular.js"></script>
+    <script src="js/react.js"></script>
   </body>
 </html>

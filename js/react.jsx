@@ -45,9 +45,7 @@ var libraries = {
   }
 };
 
-app.controller('MainController',
-['$scope', function($scope) {
-  $scope.apps = [
+var sampApps = [
     {
       title: "GPS Static Fleet Map",
       url: "samples/fleetmap/fleetmap.html",
@@ -124,7 +122,7 @@ app.controller('MainController',
       libraries: ['node','express','mongoose','jquery']
     }
   ];
-}]);
+
 
 /* Reder link to API if applicable */
 class Api extends React.Component {

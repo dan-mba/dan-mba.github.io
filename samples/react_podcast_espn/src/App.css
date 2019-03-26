@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+  padding: 2%;
+}
+
+.Header {
+  display: flex;
+}
+
+.HeaderText {
+  align-self: center;
+}
+
+img {
+  flex-basis: 30%;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.Title {
+  font-size: 1.5em;
+}
+
+.mediaPlayer {
+  height: 40px;
+  width: 100%;
+  margin: 2vh 0;
+}

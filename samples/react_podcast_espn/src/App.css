@@ -13,6 +13,7 @@
 
 img {
   flex-basis: 30%;
+  max-width: 30%;
   flex-shrink: 0;
   align-self: center;
 }
@@ -24,5 +25,9 @@ img {
 .mediaPlayer {
   height: 40px;
   width: 100%;
-  margin: 2vh 0;
+  margin: 2% 0;
+}
+
+audio {
+  outline-color: #d8d8d8;
 }

@@ -287,8 +287,7 @@ var Campaign = function (_React$Component4) {
       year: "",
       make: "",
       model: "",
-      campaigns: [],
-      parent: 0
+      campaigns: []
     };
     return _this4;
   }
@@ -299,19 +298,6 @@ var Campaign = function (_React$Component4) {
       var year = this.props.year;
       var make = this.props.make;
       var model = this.props.model;
-
-      var parent_height;
-      if (this.state.parent == 0) {
-        parent_height = $(parent.window).height() - 75;
-        this.setState({ parent: parent_height });
-      } else {
-        parent_height = this.state.parent;
-      }
-
-      var item_height = ReactDOM.findDOMNode(this).offsetHeight + 128;
-      console.log(parent_height);
-      console.log(item_height);
-      $("#samples iframe", window.parent.document).height(Math.max(item_height, parent_height));
 
       if (this.state.isLoaded && year == this.state.year && make == this.state.make && model == this.state.model) return;
       if (year.length == 0 || make.length == 0 || model.length == 0) {

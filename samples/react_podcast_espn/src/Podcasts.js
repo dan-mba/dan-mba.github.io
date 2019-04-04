@@ -17,7 +17,7 @@ class Podcasts extends Component {
         onClick={(e) => this.props.clickFunc(item.enclosure.$.url, index,e)}>
         <div>{item.title}</div>
         <div className="PodDesc">
-          {typeof item.description === 'object' ? item.description._ : item.description}{" "}
+          {typeof item.description === 'object' ? item.description._ : item.description}<br/>
           ( {item["itunes:duration"]} )
         </div>
       </div>

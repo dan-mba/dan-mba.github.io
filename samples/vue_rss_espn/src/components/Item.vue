@@ -24,7 +24,7 @@ export default {
 
 <style scoped>
 div.item {
-  margin: 2vh 2vw;
+  padding: 2% 2vw;
 }
 div.text {
   align-self: center;
@@ -41,6 +41,7 @@ a{
 }
 img {
   flex-basis: 30%;
+  max-width: 30%;
   flex-shrink: 0;
   align-self: center;
 }
@@ -50,7 +51,7 @@ img {
   }
   img {
     max-width: 100%;
-    margin: 1vh 0;
+    margin: 1% 0;
   }
 }
 </style>

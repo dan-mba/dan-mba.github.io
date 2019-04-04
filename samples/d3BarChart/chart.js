@@ -12,8 +12,7 @@ $(window).on('load', function(){
   xhr.done(function(data){
     const w = $("#bar-chart").width();
     const h = Math.min($("#bar-chart").height(),w/1.5);
-    console.log($('#bar-chart').height());
-    console.log(w/1.5);
+
     const xPadding = 20;
     const yPadding = 40;
     

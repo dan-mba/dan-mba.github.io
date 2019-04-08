@@ -104,19 +104,19 @@ var sampApps = [{
   url: "https://flannel-glade.glitch.me/?rss=http%3A%2F%2Fwww.espn.com%2Fblog%2Ffeed%3Fblog%3Dafcsouth",
   source: "https://glitch.com/edit/#!/flannel-glade",
   newtab: true,
-  description: "RSS to JSON backend with CORS proxy",
-  libraries: ['node', 'express']
+  description: "This app is the Node.js based back-end for my RSS based apps. The Express app takes a RSS feed " + "as a parameter, uses axios to fetch the feed & xml2js to convert it to JSON, then returns the JSON. " + "This app also serves as a proxy to overcome CORS restrictions that will not allow my apps to access " + "a feed located on a different domain.",
+  libraries: ['node', 'express', 'axios']
 }, {
   title: "ESPN RSS Feed Display",
   url: "samples/vue_rss_espn/index.html",
-  source: "https://github.com/dan-mba/dan-mba.github.io/tree/master/samples/vue_rss_espn",
-  description: "Display ESPN AFC South RSS Feed",
+  source: "https://github.com/dan-mba/dan-mba.github.io/tree/master/samples/vue_rss_espn/src",
+  description: "This app uses axios to obtain a JSON conversion of the ESPN AFC South NFL news feed from my " + "RSS to JSON proxy. It uses Vue.js to format the items to display the images & text and link to the" + "full articles for each story.",
   libraries: ['vue', 'axios', 'babel', 'webpack']
 }, {
   title: "ESPN Podcast Player",
   url: "samples/react_podcast_espn/index.html",
-  source: "https://github.com/dan-mba/dan-mba.github.io/tree/master/samples/react_podcast_espn",
-  description: "Player for the ESPN Fantasy Focus Football Podcast",
+  source: "https://github.com/dan-mba/dan-mba.github.io/tree/master/samples/react_podcast_espn/src",
+  description: "This app uses axios to retrieve a JSON version of the ESPN Fantasy Focus Football Podcast feed " + "from my RSS to JSON Proxy. It uses React to format the podast list and the react-player library to " + "handle generating the proper html to play a podcast when it is selected.",
   libraries: ['react', 'axios', 'babel', 'webpack']
 }, {
   title: "SVG Bar Chart of GDP",
@@ -147,7 +147,7 @@ var sampApps = [{
   description: "This application uses the Bootstrap carousel component to display a slideshow of " + "images & descriptions from the different parts of my IBM career.",
   libraries: ['jquery', 'bootstrap']
 }];
-/* Reder link to API if applicable */
+/* Render link to API if applicable */
 
 var Api =
 /*#__PURE__*/

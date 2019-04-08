@@ -99,25 +99,30 @@ var sampApps = [
       source: "https://glitch.com/edit/#!/flannel-glade",
       newtab: true,
       description:
-        "This app is the Node.js based back-end for my RSS based apps. It takes a RSS feed as a parameter " +
-        "and returns it converted into JSON. THis app also serves as a proxy to overcome CORS restrictions " +
-        "that will not allow my apps to access a feed located on a different domain.",
-      libraries: ['node','express']
+        "This app is the Node.js based back-end for my RSS based apps. The Express app takes a RSS feed " +
+        "as a parameter, uses axios to fetch the feed & xml2js to convert it to JSON, then returns the JSON. " +
+        "This app also serves as a proxy to overcome CORS restrictions that will not allow my apps to access " +
+        "a feed located on a different domain.",
+      libraries: ['node','express','axios']
     },
     {
       title: "ESPN RSS Feed Display",
       url: "samples/vue_rss_espn/index.html",
-      source: "https://github.com/dan-mba/dan-mba.github.io/tree/master/samples/vue_rss_espn",
+      source: "https://github.com/dan-mba/dan-mba.github.io/tree/master/samples/vue_rss_espn/src",
       description:
-        "Display ESPN AFC South RSS Feed",
+        "This app uses axios to obtain a JSON conversion of the ESPN AFC South NFL news feed from my " +
+        "RSS to JSON proxy. It uses Vue.js to format the items to display the images & text and link to the" +
+        "full articles for each story.",
       libraries: ['vue','axios','babel','webpack']
     },
     {
       title: "ESPN Podcast Player",
       url: "samples/react_podcast_espn/index.html",
-      source: "https://github.com/dan-mba/dan-mba.github.io/tree/master/samples/react_podcast_espn",
+      source: "https://github.com/dan-mba/dan-mba.github.io/tree/master/samples/react_podcast_espn/src",
       description:
-        "Player for the ESPN Fantasy Focus Football Podcast",
+        "This app uses axios to retrieve a JSON version of the ESPN Fantasy Focus Football Podcast feed " +
+        "from my RSS to JSON Proxy. It uses React to format the podast list and the react-player library to " +
+        "handle generating the proper html to play a podcast when it is selected.",
       libraries: ['react','axios','babel','webpack']
     },
     {
@@ -168,7 +173,7 @@ var sampApps = [
   ];
 
 
-/* Reder link to API if applicable */
+/* Render link to API if applicable */
 class Api extends React.Component {
   constructor(props){
     super(props);

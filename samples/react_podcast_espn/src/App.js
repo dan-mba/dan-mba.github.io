@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
+
 import './App.css';
 import axios from 'axios';
 import Podcasts from './Podcasts.js';
@@ -27,6 +27,7 @@ class App extends Component {
       });
   }
 
+  /* Retrieve the JSON version of the RSS feed from the back-end & overcome CORS  */
   componentDidMount() {
     axios.get("https://flannel-glade.glitch.me", {
       params: {
@@ -46,7 +47,10 @@ class App extends Component {
 
     if (!this.state.isLoaded) {
       return (
-        <div className="App">... Loading ...</div>
+        <div className="App">
+          <div>Loading</div>
+          <div class="lds-facebook"><div></div><div></div><div></div></div>
+        </div>
       );
     } else {
       return (
@@ -58,9 +62,11 @@ class App extends Component {
               <div>{this.state.rss.channel.description}</div>
             </div>
           </div>
-          {!this.state.playing ? spacer : ""}
+
+          {!this.state.playing ? spacer : "" /* Reserve space for FilePlayer until url is loaded */}
           <FilePlayer className="mediaPlayer" url={this.state.url} controls 
             playing={this.state.playing} height="40px" width="100%"/>
+
           <Podcasts items={this.state.rss.channel.item} 
             clickFunc={this.handleClick}
             selected={this.state.selected}/>

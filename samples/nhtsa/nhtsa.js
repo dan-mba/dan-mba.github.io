@@ -11,11 +11,7 @@ $(function() {
   $("#vehmake").selectmenu({width:230});
   $("#vehmodel").selectmenu({width:320});
   $("#vehdesc").selectmenu({width:320});
-  /*
-  $selects = $("#inpselect");
-  $iframe = $("#samples iframe", window.parent.document);
-  parentHeight = $(parent.window).height()-75;
-  */
+
   repReg = new RegExp('/&/g');
   nhtsaStart();
 });
@@ -229,8 +225,3 @@ function showVehInfo(data) {
     $("#outdata").show();
   }, 100, false);
 }
-/*
-function framesize() {
-  $($iframe).height(Math.max(Math.ceil($('html').height())+2,parentHeight));  
-}
-*/

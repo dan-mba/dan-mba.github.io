@@ -423,11 +423,9 @@ button.source {
 }
 
 iframe {
-/*  height: 100%; */
   min-width: 100%;
   background-color: transparent;
   display: block;
-/*  overflow: hidden; */
 }
 
 /*

@@ -345,7 +345,7 @@ legend {
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 1.2em;
   line-height: 1.4em;
-  background: #303030 url("//download.jqueryui.com/themeroller/images/ui-bg_highlight-soft_35_222222_1x100.png") 50% 50% repeat-x;
+  background: #303030 url("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/dark-hive/images/ui-bg_highlight-soft_35_222222_1x100.png") 50% 50% repeat-x;
   color: #eee;
   border: 1px solid #303030;
   border-radius: 0.7em;
@@ -367,7 +367,7 @@ fieldset p, div.pClass {
 
 button.ui-button, #code button.touch {
   background-color: #303030;
-  background-image: url("//download.jqueryui.com/themeroller/images/ui-bg_highlight-soft_35_222222_1x100.png");
+  background-image: url("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/dark-hive/images/ui-bg_highlight-soft_35_222222_1x100.png");
   color: #eee;
   border-color: #303030;
   font-size: 1em;

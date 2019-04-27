@@ -1,8 +1,28 @@
-var libraries = {
+const LIBRARIES = {
   angularjs : {
     name: "AngularJS 1.x",
     site: "https://angularjs.org/"
   },
+  axios: {
+    name: "axios",
+    site: "https://github.com/axios/axios"
+  },
+  babel: {
+    name: "Babel",
+    site: "https://babeljs.io/"
+  },
+  bootstrap: {
+    name: "Bootstrap",
+    site: "https://getbootstrap.com/"
+  },
+  d3: {
+    name: "D3",
+    site: "https://d3js.org/"
+  },
+  express: {
+    name: "Express",
+    site: "https://expressjs.com/"
+  },  
   fontawesome : {
     name: "Font Awesome",
     site: "https://fontawesome.com/"
@@ -15,41 +35,21 @@ var libraries = {
     name: "jQuery UI",
     site: "https://jqueryui.com/"
   },
-  react: {
-    name: "React",
-    site: "https://reactjs.org/"
-  },
-  babel: {
-    name: "Babel Compiler",
-    site: "https://babeljs.io/"
-  },
-  bootstrap: {
-    name: "Bootstrap",
-    site: "https://getbootstrap.com/"
+  mongoose: {
+    name: "Mongoose",
+    site: "https://mongoosejs.com/"
   },
   node: {
     name: "Node.js",
     site: "https://nodejs.org/"
   },
-  express: {
-    name: "Express",
-    site: "https://expressjs.com/"
-  },
-  mongoose: {
-    name: "Mongoose",
-    site: "https://mongoosejs.com/"
-  },
-  d3: {
-    name: "D3",
-    site: "https://d3js.org/"
+  react: {
+    name: "React",
+    site: "https://reactjs.org/"
   },
   vue: {
     name: "Vue.js",
     site: "https://vuejs.org/"
-  },
-  axios: {
-    name: "axios",
-    site: "https://github.com/axios/axios"
   },
   webpack: {
     name: "webpack",
@@ -57,7 +57,7 @@ var libraries = {
   }
 };
 
-var sampApps = [
+const SAMP_APPS = [
     {
       title: "NHTSA Safety Ratings",
       url: "samples/nhtsa/nhtsa.html",
@@ -175,45 +175,65 @@ var sampApps = [
 
 /* Render link to API if applicable */
 class Api extends React.Component {
-  constructor(props){
-    super(props);
-  }
 
   render(){
-    if(!this.props.name) return null;
+    var {name, site} = this.props;
+    if(!name) return null;
 
     return (
       <div className='api'>
         API: {' '}
-        <a href={this.props.site} target='_blank' rel='noopener'>
-          {this.props.name}
+        <a href={site} target='_blank' rel='noopener'>
+          {name}
         </a>
       </div>
     );
   }
 }
 
-/* Render links to libraries */
-class Library extends React.Component {
-  constructor(props) {
-    super(props);
+class Selection extends React.Component {
+
+  componentDidUpdate() {
+    this.blurFunc();
   }
 
-  render(){
-    if(!this.props.libs.length) return null;
+  blurFunc() {
+    $("#code button").blur();
+  }
 
-    var links = this.props.libs.map((lib, index) =>
-      <a href={libraries[lib].site} target='_blank' rel='noopener' key={index}>
-        {libraries[lib].name}
-      </a>
-    ). reduce((p, c) => [p, ', ', c]);
+  render() {
+    var buttons = [];
+    var libs = {};
+    var {libraries, selected} = this.props;
+
+    Object.assign(libs,libraries);
+
+    if(selected != "") {
+      buttons.push(
+        <button key="all"
+          onClick={(e) => this.props.handleClick("", e)}>
+          All
+        </button>
+      );
+      delete libs[selected];
+    }
+
+    for (const lib of Object.keys(libs)) {
+      buttons.push(
+        <button key={lib}
+          onClick={(e) => this.props.handleClick(lib, e)}>
+          {libs[lib].name}
+        </button>
+      );
+    }
 
     return (
-      <div className={this.props.api ? '' : 'api'}>
-        {this.props.libs.length > 1 ? 'Libraries: ' : 'Library: '}
-        {links}
+      <div className="selectors">
+        {buttons}
+        <div className='clear'></div>
       </div>
     );
+
   }
 }
 
@@ -221,6 +241,12 @@ class Library extends React.Component {
 class Samples extends React.Component {
   constructor(props){
     super(props);
+
+    this.state = {
+      selected: ""
+    };
+
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   showCode(url, isSource) {
@@ -239,17 +265,44 @@ class Samples extends React.Component {
     }
   };
 
+  handleSelect(selected, e) {
+    this.setState({selected:selected});
+  }
+
   render(){
     var output = [];
+    var {samples, libraries} = this.props;
+    var {selected} = this.state;
 
-    output = this.props.samp.map((samp,index) =>
+    var libs = {};
+    Object.assign(libs,libraries);
+
+    /*
+      Check if all libraries are included in a sample
+    */
+    Object.keys(libs).forEach((lib) => {
+      if(!samples.some((samp) => 
+        samp.libraries.indexOf(lib) >= 0
+      )) {
+        delete libs[lib];
+      }
+    });
+
+    if(selected != "") {
+      output = samples.filter((samp) => 
+        samp.libraries.indexOf(selected) >= 0
+      );
+    } else {
+      output = samples;
+    }
+
+    output = output.map((samp,index) =>
       <div className='sample' key={index}>
         <fieldset>
           <legend>{samp.title}</legend>
           <div className='pClass'>
             {samp.description}
             <Api name={samp.apiname} site={samp.apisite}/>
-            <Library libs={samp.libraries} api={samp.apiname}/>
           </div>
           <button className='ui-button ui-widget ui-corner-all'
             onClick={this.showCode.bind(this,samp.url,samp.newtab)}>
@@ -264,14 +317,28 @@ class Samples extends React.Component {
       </div>
     );
 
+    if(selected != "") {
+      var sel = (
+        <div className="sel">
+          <a href={libraries[selected].site} target="_blank" rel="noopener">
+            {libraries[selected].name}
+          </a>
+        </div>
+      );
+    }
+
     return(
-      <div>{output}</div>
+      <div>
+        <Selection handleClick={this.handleSelect} selected={selected} libraries={libs}/>
+        {selected != "" ? sel : ""}
+        {output}
+      </div>
     );
   }
 }
 
 
 ReactDOM.render(
-  <Samples samp={sampApps}/>,
+  <Samples samples={SAMP_APPS} libraries={LIBRARIES}/>,
   document.getElementById('code')
 );

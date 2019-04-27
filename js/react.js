@@ -18,10 +18,30 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-var libraries = {
+var LIBRARIES = {
   angularjs: {
     name: "AngularJS 1.x",
     site: "https://angularjs.org/"
+  },
+  axios: {
+    name: "axios",
+    site: "https://github.com/axios/axios"
+  },
+  babel: {
+    name: "Babel",
+    site: "https://babeljs.io/"
+  },
+  bootstrap: {
+    name: "Bootstrap",
+    site: "https://getbootstrap.com/"
+  },
+  d3: {
+    name: "D3",
+    site: "https://d3js.org/"
+  },
+  express: {
+    name: "Express",
+    site: "https://expressjs.com/"
   },
   fontawesome: {
     name: "Font Awesome",
@@ -35,48 +55,28 @@ var libraries = {
     name: "jQuery UI",
     site: "https://jqueryui.com/"
   },
-  react: {
-    name: "React",
-    site: "https://reactjs.org/"
-  },
-  babel: {
-    name: "Babel Compiler",
-    site: "https://babeljs.io/"
-  },
-  bootstrap: {
-    name: "Bootstrap",
-    site: "https://getbootstrap.com/"
+  mongoose: {
+    name: "Mongoose",
+    site: "https://mongoosejs.com/"
   },
   node: {
     name: "Node.js",
     site: "https://nodejs.org/"
   },
-  express: {
-    name: "Express",
-    site: "https://expressjs.com/"
-  },
-  mongoose: {
-    name: "Mongoose",
-    site: "https://mongoosejs.com/"
-  },
-  d3: {
-    name: "D3",
-    site: "https://d3js.org/"
+  react: {
+    name: "React",
+    site: "https://reactjs.org/"
   },
   vue: {
     name: "Vue.js",
     site: "https://vuejs.org/"
-  },
-  axios: {
-    name: "axios",
-    site: "https://github.com/axios/axios"
   },
   webpack: {
     name: "webpack",
     site: "https://webpack.js.org/"
   }
 };
-var sampApps = [{
+var SAMP_APPS = [{
   title: "NHTSA Safety Ratings",
   url: "samples/nhtsa/nhtsa.html",
   source: "https://github.com/dan-mba/dan-mba.github.io/tree/master/samples/nhtsa",
@@ -154,63 +154,98 @@ var Api =
 function (_React$Component) {
   _inherits(Api, _React$Component);
 
-  function Api(props) {
+  function Api() {
     _classCallCheck(this, Api);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Api).call(this, props));
+    return _possibleConstructorReturn(this, _getPrototypeOf(Api).apply(this, arguments));
   }
 
   _createClass(Api, [{
     key: "render",
     value: function render() {
-      if (!this.props.name) return null;
+      var _this$props = this.props,
+          name = _this$props.name,
+          site = _this$props.site;
+      if (!name) return null;
       return React.createElement("div", {
         className: "api"
       }, "API: ", ' ', React.createElement("a", {
-        href: this.props.site,
+        href: site,
         target: "_blank",
         rel: "noopener"
-      }, this.props.name));
+      }, name));
     }
   }]);
 
   return Api;
 }(React.Component);
-/* Render links to libraries */
 
-
-var Library =
+var Selection =
 /*#__PURE__*/
 function (_React$Component2) {
-  _inherits(Library, _React$Component2);
+  _inherits(Selection, _React$Component2);
 
-  function Library(props) {
-    _classCallCheck(this, Library);
+  function Selection() {
+    _classCallCheck(this, Selection);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Library).call(this, props));
+    return _possibleConstructorReturn(this, _getPrototypeOf(Selection).apply(this, arguments));
   }
 
-  _createClass(Library, [{
+  _createClass(Selection, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.blurFunc();
+    }
+  }, {
+    key: "blurFunc",
+    value: function blurFunc() {
+      $("#code button").blur();
+    }
+  }, {
     key: "render",
     value: function render() {
-      if (!this.props.libs.length) return null;
-      var links = this.props.libs.map(function (lib, index) {
-        return React.createElement("a", {
-          href: libraries[lib].site,
-          target: "_blank",
-          rel: "noopener",
-          key: index
-        }, libraries[lib].name);
-      }).reduce(function (p, c) {
-        return [p, ', ', c];
-      });
+      var _this = this;
+
+      var buttons = [];
+      var libs = {};
+      var _this$props2 = this.props,
+          libraries = _this$props2.libraries,
+          selected = _this$props2.selected;
+      Object.assign(libs, libraries);
+
+      if (selected != "") {
+        buttons.push(React.createElement("button", {
+          key: "all",
+          onClick: function onClick(e) {
+            return _this.props.handleClick("", e);
+          }
+        }, "All"));
+        delete libs[selected];
+      }
+
+      var _loop = function _loop() {
+        var lib = _Object$keys[_i];
+        buttons.push(React.createElement("button", {
+          key: lib,
+          onClick: function onClick(e) {
+            return _this.props.handleClick(lib, e);
+          }
+        }, libs[lib].name));
+      };
+
+      for (var _i = 0, _Object$keys = Object.keys(libs); _i < _Object$keys.length; _i++) {
+        _loop();
+      }
+
       return React.createElement("div", {
-        className: this.props.api ? '' : 'api'
-      }, this.props.libs.length > 1 ? 'Libraries: ' : 'Library: ', links);
+        className: "selectors"
+      }, buttons, React.createElement("div", {
+        className: "clear"
+      }));
     }
   }]);
 
-  return Library;
+  return Selection;
 }(React.Component);
 /* Render array of sample apps */
 
@@ -221,9 +256,16 @@ function (_React$Component3) {
   _inherits(Samples, _React$Component3);
 
   function Samples(props) {
+    var _this2;
+
     _classCallCheck(this, Samples);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Samples).call(this, props));
+    _this2 = _possibleConstructorReturn(this, _getPrototypeOf(Samples).call(this, props));
+    _this2.state = {
+      selected: ""
+    };
+    _this2.handleSelect = _this2.handleSelect.bind(_assertThisInitialized(_this2));
+    return _this2;
   }
 
   _createClass(Samples, [{
@@ -242,12 +284,45 @@ function (_React$Component3) {
       }
     }
   }, {
+    key: "handleSelect",
+    value: function handleSelect(selected, e) {
+      this.setState({
+        selected: selected
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this3 = this;
 
       var output = [];
-      output = this.props.samp.map(function (samp, index) {
+      var _this$props3 = this.props,
+          samples = _this$props3.samples,
+          libraries = _this$props3.libraries;
+      var selected = this.state.selected;
+      var libs = {};
+      Object.assign(libs, libraries);
+      /*
+        Check if all libraries are included in a sample
+      */
+
+      Object.keys(libs).forEach(function (lib) {
+        if (!samples.some(function (samp) {
+          return samp.libraries.indexOf(lib) >= 0;
+        })) {
+          delete libs[lib];
+        }
+      });
+
+      if (selected != "") {
+        output = samples.filter(function (samp) {
+          return samp.libraries.indexOf(selected) >= 0;
+        });
+      } else {
+        output = samples;
+      }
+
+      output = output.map(function (samp, index) {
         return React.createElement("div", {
           className: "sample",
           key: index
@@ -256,20 +331,32 @@ function (_React$Component3) {
         }, samp.description, React.createElement(Api, {
           name: samp.apiname,
           site: samp.apisite
-        }), React.createElement(Library, {
-          libs: samp.libraries,
-          api: samp.apiname
         })), React.createElement("button", {
           className: "ui-button ui-widget ui-corner-all",
-          onClick: _this.showCode.bind(_this, samp.url, samp.newtab)
+          onClick: _this3.showCode.bind(_this3, samp.url, samp.newtab)
         }, "App"), React.createElement("button", {
           className: "ui-button ui-widget ui-corner-all source",
-          onClick: _this.showCode.bind(_this, samp.source, true)
+          onClick: _this3.showCode.bind(_this3, samp.source, true)
         }, "Source Code"), React.createElement("div", {
           className: "clear"
         })));
       });
-      return React.createElement("div", null, output);
+
+      if (selected != "") {
+        var sel = React.createElement("div", {
+          className: "sel"
+        }, React.createElement("a", {
+          href: libraries[selected].site,
+          target: "_blank",
+          rel: "noopener"
+        }, libraries[selected].name));
+      }
+
+      return React.createElement("div", null, React.createElement(Selection, {
+        handleClick: this.handleSelect,
+        selected: selected,
+        libraries: libs
+      }), selected != "" ? sel : "", output);
     }
   }]);
 
@@ -277,5 +364,6 @@ function (_React$Component3) {
 }(React.Component);
 
 ReactDOM.render(React.createElement(Samples, {
-  samp: sampApps
+  samples: SAMP_APPS,
+  libraries: LIBRARIES
 }), document.getElementById('code'));

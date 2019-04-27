@@ -382,7 +382,7 @@ div.sample button.source {
 div.selectors {
   margin: 0 1% 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   background-color: #e0e0e0;
   border-radius: 5px;

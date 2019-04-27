@@ -37,7 +37,6 @@ $(function() {
     $("#topnav").show();
     $("#samples iframe").off();
     $("#samples iframe").attr('src','');
-    $("#samples iframe").height("100%");
   });
   
   /*
@@ -68,6 +67,14 @@ $(function() {
     ga('send','pageview');
   }
   
+  $("#samples iframe").iFrameResize(
+    {
+      heightCalculationMethod: 'documentElementScroll',
+      warningTimeout: 0,
+      bodyMargin: '0',
+      bodyPadding: '0'
+  });
+
   $(window).one('touchstart', function() {
     $("#code button").addClass('touch');
   });

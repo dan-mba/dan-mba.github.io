@@ -11,9 +11,7 @@ $(function() {
   $("#vehmake").selectmenu({width:230});
   $("#vehmodel").selectmenu({width:320});
   $("#vehdesc").selectmenu({width:320});
-  $selects = $("#inpselect");
-  $iframe = $("#samples iframe", window.parent.document);
-  parentHeight = $(parent.window).height()-75;
+
   repReg = new RegExp('/&/g');
   nhtsaStart();
 });
@@ -45,7 +43,7 @@ function pickMdlYear() {
   $("#vehmodel").html('<option value="">Model:</option>');
   $("#vehdesc").html('<option value="">Vehicle Description:</option>');
   $("#vehmodel,#vehdesc,#vehmake").off();
-  $("#outdata").hide(framesize);
+  $("#outdata").hide();
   
   if ($("#mdlyr").val() === ''){
     return;
@@ -73,7 +71,7 @@ function pickVehMake(){
   /* Reset chained select boxes */
   $("#vehdesc").html('<option value="">Vehicle Description:</option>');
   $("#vehmodel,#vehdesc").off();
-  $("#outdata").hide(framesize);
+  $("#outdata").hide();
   
   if ($("#vehmake").val() === ''){
     return;
@@ -102,7 +100,7 @@ function fillVehModel(data) {
 function pickVehModel(){
   /* Reset chained selection boxes */
   $("#vehdesc").off();
-  $("#outdata").hide(framesize);
+  $("#outdata").hide();
   
   if ($("#vehmodel").val() === ''){
     return;
@@ -224,10 +222,6 @@ function showVehInfo(data) {
   });
 
   to(function() {
-    $("#outdata").show(framesize);
+    $("#outdata").show();
   }, 100, false);
-}
-
-function framesize() {
-  $($iframe).height(Math.max(Math.ceil($('html').height())+2,parentHeight));  
 }

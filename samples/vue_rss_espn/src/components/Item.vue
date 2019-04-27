@@ -1,7 +1,7 @@
 <template>
   <div class="item">
-    <a :href=link target="_blank" rel="noopener">
-      <img :src=image>
+    <a :href="link" target="_blank" rel="noopener">
+      <img :src="image">
       <div class="text">
         <div class="title">{{title}}</div>
         <div class="desc">{{desc}}</div>
@@ -45,6 +45,8 @@ img {
   flex-shrink: 0;
   align-self: center;
 }
+
+/* For smaller screens, put the text below the image */
 @media (max-width: 560px) {
   a {
     flex-direction: column;

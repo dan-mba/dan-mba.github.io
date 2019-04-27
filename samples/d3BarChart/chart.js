@@ -12,20 +12,20 @@ $(window).on('load', function(){
   xhr.done(function(data){
     const w = $("#bar-chart").width();
     const h = Math.min($("#bar-chart").height(),w/1.5);
-    console.log($('#bar-chart').height());
-    console.log(w/1.5);
+
     const xPadding = 20;
     const yPadding = 40;
     
     const bar_w = (w-2*xPadding)/data.data.length;
+    const bar_ct = data.data.length;
     
     // Configure scaling functions
     const yScale = d3.scaleLinear()
-                     .domain([0,d3.max(data.data, (d) => d[1]/1000)])
+                     .domain([0,d3.max(data.data, function(d) { return d[1]/1000;})])
                      .range([h-yPadding,yPadding]);
     const xScale = d3.scaleTime()
-                     .domain([new Date(d3.min(data.data,(d) => d[0])),
-                              new Date(d3.max(data.data,(d) => d[0]))])
+                     .domain([new Date(d3.min(data.data,function(d) { return d[0];})),
+                              new Date(d3.max(data.data,function(d) { return d[0];}))])
                      .range([xPadding,w-xPadding])
     
     // Configure SVG area
@@ -39,21 +39,19 @@ $(window).on('load', function(){
        .data(data.data)
        .enter()
        .append("rect")
-       .attr("x", (d,i) => xPadding+i*bar_w)
-       .attr("y", (d,i) => yScale(d[1]/1000))
+       .attr("x", function(d,i) { return xPadding+i*bar_w;})
+       .attr("y", function(d,i) { return yScale(d[1]/1000);})
        .attr("width", bar_w)
-       .attr('height', (d,i) => h-yScale(d[1]/1000)-yPadding)
+       .attr('height', function(d,i) { return h-yScale(d[1]/1000)-yPadding;})
        .attr("class","bar")
-       .attr("data-date", (d) => d[0])
-       .attr("data-gdp", (d) => d[1])
+       .attr("data-date", function(d) { return d[0];})
+       .attr("data-gdp", function(d) { return d[1];})
         // Setup tooltip
        .on("mouseover",function(d,i) {
           d3.select("#tooltip")
             .classed("hidden",false)
-            .style("left", function(d) {
-              if (d3.event.pageX > box.x + box.width - xPadding - 110)
-                return (d3.event.pageX - 110 - xPadding) + "px"
-              return (d3.event.pageX - xPadding) + "px";
+            .style("left", function() {
+              return xPadding+i*bar_w-((i/bar_ct)*110) + "px";
             })
             .style("top",function(d) {
               return (yPadding + (.1 * box.height)) + "px";

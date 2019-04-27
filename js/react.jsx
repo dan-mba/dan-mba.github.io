@@ -230,7 +230,6 @@ class Selection extends React.Component {
     return (
       <div className="selectors">
         {buttons}
-        <div className='clear'></div>
       </div>
     );
 

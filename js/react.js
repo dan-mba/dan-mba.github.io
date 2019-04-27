@@ -239,9 +239,7 @@ function (_React$Component2) {
 
       return React.createElement("div", {
         className: "selectors"
-      }, buttons, React.createElement("div", {
-        className: "clear"
-      }));
+      }, buttons);
     }
   }]);
 

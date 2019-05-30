@@ -1,13 +1,13 @@
 #chart-container {
   max-width: 696px;
-  margin: 2vh auto;
-  padding: 2vh 2vw;
+  margin: 2% auto;
+  padding: 2% 2vw;
   background-color: transparent;
   border-radius: 5px;
 }
 
 #bar-chart {
-  max-height: 85vh;
+  max-height: 68vw;
   height: 450px;
   position: relative;
 }

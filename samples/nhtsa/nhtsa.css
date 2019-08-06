@@ -1,3 +1,14 @@
+@import url('https://use.fontawesome.com/releases/v5.10.1/css/all.css');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
 body {
   max-width: 700px;
   margin: 0 auto;
@@ -5,21 +16,6 @@ body {
 
 img {
   max-width: 300px;
-}
-
-.ui-button {
-  padding: .2em;
-  font-size: 1em;
-}
-
-@supports not (-webkit-overflow-scrolling: touch) {
-  div.ui-selectmenu-menu ul {
-    max-height: 300px;
-  }
-}
-
-.ui-menu div.ui-menu-item-wrapper {
-  padding-right: 3px;
 }
 
 #vehpic {
@@ -39,6 +35,13 @@ img {
 #crashRatings .last {
   margin-bottom: 10px;
   clear: both;
+}
+
+h1 {
+  text-align: center;
+  font-size: 30px;
+  color: #303030;
+  margin: 10px 0;
 }
 
 h2, h4 {
@@ -63,11 +66,79 @@ h4 {
     float: none;
   }
   
-  .ui-button {
-    font-size: 1.2em;
-  }
-  
   h2 {
     font-size: 1.2em;
    }
+}
+
+div.selectBox {
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+@media (min-width: 367px) and (max-width: 592px) {
+  div.selectBox {
+    width: 367px;
+    margin: 0 auto;
+    justify-content: left;
+  }
+}
+
+/*
+Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-drop-down-selector-arrow-icon/
+*/
+.selectdiv {
+  position: relative;
+  border: 1px solid #303030;
+  border-radius: 5px;
+  margin: 2px;
+}
+
+.selectdiv:after {
+    content: '\f078';
+    font-size: 10px;
+    line-height: 1;
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 900;
+    color: #eee;
+    right: 3px;
+    top: 15px;
+    position: absolute;
+    pointer-events: none;
+}
+
+/* IE11 hide native button (thanks Matt!) */
+select::-ms-expand {
+display: none;
+}
+select:-ms-value {
+  background: transparent;
+}
+
+.selectdiv select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Add some styling */
+  
+  display:block;
+  width: 100%;
+  max-width: 320px;
+  height: 40px;
+  float: right;
+  margin: 0;
+  padding-left: 3px;
+  font-size: 20px;
+  font-family: 'Roboto Condensed',sans-serif;
+  line-height: 40px;
+  color: #eee;
+  background: #404040;
+  background: linear-gradient(#505050, #303030);
+  -ms-word-break: normal;
+  word-break: normal;
+}
+
+option {
+  background-color: #404040;
 }

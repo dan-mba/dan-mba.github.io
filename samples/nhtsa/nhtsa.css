@@ -12,8 +12,10 @@ img {
   font-size: 1em;
 }
 
-div.ui-selectmenu-menu ul {
-  max-height: 300px;
+@supports not (-webkit-overflow-scrolling: touch) {
+  div.ui-selectmenu-menu ul {
+    max-height: 300px;
+  }
 }
 
 .ui-menu div.ui-menu-item-wrapper {

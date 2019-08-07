@@ -18,6 +18,10 @@ img {
   max-width: 300px;
 }
 
+#outdata {
+  padding: 20px 0;
+}
+
 #vehpic {
   float: right;
 }
@@ -108,7 +112,7 @@ Modified from code at  https://fabriceleven.com/design/clever-way-to-change-the-
     pointer-events: none;
 }
 
-/* IE11 hide native button (thanks Matt!) */
+/* IE11 hide native button*/
 select::-ms-expand {
 display: none;
 }

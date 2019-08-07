@@ -29,6 +29,7 @@ function fillModelYear(data) {
   }
   $("#mdlyr").html(years);
   $("#mdlyr").change(pickMdlYear);
+  $("#nhtsa").show(200);
   $("select").blur();
 }
 

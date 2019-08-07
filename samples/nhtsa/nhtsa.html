@@ -14,10 +14,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--meta http-equiv="X-UA_Compatible" content="IE=Edge" /-->
   <title>NHTSA Safety Ratings</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css">
   <link rel="stylesheet" href="nhtsa.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-sanitize.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.0.4/iframeResizer.contentWindow.min.js"></script>
@@ -26,20 +24,30 @@
   <script src="angular.js"></script>
 </head>
 <body data-ng-app="nhtsaApp">
-  <div id="nhtsa">
-    <div id="inpselect">
-      <select id="mdlyr">
-        <option value="">Year:</option>
-      </select>
-      <select id="vehmake" class="nhtsa1">
-        <option value="">Make:</option>
-      </select>
-      <select id="vehmodel" class="nhtsa1 nhtsa2">
-        <option value="">Model:</option>
-      </select>
-      <select id="vehdesc" class="nhtsa1 nhtsa2">
-        <option value="">Vehicle Description:</option>
-      </select><br>
+  <h1>NHTSA Safety Ratings Database</h1>
+  <div id="nhtsa" style="display:none;">
+    <div id="inpselect" class="selectBox">
+      <div class="selectdiv" style="flex: 0 0 100px;">
+        <select id="mdlyr">
+          <option value="">Year:</option>
+        </select>
+      </div>
+      <div class="selectdiv" style="flex: 0 0 230px;">
+        <select id="vehmake" class="nhtsa1">
+          <option value="">Make:</option>
+        </select>
+      </div>
+      <div class="selectdiv" style="flex: 0 0 320px;">
+        <select id="vehmodel" class="nhtsa1 nhtsa2">
+          <option value="">Model:</option>
+        </select>
+      </div>
+      <div class="selectdiv" style="flex: 0 0 320px;">
+        <select id="vehdesc" class="nhtsa1 nhtsa2">
+          <option value="">Vehicle Description:</option>
+        </select>
+      </div>
+      <br>
     </div>
     <div id="outdata" data-ng-controller="outputController" style="display:none">
       <h2> {{ description }} </h2>

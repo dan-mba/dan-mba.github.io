@@ -7,11 +7,6 @@ var parentHeight;
 var repReg;
 
 $(function() {
-  $("#mdlyr").selectmenu({width:100});
-  $("#vehmake").selectmenu({width:230});
-  $("#vehmodel").selectmenu({width:320});
-  $("#vehdesc").selectmenu({width:320});
-
   repReg = new RegExp('/&/g');
   nhtsaStart();
 });
@@ -33,8 +28,9 @@ function fillModelYear(data) {
     years +='<option value="'+data.Results[i].ModelYear+'">'+data.Results[i].ModelYear+'</option>';
   }
   $("#mdlyr").html(years);
-  $("#mdlyr").selectmenu("refresh");
-  $("#mdlyr").on("selectmenuchange", pickMdlYear);
+  $("#mdlyr").change(pickMdlYear);
+  $("#nhtsa").show(200);
+  $("select").blur();
 }
 
 /* Make API call to get make data */
@@ -62,8 +58,9 @@ function fillVehMake(data) {
     makes += '<option value="'+data.Results[i].Make.replace(repReg, "_")+'" class="jsadd">'+data.Results[i].Make+'</option>';
   }
   $("#vehmake").html(makes);
-  $("#vehmake,#vehmodel,#vehdesc").selectmenu("refresh");
-  $("#vehmake").on("selectmenuchange", pickVehMake);
+  $("#vehmake,#vehmodel,#vehdesc").prop('selectedIndex',0);
+  $("#vehmake").change(pickVehMake);
+  $("select").blur();
 }
 
 /* Make API call to get model data */
@@ -92,8 +89,9 @@ function fillVehModel(data) {
     models += '<option value="'+data.Results[i].Model.replace(repReg, "_")+'" class="jsadd">'+data.Results[i].Model+'</option>';
   }
   $("#vehmodel").html(models);
-  $("#vehmodel,#vehdesc").selectmenu('refresh');
-  $("#vehmodel").on("selectmenuchange", pickVehModel);
+  $("#vehmodel,#vehdesc").prop('selectedIndex',0);
+  $("#vehmodel").change(pickVehModel);
+  $("select").blur();
 }
 
 /* Make API call for vehicle descriptions */
@@ -121,8 +119,9 @@ function fillVehDesc(data) {
     desc += '<option value="'+data.Results[i].VehicleId+'" class="jsadd">'+data.Results[i].VehicleDescription+'</option>';
   }
   $("#vehdesc").html(desc);
-  $("#vehdesc").selectmenu('refresh');
-  $("#vehdesc").on("selectmenuchange", getVehInfo);
+  $("#vehdesc").prop('selectedIndex',0);
+  $("#vehdesc").change(getVehInfo);
+  $("select").blur();
 }
 
 /* Convert integers 0-5 into star icons */
@@ -223,5 +222,6 @@ function showVehInfo(data) {
 
   to(function() {
     $("#outdata").show();
+    $("select").blur();
   }, 100, false);
 }

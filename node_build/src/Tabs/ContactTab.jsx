@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Card, CardMedia, CardContent, CardActions, Chip, Link, Typography, withStyles }
   from '@material-ui/core';
-import { GoogleMapsAPIKey } from '../secret/GoogleMapsAPI';
+import GoogleMapsAPIKey from '../secret/GoogleMapsAPI';
 
 const styles = {
   root: {

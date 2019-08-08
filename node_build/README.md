@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Build Requirements
+
+### src/secret/GoogleMapsAPI.js
+
+This file must export a valid Google Maps API key as the default.<br>
+It is not included in the repo for security reasons.
+
+
 ## Available Scripts
 
 In the project directory, you can run:

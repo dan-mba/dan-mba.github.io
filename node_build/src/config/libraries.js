@@ -1,10 +1,9 @@
 const LIBRARIES = {
-/*
+
   angularjs: {
     name: 'AngularJS 1.x',
     site: 'https://angularjs.org/',
   },
-*/
   axios: {
     name: 'axios',
     site: 'https://github.com/axios/axios',

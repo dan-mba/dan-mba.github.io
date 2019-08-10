@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "baseUrl": "./node_modules",
+    "paths": {
+      "@material-ui/core": ["./material-ui/src"],
+      "@material-ui/core/*": ["./material-ui/src/*"],
+      "@material-ui/lab": ["./material-ui-lab/src"],
+      "@material-ui/lab/*": ["./material-ui-lab/src/*"],
+      "@material-ui/styles": ["./material-ui-styles/src"],
+      "@material-ui/styles/*": ["./material-ui-styles/src/*"],
+      "@material-ui/system": ["./material-ui-system/src"],
+      "@material-ui/types": ["./material-ui-types"]
+}
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

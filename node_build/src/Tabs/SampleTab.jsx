@@ -80,4 +80,4 @@ SampleTab.propTypes = {
   location: PropTypes.object.isRequired,
 };
 
-export default connect(store => store.code)(SampleTab);
+export default connect((store) => store.code)(SampleTab);

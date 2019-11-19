@@ -21,7 +21,7 @@ export default (state = initialState, action) => {
     const libs = {};
 
     Object.keys(LIBRARIES).forEach((lib) => {
-      if (SAMPLES.some(samp => samp.libraries.indexOf(lib) >= 0)) {
+      if (SAMPLES.some((samp) => samp.libraries.indexOf(lib) >= 0)) {
         libs[lib] = LIBRARIES[lib];
       }
     });

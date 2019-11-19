@@ -77,7 +77,7 @@ class NavHeader extends React.Component {
             disableRipple
             className={classes.iconButton}
             classes={{ label: classes.buttonRoot }}
-            onClick={event => dispatch(menuOpen(event.currentTarget))}
+            onClick={(event) => dispatch(menuOpen(event.currentTarget))}
           >
             <MenuIcon />
             <div className={classes.menuText}>Menu</div>
@@ -166,4 +166,4 @@ NavHeader.propTypes = {
   location: PropTypes.object.isRequired,
 };
 
-export default connect(state => state.nav)(withRouter(withStyles(styles)(NavHeader)));
+export default connect((state) => state.nav)(withRouter(withStyles(styles)(NavHeader)));

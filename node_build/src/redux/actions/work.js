@@ -4,7 +4,7 @@
  * store actions for the WorkTab component
  */
 
-export const toggleJob = index => (
+export const toggleJob = (index) => (
   { type: 'work/TOGGLE_EXPANDED', index }
 );
 

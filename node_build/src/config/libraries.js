@@ -1,20 +1,12 @@
 const LIBRARIES = {
 
-  angularjs: {
-    name: 'AngularJS 1.x',
-    site: 'https://angularjs.org/',
-  },
   axios: {
     name: 'axios',
     site: 'https://github.com/axios/axios',
   },
-  babel: {
-    name: 'Babel',
-    site: 'https://babeljs.io/',
-  },
-  bootstrap: {
-    name: 'Bootstrap',
-    site: 'https://getbootstrap.com/',
+  'axios-jsonp': {
+    name: 'axios-jsonp',
+    site: 'https://github.com/RekingZhang/axios-jsonp',
   },
   d3: {
     name: 'D3',
@@ -32,10 +24,6 @@ const LIBRARIES = {
     name: 'jQuery',
     site: 'https://jquery.com/',
   },
-  jqueryui: {
-    name: 'jQuery UI',
-    site: 'https://jqueryui.com/',
-  },
   mongoose: {
     name: 'Mongoose',
     site: 'https://mongoosejs.com/',
@@ -51,10 +39,6 @@ const LIBRARIES = {
   vue: {
     name: 'Vue.js',
     site: 'https://vuejs.org/',
-  },
-  webpack: {
-    name: 'webpack',
-    site: 'https://webpack.js.org/',
   },
 };
 

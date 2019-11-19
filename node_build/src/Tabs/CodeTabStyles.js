@@ -33,7 +33,9 @@ const styles = {
     justifyContent: 'space-between',
   },
   selectors: {
-    margin: '0 1% 20px',
+    margin: '0 auto 20px',
+    padding: '0 1%',
+    maxWidth: '600px',
     display: 'flex',
     justifyContent: 'space-evenly',
     flexWrap: 'wrap',

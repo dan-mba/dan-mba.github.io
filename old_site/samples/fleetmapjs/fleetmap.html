@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116949045-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-116949045-1');
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Fleet Map</title>
+    <style>
+      body {
+        margin: 5px auto;
+        max-width: 610px;
+      }
+      h1 {
+        text-align: center;
+      }
+      #map {
+        height: 600px;
+        width: 600px;
+        margin: 0 auto;
+      }
+      @media (max-width:610px) {
+        #map {
+          height: calc(100vw - 10px);
+          width: calc(100vw - 10px);
+        }
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.2.1/iframeResizer.contentWindow.min.js"></script>
+    <script src="fleetmap.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=SECRET_KEY&callback=initMap"></script>
+  </head>
+  <body>
+    <h1 id="title">Fleet Map</h1>
+    <div id="map"></div>
+  </body>
+</html>

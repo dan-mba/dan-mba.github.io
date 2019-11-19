@@ -1,12 +1,12 @@
 {
   "env": {
-    "browser": true,
+    "browser": true
   },
   "extends" : "airbnb",
   "plugins" : [
     "jsx-a11y",
     "react",
-    "import",
+    "import"
   ],
   "rules" : {
     "linebreak-style": 0,
@@ -15,5 +15,6 @@
     }],
     "react/forbid-prop-types": 0,
     "react/require-default-props": 0,
+    "react/jsx-props-no-spreading": 0
   }
 }

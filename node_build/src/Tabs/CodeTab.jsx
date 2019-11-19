@@ -26,7 +26,7 @@ class CodeTab extends React.Component {
   showCode(url, isSource) {
     const { isIE11, dispatch, samples } = this.props;
     if (!isSource && !isIE11) {
-      dispatch(redirect(samples.findIndex(samp => samp.url === url)));
+      dispatch(redirect(samples.findIndex((samp) => samp.url === url)));
     } else {
       const win = window.open(url, '_blank');
       if (win) win.focus();
@@ -63,14 +63,14 @@ class CodeTab extends React.Component {
     }
 
     if (selected !== '') {
-      output = samples.filter(samp => (
+      output = samples.filter((samp) => (
         samp.libraries.indexOf(selected) >= 0
       ));
     } else {
       output = samples;
     }
 
-    output = output.map(samp => (
+    output = output.map((samp) => (
       <Grid item sm={12} lg={6} key={samp.title}>
         <Card className={classes.cardRoot}>
           <CardHeader
@@ -104,8 +104,7 @@ class CodeTab extends React.Component {
                 >
                   Api
                 </Button>
-              )
-            }
+              )}
             <Button
               size="small"
               variant="contained"
@@ -130,8 +129,7 @@ class CodeTab extends React.Component {
             >
               {libraries[selected].name}
             </a>
-          )
-        }
+          )}
       </div>
     );
 
@@ -184,7 +182,7 @@ const Selection = ({ libraries, selected, classes, handleClick }) => {
     />,
   );
 
-  chips.push(...Object.keys(libs).map(lib => (
+  chips.push(...Object.keys(libs).map((lib) => (
     <Chip
       key={lib}
       label={libs[lib].name}
@@ -209,4 +207,4 @@ Selection.propTypes = {
   handleClick: PropTypes.func.isRequired,
 };
 
-export default connect(store => store.code)(withTheme(withStyles(styles)(CodeTab)));
+export default connect((store) => store.code)(withTheme(withStyles(styles)(CodeTab)));

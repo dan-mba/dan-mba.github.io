@@ -56,9 +56,7 @@ const Job = ({ title, subtitle, employer, location, start, end, errimg, img,
               {employer === '' ? '' : ' - '}
               {location}
               <br />
-              {start}
-              {' - '}
-              {end}
+              {`${start} - ${end}`}
             </span>
           )}
           subheaderTypographyProps={{ variant: 'h5' }}
@@ -128,7 +126,7 @@ const WorkTab = ({ classes, expanded, dispatch }) => (
       </Typography>
       <List className={classes.list}>
         <LItem>
-          Build applications using the React, AngularJS, Vue, and D3 JavaScript libraries.
+          Build applications using the React, Vue, and D3 JavaScript libraries.
         </LItem>
         <LItem>Create Node.js applications using the Express web framework.</LItem>
         <LItem>
@@ -413,4 +411,4 @@ WorkTab.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-export default connect(store => store.work)(withStyles(styles)(WorkTab));
+export default connect((store) => store.work)(withStyles(styles)(WorkTab));

@@ -7,7 +7,7 @@
 import { selectCode } from './code';
 import { resetJobs } from './work';
 
-export const menuOpen = target => (
+export const menuOpen = (target) => (
   { type: 'nav/UPDATE_ANCHOR', anchor: target }
 );
 
@@ -15,7 +15,7 @@ export const menuClose = () => (
   { type: 'nav/UPDATE_ANCHOR', anchor: null }
 );
 
-export const menuSelect = index => (dispatch) => {
+export const menuSelect = (index) => (dispatch) => {
   dispatch(menuClose());
   dispatch(selectCode(''));
   dispatch(resetJobs());

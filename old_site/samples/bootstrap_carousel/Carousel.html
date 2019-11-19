@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116949045-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-116949045-1');
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Bootstrap Carousel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Carousel.css">
+  </head>
+  <body>
+    <div id="widthBox">
+      <h1>My IBM Career</h1>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="10000">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+        <li data-target="#myCarousel" data-slide-to="5"></li>
+        <li data-target="#myCarousel" data-slide-to="6"></li>
+        <li data-target="#myCarousel" data-slide-to="7"></li>
+        <li data-target="#myCarousel" data-slide-to="8"></li>
+      </ol>
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+        <div class="active carousel-item">
+          <img class="d-block w-100" src="img/efkoverhead.jpg"
+               onerror="this.src='https://farm4.staticflickr.com/3111/3160581247_d278c6a78b_o_d.jpg';">
+          <div class="carousel-caption inverse d-none d-md-block">
+            <h4>IBM East Fishkill</h4>
+            <p>
+              The former IBM East Fishkill facility hosted a 300mm chip fabrication plant and offices for employees in the Microelectronics division,
+              which was sold to GlobalFoundries in 2015. I worked in the Engineering & Technology Services group there from 2004-2006.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="img/advantest_93k.jpg"
+               onerror="this.src='https://farm4.staticflickr.com/3111/3160581247_d278c6a78b_o_d.jpg';">
+          <div class="carousel-caption d-none d-md-block">
+            <h4>Advantest 93000 Test System</h4>
+            <p>
+              This is an 
+              <a href="https://www.advantest.com/products/ic-test-systems/v93000-soc-smart-scale" target="_blank">Advantest chip test system.</a>
+              I assisted in developing a test program for a system like it to verify chips on a wafer.
+              This line of test systems has been produced by several companies, staring with HP, then Agilent & Verigy, and now Advantest.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="img/nand_cscope.png"
+               onerror="this.src='https://paginas.fe.up.pt/~jcf/ensino/disciplinas/mieec/pcvlsi/2015-16/tut1/imagens/nand2_cscope.png';">
+          <div class="carousel-caption d-none d-md-block">
+            <h4>Circuit Simulation</h4>
+            <p>
+              This is the output of a simple circuit simulation. I worked on 2 circuit simulation projects for IBM. One was extracting specs
+              from a circuit library to be used in simulations. The other was developing a logic simulator to mimic the circuit design & verify
+              the output was as expected.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="img/microsoft_xbox_360.jpg"
+               onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/9/98/KL_Microsoft_XBOX_380_CPU_ES.jpg';">
+          <div class="carousel-caption inverse d-none d-md-block">
+            <h4>Xbox 360 Processor</h4>
+            <p>
+              This is the processor for the Xbox 360 game console, which was jointly developed by IBM & Microsoft. It is based on the 
+              <a href="https://www.ibm.com/developerworks/library/l-powasm1/index.html" target="_blank">IBM PowerPC architecture.</a>
+              I was part of a team developing test cases for the design & gathering data for failed cases to pass along to the developers.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="img/ibmpoksign.jpg"
+               onerror="this.src='https://i.imgur.com/K89XfTQ.jpg';">
+          <div class="carousel-caption d-none d-md-block">
+            <h4>IBM Poughkeepsie</h4>
+            <p>
+              The IBM Poughkeepsie site houses manufacturing & development for p & z series servers.
+              I worked in software development & technical support there from 1997-2004. 
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="img/zserver.jpg"
+               onerror="this.src='https://mp.s81c.com/8034F2C/dal05/v1/AUTH_db1cfc7b-a055-460b-9274-1fd3f11fe689/3e66a08679112c42a180b2f6b0d1f732/additionalOfferingImg__0_967027b9-feac-438d-84ac-d9e5f3500ea2.jpg';">
+          <div class="carousel-caption d-none d-md-block">
+            <h4>IBM Z Mainframe</h4>
+            <p>
+              The <a href="https://www.ibm.com/it-infrastructure/z" target="_blank">IBM Z Mainframe</a>
+              is the newest version of mainframe computers dating back to the System/360. These mainframes are designed for zero downtime and high performance.
+              I worked in development & technical support for operating system software for these mainframes.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="img/zos.png">
+          <div class="carousel-caption d-none d-md-block">
+            <h4>z/OS</h4>
+            <p>
+              <a href="https://www.ibm.com/it-infrastructure/z/zos" target="_blank">z/OS</a>
+              is the current incarnation of the mainfame operating system that was previously called MVS.
+              I developed & provided technical support for components of this operating system.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="img/zappl.jpg">
+          <div class="carousel-caption d-none d-md-block">
+            <h4>Language Environment</h4>
+            <p>
+              <a href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.3.0/com.ibm.zos.v2r3.e0zc100/langenv.htm" target="_blank">Language Environment</a>
+              is the component of z/OS that provides a runtime environment for programs written in C, C++, COBOL, Fortran, &amp; PL/I.
+              I worked in development & technical support for this component.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="img/zfsrwsyspl.jpg">
+          <div class="carousel-caption inverse d-none d-md-block">
+            <h4>zFS</h4>
+            <p>
+              <a href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.3.0/com.ibm.zos.v2r3.ioea700/ioea7d001998602.htm#ioea7d001998602" target="_blank">zFS</a>
+              is the high performance UNIX file system for z/OS, developed to replace the existing HFS file system.
+              I worked as part of the team that was updating the zFS prototype with the functionality necessary to be deliverable.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Carousel nav -->
+      <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+        </div>
+        <div id="carCaption" class="col-sm-auto">
+        </div>
+        <div class="col">
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.2.1/iframeResizer.contentWindow.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $(".carousel").carousel(0);
+        $("#carCaption").html($("div.carousel-item.active p").html());
+
+        $("#myCarousel").on("slid.bs.carousel",function(){
+           $("#carCaption").hide().html($("div.carousel-item.active p").html()).slideDown();
+        });
+      });
+    </script>
+  </body>
+</html>

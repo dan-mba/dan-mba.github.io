@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116949045-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-116949045-1');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GPS Fleet Map</title>
+  <link rel="stylesheet" href="fleetmap.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-url-parser/2.3.1/purl.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.2.1/iframeResizer.contentWindow.min.js"></script>
+  <script src="fleetmap.js"></script>
+</head>
+<body>
+  <img id="gpsmap" src="#" alt="">
+  <div id="zoom">
+    <button type="button" id="movelt" >&#9664;</button> 
+    <button type="button" id="moveup" >&#9650;</button> 
+    <button type="button" id="zoomin" >+</button> 
+    <button type="button" id="zoomout">-</button>
+    <button type="button" id="movedn" >&#9660;</button> 
+    <button type="button" id="movert" >&#9654;</button> 
+  </div>
+  <table id="gpsrslt">
+    <tr>
+      <th id="tableLabel">Label</th>
+      <th id="tableMach">Machine</th>
+      <th id="tableGps">GPS Location</th>
+    </tr>
+  </table>
+</body>
+</html>

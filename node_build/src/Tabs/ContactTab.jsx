@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Card, CardMedia, CardContent, CardActions, Chip, Link, Typography, withStyles }
   from '@material-ui/core';
-import GoogleMapsAPIKey from '../secret/GoogleMapsAPI';
+import mapImg from '../img/map.png';
 
 const styles = {
   root: {
@@ -46,11 +46,6 @@ const styles = {
   },
 };
 
-const MAP_LINK = 'https://maps.googleapis.com/maps/api/staticmap?size=300x300&zoom=6&'
-  + 'markers=color:0x303030%7C26.1581,-80.3254&center=27.7,-81.5639&key='
-  + GoogleMapsAPIKey
-  + '&signature=T3IEGHMaW-oRUvO0QnYbCwEf22o=';
-
 const ContactTab = ({ classes }) => (
   <Grid
     container
@@ -60,10 +55,12 @@ const ContactTab = ({ classes }) => (
   >
     <Grid item sm={12} lg={11}>
       <Card className={classes.card}>
-        <CardMedia image={MAP_LINK} className={classes.img} />
+        <CardMedia image={mapImg} className={classes.img} />
         <CardContent>
           <Typography variant="body1" className={classes.body}>
-            I currently reside in southern Broward County Florida.
+            <div style={{textAlign: 'center'}}>
+              I currently reside in southern Broward County Florida.
+            </div><br/>
             I would be interested in hearing about opportunities in South or Central Florida,
             including these markets:
           </Typography>

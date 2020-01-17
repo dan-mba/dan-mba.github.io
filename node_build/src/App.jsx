@@ -14,7 +14,6 @@ import SchoolTab from './Tabs/SchoolTab';
 import ContactTab from './Tabs/ContactTab';
 import WorkTab from './Tabs/WorkTab';
 import CodeTab from './Tabs/CodeTab';
-import SampleTab from './Tabs/SampleTab';
 
 
 const theme = createMuiTheme({
@@ -58,7 +57,6 @@ const App = () => (
         <Route path="/education" component={SchoolTab} />
         <Route path="/code" component={CodeTab} />
         <Route path="/contact" component={ContactTab} />
-        <Route path="/sample" component={SampleTab} />
       </div>
     </Router>
   </MuiThemeProvider>

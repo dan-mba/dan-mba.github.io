@@ -6,13 +6,16 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Chip, Card, CardHeader, CardContent, CardActions, Typography,
   Grid, Button, withStyles, withTheme } from '@material-ui/core';
-import { redirect, selectCode } from '../redux/actions/code';
+import { selectCode } from '../redux/actions/code';
 import styles from './CodeTabStyles';
 
+const showCode = (url) => {
+  const win = window.open(url, '_blank');
+  if (win) win.focus();
+};
 
 /* Render array of sample apps */
 class CodeTab extends React.Component {
@@ -20,17 +23,6 @@ class CodeTab extends React.Component {
     super(props);
 
     this.handleSelect = this.handleSelect.bind(this);
-    this.showCode = this.showCode.bind(this);
-  }
-
-  showCode(url, isSource) {
-    const { isIE11, dispatch, samples } = this.props;
-    if (!isSource && !isIE11) {
-      dispatch(redirect(samples.findIndex((samp) => samp.url === url)));
-    } else {
-      const win = window.open(url, '_blank');
-      if (win) win.focus();
-    }
   }
 
   handleSelect(selected) {
@@ -41,26 +33,12 @@ class CodeTab extends React.Component {
   render() {
     let output = [];
     let sel = '';
-    const { classes, theme, selected, redirId, libraries, samples, location } = this.props;
+    const { classes, theme, selected, libraries, samples } = this.props;
 
     const headerClass = {
       backgroundColor: theme.palette.primary.main,
       color: theme.palette.primary.contrastText,
     };
-
-    if ((redirId !== '') && (location.pathname === '/code')) {
-      window.location.href += '/selected';
-    }
-
-    if (redirId !== '') {
-      return (
-        <Redirect to={{
-          pathname: '/sample',
-          search: `?id=${redirId}`,
-        }}
-        />
-      );
-    }
 
     if (selected !== '') {
       output = samples.filter((samp) => (
@@ -91,7 +69,7 @@ class CodeTab extends React.Component {
             <Button
               size="small"
               variant="contained"
-              onClick={() => this.showCode(samp.url, samp.newtab)}
+              onClick={() => showCode(samp.url)}
             >
               App
             </Button>
@@ -100,7 +78,7 @@ class CodeTab extends React.Component {
                 <Button
                   size="small"
                   variant="contained"
-                  onClick={() => this.showCode(samp.apisite, true)}
+                  onClick={() => showCode(samp.apisite)}
                 >
                   Api
                 </Button>
@@ -108,7 +86,7 @@ class CodeTab extends React.Component {
             <Button
               size="small"
               variant="contained"
-              onClick={() => this.showCode(samp.source, true)}
+              onClick={() => showCode(samp.source)}
             >
               Show Code
             </Button>
@@ -158,11 +136,8 @@ CodeTab.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
   selected: PropTypes.string.isRequired,
-  redirId: PropTypes.any.isRequired,
   libraries: PropTypes.object.isRequired,
   samples: PropTypes.array.isRequired,
-  location: PropTypes.object.isRequired,
-  isIE11: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 

@@ -39,9 +39,10 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-evenly',
     flexWrap: 'wrap',
-    backgroundColor: '#e0e0e0',
+    backgroundColor: '#dbe3e8',
     borderRadius: '5px',
     boxShadow: '2px 2px 2px #b0b0b0',
+    fontWeight: '500',
   },
   sel: {
     margin: '0 0 30px',

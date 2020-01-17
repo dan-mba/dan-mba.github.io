@@ -9,10 +9,8 @@ import LIBRARIES from '../../config/libraries';
 
 const initialState = {
   selected: '',
-  redirId: '',
   samples: SAMPLES,
   libraries: [],
-  isIE11: !!window.MSInputMethodContext && !!document.documentMode,
 };
 
 export default (state = initialState, action) => {
@@ -29,8 +27,6 @@ export default (state = initialState, action) => {
   }
 
   switch (action.type) {
-    case 'code/SET_REDIR':
-      return { ...curState, redirId: action.index };
     case 'code/SET_SELECTED':
       return { ...curState, selected: action.selected };
     default:

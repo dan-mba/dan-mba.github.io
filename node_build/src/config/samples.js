@@ -1,5 +1,27 @@
 const SAMPLES = [
   {
+    title: 'Next.js Image Grid',
+    url: 'https://dan-mba-next-image-grid.glitch.me/',
+    source: 'https://github.com/dan-mba/next-image-grid',
+    newtab: true,
+    description: 
+      'A collection of images related to my career displayed using the Next.js server '
+      + 'side rendering framework for React. The list of images and their related text is '
+      + 'stored in a SQLite databse and is accessed using the Sequelize ORM.',
+    libraries: ['next','react','reactstrap','sqlite','sequelize','express','node'],
+  },
+  {
+    title: 'Gatsby & Netlify CMS Blog',
+    url: 'https://dan-blog.netlify.com/',
+    source: 'https://github.com/dan-mba/netlify-blog',
+    newtab: true,
+    description: 
+      'A blog created using the Gatsby static site generator and the Netlify CMS '
+      + 'content managment system. The posts are stored as markdown files in a git '
+      + 'repository and passed to the React templates using GraphQL.',
+    libraries: ['gatsby', 'netlifycms', 'react', 'graphql']
+  },
+  {
     title: 'NHTSA Safety Ratings',
     url: 'https://dan-mba.github.io/vue-nhtsa/',
     source: 'https://github.com/dan-mba/vue-nhtsa',
@@ -8,7 +30,7 @@ const SAMPLES = [
       + 'uses Vue to display the available data for the vehicle model selected.',
     apiname: 'NHTSA Safety Ratings API',
     apisite: 'https://one.nhtsa.gov/webapi/Default.aspx?SafetyRatings/API/5',
-    libraries: ['axios-jsonp', 'vue', 'fontawesome'],
+    libraries: ['vue', 'fontawesome'],
   },
   {
     title: 'NHTSA Recalls',
@@ -19,7 +41,7 @@ const SAMPLES = [
       + 'REST API for the selected model. It also styles the select menus using CSS only.',
     apiname: 'NHTSA Recalls API',
     apisite: 'https://one.nhtsa.gov/webapi/Default.aspx?Recalls/API/83',
-    libraries: ['react', 'jquery', 'fontawesome'],
+    libraries: ['react', 'fontawesome'],
   },
   {
     title: 'URL Shortener',
@@ -44,7 +66,7 @@ const SAMPLES = [
       + ' a RSS feed as a parameter, uses axios to fetch the feed & xml2js to convert it to JSON, '
       + 'then returns the JSON. This app also serves as a proxy to overcome CORS restrictions'
       + ' that will not allow my apps to access a feed located on a different domain.',
-    libraries: ['node', 'express', 'axios'],
+    libraries: ['node', 'express'],
   },
   {
     title: 'ESPN RSS Feed Display',
@@ -54,7 +76,7 @@ const SAMPLES = [
       'This app uses axios to obtain a JSON conversion of the ESPN AFC South NFL news feed from '
       + 'my RSS to JSON proxy. It uses Vue.js to format the items to display the images & text '
       + 'and link to thefull articles for each story.',
-    libraries: ['vue', 'axios'],
+    libraries: ['vue'],
   },
   {
     title: 'ESPN Podcast Player',
@@ -65,7 +87,7 @@ const SAMPLES = [
       + 'feed from my RSS to JSON Proxy. It uses React to format the podast list and the '
       + 'react-player library to handle generating the proper html to play a podcast when '
       + 'it is selected.',
-    libraries: ['react', 'axios'],
+    libraries: ['react'],
   },
   {
     title: 'SVG Bar Chart of GDP',

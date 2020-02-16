@@ -130,7 +130,13 @@ const WorkTab = ({ classes, expanded, dispatch }) => (
         </LItem>
         <LItem>Create Node.js applications using the Express web framework.</LItem>
         <LItem>
-          Connect Node.js apps to a MongoDB database using the Mongoose library and native driver.
+          Develop a React application using the Next.js framework for server-side rendering (SSR).
+        </LItem>
+        <LItem>
+          Connect projects to MongoDB & SQLite databases using Mongoose & Sequelize ORM/ODM.
+        </LItem>
+        <LItem>
+          Create a blog using Gatsby static site generator & Netlify CMS Git based content manager.
         </LItem>
       </List>
       <Typography variant="body1">

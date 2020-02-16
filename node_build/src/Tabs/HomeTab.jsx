@@ -89,8 +89,8 @@ const HomeTab = ({ classes }) => (
             target="_blank"
             rel="noopener noreferrer"
           >
-            here.
-          </Link>
+            here
+          </Link>.
         </Typography>
       </Paper>
     </Grid>

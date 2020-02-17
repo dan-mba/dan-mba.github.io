@@ -5,7 +5,7 @@
  */
 
 const initialState = {
-  anchorEL: null,
+  anchorEl: null,
   selectedIndex: 1,
 };
 

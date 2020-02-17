@@ -58,9 +58,9 @@ const ContactTab = ({ classes }) => (
         <CardMedia image={mapImg} className={classes.img} />
         <CardContent>
           <Typography variant="body1" className={classes.body}>
-            <div style={{textAlign: 'center'}}>
+            <span style={{textAlign: 'center', display: 'block'}}>
               I currently reside in southern Broward County Florida.
-            </div><br/>
+            </span><br/>
             I would be interested in hearing about opportunities in South or Central Florida,
             including these markets:
           </Typography>

@@ -21,3 +21,11 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br>
 THe pre & post hooks cleanup & deploy the build
+
+### `npm test`
+
+Runs the testcases using Jest & Enzyme in watch mode
+
+### `npm run coverage`
+
+Generates a covragge report after running the testcases

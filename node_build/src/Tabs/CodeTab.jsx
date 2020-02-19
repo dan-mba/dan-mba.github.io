@@ -18,7 +18,7 @@ const showCode = (url) => {
 };
 
 /* Render array of sample apps */
-class CodeTab extends React.Component {
+export class CodeTab extends React.Component {
   constructor(props) {
     super(props);
 
@@ -112,7 +112,7 @@ class CodeTab extends React.Component {
     );
 
     return (
-      <div className={classes.main}>
+      <div className={classes.main} id="code-tab">
         <Selection
           handleClick={this.handleSelect}
           selected={selected}
@@ -149,6 +149,7 @@ const Selection = ({ libraries, selected, classes, handleClick }) => {
   chips.push(
     <Chip
       key="all"
+      data-test="all"
       label="all"
       color="primary"
       variant={selected !== '' ? 'outlined' : 'default'}
@@ -160,6 +161,7 @@ const Selection = ({ libraries, selected, classes, handleClick }) => {
   chips.push(...Object.keys(libs).map((lib) => (
     <Chip
       key={lib}
+      data-test={lib}
       label={libs[lib].name}
       color="primary"
       variant={selected !== lib ? 'outlined' : 'default'}

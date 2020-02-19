@@ -95,8 +95,9 @@ School.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-const SchoolTab = ({ classes }) => (
+export const SchoolTab = ({ classes }) => (
   <Grid
+    id="school-tab"
     container
     spacing={1}
     justify="space-evenly"

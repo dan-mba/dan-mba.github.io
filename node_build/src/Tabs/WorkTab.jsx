@@ -100,8 +100,8 @@ Job.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-const WorkTab = ({ classes, expanded, dispatch }) => (
-  <Grid container spacing={2} justify="center" className={classes.root}>
+export const WorkTab = ({ classes, expanded, dispatch }) => (
+  <Grid container spacing={2} justify="center" className={classes.root} id="work-tab">
     <Job
       title="Private Consultant"
       employer=""

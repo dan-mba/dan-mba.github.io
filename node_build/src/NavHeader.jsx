@@ -51,7 +51,7 @@ const styles = {
 
 const menuItems = ['/', '/experience', '/education', '/code', '/contact'];
 
-class NavHeader extends React.Component {
+export class NavHeader extends React.Component {
   constructor(props) {
     super(props);
 
@@ -65,6 +65,7 @@ class NavHeader extends React.Component {
       <AppBar
         position="fixed"
         className={classes.appBar}
+        id="nav-header"
       >
 
         <Toolbar

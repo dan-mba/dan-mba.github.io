@@ -46,8 +46,9 @@ const styles = {
   },
 };
 
-const ContactTab = ({ classes }) => (
+export const ContactTab = ({ classes }) => (
   <Grid
+    id="contact-tab"
     container
     spacing={1}
     justify="center"
@@ -58,15 +59,16 @@ const ContactTab = ({ classes }) => (
         <CardMedia image={mapImg} className={classes.img} />
         <CardContent>
           <Typography variant="body1" className={classes.body}>
-            <span style={{textAlign: 'center', display: 'block'}}>
+            <span style={{ textAlign: 'center', display: 'block' }}>
               I currently reside in southern Broward County Florida.
-            </span><br/>
+            </span>
+            <br />
             I would be interested in hearing about opportunities in South or Central Florida,
             including these markets:
           </Typography>
           <div className={classes.chipBox}>
             {['Fort Lauderdale', 'Miami', 'West Palm Beach', 'Fort Myers', 'Tampa', 'Orlando'].map(
-              city => (
+              (city) => (
                 <Chip label={city} key={city} color="secondary" className={classes.chip} />
               ),
             )}

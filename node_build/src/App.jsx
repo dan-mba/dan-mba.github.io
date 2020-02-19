@@ -1,3 +1,4 @@
+/* eslint import/no-named-as-default: 0 */
 /*
  * App.jsx
  *

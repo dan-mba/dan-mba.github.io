@@ -34,12 +34,7 @@ function setup() {
 
 describe('Work Tab', () => {
   it('should render main Tab', () => {
-    const { enzymeWrapper, props } = setup();
+    const { enzymeWrapper } = setup();
     expect(enzymeWrapper.find('#work-tab').first().hasClass('abc')).toBe(true);
-
-    const button = enzymeWrapper.find('button').first();
-    expect(props.dispatch.mock.calls.length).toBe(0);
-    button.simulate('click');
-    expect(props.dispatch.mock.calls.length).toBe(1);
   });
 });

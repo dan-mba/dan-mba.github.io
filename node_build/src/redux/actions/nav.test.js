@@ -30,7 +30,6 @@ describe('thunk actions', () => {
     const expectedActions = [
       { type: 'nav/UPDATE_ANCHOR', anchor: null },
       { type: 'code/SET_SELECTED', selected: '' },
-      { type: 'work/RESET_EXPANDED' },
       { type: 'nav/UPDATE_SELECTED', index },
     ];
 

@@ -1,25 +1,25 @@
 const SAMPLES = [
   {
     title: 'Next.js Image Grid',
-    url: 'https://dan-mba-next-image-grid.glitch.me/',
+    url: 'https://dan-image-grid.herokuapp.com/',
     source: 'https://github.com/dan-mba/next-image-grid',
     newtab: true,
-    description: 
+    description:
       'A collection of images related to my career displayed using the Next.js server '
       + 'side rendering framework for React. The list of images and their related text is '
-      + 'stored in a SQLite databse and is accessed using the Sequelize ORM.',
-    libraries: ['next','react','reactstrap','sqlite','sequelize','express','node'],
+      + 'stored in a Postgres databse and is accessed using the Sequelize ORM.',
+    libraries: ['next', 'react', 'reactstrap', 'postgres', 'sequelize', 'express', 'node'],
   },
   {
     title: 'Gatsby & Netlify CMS Blog',
     url: 'https://dan-blog.netlify.com/',
     source: 'https://github.com/dan-mba/netlify-blog',
     newtab: true,
-    description: 
+    description:
       'A blog created using the Gatsby static site generator and the Netlify CMS '
       + 'content managment system. The posts are stored as markdown files in a git '
       + 'repository and passed to the React templates using GraphQL.',
-    libraries: ['gatsby', 'netlifycms', 'react', 'graphql']
+    libraries: ['gatsby', 'netlifycms', 'react', 'graphql'],
   },
   {
     title: 'NHTSA Safety Ratings',

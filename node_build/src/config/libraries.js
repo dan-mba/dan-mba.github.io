@@ -39,6 +39,10 @@ const LIBRARIES = {
     name: 'Node.js',
     site: 'https://nodejs.org/',
   },
+  postgres: {
+    name: 'Postgres',
+    site: 'https://www.postgresql.org/',
+  },
   react: {
     name: 'React',
     site: 'https://reactjs.org/',

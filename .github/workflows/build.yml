@@ -16,7 +16,7 @@ jobs:
       with:
         node-version: '12.x'
     - name: Build 
-    - run: |
+      run: |
         cd node_build
         npm ci
         npm run build

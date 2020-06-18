@@ -82,7 +82,7 @@ const Job = ({ title, subtitle, employer, dates, image, errimg, description, det
               return (
                 <span key={`detail-${index}`}>
                   <Typography variant="body1">{detail.title}</Typography>
-                  <List className={classes.list} key>
+                  <List className={classes.list}>
                     {detail.list.map((item, listIndex) => (
                       <LItem key={`list-${listIndex}`}>{item}</LItem>
                     ))}

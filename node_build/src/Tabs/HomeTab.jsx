@@ -7,7 +7,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Paper, Typography, Link, List, withStyles } from '@material-ui/core';
-import { LINoLink, LISmall, LIWithLink } from '../util/ListItems';
+import { LINoLink } from '../util/ListItems';
+import { GISmall, GIWithLink } from '../util/GridItems';
 import TOOLS from '../config/tools';
 
 const styles = {
@@ -62,7 +63,7 @@ const HomeTab = ({ classes }) => (
               'Effective Communicator', 'TeamPlayer', 'Adaptable',
             ].map((text, index) => (
               <Grid item sm={index % 2 === 0 ? 7 : 5} lg={4} key={text}>
-                <LISmall>{text}</LISmall>
+                <GISmall>{text}</GISmall>
               </Grid>
             ))
           }
@@ -75,7 +76,7 @@ const HomeTab = ({ classes }) => (
           {
             TOOLS.map((tool, index) => (
               <Grid item sm={index % 2 === 0 ? 7 : 5} lg={4} key={tool.name}>
-                <LIWithLink link={tool.link}>{tool.name}</LIWithLink>
+                <GIWithLink link={tool.link}>{tool.name}</GIWithLink>
               </Grid>
             ))
           }
@@ -89,8 +90,8 @@ const HomeTab = ({ classes }) => (
             target="_blank"
             rel="noopener noreferrer"
           >
-            here
-          </Link>.
+            on GitHub here.
+          </Link>
         </Typography>
       </Paper>
     </Grid>

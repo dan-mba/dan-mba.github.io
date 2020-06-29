@@ -5,10 +5,6 @@ on:
     branches: [ master ]
     paths:
       - "node_build/**"
-  pull_request:
-    branches: [ master ]
-    paths:
-      - "node_build/**"
 
 jobs:
   build:
@@ -28,8 +24,8 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add static
-        git commit -m "Build Action" -a
+        git add -A
+        git diff-index --quiet HEAD || gitcommit -m "Build Action"
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:

@@ -24,8 +24,8 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add static
-        git diff-index --quiet --cached HEAD || git commit -m "Build Action" -a
+        git add -A static index.html
+        git diff-index --quiet --cached HEAD || git commit -m "Build Action"
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:

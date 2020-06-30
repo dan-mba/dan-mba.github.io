@@ -6,4 +6,5 @@ updates:
     directory: "/node_build"
     schedule:
       interval: "weekly"
-      
+    allow:
+      - dependency-type: "production"

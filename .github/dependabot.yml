@@ -1,0 +1,10 @@
+#dependabot configuration for NPM
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/node_build"
+    schedule:
+      interval: "weekly"
+    allow:
+      - dependency-type: "production"

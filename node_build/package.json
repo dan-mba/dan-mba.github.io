@@ -15,9 +15,6 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },
-  "resolutions": {
-    "webpack-dev-server": "^3.11.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -25,8 +22,7 @@
     "coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "prebuild": "shx rm -rf ../static && shx rm -f ../index.html",
-    "postbuild": "shx cp -r build/index.html build/static ..",
-    "preinstall": "npx npm-force-resolutions"
+    "postbuild": "shx cp -r build/index.html build/static .."
   },
   "eslintConfig": {
     "extends": "react-app"

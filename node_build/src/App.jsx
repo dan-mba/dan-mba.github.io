@@ -16,14 +16,13 @@ import ContactTab from './Tabs/ContactTab';
 import WorkTab from './Tabs/WorkTab';
 import CodeTab from './Tabs/CodeTab';
 
-
 const theme = createMuiTheme({
   palette: {
     primary: {
       main: '#212121',
     },
     secondary: {
-      main: '#006db0',
+      main: '#004d73',
     },
     background: {
       paper: '#dbe3e8',

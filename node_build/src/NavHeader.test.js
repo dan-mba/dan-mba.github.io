@@ -31,7 +31,6 @@ function setup() {
   return { enzymeWrapper, props };
 }
 
-
 describe('Nav Bar', () => {
   it('should render', () => {
     const { enzymeWrapper } = setup();

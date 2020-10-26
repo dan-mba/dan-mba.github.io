@@ -31,7 +31,6 @@ function setup() {
   return { enzymeWrapper, props };
 }
 
-
 describe('Work Tab', () => {
   it('should render main Tab', () => {
     const { enzymeWrapper } = setup();

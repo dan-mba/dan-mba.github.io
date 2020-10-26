@@ -4,7 +4,6 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { SchoolTab } from './SchoolTab';
 
-
 Enzyme.configure({ adapter: new Adapter() });
 global.open = jest.fn();
 
@@ -25,7 +24,6 @@ function setup() {
 
   return { enzymeWrapper, props };
 }
-
 
 describe('School Tab', () => {
   it('should render main Tab', () => {

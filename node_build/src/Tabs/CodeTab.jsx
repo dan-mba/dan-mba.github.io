@@ -141,7 +141,6 @@ CodeTab.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-
 const Selection = ({ libraries, selected, classes, handleClick }) => {
   const chips = [];
   const libs = JSON.parse(JSON.stringify(libraries));

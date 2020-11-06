@@ -7,19 +7,20 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "gatsby": "^2.25.2",
+    "gatsby-theme-material-ui": "^1.0.13",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
   },
   "devDependencies": {
-    "prettier": "2.1.2"
+    "eslint-config-react-app": "^6.0.0"
   },
   "repository": {
     "type": "git",

@@ -2,7 +2,7 @@ import React from "react";
 import {AppBar, Hidden, Toolbar, Typography} from "@material-ui/core";
 import {LinkedIn, GitHub, Menu} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/core/styles";
-import {IconButton} from "gatsby-theme-material-ui"
+import {IconButton, Link} from "gatsby-theme-material-ui";
 
 const useStyles = makeStyles({
   toolbar: {
@@ -15,10 +15,14 @@ const useStyles = makeStyles({
     fontFamily: 'Damion',
     paddingLeft: '12px'
   },
-  buttonbar: {
+  linkbar: {
     display: 'flex',
     justifyContent: 'right',
+    alignItems: 'center',
     flexGrow: 1
+  },
+  linkitem: {
+    padding: '16px 12px 8px'
   }
 })
 
@@ -28,11 +32,17 @@ export default function NavBar() {
   return(
     <AppBar position="relative" id="nav-bar">
       <Toolbar className={classes.toolbar} disableGutters>
-        <Typography className={classes.handwriting} variant="h4">
+        <Typography className={classes.handwriting} variant="h3">
           Dan
         </Typography>
         <Hidden mdDown>
-          <div className={classes.buttonbar}>
+          <div className={classes.linkbar}>
+            <Link to="/" color="inherit" underline="none" className={classes.linkitem}>
+              <Typography variant="h5">About</Typography>
+            </Link>
+            <Link to="/portfolio.html" color="inherit" underline="none" className={classes.linkitem}>
+              <Typography variant="h5">Portfolio</Typography>
+            </Link>
             <IconButton color="inherit" href="https://github.com/dan-mba">
               <GitHub fontSize="large"/>
             </IconButton>
@@ -42,7 +52,7 @@ export default function NavBar() {
             </div>
         </Hidden>
         <Hidden lgUp>
-          <div className={classes.buttonbar}>
+          <div className={classes.linkbar}>
             <IconButton color="inherit" aria-label="Menu" disableRipple>
               <Menu fontSize="large" />
             </IconButton>

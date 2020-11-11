@@ -40,7 +40,7 @@ export default function NavBar() {
             <Link to="/" color="inherit" underline="none" className={classes.linkitem}>
               <Typography variant="h5">About</Typography>
             </Link>
-            <Link to="/portfolio.html" color="inherit" underline="none" className={classes.linkitem}>
+            <Link to="/portfolio" color="inherit" underline="none" className={classes.linkitem}>
               <Typography variant="h5">Portfolio</Typography>
             </Link>
             <IconButton color="inherit" href="https://github.com/dan-mba">

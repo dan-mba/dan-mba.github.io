@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -10,6 +14,18 @@ module.exports = {
     },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'GitHub',
+        fieldName: 'github',
+        url: 'https://api.github.com/graphql',
+        headers: {
+          Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+        },
+        fetchOptions: {},
+      },
+    },
     {
       resolve: `gatsby-theme-material-ui`,
       options: {

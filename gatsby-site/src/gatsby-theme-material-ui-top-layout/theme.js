@@ -17,6 +17,7 @@ const theme = createMuiTheme({
   },
   breakpoints: {
     values: {
+      xs: 100,
       sm: 350,
       md: 500,
       lg: 750,
@@ -27,6 +28,13 @@ const theme = createMuiTheme({
     MuiTypography: {
       body1: {
         'line-height': 1.3,
+      },
+    },
+    MuiCssBaseline: {
+      '@global': {
+        body: {
+          backgroundColor: '#e0e0e0'
+        },
       },
     },
   },

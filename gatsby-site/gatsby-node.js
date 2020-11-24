@@ -21,7 +21,7 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
 exports.createPages = async ({graphql, actions: {createPage}}) => {
   const data = await graphql(`
     {
-      allRepo {
+      allRepo(sort: {fields: [isPinned, updatedAt], order: [DESC, DESC]}) {
         nodes {
           id
         }

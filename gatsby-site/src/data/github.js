@@ -35,10 +35,19 @@ async function getGithubRepos(userid) {
             }
             homepageUrl
             openGraphImageUrl
+            isFork
+            updatedAt
           }
           pageInfo {
             endCursor
             hasNextPage
+          }
+        }
+        pinnedItems(first: 10) {
+          nodes {
+            ... on Repository {
+              name
+            }
           }
         }
       }
@@ -55,21 +64,29 @@ async function getGithubRepos(userid) {
       });
       repos = [...repos, ...data.user.repositories.nodes];
     }
+    repos = repos.filter(r => !r.isFork);
+
+    const pins = data.user.pinnedItems.nodes.map(p => p.name);
 
     repos = repos.map(repo => {
       const flatRepo = JSON.parse(JSON.stringify(repo))
-      flatRepo.languages = repo.languages.edges.map(lang => {
+      const langs = repo.languages.edges.map(lang => {
         return {
           name: lang.node.name,
-          size: lang.size / repo.languages.totalSize
+          size: Math.round((lang.size / repo.languages.totalSize) * 10000) / 100
         };
       });
-      flatRepo.topics = repo.repositoryTopics.nodes.map(t => t.topic.name);
+      flatRepo.languages = langs.filter(l => l.size > 1);
+      flatRepo.topics = repo.repositoryTopics.nodes.map(t => t.topic.name).sort();
       delete flatRepo.repositoryTopics;
+      flatRepo.isPinned = pins.includes(repo.name);
       return flatRepo;
-    })
+    });
 
-    return repos
+    const langs = ['JavaScript','Vue','Python'];
+    repos = repos.filter(repo => (repo.languages.some(l => langs.includes(l.name))));
+
+    return repos;
   } catch(e) {
     console.log('Call to GitHub GraphQL API failed');
     throw e;

@@ -1,7 +1,7 @@
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 
-import Img from "gatsby-image";
+import {GatsbyImage} from "gatsby-plugin-image/compat";
 
 const useStyles = makeStyles(theme => ({
   hero: {
@@ -10,9 +10,7 @@ const useStyles = makeStyles(theme => ({
   img:{
     height: '100%',
     width: '100%',
-    position: 'absolute',
-    top: 0,
-    left: 0,
+    overflow: 'hidden',
   },
   heroBox: {
     height: '100%',
@@ -28,12 +26,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function BackgroundImage({fluid, className, children}) {
+export default function BackgroundImage({image, className, children}) {
   const classes = useStyles();
 
   return (
     <section className={`${classes.hero} ${className}`}>
-      <Img className={classes.img} fluid={fluid} />
+      <GatsbyImage className={classes.img} image={image} />
       <div className={classes.heroBox}>
         {children}
       </div>

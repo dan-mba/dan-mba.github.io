@@ -12,6 +12,14 @@ module.exports = {
         path: `${__dirname}/static/img`
       }
     },
+    {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: 'Repo',
+        imagePath: 'openGraphImageUrl',
+      },
+    },
+    `gatsby-plugin-image`,
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
@@ -23,15 +31,23 @@ module.exports = {
               {
                 family: "Roboto",
                 variants: ["300", "400", "500"],
+                strategy: "cdn",
               },
               {
                 family: "Damion",
                 variants: ["400"],
+                strategy: "cdn"
               },
             ],
           },
         },
       },
+    },
+    {
+      resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+      options: {
+        disable: true,
+      }
     },
   ],
 };

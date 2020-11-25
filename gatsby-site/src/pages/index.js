@@ -4,7 +4,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import {fade} from "@material-ui/core/styles/colorManipulator";
 import {graphql} from "gatsby";
 import {Helmet} from "react-helmet";
-import Img from "gatsby-image";
+import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import {Link} from "gatsby-theme-material-ui";
 import BackgroundImage from "../components/BackgtoundImage";
 import Layout from "../components/Layout";
@@ -44,8 +44,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function Home({data}) {
   const classes = useStyles();
-  const heroImgData = data.hero.childImageSharp.fluid;
-  const mapImgData = data.map.childImageSharp.fixed;
+  const heroImgData = getImage(data.hero);
+  const mapImgData = getImage(data.map);
 
   return (
     <Layout>
@@ -55,7 +55,7 @@ export default function Home({data}) {
         <meta name="description" content={PageData.description} />
         <meta name="og:description" content={PageData.description} />
       </Helmet>
-      <BackgroundImage className={classes.hero} fluid={heroImgData}>
+      <BackgroundImage className={classes.hero} image={heroImgData}>
         <div className={classes.heroText}>
           <Typography variant="h3">{PageData.name}</Typography>
           <Typography variant="h4">{PageData.jobtitle}</Typography>
@@ -78,7 +78,7 @@ export default function Home({data}) {
             </span>
           );
         })}
-        <Img fixed={mapImgData} className={classes.map} alt="Map of Florida with Pin in Broward County"/>
+        <GatsbyImage image={mapImgData} className={classes.map} alt="Map of Florida with Pin in Broward County"/>
         <Typography variant="body1" className={classes.p}>
           {PageData.mapparagraph}
         </Typography>
@@ -91,16 +91,12 @@ export const pageQuery = graphql`
   query IndexPage {
     hero: file(relativePath: {eq: "binary.jpg" }) {
       childImageSharp {
-        fluid (maxWidth: 2000, srcSetBreakpoints: [800, 1200, 1600, 2000], quality: 70) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
+        gatsbyImageData(maxWidth: 2000, layout: FLUID, placeholder: TRACED_SVG, quality: 70)
       }
     }
     map: file(relativePath: {eq: "map.png" }) {
       childImageSharp {
-        fixed (width: 300, height: 300, quality: 80) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
-        }
+        gatsbyImageData(width: 300, height: 300, layout: FIXED, placeholder: TRACED_SVG)
       }
     }
   }

@@ -14,9 +14,9 @@ paragraphs:
     titleUrl: https://www.quickbase.com/
     p:
       I spent several years building a sales management system for a small business that 
-      runs industrial & construction vehicle dealerships. The system is built on the Quickbase 
+      runs industrial & construction vehicle dealerships. The system is built on the QuickBase 
       low code platform. This platform provides a graphical interface for SQL like tables. I designed 
-      all the tables as well as the form used for record operations. I also build HTML and JavaScript 
+      all the tables as well as the forms used for record operations. I also build HTML and JavaScript 
       applications to display data from a record as a printable business form.
   - title: Circuit Simulation
     p:
@@ -29,7 +29,7 @@ paragraphs:
   - title: z/OS Language Environment
     titleUrl: https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zappldev/zappldev_88.htm
     p:
-      I stared my career work on the z/OS mainframe operating system at IBM. I performed roles in both 
+      I stared my career working on the z/OS mainframe operating system at IBM. I performed roles in both 
       technical support and development. My work was connected to the Language Environment component, which 
       provides support for programming languages. I was specifically working with support for C and C++. 
       Much of my work during this time was centered around migrations. In technical support I was helping 

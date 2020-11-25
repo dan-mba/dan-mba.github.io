@@ -3,6 +3,7 @@ import {Card, CardActions, CardContent, CardHeader, CardMedia, Chip, Typography,
 import {makeStyles} from "@material-ui/core/styles";
 import {Code, Link as LinkIcon} from "@material-ui/icons";
 import {IconButton} from "gatsby-theme-material-ui";
+import {GatsbyImage, getImage} from "gatsby-plugin-image";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,9 +21,8 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column'
   },
   img: {
-    objectFit: 'contain',
     maxHeight: '50vw',
-    height: '240px'
+    height: '240px',
   },
   desc: {
     margin: '5px 0',
@@ -50,12 +50,14 @@ export default function RepoCard({repo}) {
         subheader={repo.languages.map(l => `${l.name}: ${l.size}%`).join(', ')}
         subheaderTypographyProps={{align: 'center'}}
       />
-      <CardMedia 
-        component="img"
-        alt={`${repo.name} image`}
-        image={repo.openGraphImageUrl}
-        classes={{img: classes.img}}
-      />
+      <CardMedia>
+          <GatsbyImage
+            image={getImage(repo.localImage)}
+            alt={`${repo.name} image`}
+            className={classes.img}
+            loading="eager"
+          />
+      </CardMedia>
       <CardContent classes={{root: classes.grow}}>
         <Typography variant="body1" align="center" className={classes.desc}>
           {repo.description}

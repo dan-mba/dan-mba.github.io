@@ -4,22 +4,28 @@
   "description": "Portfolio Website built with Gatsby",
   "version": "0.1.0",
   "license": "0BSD",
+  "browserslist": [
+    ">2%",
+    "not IE 11"
+  ],
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "clean": "gatsby clean"
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
+    "@material-ui/core": "^4.11.1",
     "@material-ui/icons": "^4.9.1",
-    "gatsby": "^2.27.0",
+    "gatsby": "^2.27.3",
     "gatsby-awesome-pagination": "^0.3.6",
     "gatsby-image": "^2.6.0",
+    "gatsby-plugin-image": "^0.2.0",
     "gatsby-plugin-react-helmet": "^3.5.0",
+    "gatsby-plugin-remote-images": "^2.2.0",
     "gatsby-plugin-sharp": "^2.9.0",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.17",
     "gatsby-source-filesystem": "^2.6.1",
     "gatsby-theme-material-ui": "^1.0.13",
     "gatsby-transformer-sharp": "^2.7.0",
@@ -33,9 +39,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/dan-mba/dan-mba.github.io"
   }
 }

@@ -79,6 +79,11 @@ export const pageQuery = graphql`
         description
         homepageUrl
         openGraphImageUrl
+        localImage {
+          childImageSharp {
+            gatsbyImageData(maxWidth: 500, layout: FLUID, placeholder: TRACED_SVG, quality: 60)
+          }
+        }
         url
       }
     }

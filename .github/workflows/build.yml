@@ -1,10 +1,11 @@
 name: Build
 
 on:
-  push:
-    branches: [ master ]
-    paths:
-      - "node_build/**"
+  workflow_dispatch:
+  # push:
+  #   branches: [ master ]
+  #   paths:
+  #     - "node_build/**"
 
 jobs:
   build:

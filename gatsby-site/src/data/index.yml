@@ -1,0 +1,42 @@
+title: Daniel Burkhardt - About
+name: Daniel Burkhardt
+description: Software Development Portfolio Site for Daniel Burkhardt - About Me Page
+jobtitle: Software Engineer
+langs: JavaScript (React, Vue.js, Node.js) - Python
+heading: About Me
+paragraphs:
+  - p:
+      I am a Software Engineer with years of experience developing software 
+      for a wide variety of applications. Recently I have been working on 
+      front-end and back-end web development projects using JavaScript & Python. 
+      Some of the back-end projects run on AWS, taking advantage of Lambda & API Gateway.
+  - title: QuickBase
+    titleUrl: https://www.quickbase.com/
+    p:
+      I spent several years building a sales management system for a small business that 
+      runs industrial & construction vehicle dealerships. The system is built on the QuickBase 
+      low code platform. This platform provides a graphical interface for SQL like tables. I designed 
+      all the tables as well as the forms used for record operations. I also build HTML and JavaScript 
+      applications to display data from a record as a printable business form.
+  - title: Circuit Simulation
+    p:
+      For a couple of years, I worked for a consulting organization at IBM that provided circuit design and
+      simulation services. One of the projects I worked on was to build an application to automate circuit 
+      simulations to characterize the performance for best- and worst-case scenarios. Another project was 
+      to build a logical simulator for a circuit design to prove its functionality. This was needed because 
+      an electrical simulation for one input would take over 12 hours, while my logical simulator could run 
+      in under a minute.
+  - title: z/OS Language Environment
+    titleUrl: https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zappldev/zappldev_88.htm
+    p:
+      I stared my career working on the z/OS mainframe operating system at IBM. I performed roles in both 
+      technical support and development. My work was connected to the Language Environment component, which 
+      provides support for programming languages. I was specifically working with support for C and C++. 
+      Much of my work during this time was centered around migrations. In technical support I was helping 
+      customers migrate their applications to libraries that had Y2k support. In development I was updating 
+      libraries to take full advantage of 64-bit hardware.
+mapparagraph: 
+  I currently reside in southern Broward County Florida.
+  I am open to opportunities in South or Central Florida
+  (Miami / Ft Lauderdale, West Palm Beach, Naples / Ft Myers, 
+  Tampa / St. Petersburg, Orlando) or fully remote.

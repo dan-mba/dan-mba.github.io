@@ -96,7 +96,7 @@ export const pageQuery = graphql`
     }
     map: file(relativePath: {eq: "map.png" }) {
       childImageSharp {
-        gatsbyImageData(width: 300, height: 300, layout: FIXED, placeholder: TRACED_SVG, formats: [AUTO], quality: 70)
+        gatsbyImageData(width: 300, height: 300, layout: FIXED, placeholder: TRACED_SVG, quality: 70)
       }
     }
   }

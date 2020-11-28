@@ -96,7 +96,7 @@ export const pageQuery = graphql`
     }
     map: file(relativePath: {eq: "map.png" }) {
       childImageSharp {
-        gatsbyImageData(width: 300, height: 300, layout: FIXED, placeholder: DOMINANT_COLOR)
+        gatsbyImageData(width: 300, height: 300, layout: FIXED, placeholder: NONE, quality: 70)
       }
     }
   }

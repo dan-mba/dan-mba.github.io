@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{vcup:function(n,r,e){"use strict";var t;function c(n){return"IntersectionObserver"in window?(t||(t=new IntersectionObserver((function(r){r.forEach((function(r){r.isIntersecting&&n()}))}),{rootMargin:"150%"})),function(n){return n.current&&t.observe(n.current),function(){t&&n.current&&t.unobserve(n.current)}}):function(){return n(),function(){}}}e.r(r),e.d(r,"createIntersectionObserver",(function(){return c}))}}]);
-//# sourceMappingURL=3-31cdd9922727be202ce1.js.map

@@ -3,7 +3,7 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/node_build"
+    directory: "/"
     schedule:
       interval: "weekly"
     allow:

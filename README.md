@@ -21,6 +21,7 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     ├── node_modules
     ├── src
     ├── .gitignore
+    ├── gatsby-brpwser.js
     ├── gatsby-config.js
     ├── gatsby-node.js
     ├── package-lock.json
@@ -34,6 +35,8 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 1.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
 1.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where site information (metadata) like the site title and description, which Gatsby plugins are include, etc. can be specified (Check out the [config docs](https://www.gatsbyjs.com/docs/gatsby-config/) for more detail).
+
+1.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
 
 1.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process. This is where data from external sources (APIs) can be gathered for inclusion in the static build.
 

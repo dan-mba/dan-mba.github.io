@@ -2,6 +2,8 @@ name: Build
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 2,4,6'
   push:
     branches:
       - src

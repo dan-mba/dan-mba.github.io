@@ -31,16 +31,16 @@ module.exports = {
               {
                 family: "Roboto",
                 variants: ["300", "400", "500"],
-                strategy: "cdn",
               },
               {
                 family: "Damion",
                 variants: ["400"],
-                strategy: "cdn"
+                text: 'Dan',
               },
             ],
           },
         },
+        usePreconnect: true,
       },
     },
     {

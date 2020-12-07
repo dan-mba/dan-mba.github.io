@@ -28,7 +28,7 @@
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.17",
     "gatsby-source-filesystem": "^2.6.1",
     "gatsby-theme-material-ui": "^1.0.13",
-    "gatsby-transformer-sharp": "^2.7.0",
+    "gatsby-transformer-sharp": "^2.8.0",
     "graphql-request": "^3.3.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",

@@ -47,7 +47,7 @@ export const pageQuery = graphql`
   query FourZeroFourPage {
     hero: file(relativePath: {eq: "binary.jpg" }) {
       childImageSharp {
-        gatsbyImageData(maxWidth: 1000, layout: FLUID, placeholder: TRACED_SVG, quality: 50)
+        gatsbyImageData(maxWidth: 1000, layout: FLUID, placeholder: NONE, quality: 50)
       }
     }
   }

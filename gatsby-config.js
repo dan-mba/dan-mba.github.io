@@ -36,6 +36,7 @@ module.exports = {
                 family: "Damion",
                 variants: ["400"],
                 text: 'Dan',
+                strategy: 'base64',
               },
             ],
           },

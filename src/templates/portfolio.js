@@ -81,7 +81,7 @@ export const pageQuery = graphql`
         openGraphImageUrl
         localImage {
           childImageSharp {
-            gatsbyImageData(maxWidth: 500, layout: FLUID, placeholder: TRACED_SVG, quality: 70)
+            gatsbyImageData(maxWidth: 500, layout: FLUID, placeholder: NONE, quality: 70)
           }
         }
         url

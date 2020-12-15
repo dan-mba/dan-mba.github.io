@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     padding: '0 1%'
   },
   handwriting: {
-    fontFamily: 'Damion',
+    fontFamily: '"Damion", cursive',
     paddingLeft: '12px'
   },
   linkbar: {

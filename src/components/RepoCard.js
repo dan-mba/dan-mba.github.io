@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function RepoCard({repo}) {
+export default function RepoCard({repo, index}) {
   const classes = useStyles();
 
   return (
@@ -55,7 +55,10 @@ export default function RepoCard({repo}) {
             image={getImage(repo.localImage)}
             alt={`${repo.name} image`}
             className={classes.img}
-            loading="eager"
+            loading={
+              /* Only use eager loading on first card for mobile performance */
+              index===0 ? "eager" : "lazy"
+            }
           />
       </CardMedia>
       <CardContent classes={{root: classes.grow}}>

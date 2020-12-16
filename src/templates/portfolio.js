@@ -27,9 +27,9 @@ const useStyles = makeStyles({
 export default function Home({data, pageContext: {previousPagePath, nextPagePath, humanPageNumber}}) {
   const classes = useStyles();
   const repos = data.repos.nodes;
-  const items = repos.map(repo => (
+  const items = repos.map((repo, index) => (
     <Grid item xs={12} md={6} key={repo.name} classes={{root: classes.gridRoot}}>
-      <RepoCard repo={repo} />
+      <RepoCard repo={repo} index={index}/>
     </Grid>
   ));
 

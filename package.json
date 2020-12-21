@@ -28,7 +28,7 @@
     "gatsby-source-filesystem": "^2.8.0",
     "gatsby-theme-material-ui": "^1.0.13",
     "gatsby-transformer-sharp": "^2.9.0",
-    "graphql-request": "^3.3.0",
+    "graphql-request": "^3.4.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0"

@@ -14,6 +14,7 @@ export default function Layout({children}) {
         <meta property="author" content="Daniel Burkhardt" />
         <meta property="og:url" content="https://dan-mba.github.io/" />
         <meta property="og:type" content="website" />
+        <meta name="google-site-verification" content="zqAgp2x3Kjf_R3oZBUqt9L-zco6Ma-o14sC2F2MFVvg" />
         
         <meta property="og:image" content={`${withPrefix('/')}img/gatsby-ogimg.png`} />
         <meta property="og:image:width" content="1280" />

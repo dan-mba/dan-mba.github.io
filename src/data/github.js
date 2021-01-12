@@ -83,7 +83,7 @@ async function getGithubRepos(userid) {
       return flatRepo;
     });
 
-    const langs = ['JavaScript','Vue','Python'];
+    const langs = ['JavaScript','Vue','Python','TypeScript'];
     repos = repos.filter(repo => (repo.languages.some(l => langs.includes(l.name))));
 
     return repos;

@@ -1,7 +1,7 @@
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 
-import {GatsbyImage} from "gatsby-plugin-image/compat";
+import {GatsbyImage} from "gatsby-plugin-image";
 
 const useStyles = makeStyles(theme => ({
   hero: {

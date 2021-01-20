@@ -91,7 +91,7 @@ export const pageQuery = graphql`
   query IndexPage {
     hero: file(relativePath: {eq: "binary.jpg" }) {
       childImageSharp {
-        gatsbyImageData(maxWidth: 1000, layout: FLUID, placeholder: NONE, quality: 50)
+        gatsbyImageData(width: 1000, layout: CONSTRAINED, placeholder: NONE, quality: 50)
       }
     }
     map: file(relativePath: {eq: "map.png" }) {

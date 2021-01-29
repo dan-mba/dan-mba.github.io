@@ -31,7 +31,7 @@ export default function BackgroundImage({image, className, children}) {
 
   return (
     <section className={`${classes.hero} ${className}`}>
-      <GatsbyImage className={classes.img} image={image} loading="eager"/>
+      <GatsbyImage className={classes.img} image={image} loading="eager" alt=""/>
       <div className={classes.heroBox}>
         {children}
       </div>

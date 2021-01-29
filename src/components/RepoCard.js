@@ -68,7 +68,7 @@ export default function RepoCard({repo, index}) {
         <div className={classes.topicArea}>
           {repo.topics.map(topic => {
             return (
-              <Chip color="secondary" variant="outlined" size="small" label={topic} className={classes.topic}/>
+              <Chip color="secondary" variant="outlined" size="small" label={topic} key={topic} className={classes.topic}/>
             )
           })}
         </div>

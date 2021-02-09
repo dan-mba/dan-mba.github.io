@@ -12,7 +12,8 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "browserslist": "npx browserslist@latest --update-db"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",

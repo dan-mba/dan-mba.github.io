@@ -81,7 +81,13 @@ export const pageQuery = graphql`
         openGraphImageUrl
         localImage {
           childImageSharp {
-            gatsbyImageData(width: 500, layout: CONSTRAINED, placeholder: NONE, quality: 70)
+            gatsbyImageData(
+              width: 500,
+              layout: CONSTRAINED,
+              placeholder: NONE,
+              quality: 70,
+              outputPixelDensities: [0.5, 0.75, 1, 1.5, 2]
+            )
           }
         }
         url

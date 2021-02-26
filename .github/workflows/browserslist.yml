@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: '14.x'
 
-      - name: Build
+      - name: Update Browserslist
         run: |
           npm run browserslist
 
@@ -25,7 +25,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A
-          git diff-index --quiet --cached HEAD || git commit -m "Build Action"
+          git diff-index --quiet --cached HEAD || git commit -m "Update Browserslist"
 
       - name: Push changes
         uses: ad-m/github-push-action@master

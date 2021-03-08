@@ -22,7 +22,7 @@
     "gatsby-awesome-pagination": "^0.3.6",
     "gatsby-plugin-image": "^0.7.2",
     "gatsby-plugin-react-helmet": "^3.10.0",
-    "gatsby-plugin-remote-images": "^2.2.0",
+    "gatsby-plugin-remote-images": "^2.4.0",
     "gatsby-plugin-sharp": "^2.14.3",
     "gatsby-plugin-sitemap": "^2.12.0",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.20",

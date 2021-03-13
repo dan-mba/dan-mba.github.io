@@ -16,6 +16,10 @@ jobs:
         with:
           node-version: '14.x'
 
+      - name: Update npm
+        run: |
+          npm i -g npm@latest
+
       - name: Update Browserslist
         run: |
           npm run browserslist

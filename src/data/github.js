@@ -83,8 +83,11 @@ async function getGithubRepos(userid) {
       return flatRepo;
     });
 
-    const langs = ['JavaScript','Vue','Python','TypeScript'];
-    repos = repos.filter(repo => (repo.languages.some(l => langs.includes(l.name))));
+    const portfolioLangs = ['JavaScript','Vue','Python','TypeScript'];
+    // filter out repos not including one of my primary languages
+    repos = repos.filter(repo => (repo.languages.some(l => portfolioLangs.includes(l.name))));
+    // filter out repos with no topics (not ready to be displayed on portfolio)
+    repos = repos.filter(repo => repo.topics.length > 0);
 
     return repos;
   } catch(e) {

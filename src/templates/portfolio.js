@@ -64,7 +64,7 @@ export default function Home({data, pageContext: {previousPagePath, nextPagePath
 export const pageQuery = graphql`
   query ($skip: Int!, $limit: Int!) {
     repos: allRepo(
-      sort: {fields: [isPinned, updatedAt], order: [DESC, DESC]}
+      sort: {fields: [isPinned, pushedAt], order: [DESC, DESC]}
       skip: $skip
       limit: $limit
     ) {

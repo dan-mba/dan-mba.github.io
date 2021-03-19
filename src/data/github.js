@@ -36,7 +36,7 @@ async function getGithubRepos(userid) {
             homepageUrl
             openGraphImageUrl
             isFork
-            updatedAt
+            pushedAt
           }
           pageInfo {
             endCursor

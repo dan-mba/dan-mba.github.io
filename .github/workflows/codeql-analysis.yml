@@ -14,12 +14,15 @@ name: "CodeQL"
 on:
   workflow_dispatch:
   push:
-    branches: [ src ]
+    branches:
+      - src
+      - "!dependabot/**"
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ src ]
-  schedule:
-    - cron: '21 15 * * 4'
+    branches:
+      - src
+      - "!dependabot/**"
+
 
 jobs:
   analyze:

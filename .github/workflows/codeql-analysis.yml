@@ -14,12 +14,14 @@ name: "CodeQL"
 on:
   workflow_dispatch:
   push:
-    branches-ignore:
-      - "dependabot/**"
+    branches:
+      - src
+      - "!dependabot/**"
   pull_request:
     # The branches below must be a subset of the branches above
-    branches-ignore:
-      - "dependabot/**"
+    branches:
+      - src
+      - "!dependabot/**"
 
 
 jobs:

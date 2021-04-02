@@ -24,13 +24,18 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
       allRepo(sort: {fields: [isPinned, pushedAt], order: [DESC, DESC]}) {
         nodes {
           id
+          topics
         }
       }
     }
   `);
 
   const repos = data.data.allRepo.nodes;
-  
+  let topics = [];
+  repos.forEach(repo => topics = [...topics, ...repo.topics]);
+  const topicsSet = new Set(topics);
+  topics = [...topicsSet];
+    
   paginate({
     createPage,
     items: repos,
@@ -38,4 +43,14 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
     itemsPerPage: 6,
     pathPrefix: '/portfolio'
   });
+
+  topics.forEach(topic => {
+    createPage({
+      path: `/topics/${topic}`,
+      component: path.resolve('./src/templates/topics.js'),
+      context: {
+        topic,
+      }
+    });
+  })
 }

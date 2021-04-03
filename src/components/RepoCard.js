@@ -2,7 +2,7 @@ import React from "react";
 import {Card, CardActions, CardContent, CardHeader, CardMedia, Chip, Typography, Tooltip} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import {Code, Link as LinkIcon} from "@material-ui/icons";
-import {IconButton} from "gatsby-theme-material-ui";
+import {IconButton, Link} from "gatsby-theme-material-ui";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 
 const useStyles = makeStyles(theme => ({
@@ -35,6 +35,9 @@ const useStyles = makeStyles(theme => ({
   },
   topic: {
     margin: '4px'
+  },
+  pointer: {
+    cursor: 'pointer'
   }
 }));
 
@@ -68,7 +71,12 @@ export default function RepoCard({repo, index}) {
         <div className={classes.topicArea}>
           {repo.topics.map(topic => {
             return (
-              <Chip color="secondary" variant="outlined" size="small" label={topic} key={topic} className={classes.topic}/>
+              <Link to={`/topics/${topic}`} className={classes.pointer}>
+                <Chip color="secondary" variant="outlined" size="small"
+                  label={topic} key={topic}
+                  className={`${classes.topic} ${classes.pointer}`}
+                />
+              </Link>
             )
           })}
         </div>

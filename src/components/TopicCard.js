@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function RepoCard({repo, index}) {
+export default function RepoCard({repo}) {
   const classes = useStyles();
 
   return (

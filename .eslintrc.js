@@ -1,6 +1,30 @@
 module.exports = {
-  globals: {
-    __PATH_PREFIX__: true,
-  },
-  extends: `react-app`,
-}
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "react/prop-types": 0,
+        "no-extra-semi": 0
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+};

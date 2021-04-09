@@ -1,7 +1,6 @@
 import React from "react";
 import {Typography, Grid} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
-import {Link} from "gatsby-theme-material-ui";
 import {graphql} from "gatsby";
 import {Helmet} from "react-helmet";
 import Layout from "../components/Layout";
@@ -36,13 +35,13 @@ export default function Home({data, pageContext: {topic}}) {
   return (
     <Layout>
       <Helmet>
-        <title>{`Daniel Burkhardt - ${topic} Portfolio Topic`}</title>
-        <meta property="og:title" content={`Daniel Burkhardt - ${topic} Portfolio Topic`}/>
+        <title>{`Daniel Burkhardt - Portfolio Topic - ${topic}`}</title>
+        <meta property="og:title" content={`Daniel Burkhardt - Portfolio Topics - ${topic}`}/>
         <meta name="description"
-          content={`Software Development Portfolio Site for Daniel Burkhardt - ${topic} Portfolio Topic`}
+          content={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Topics - ${topic}`}
         />
         <meta name="og:description"
-          content={`Software Development Portfolio Site for Daniel Burkhardt - ${topic} Portfolio Topic`}
+          content={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Topics - ${topic}`}
         />
       </Helmet>
       <Typography variant="h3" align="center" className={classes.paper}>{topic}</Typography>

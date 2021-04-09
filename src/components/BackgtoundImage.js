@@ -3,7 +3,7 @@ import {makeStyles} from "@material-ui/core/styles";
 
 import {GatsbyImage} from "gatsby-plugin-image";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   hero: {
     position: 'relative'
   },
@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     zIndex: 10
   },
-}));
+});
 
 export default function BackgroundImage({image, className, children}) {
   const classes = useStyles();

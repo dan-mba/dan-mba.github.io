@@ -15,7 +15,7 @@
     "clean": "gatsby clean",
     "browserslist": "npx browserslist@latest --update-db",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run --headless --browser chrome"
+    "cypress:run": "cypress run --headless"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",

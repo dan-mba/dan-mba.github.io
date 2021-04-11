@@ -71,10 +71,9 @@ export default function RepoCard({repo, index}) {
         <div className={classes.topicArea}>
           {repo.topics.map(topic => {
             return (
-              <Link to={`/topics/${topic}`} className={classes.pointer}>
+              <Link to={`/topics/${topic}`} className={classes.pointer} key={topic} >
                 <Chip color="secondary" variant="outlined" size="small"
-                  label={topic} key={topic}
-                  className={`${classes.topic} ${classes.pointer}`}
+                  label={topic} className={`${classes.topic} ${classes.pointer}`}
                 />
               </Link>
             )

@@ -15,20 +15,20 @@
     "clean": "gatsby clean",
     "browserslist": "npx browserslist@latest --update-db",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run --headless --browser chrome"
+    "cypress:run": "cypress run --headless"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "gatsby": "^3.2.1",
     "gatsby-awesome-pagination": "^0.3.8",
-    "gatsby-plugin-image": "^1.2.0",
+    "gatsby-plugin-image": "^1.2.1",
     "gatsby-plugin-react-helmet": "^4.2.0",
     "gatsby-plugin-remote-images": "^2.4.0",
-    "gatsby-plugin-sharp": "^3.2.0",
+    "gatsby-plugin-sharp": "^3.2.1",
     "gatsby-plugin-sitemap": "^3.2.0",
     "gatsby-source-filesystem": "^3.2.0",
-    "gatsby-theme-material-ui": "^1.0.13",
+    "gatsby-theme-material-ui": "^2.0.1",
     "gatsby-transformer-sharp": "^3.2.0",
     "graphql-request": "^3.4.0",
     "react": "^17.0.2",
@@ -36,8 +36,9 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "cypress": "^6.8.0",
-    "eslint-config-react-app": "^6.0.0"
+    "cypress": "^7.0.1",
+    "eslint": "^7.23.0",
+    "eslint-plugin-react": "^7.23.2"
   },
   "repository": {
     "type": "git",

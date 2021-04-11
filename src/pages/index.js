@@ -66,7 +66,7 @@ export default function Home({data}) {
         <Typography variant="h4" align="center">{PageData.heading}</Typography>
         {PageData.paragraphs.map((d, i) => {
           return (
-            <span key={i}>
+            <span key={`paragraph-${i}`}>
               {!d.title ? <div className={classes.spacer}></div> : 
                 !d.titleUrl ?
                 <Typography variant="h5" align="center">{d.title}</Typography> :

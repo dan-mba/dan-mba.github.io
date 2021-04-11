@@ -6,6 +6,9 @@ module.exports = {
   siteMetadata: {
     siteUrl: 'https://dan-mba.github.io'
   },
+  flags: {
+    PRESERVE_WEBPACK_CACHE: true
+  },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',

@@ -23,7 +23,7 @@
     "gatsby": "^3.3.0",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-image": "^1.4.0",
-    "gatsby-plugin-react-helmet": "^4.3.0",
+    "gatsby-plugin-react-helmet": "^4.4.0",
     "gatsby-plugin-remote-images": "^2.4.0",
     "gatsby-plugin-sharp": "^3.4.0",
     "gatsby-plugin-sitemap": "^3.3.0",

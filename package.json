@@ -27,7 +27,7 @@
     "gatsby-plugin-remote-images": "^2.4.0",
     "gatsby-plugin-sharp": "^3.4.0",
     "gatsby-plugin-sitemap": "^3.3.0",
-    "gatsby-source-filesystem": "^3.3.0",
+    "gatsby-source-filesystem": "^3.4.0",
     "gatsby-theme-material-ui": "^2.0.1",
     "gatsby-transformer-sharp": "^3.4.0",
     "graphql-request": "^3.4.0",

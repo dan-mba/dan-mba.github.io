@@ -1,74 +1,59 @@
 import React from "react";
-import {Typography, Grid} from "@material-ui/core";
+import {Avatar, Chip, Paper} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
-import {graphql} from "gatsby";
+import {Link} from "gatsby-theme-material-ui";
 import {Helmet} from "react-helmet";
 import Layout from "../components/Layout";
-import TopicCard from "../components/TopicCard";
 
 const useStyles = makeStyles({
   paper: {
     margin: '4px',
-    padding: '8px'
+    padding: '8px',
+    minHeight: '80vh',
+    display: 'flex'
   },
-  gridRoot: {
-    padding: '4px'
-  },
-  linkArea: {
+  flexArea: {
+    margin: 'auto',
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    flex: 'initial'
   },
-  links: {
-    padding: '8px'
+  chip: {
+    margin: '8px 6px'
+  },
+  pointer: {
+    cursor: 'pointer'
   }
 });
 
-export default function Home({data, pageContext: {topic}}) {
+export default function Home({pageContext: {topics}}) {
   const classes = useStyles();
-  const repos = data.repos.nodes;
-  const items = repos.map((repo, index) => (
-    <Grid item xs={12} md={6} key={repo.name} classes={{root: classes.gridRoot}}>
-      <TopicCard repo={repo} index={index} />
-    </Grid>
+
+  const items = topics.map((topic, index) => (
+    <Link to={`/topics/${topic.name}`} key={index} className={`${classes.pointer} ${classes.chip}`}>
+      <Chip color="secondary" variant="outlined" className={classes.pointer}
+        label={topic.name} avatar={<Avatar>{topic.count}</Avatar>}
+      />
+    </Link>
   ));
 
   return (
     <Layout>
       <Helmet>
-        <title>{`Daniel Burkhardt - Portfolio Topic - ${topic}`}</title>
-        <meta property="og:title" content={`Daniel Burkhardt - Portfolio Topics - ${topic}`}/>
+        <title>{`Daniel Burkhardt - Portfolio Topics`}</title>
+        <meta property="og:title" content={`Daniel Burkhardt - Portfolio Topics`}/>
         <meta name="description"
-          content={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Topics - ${topic}`}
+          content={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Topics`}
         />
         <meta name="og:description"
-          content={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Topics - ${topic}`}
+          content={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Topics`}
         />
       </Helmet>
-      <Typography variant="h3" align="center" className={classes.paper}>{topic}</Typography>
-      <Grid container justify="center" alignItems="stretch" classes={{root: classes.gridRoot}}>
-        {items}
-      </Grid>
+      <Paper classes={{root: classes.paper}}>
+        <div className={classes.flexArea}>{items}</div>
+      </Paper>
     </Layout>
   );
 };
-
-export const pageQuery = graphql`
-  query ($topic: String) {
-    repos: allRepo(
-      sort: {fields: [isPinned, pushedAt], order: [DESC, DESC]}
-      filter: {topics: {in: [$topic]}}
-    ) {
-      nodes {
-        name
-        id
-        languages {
-          name
-          size
-        }
-        description
-        homepageUrl
-        url
-      }
-    }
-  }
-`

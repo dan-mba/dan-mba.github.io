@@ -1,0 +1,20 @@
+{
+  "name": "repos-source-plugin",
+  "version": "1.0.0",
+  "description": "A Gatsby plugin to source my github repos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"No build script setup\""
+  },
+  "dependencies": {
+    "graphql-request": "^3.4.0",
+    "gatsby-source-filesystem": "^3.4.0"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin"
+  ],
+  "author": "dan-mba",
+  "license": "0BSD"
+}

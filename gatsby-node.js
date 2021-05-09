@@ -1,24 +1,41 @@
 const path = require("path");
 const {paginate} = require('gatsby-awesome-pagination');
-const getGithubRepos = require('./src/data/github');
-
-exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
-  const repos = await getGithubRepos('dan-mba');
-
-  repos.forEach(repo => {
-    const node = {
-      ...repo,
-      id: createNodeId(`REPO-${repo.name}`),
-      internal: {
-        type: "Repo",
-        contentDigest: createContentDigest(repo),
-      },
-    }
-    actions.createNode(node)
-  })
-};
 
 exports.createPages = async ({graphql, actions: {createPage}}) => {
+  const query = await graphql(`
+    query {
+      repos: allRepo {
+        topics: group(field: topics) {
+          fieldValue
+          totalCount
+        }
+      }
+    }
+  `);
+
+  const topics = query.data.repos.topics.map(topic => {
+    return {
+      name: topic.fieldValue,
+      count: topic.totalCount
+    }
+  });
+
+  topics.sort((a,b) => {
+    if (b.count - a.count !== 0) {
+      return b.count - a.count;
+    }
+
+    return a.name.localeCompare(b.name);
+  });
+
+  createPage({
+    path: `/topics`,
+    component: path.resolve('./src/templates/topics.js'),
+    context: {
+      topics,
+    }
+  });
+
   const data = await graphql(`
     {
       allRepo(sort: {fields: [isPinned, pushedAt], order: [DESC, DESC]}) {
@@ -31,10 +48,9 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
   `);
 
   const repos = data.data.allRepo.nodes;
-  let topics = [];
-  repos.forEach(repo => topics = [...topics, ...repo.topics]);
-  const topicsSet = new Set(topics);
-  topics = [...topicsSet];
+  let topicArr = topics.map(t => t.name)
+  const topicsSet = new Set(topicArr);
+  topicArr = [...topicsSet];
     
   paginate({
     createPage,
@@ -44,10 +60,10 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
     pathPrefix: '/portfolio'
   });
 
-  topics.forEach(topic => {
+  topicArr.forEach(topic => {
     createPage({
       path: `/topics/${topic}`,
-      component: path.resolve('./src/templates/topics.js'),
+      component: path.resolve('./src/templates/topic.js'),
       context: {
         topic,
       }

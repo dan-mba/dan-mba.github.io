@@ -11,6 +11,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'repos-source-plugin',
     'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-source-filesystem',
@@ -18,13 +19,6 @@ module.exports = {
         name: "images",
         path: `${__dirname}/static/img`
       }
-    },
-    {
-      resolve: `gatsby-plugin-remote-images`,
-      options: {
-        nodeType: 'Repo',
-        imagePath: 'openGraphImageUrl',
-      },
     },
     `gatsby-plugin-image`,
     'gatsby-plugin-sharp',

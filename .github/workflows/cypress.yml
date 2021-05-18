@@ -20,5 +20,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.BUILD_GITHUB_TOKEN }}
         with:
-          start: npm start
+          build: npm run build
+          start: npm run serve
           wait-on: 'http://localhost:8000'

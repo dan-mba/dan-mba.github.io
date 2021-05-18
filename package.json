@@ -11,7 +11,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve -p 8000",
     "clean": "gatsby clean",
     "browserslist": "npx browserslist@latest --update-db",
     "cypress:open": "cypress open",
@@ -37,6 +37,7 @@
   "devDependencies": {
     "cypress": "^7.3.0",
     "eslint": "^7.26.0",
+    "eslint-plugin-cypress": "^2.11.3",
     "eslint-plugin-react": "^7.23.2"
   },
   "repository": {

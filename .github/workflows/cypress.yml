@@ -2,9 +2,7 @@ name: Cypress
 
 on:
   workflow_dispatch:
-  pull_request_review:
-    branches:
-      - src
+  pull_request:
 
 jobs:
   test:

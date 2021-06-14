@@ -22,7 +22,7 @@
     "@material-ui/icons": "^4.11.2",
     "gatsby": "^3.7.1",
     "gatsby-awesome-pagination": "^0.3.8",
-    "gatsby-plugin-image": "^1.6.0",
+    "gatsby-plugin-image": "^1.7.1",
     "gatsby-plugin-react-helmet": "^4.7.1",
     "gatsby-plugin-sharp": "^3.7.1",
     "gatsby-plugin-sitemap": "^4.3.1",

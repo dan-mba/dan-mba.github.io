@@ -35,7 +35,7 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "cypress": "^7.4.0",
+    "cypress": "^7.5.0",
     "eslint": "^7.28.0",
     "eslint-plugin-cypress": "^2.11.3",
     "eslint-plugin-react": "^7.24.0"

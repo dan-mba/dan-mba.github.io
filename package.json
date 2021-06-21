@@ -20,7 +20,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
-    "gatsby": "^3.7.1",
+    "gatsby": "^3.7.2",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-image": "^1.7.1",
     "gatsby-plugin-react-helmet": "^4.7.1",

@@ -1,7 +1,7 @@
 import React from "react";
 import {Typography} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
-import {fade} from "@material-ui/core/styles/colorManipulator";
+import {alpha} from "@material-ui/core/styles/colorManipulator";
 import {getImage} from "gatsby-plugin-image";
 import {graphql} from "gatsby";
 import {Helmet} from "react-helmet";
@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
   heroText: {
     color: theme.palette.primary.contrastText,
-    backgroundColor: fade(theme.palette.primary.main,0.5),
+    backgroundColor: alpha(theme.palette.primary.main,0.5),
     padding: '2px',
     textAlign: 'center',
     borderRadius: '5px'

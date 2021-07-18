@@ -1,11 +1,12 @@
 import React from "react";
 import {Typography, Grid} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
-import {Link} from "gatsby-theme-material-ui";
+//import {Link} from "gatsby-theme-material-ui";
 import {graphql} from "gatsby";
 import {Helmet} from "react-helmet";
 import Layout from "../components/Layout";
 import RepoCard from "../components/RepoCard";
+import RepoPagination from "../components/RepoPagination";
 
 const useStyles = makeStyles({
   paper: {
@@ -18,13 +19,11 @@ const useStyles = makeStyles({
   linkArea: {
     display: 'flex',
     justifyContent: 'center',
-  },
-  links: {
-    padding: '8px'
+    padding: '1.5em 0'
   }
 });
 
-export default function Home({data, pageContext: {previousPagePath, nextPagePath, humanPageNumber}}) {
+export default function Home({data, pageContext: {numberOfPages, humanPageNumber}}) {
   const classes = useStyles();
   const repos = data.repos.nodes;
   const items = repos.map((repo, index) => (
@@ -46,16 +45,11 @@ export default function Home({data, pageContext: {previousPagePath, nextPagePath
         />
       </Helmet>
       <Typography variant="h3" align="center" className={classes.paper}>Portfolio</Typography>
-      <Grid container justify="center" alignItems="stretch" classes={{root: classes.gridRoot}}>
+      <Grid container justifyContent="center" alignItems="stretch" classes={{root: classes.gridRoot}}>
         {items}
       </Grid>
       <div className={classes.linkArea}>
-        {!previousPagePath ? null:
-          <Link to={previousPagePath} underline="none" className={classes.links} variant="h6">Prev</Link>
-        }
-        {!nextPagePath ? null:
-          <Link to={nextPagePath} underline="none" className={classes.links} variant="h6">Next</Link>
-        }
+        <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/portfolio'}/>
       </div>
     </Layout>
   );

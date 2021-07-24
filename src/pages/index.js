@@ -1,7 +1,8 @@
 import React from "react";
-import {Paper, Typography} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
-import {alpha} from "@material-ui/core/styles/colorManipulator";
+import {List, ListItem, ListItemIcon, ListItemText, Typography, useMediaQuery} from "@material-ui/core";
+import {PlaceOutlined} from "@material-ui/icons";
+import {makeStyles, useTheme} from "@material-ui/core/styles";
+import {alpha, darken, lighten} from "@material-ui/core/styles/colorManipulator";
 import {graphql} from "gatsby";
 import {Helmet} from "react-helmet";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
@@ -12,8 +13,9 @@ import PageData from "../data/index.yml";
 
 const useStyles = makeStyles(theme => ({
   paper: {
-    margin: '10px 4px',
-    padding: '8px',
+    backgroundColor: theme.palette.background.paper,
+    margin: '0',
+    padding: '2em 0 1em',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center'
@@ -21,29 +23,79 @@ const useStyles = makeStyles(theme => ({
   },
   hero: {
     width: '100%',
-    height: '400px'
+    height: '23em'
   },
   heroText: {
     color: theme.palette.primary.contrastText,
-    backgroundColor: alpha(theme.palette.primary.main,0.5),
+    backgroundColor: alpha(theme.palette.primary.main,0.6),
     padding: '2px',
     textAlign: 'center',
     borderRadius: '5px'
   },
-  p: {
-    padding: '10px 5px 20px',
-    maxWidth: '800px'
+  section: {
+    padding: '1em min(2%, 2em)',
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
   },
-  spacer: {
-    padding: '10px 0'
+  jobSection: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    [theme.breakpoints.up(900)]: {
+      minHeight: '350px',
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+    }
+  },
+  jobSectionText: {
+    padding: '0 1em',
+  },
+  img: {
+    width: '300px',
+    flex: 'none'
+  },
+  accent: {
+    color: theme.palette.secondary.contrastText,
+    backgroundColor: darken(theme.palette.secondary.main, 0.7),
+    [theme.breakpoints.up(900)]: {
+      flexDirection: 'row-reverse',
+    },
+  },
+  title: {
+    fontWeight: 'bold',
+  },
+  titleUrl: {
+    color: lighten(theme.palette.secondary.main, 0.2),
+    fontWeight: 'bold',
+  },
+  p: {
+    margin: '1em auto'
   },
   map: {
-    margin: '10px 0 5px'
+    alignSelf: 'center',
+    margin: '1em 0 .5em'
+  },
+  list: {
+    maxWidth: '70ch',
+    margin: '0 auto',
+    paddingTop: '0'
+  },
+  listIcon: {
+    minWidth: 'unset',
+    paddingRight: '1em'
+  },
+  listText: {
+    margin: '0'
+  },
+  listType: {
+    fontSize: '1rem',
   }
 }));
 
 export default function Home({data}) {
   const classes = useStyles();
+  const theme = useTheme();
+  const isWide = useMediaQuery(theme.breakpoints.up(900));
   const heroImgData = getImage(data.hero);
   const mapImgData = getImage(data.map);
 
@@ -62,27 +114,61 @@ export default function Home({data}) {
           <Typography variant="h4">{PageData.langs}</Typography>
         </div>
       </BackgroundImage>
-      <Paper className={classes.paper}>
-        <Typography variant="h4" align="center">{PageData.heading}</Typography>
-        {PageData.paragraphs.map((d, i) => {
+      <div className={classes.paper}>
+        <section className={classes.section}>
+            <Typography variant="h3" align="center">About Me</Typography>
+            {PageData.about.map((item, i) => {
+              return (<Typography variant="body1" key={i} className={classes.p}>{item}</Typography>)
+            })}
+        </section>
+        {PageData.jobHistory.map((d, i) => {
+          const imgID = data.jobs.nodes.findIndex(job => job.original.src.includes(d.img));
+
           return (
-            <span key={`paragraph-${i}`}>
-              {!d.title ? <div className={classes.spacer}></div> : 
-                !d.titleUrl ?
-                <Typography variant="h5" align="center">{d.title}</Typography> :
-                <Link href={d.titleUrl} underline="none" target="_blank" rel="noopener noreferrer">
-                  <Typography variant="h5" color="secondary" align="center">{d.title}</Typography>
-                </Link>
+            <section key={`paragraph-${i}`} className={
+              i%2 === 0 ? `${classes.section} ${classes.jobSection} ${classes.accent}`:
+              `${classes.section} ${classes.jobSection}`
+            }>
+              <div className={classes.jobSectionText}>
+                {!d.titleUrl ? <Typography variant="h4" align="center" className={classes.title}>{d.title}</Typography> :
+                  <Link href={d.titleUrl} underline="none" target="_blank" rel="noopener noreferrer">
+                    <Typography variant="h4" align="center" className={classes.titleUrl}>{d.title}</Typography>
+                  </Link>
+                }
+                {d.p.map((text, count) => {
+                  return (<Typography variant="body1" className={classes.p} key={count}>{text}</Typography>)
+                })}
+              </div>
+              {!isWide ? null : 
+                <div className={classes.img}>
+                  <GatsbyImage image={data.jobs.nodes[imgID]['gatsbyImageData']} alt={d.title} />
+                </div>
               }
-              <Typography variant="body1" className={classes.p}>{d.p}</Typography>
-            </span>
+            </section>
           );
         })}
-        <GatsbyImage image={mapImgData} className={classes.map} alt="Map of Florida with Pin in Broward County"/>
-        <Typography variant="body1" className={classes.p}>
-          {PageData.mapparagraph}
-        </Typography>
-      </Paper>
+        <section className={classes.section}>
+          <GatsbyImage image={mapImgData} className={classes.map}
+            alt="Map of Florida with Pin in Broward County"
+          />
+          <Typography variant="body1" className={classes.p}>
+            {PageData.residence}
+          </Typography>
+          <Typography variant="body1" className={classes.p}>
+            I am open to opportunities in the following locations:
+          </Typography>
+          <List dense classes={{root: classes.list}}>
+            {PageData.openLocations.map((location, i) => {
+              return (
+                <ListItem key={i}>
+                  <ListItemIcon classes={{root: classes.listIcon}}><PlaceOutlined color="secondary"/></ListItemIcon>
+                  <ListItemText primary={location} classes={{root: classes.listText, primary: classes.listType}}/>
+                </ListItem>
+              );
+            })}
+          </List>
+        </section>
+      </div>
     </Layout>
   );
 };
@@ -91,12 +177,20 @@ export const pageQuery = graphql`
   query IndexPage {
     hero: file(relativePath: {eq: "binary.jpg" }) {
       childImageSharp {
-        gatsbyImageData(width: 1000, layout: CONSTRAINED, placeholder: NONE, quality: 50)
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: NONE, quality: 50)
       }
     }
     map: file(relativePath: {eq: "map.png" }) {
       childImageSharp {
         gatsbyImageData(width: 300, height: 300, layout: FIXED, placeholder: TRACED_SVG, quality: 70)
+      }
+    }
+    jobs: allImageSharp(filter: {original: {src: {glob: "/static/index-*"}}}) {
+      nodes {
+        original {
+          src
+        }
+        gatsbyImageData(width: 300, layout: CONSTRAINED, placeholder: TRACED_SVG, quality: 70)
       }
     }
   }

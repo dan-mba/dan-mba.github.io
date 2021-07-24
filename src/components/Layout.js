@@ -1,10 +1,21 @@
 import React from "react";
-import {Container} from "@material-ui/core";
+//import {Container} from "@material-ui/core";
+import {makeStyles} from "@material-ui/core/styles"
 import {Helmet} from "react-helmet";
 import {withPrefix} from "gatsby";
 import NavBar from "./NavBar";
 
+const useStyles = makeStyles({
+  container: {
+    width: '100%',
+    boxSizing: 'border-box',
+    margin: '0 auto 1em',
+  }
+});
+
 export default function Layout({children}) {
+  const classes = useStyles();
+
   return (
     <>
       <Helmet>
@@ -31,9 +42,9 @@ export default function Layout({children}) {
         <meta name="msapplication-config" content={`${withPrefix('/')}img/browserconfig.xml`} />
       </Helmet>
       <NavBar/>
-      <Container maxWidth="xl" disableGutters>
+      <div className={classes.container}>
         {children}
-      </Container>
+      </div>
     </>
   );
 };

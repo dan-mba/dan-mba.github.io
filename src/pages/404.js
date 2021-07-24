@@ -12,7 +12,7 @@ import Layout from "../components/Layout";
 const useStyles = makeStyles(theme => ({
   hero: {
     width: '100%',
-    height: '400px'
+    height: '30em'
   },
   heroText: {
     color: theme.palette.primary.contrastText,
@@ -47,7 +47,7 @@ export const pageQuery = graphql`
   query FourZeroFourPage {
     hero: file(relativePath: {eq: "binary.jpg" }) {
       childImageSharp {
-        gatsbyImageData(width: 1000, layout: CONSTRAINED, placeholder: NONE, quality: 50)
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: NONE, quality: 50)
       }
     }
   }

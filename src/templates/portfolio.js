@@ -1,33 +1,50 @@
 import React from "react";
-import {Typography, Grid} from "@material-ui/core";
+import {Typography, Grid, Container} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
-//import {Link} from "gatsby-theme-material-ui";
 import {graphql} from "gatsby";
 import {Helmet} from "react-helmet";
 import Layout from "../components/Layout";
 import RepoCard from "../components/RepoCard";
 import RepoPagination from "../components/RepoPagination";
 
-const useStyles = makeStyles({
-  paper: {
-    margin: '4px',
-    padding: '8px'
+const useStyles = makeStyles(theme => ({
+  container: {
+    padding: '0 min(2%, 1em)'
   },
-  gridRoot: {
-    padding: '4px'
+  gridContainer: {
+    padding: '2em 0'
+  },
+  gridItem: {
+    paddingTop: '1em',
+    paddingBottom: '1em'
+  },
+  gridLeft: {
+    [theme.breakpoints.up('md')]: {
+      paddingRight: '1em'
+    }
+  },
+  gridRight: {
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: '1em'
+    }
+  },
+  title: {
+    padding: '1em 0 0'
   },
   linkArea: {
     display: 'flex',
     justifyContent: 'center',
-    padding: '1.5em 0'
+    padding: '0 0 1em'
   }
-});
+}));
 
 export default function Home({data, pageContext: {numberOfPages, humanPageNumber}}) {
   const classes = useStyles();
   const repos = data.repos.nodes;
   const items = repos.map((repo, index) => (
-    <Grid item xs={12} md={6} key={repo.name} classes={{root: classes.gridRoot}}>
+    <Grid item xs={12} md={6} key={repo.name} classes={{
+      item: `${classes.gridItem} ${index%2===0 ? classes.gridLeft : classes.gridRight}`
+    }}>
       <RepoCard repo={repo} index={index}/>
     </Grid>
   ));
@@ -44,13 +61,15 @@ export default function Home({data, pageContext: {numberOfPages, humanPageNumber
           content={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Page ${humanPageNumber}`}
         />
       </Helmet>
-      <Typography variant="h3" align="center" className={classes.paper}>Portfolio</Typography>
-      <Grid container justifyContent="center" alignItems="stretch" classes={{root: classes.gridRoot}}>
-        {items}
-      </Grid>
-      <div className={classes.linkArea}>
-        <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/portfolio'}/>
-      </div>
+      <Container maxWidth="xl" disableGutters className={classes.container}>
+        <Typography variant="h3" align="center" className={classes.title}>Portfolio</Typography>
+        <Grid container justifyContent="center" alignItems="stretch" classes={{container: classes.gridContainer}}>
+          {items}
+        </Grid>
+        <div className={classes.linkArea}>
+          <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/portfolio'}/>
+        </div>
+      </Container>
     </Layout>
   );
 };
@@ -76,7 +95,7 @@ export const pageQuery = graphql`
         localImage {
           childImageSharp {
             gatsbyImageData(
-              width: 500,
+              width: 600,
               layout: CONSTRAINED,
               placeholder: NONE,
               quality: 70,

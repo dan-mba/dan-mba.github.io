@@ -4,15 +4,17 @@ import {makeStyles} from "@material-ui/core/styles";
 import {Code, Link as LinkIcon} from "@material-ui/icons";
 import {IconButton} from "gatsby-theme-material-ui";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: {
-    backgroundColor: theme.palette.background.default,
     height: '100%',
     display: 'flex',
     flexDirection: 'column'
   },
   header: {
-    padding: '16px 4px'
+    padding: '1em .25em .5em'
+  },
+  subheader: {
+    minHeight: '3em',
   },
   grow: {
     flexGrow: 1,
@@ -27,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   button: {
     padding: '0 12px 6px'
   }
-}));
+});
 
 export default function RepoCard({repo}) {
   const classes = useStyles();
@@ -35,11 +37,11 @@ export default function RepoCard({repo}) {
   return (
     <Card classes={{root: classes.root}}>
       <CardHeader
-        classes={{root: classes.header}}
+        classes={{root: classes.header, subheader: classes.subheader}}
         title={repo.name}
         titleTypographyProps={{align: 'center'}}
         subheader={repo.languages.map(l => `${l.name}: ${l.size}%`).join(', ')}
-        subheaderTypographyProps={{align: 'center'}}
+        subheaderTypographyProps={{align: 'center', color: 'secondary'}}
       />
       <CardContent classes={{root: classes.grow}}>
         <Typography variant="body1" align="center" className={classes.desc}>

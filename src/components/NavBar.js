@@ -4,9 +4,9 @@ import {makeStyles} from "@material-ui/core/styles";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   toolbar: {
-    maxWidth: '1000px',
+    maxWidth: theme.breakpoints.values.xl,
     margin: '0 auto',
     width: '100%',
     padding: '0 1%'
@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     fontFamily: '"Damion", cursive',
     paddingLeft: '12px'
   }
-})
+}));
 
 export default function NavBar() {
   const classes = useStyles();

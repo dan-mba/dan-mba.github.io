@@ -13,6 +13,7 @@ jobHistory:
   - title: QuickBase
     titleUrl: https://www.quickbase.com/
     img: quickbase
+    imgAlt: QuickBase Dashboard Image
     p:
       - I spent several years building a sales management system for a small business that 
         runs industrial & construction vehicle dealerships. The system is built on the QuickBase 
@@ -22,6 +23,7 @@ jobHistory:
         data from a record as a printable business form.
   - title: Circuit Simulation
     img: circuits
+    imgAlt: Circuit Simulation Image
     p:
       - For a couple of years, I worked for a consulting organization at IBM that provided circuit design and
         simulation services.
@@ -33,6 +35,7 @@ jobHistory:
   - title: z/OS Language Environment
     titleUrl: https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zappldev/zappldev_88.htm
     img: ibmz
+    imgAlt: IBM Mainframe Image
     p:
       - I stared my career working on the z/OS mainframe operating system at IBM. I performed roles in both 
         technical support and development.

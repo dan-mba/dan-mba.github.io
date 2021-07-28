@@ -65,8 +65,13 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 'bold',
   },
   titleUrl: {
-    color: lighten(theme.palette.secondary.main, 0.2),
+    color: lighten(theme.palette.secondary.main, 0.32),
     fontWeight: 'bold',
+  },
+  link: {
+    '& h4:hover': {
+      textDecoration: 'underline'
+    }
   },
   p: {
     margin: '1em auto'
@@ -131,7 +136,9 @@ export default function Home({data}) {
             }>
               <div className={classes.jobSectionText}>
                 {!d.titleUrl ? <Typography variant="h4" align="center" className={classes.title}>{d.title}</Typography> :
-                  <Link href={d.titleUrl} underline="none" target="_blank" rel="noopener noreferrer">
+                  <Link href={d.titleUrl} underline="none" className={classes.link}
+                    target="_blank" rel="noopener noreferrer"
+                  >
                     <Typography variant="h4" align="center" className={classes.titleUrl}>{d.title}</Typography>
                   </Link>
                 }
@@ -141,7 +148,7 @@ export default function Home({data}) {
               </div>
               {!isWide ? null : 
                 <div className={classes.img}>
-                  <GatsbyImage image={data.jobs.nodes[imgID]['gatsbyImageData']} alt={d.title} />
+                  <GatsbyImage image={data.jobs.nodes[imgID]['gatsbyImageData']} alt={d.imgAlt} />
                 </div>
               }
             </section>

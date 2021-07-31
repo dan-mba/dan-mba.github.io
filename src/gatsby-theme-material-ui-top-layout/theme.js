@@ -12,22 +12,19 @@ const theme = createTheme({
       paper: '#dbe3e8',
     },
   },
-  typography: {
-    useNextVariants: true,
-  },
   breakpoints: {
     values: {
       xs: 100,
       sm: 350,
       md: 500,
       lg: 750,
-      xl: 1000,
+      xl: 1200,
     },
   },
   overrides: {
     MuiTypography: {
       body1: {
-        'line-height': 1.3,
+        maxWidth: '70ch',
       },
     },
     MuiCssBaseline: {

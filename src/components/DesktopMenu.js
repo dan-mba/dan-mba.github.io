@@ -2,7 +2,17 @@ import React, {useRef, useEffect, useState} from "react";
 import {Hidden, Typography, Popper, Grow, Paper,Button, ClickAwayListener, MenuList, MenuItem} from "@material-ui/core"
 import {LinkedIn, GitHub} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/core/styles";
+import {decomposeColor, recomposeColor, hexToRgb, rgbToHex} from "@material-ui/core/styles/colorManipulator"
 import {IconButton, Link} from "gatsby-theme-material-ui";
+
+const fullBlue = (color) => {
+  const sec = decomposeColor(color[0] === '#' ? hexToRgb(color) : color);
+  const blue = 255 - sec.values[2];
+  for(let i = 0; i < sec.values.length; i++) {
+    sec.values[i] += blue;
+  }
+  return rgbToHex(recomposeColor(sec));
+}
 
 const useStyles = makeStyles(theme => ({
   linkbar: {
@@ -12,7 +22,12 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1
   },
   linkitem: {
-    padding: '16px 12px 8px'
+    padding: '16px 12px 8px',
+  },
+  hover: {
+    '&:hover': {
+      color: fullBlue(theme.palette.secondary.main)
+    }
   },
   paper: {
     backgroundColor: theme.palette.primary.main,
@@ -65,7 +80,7 @@ export default function DesktopMenu() {
   return(
     <Hidden mdDown>
       <div className={classes.linkbar}>
-        <Link to="/" color="inherit" underline="none" className={classes.linkitem}>
+        <Link to="/" color="inherit" underline="none" className={`${classes.linkitem} ${classes.hover}`}>
           <Typography variant="h5">About</Typography>
         </Link>
         {/*
@@ -77,7 +92,7 @@ export default function DesktopMenu() {
           aria-controls={open ? 'menu-list-grow' : undefined}
           aria-haspopup="true"
           onClick={handleToggle}
-          classes={{root: classes.buttonStyle}}
+          classes={{root: `${classes.buttonStyle} ${classes.hover}`}}
         >
           Portfolio
         </Button>
@@ -91,10 +106,14 @@ export default function DesktopMenu() {
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                     <MenuItem component={Link} to="/portfolio" underline="none" onClick={handleClose}>
-                      <Typography variant="h6" classes={{root: classes.menuFont}}>Projects</Typography>
+                      <Typography variant="h6" classes={{root: `${classes.menuFont} ${classes.hover}`}}>
+                        Projects
+                      </Typography>
                     </MenuItem>
                     <MenuItem component={Link} to="/topics" underline="none" onClick={handleClose}>
-                      <Typography variant="h6" classes={{root: classes.menuFont}}>Topics</Typography>
+                      <Typography variant="h6" classes={{root: `${classes.menuFont} ${classes.hover}`}}>
+                        Topics
+                      </Typography>
                     </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
@@ -108,6 +127,7 @@ export default function DesktopMenu() {
           href="https://github.com/dan-mba"
           target="_blank"
           rel="noreferrer noopener"
+          className={classes.hover}
         >
           <GitHub fontSize="large"/>
         </IconButton>
@@ -117,6 +137,7 @@ export default function DesktopMenu() {
           href="https://linkedin.com/danburkhardt"
           target="_blank"
           rel="noreferrer noopener"
+          className={classes.hover}
         >
           <LinkedIn fontSize="large" />
         </IconButton>

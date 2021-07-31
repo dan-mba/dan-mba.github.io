@@ -5,27 +5,23 @@ import {Code, Link as LinkIcon} from "@material-ui/icons";
 import {IconButton, Link} from "gatsby-theme-material-ui";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: {
-    backgroundColor: theme.palette.background.default,
     height: '100%',
     display: 'flex',
     flexDirection: 'column'
   },
   header: {
-    padding: '16px 4px'
+    padding: '1em 4px',
+    height: '8em',
   },
   grow: {
     flexGrow: 1,
     display: 'flex',
     flexDirection: 'column'
   },
-  img: {
-    maxHeight: '50vw',
-    height: '240px',
-  },
   desc: {
-    margin: '5px 0',
+    margin: '.5em 0 1em',
     flexGrow: 1
   },
   topicArea: {
@@ -39,7 +35,7 @@ const useStyles = makeStyles(theme => ({
   pointer: {
     cursor: 'pointer'
   }
-}));
+});
 
 export default function RepoCard({repo, index}) {
   const classes = useStyles();
@@ -51,13 +47,13 @@ export default function RepoCard({repo, index}) {
         title={repo.name}
         titleTypographyProps={{align: 'center'}}
         subheader={repo.languages.map(l => `${l.name}: ${l.size}%`).join(', ')}
-        subheaderTypographyProps={{align: 'center'}}
+        subheaderTypographyProps={{align: 'center', color: 'secondary'}}
       />
       <CardMedia>
           <GatsbyImage
             image={getImage(repo.localImage)}
             alt={`${repo.name} image`}
-            className={classes.img}
+            objectFit="contain"
             loading={
               /* Only use eager loading on first card for mobile performance */
               index===0 ? "eager" : "lazy"

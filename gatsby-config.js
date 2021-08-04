@@ -12,6 +12,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'repos-source-plugin',
+    'contrib-source-plugin',
     'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-source-filesystem',

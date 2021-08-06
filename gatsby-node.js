@@ -35,23 +35,23 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
       topics,
     }
   });
-
+  
   const data = await graphql(`
-    {
-      allRepo(sort: {fields: [isPinned, pushedAt], order: [DESC, DESC]}) {
-        nodes {
-          id
-          topics
-        }
+  {
+    allRepo(sort: {fields: [isPinned, pushedAt], order: [DESC, DESC]}) {
+      nodes {
+        id
+        topics
       }
     }
+  }
   `);
-
+  
   const repos = data.data.allRepo.nodes;
   let topicArr = topics.map(t => t.name)
   const topicsSet = new Set(topicArr);
   topicArr = [...topicsSet];
-    
+  
   paginate({
     createPage,
     items: repos,
@@ -59,7 +59,7 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
     itemsPerPage: 6,
     pathPrefix: '/portfolio'
   });
-
+  
   topicArr.forEach(topic => {
     createPage({
       path: `/topics/${topic}`,
@@ -68,5 +68,10 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
         topic,
       }
     });
-  })
+  });
+
+  createPage({
+    path: `/contributions`,
+    component: path.resolve('./src/templates/contribution.js')
+  });
 }

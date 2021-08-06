@@ -78,7 +78,7 @@ async function getGithubContribs(userid) {
       // filter out PRs that are not merged
       contribs = contribs.filter(c => c.merged);
       repo.repository.owner = repo.repository.owner.login;
-      repo = {...repo.repository, contributionPrs: contribs};
+      repo = {...repo.repository, contributionPrs: contribs, totalContribs: contribs.length};
 
       return repo;
     });
@@ -93,7 +93,7 @@ async function getGithubContribs(userid) {
       // filter out isses that are not closed and the userid did not author
       contribs = contribs.filter(c => c.closed && c.viewerDidAuthor);
       repo.repository.owner = repo.repository.owner.login;
-      repo = {...repo.repository, contributionIssues: contribs};
+      repo = {...repo.repository, contributionIssues: contribs, totalContribs: contribs.length};
 
       return repo;
     });
@@ -110,6 +110,7 @@ async function getGithubContribs(userid) {
       }
 
       repos[exists].contributionIssues = r.contributionIssues;
+      repos[exists].totalContribs += r.totalContribs;
     });
 
     const repoFilter = ['first-contributions']

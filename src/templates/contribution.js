@@ -4,7 +4,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import {graphql} from "gatsby";
 import {Helmet} from "react-helmet";
 import Layout from "../components/Layout";
-import TopicCard from "../components/TopicCard";
+import ContribCard from "../components/ContribCard";
 
 const useStyles = makeStyles({
   title: {
@@ -18,29 +18,29 @@ const useStyles = makeStyles({
   }
 });
 
-export default function Home({data, pageContext: {topic}}) {
+export default function Home({data}) {
   const classes = useStyles();
   const repos = data.repos.nodes;
   const items = repos.map((repo, index) => (
-    <Grid item xs={12} md={6} lg={4} key={repo.name} classes={{root: classes.gridItem}}>
-      <TopicCard repo={repo} index={index} />
+    <Grid item xs={12} md={6} key={repo.name} classes={{root: classes.gridItem}}>
+      <ContribCard repo={repo} index={index} />
     </Grid>
   ));
 
   return (
     <Layout>
       <Helmet>
-        <title>{`Daniel Burkhardt - Portfolio Topic - ${topic}`}</title>
-        <meta property="og:title" content={`Daniel Burkhardt - Portfolio Topics - ${topic}`}/>
+        <title>{`Daniel Burkhardt - Contributions`}</title>
+        <meta property="og:title" content={`Daniel Burkhardt - Contributions`}/>
         <meta name="description"
-          content={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Topics - ${topic}`}
+          content={`Software Development Portfolio Site for Daniel Burkhardt - Contributions`}
         />
         <meta name="og:description"
-          content={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Topics - ${topic}`}
+          content={`Software Development Portfolio Site for Daniel Burkhardt - Contributions`}
         />
       </Helmet>
       <Container maxWidth="xl" disableGutters>
-        <Typography variant="h3" align="center" className={classes.title}>{topic}</Typography>
+        <Typography variant="h3" align="center" className={classes.title}>Open Source Contributions</Typography>
         <Grid container justifyContent="center" alignItems="stretch" classes={{root: classes.gridRoot}}>
           {items}
         </Grid>
@@ -50,20 +50,23 @@ export default function Home({data, pageContext: {topic}}) {
 };
 
 export const pageQuery = graphql`
-  query ($topic: String) {
-    repos: allRepo(
-      sort: {fields: [isPinned, pushedAt], order: [DESC, DESC]}
-      filter: {topics: {in: [$topic]}}
+  query {
+    repos: allContrib(
+      sort: {fields: [totalContribs, name], order: [DESC, ASC]}
     ) {
       nodes {
-        name
-        id
-        languages {
-          name
-          size
+        contributionIssues {
+          closedAt
+          title
+          url
+        }
+        contributionPrs {
+          mergedAt
+          title
+          url
         }
         description
-        homepageUrl
+        name
         url
       }
     }

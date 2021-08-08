@@ -69,9 +69,25 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
       }
     });
   });
+  
+  
+  const dataC = await graphql(`
+  {
+    allContrib(sort: {fields: [totalContribs, name], order: [DESC, ASC]}) {
+      nodes {
+        id
+      }
+    }
+  }
+  `);
+  const contribs = dataC.data.allContrib.nodes;
 
-  createPage({
-    path: `/contributions`,
-    component: path.resolve('./src/templates/contribution.js')
+
+  paginate({
+    createPage,
+    items: contribs,
+    component: path.resolve('./src/templates/contributions.js'),
+    itemsPerPage: 6,
+    pathPrefix: '/contributions'
   });
 }

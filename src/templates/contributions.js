@@ -5,6 +5,7 @@ import {graphql} from "gatsby";
 import {Helmet} from "react-helmet";
 import Layout from "../components/Layout";
 import ContribCard from "../components/ContribCard";
+import RepoPagination from "../components/RepoPagination";
 
 const useStyles = makeStyles({
   title: {
@@ -15,10 +16,15 @@ const useStyles = makeStyles({
   },
   gridItem: {
     padding: '1em .5em'
+  },
+  linkArea: {
+    display: 'flex',
+    justifyContent: 'center',
+    padding: '0 0 1em'
   }
 });
 
-export default function Home({data}) {
+export default function Home({data, pageContext: {numberOfPages, humanPageNumber}}) {
   const classes = useStyles();
   const repos = data.repos.nodes;
   const items = repos.map((repo, index) => (
@@ -44,15 +50,21 @@ export default function Home({data}) {
         <Grid container justifyContent="center" alignItems="stretch" classes={{root: classes.gridRoot}}>
           {items}
         </Grid>
+        {numberOfPages == 1 ? null :
+          <div className={classes.linkArea}>
+            <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/portfolio'}/>
+          </div>}
       </Container>
     </Layout>
   );
 };
 
 export const pageQuery = graphql`
-  query {
+  query ($skip: Int, $limit: Int) {
     repos: allContrib(
-      sort: {fields: [totalContribs, name], order: [DESC, ASC]}
+      sort: {fields: [totalContribs, name], order: [DESC, ASC]},
+      skip: $skip,
+      limit: $limit
     ) {
       nodes {
         contributionIssues {

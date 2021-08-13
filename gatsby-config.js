@@ -7,7 +7,6 @@ module.exports = {
     siteUrl: 'https://dan-mba.github.io'
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
     'repos-source-plugin',
     'contrib-source-plugin',
     'gatsby-plugin-sitemap',

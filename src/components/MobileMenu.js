@@ -5,7 +5,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import {IconButton, Link} from "gatsby-theme-material-ui";
 
 const useStyles = makeStyles(theme => ({
-  linkbar: {
+  linkBar: {
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'center',
@@ -13,7 +13,8 @@ const useStyles = makeStyles(theme => ({
   },
   drawerRoot: {
     backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText
+    color: theme.palette.primary.contrastText,
+    minWidth: '14rem'
   },
   iconColor: {
     color: theme.palette.primary.contrastText
@@ -25,10 +26,14 @@ const useStyles = makeStyles(theme => ({
     fontSize: '.9rem'
   },
   menuSlim: {
-    paddingTop: 0
+    paddingTop: 0,
+    marginLeft: '56px'
   },
   menuTextSlim: {
     margin: 0
+  },
+  subMenuText: {
+    fontWeight: 400
   }
 }))
 
@@ -42,7 +47,7 @@ export default function MobileMenu() {
 
   return(
     <Hidden lgUp>
-      <div className={classes.linkbar}>
+      <div className={classes.linkBar}>
         <IconButton
           color="inherit"
           aria-controls="menu-dropdown"
@@ -75,20 +80,27 @@ export default function MobileMenu() {
             </ListItemIcon>
             <ListItemText primary="Portfolio" primaryTypographyProps={{variant: "h5"}}
               classes={{root: classes.menuTextSlim}}
-              />
+            />
           </ListItem>
           <ListItem component={Link} to="/portfolio" color="inherit" underline="none"
             classes={{root: classes.menuSlim}}
-            >
-            <ListItemText primary="Projects" primaryTypographyProps={{variant: "h6", align: "right"}}
-              classes={{root: classes.menuTextSlim}}
-              />
+          >
+            <ListItemText primary="Projects" primaryTypographyProps={{variant: "h6"}}
+              classes={{root: classes.menuTextSlim, primary: classes.subMenuText}}
+            />
           </ListItem>
           <ListItem component={Link} to="/topics" color="inherit" underline="none"
             classes={{root: classes.menuSlim}}
           >
-            <ListItemText primary="Topics" primaryTypographyProps={{variant: "h6", align: "right"}}
-              classes={{root: classes.menuTextSlim}}
+            <ListItemText primary="Topics" primaryTypographyProps={{variant: "h6"}}
+              classes={{root: classes.menuTextSlim, primary: classes.subMenuText}}
+            />
+          </ListItem>
+          <ListItem component={Link} to="/contributions" color="inherit" underline="none"
+            classes={{root: classes.menuSlim}}
+          >
+            <ListItemText primary="Contributions" primaryTypographyProps={{variant: "h6"}}
+              classes={{root: classes.menuTextSlim, primary: classes.subMenuText}}
             />
           </ListItem>
           <ListItem

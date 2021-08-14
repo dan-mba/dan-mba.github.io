@@ -15,13 +15,13 @@ const fullBlue = (color) => {
 }
 
 const useStyles = makeStyles(theme => ({
-  linkbar: {
+  linkBar: {
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'center',
     flexGrow: 1
   },
-  linkitem: {
+  linkItem: {
     padding: '16px 12px 8px',
   },
   hover: {
@@ -79,14 +79,10 @@ export default function DesktopMenu() {
 
   return(
     <Hidden mdDown>
-      <div className={classes.linkbar}>
-        <Link to="/" color="inherit" underline="none" className={`${classes.linkitem} ${classes.hover}`}>
+      <div className={classes.linkBar}>
+        <Link to="/" color="inherit" underline="none" className={`${classes.linkItem} ${classes.hover}`}>
           <Typography variant="h5">About</Typography>
         </Link>
-        {/*
-        <Link to="/portfolio" color="inherit" underline="none" className={classes.linkitem}>
-          <Typography variant="h5">Portfolio</Typography>
-        </Link> */}
         <Button
           ref={anchorRef} color="inherit" size="large"
           aria-controls={open ? 'menu-list-grow' : undefined}
@@ -113,6 +109,11 @@ export default function DesktopMenu() {
                     <MenuItem component={Link} to="/topics" underline="none" onClick={handleClose}>
                       <Typography variant="h6" classes={{root: `${classes.menuFont} ${classes.hover}`}}>
                         Topics
+                      </Typography>
+                    </MenuItem>
+                    <MenuItem component={Link} to="/contributions" underline="none" onClick={handleClose}>
+                      <Typography variant="h6" classes={{root: `${classes.menuFont} ${classes.hover}`}}>
+                        Contributions
                       </Typography>
                     </MenuItem>
                   </MenuList>

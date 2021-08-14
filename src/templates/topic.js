@@ -41,7 +41,7 @@ export default function Home({data, pageContext: {topic}}) {
       </Helmet>
       <Container maxWidth="xl" disableGutters>
         <Typography variant="h3" align="center" className={classes.title}>{topic}</Typography>
-        <Grid container justify="center" alignItems="stretch" classes={{root: classes.gridRoot}}>
+        <Grid container justifyContent="center" alignItems="stretch" classes={{root: classes.gridRoot}}>
           {items}
         </Grid>
       </Container>

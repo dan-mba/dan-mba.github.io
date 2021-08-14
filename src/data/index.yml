@@ -33,7 +33,7 @@ jobHistory:
         was needed because an electrical simulation for one input would take over 12 hours, while my logical 
         simulator could run in under a minute.
   - title: z/OS Language Environment
-    titleUrl: https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zappldev/zappldev_88.htm
+    titleUrl: https://www.ibm.com/docs/en/zos-basic-skills?topic=zos-what-is-language-environment
     img: ibmz
     imgAlt: IBM Mainframe Image
     p:

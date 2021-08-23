@@ -52,7 +52,7 @@ export default function Home({data, pageContext: {numberOfPages, humanPageNumber
         </Grid>
         {numberOfPages == 1 ? null :
           <div className={classes.linkArea}>
-            <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/portfolio'}/>
+            <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/contributions'}/>
           </div>}
       </Container>
     </Layout>

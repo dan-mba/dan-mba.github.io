@@ -27,7 +27,7 @@ export default function NavBar() {
         <Typography className={classes.handwriting} variant="h3">
           Dan
         </Typography>
-        {useMediaQuery(theme.breakpoints.down('md')) ? <MobileMenu/> : <DesktopMenu/>}
+        {useMediaQuery(theme.breakpoints.up('md')) ? <DesktopMenu/> : <MobileMenu/>}
       </Toolbar>
     </AppBar>
   );

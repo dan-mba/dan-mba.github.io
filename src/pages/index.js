@@ -7,7 +7,7 @@ import {graphql} from "gatsby";
 import {Helmet} from "react-helmet";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import {Link} from "gatsby-theme-material-ui";
-import BackgroundImage from "../components/BackgtoundImage";
+import BackgroundImage from "../components/BackgroundImage";
 import Layout from "../components/Layout";
 import PageData from "../data/index.yml";
 

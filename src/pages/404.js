@@ -5,7 +5,7 @@ import {alpha} from "@material-ui/core/styles/colorManipulator";
 import {getImage} from "gatsby-plugin-image";
 import {graphql} from "gatsby";
 import {Helmet} from "react-helmet";
-import BackgroundImage from "../components/BackgtoundImage";
+import BackgroundImage from "../components/BackgroundImage";
 import Layout from "../components/Layout";
 
 

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Drawer, Hidden, List, ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
+import {Drawer, List, ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
 import {LinkedIn, GitHub, Home, Code, Menu as MenuIcon} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/core/styles";
 import {IconButton, Link} from "gatsby-theme-material-ui";
@@ -46,7 +46,7 @@ export default function MobileMenu() {
   const openDrawer = () => setDrawer(true);
 
   return(
-    <Hidden lgUp>
+    <React.Fragment>
       <div className={classes.linkBar}>
         <IconButton
           color="inherit"
@@ -133,6 +133,6 @@ export default function MobileMenu() {
           </ListItem>
         </List>
       </Drawer>
-    </Hidden>
+    </React.Fragment>
   );
 }

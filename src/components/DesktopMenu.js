@@ -1,5 +1,5 @@
 import React, {useRef, useEffect, useState} from "react";
-import {Hidden, Typography, Popper, Grow, Paper,Button, ClickAwayListener, MenuList, MenuItem} from "@material-ui/core"
+import {Typography, Popper, Grow, Paper,Button, ClickAwayListener, MenuList, MenuItem} from "@material-ui/core"
 import {LinkedIn, GitHub} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/core/styles";
 import {decomposeColor, recomposeColor, hexToRgb, rgbToHex} from "@material-ui/core/styles/colorManipulator"
@@ -78,71 +78,69 @@ export default function DesktopMenu() {
   }, [open]);
 
   return(
-    <Hidden mdDown>
-      <div className={classes.linkBar}>
-        <Link to="/" color="inherit" underline="none" className={`${classes.linkItem} ${classes.hover}`}>
-          <Typography variant="h5">About</Typography>
-        </Link>
-        <Button
-          ref={anchorRef} color="inherit" size="large"
-          aria-controls={open ? 'menu-list-grow' : undefined}
-          aria-haspopup="true"
-          onClick={handleToggle}
-          classes={{root: `${classes.buttonStyle} ${classes.hover}`}}
-        >
-          Portfolio
-        </Button>
-        <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-            >
-              <Paper classes={{root: classes.paper}}>
-                <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                    <MenuItem component={Link} to="/portfolio" underline="none" onClick={handleClose}>
-                      <Typography variant="h6" classes={{root: `${classes.menuFont} ${classes.hover}`}}>
-                        Projects
-                      </Typography>
-                    </MenuItem>
-                    <MenuItem component={Link} to="/topics" underline="none" onClick={handleClose}>
-                      <Typography variant="h6" classes={{root: `${classes.menuFont} ${classes.hover}`}}>
-                        Topics
-                      </Typography>
-                    </MenuItem>
-                    <MenuItem component={Link} to="/contributions" underline="none" onClick={handleClose}>
-                      <Typography variant="h6" classes={{root: `${classes.menuFont} ${classes.hover}`}}>
-                        Contributions
-                      </Typography>
-                    </MenuItem>
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          )}
-        </Popper>
-        <IconButton
-          color="inherit"
-          aria-label="GitHub"
-          href="https://github.com/dan-mba"
-          target="_blank"
-          rel="noreferrer noopener"
-          className={classes.hover}
-        >
-          <GitHub fontSize="large"/>
-        </IconButton>
-        <IconButton
-          color="inherit"
-          aria-label="LinkedIn"
-          href="https://linkedin.com/danburkhardt"
-          target="_blank"
-          rel="noreferrer noopener"
-          className={classes.hover}
-        >
-          <LinkedIn fontSize="large" />
-        </IconButton>
-        </div>
-    </Hidden>
+    <div className={classes.linkBar}>
+      <Link to="/" color="inherit" underline="none" className={`${classes.linkItem} ${classes.hover}`}>
+        <Typography variant="h5">About</Typography>
+      </Link>
+      <Button
+        ref={anchorRef} color="inherit" size="large"
+        aria-controls={open ? 'menu-list-grow' : undefined}
+        aria-haspopup="true"
+        onClick={handleToggle}
+        classes={{root: `${classes.buttonStyle} ${classes.hover}`}}
+      >
+        Portfolio
+      </Button>
+      <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+        {({ TransitionProps, placement }) => (
+          <Grow
+            {...TransitionProps}
+            style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+          >
+            <Paper classes={{root: classes.paper}}>
+              <ClickAwayListener onClickAway={handleClose}>
+                <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                  <MenuItem component={Link} to="/portfolio" underline="none" onClick={handleClose}>
+                    <Typography variant="h6" classes={{root: `${classes.menuFont} ${classes.hover}`}}>
+                      Projects
+                    </Typography>
+                  </MenuItem>
+                  <MenuItem component={Link} to="/topics" underline="none" onClick={handleClose}>
+                    <Typography variant="h6" classes={{root: `${classes.menuFont} ${classes.hover}`}}>
+                      Topics
+                    </Typography>
+                  </MenuItem>
+                  <MenuItem component={Link} to="/contributions" underline="none" onClick={handleClose}>
+                    <Typography variant="h6" classes={{root: `${classes.menuFont} ${classes.hover}`}}>
+                      Contributions
+                    </Typography>
+                  </MenuItem>
+                </MenuList>
+              </ClickAwayListener>
+            </Paper>
+          </Grow>
+        )}
+      </Popper>
+      <IconButton
+        color="inherit"
+        aria-label="GitHub"
+        href="https://github.com/dan-mba"
+        target="_blank"
+        rel="noreferrer noopener"
+        className={classes.hover}
+      >
+        <GitHub fontSize="large"/>
+      </IconButton>
+      <IconButton
+        color="inherit"
+        aria-label="LinkedIn"
+        href="https://linkedin.com/danburkhardt"
+        target="_blank"
+        rel="noreferrer noopener"
+        className={classes.hover}
+      >
+        <LinkedIn fontSize="large" />
+      </IconButton>
+    </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
-import {AppBar, Toolbar, Typography} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
+import {AppBar, Toolbar, Typography, useMediaQuery} from "@material-ui/core";
+import {makeStyles, useTheme} from "@material-ui/core/styles";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 
@@ -19,6 +19,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function NavBar() {
   const classes = useStyles();
+  const theme = useTheme();
 
   return(
     <AppBar position="relative" id="nav-bar">
@@ -26,8 +27,7 @@ export default function NavBar() {
         <Typography className={classes.handwriting} variant="h3">
           Dan
         </Typography>
-        <DesktopMenu />
-        <MobileMenu />
+        {useMediaQuery(theme.breakpoints.down('md')) ? <MobileMenu/> : <DesktopMenu/>}
       </Toolbar>
     </AppBar>
   );

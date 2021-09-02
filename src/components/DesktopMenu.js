@@ -4,6 +4,7 @@ import {LinkedIn, GitHub} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/core/styles";
 import {decomposeColor, recomposeColor, hexToRgb, rgbToHex} from "@material-ui/core/styles/colorManipulator"
 import {IconButton, Link} from "gatsby-theme-material-ui";
+import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
 const fullBlue = (color) => {
   const sec = decomposeColor(color[0] === '#' ? hexToRgb(color) : color);
@@ -14,7 +15,7 @@ const fullBlue = (color) => {
   return rgbToHex(recomposeColor(sec));
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   linkBar: {
     display: 'flex',
     justifyContent: 'flex-end',
@@ -43,7 +44,7 @@ const useStyles = makeStyles(theme => ({
   menuFont: {
     fontWeight: 400
   }
-}));
+});
 
 export default function DesktopMenu() {
   const classes = useStyles();

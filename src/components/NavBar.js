@@ -1,10 +1,11 @@
 import React from "react";
 import {AppBar, Toolbar, Typography, useMediaQuery} from "@material-ui/core";
-import {makeStyles, useTheme} from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
+import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   toolbar: {
     maxWidth: theme.breakpoints.values.xl,
     margin: '0 auto',
@@ -15,11 +16,10 @@ const useStyles = makeStyles(theme => ({
     fontFamily: '"Damion", cursive',
     paddingLeft: '12px'
   }
-}));
+});
 
 export default function NavBar() {
   const classes = useStyles();
-  const theme = useTheme();
 
   return(
     <AppBar position="relative" id="nav-bar">

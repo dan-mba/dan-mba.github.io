@@ -4,8 +4,9 @@ import {makeStyles} from "@material-ui/core/styles";
 import {Link} from "gatsby-theme-material-ui";
 import {Helmet} from "react-helmet";
 import Layout from "../components/Layout";
+import theme from "../gatsby-theme-material-ui-top-layout/theme"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   grid: {
     padding: '5em 1em 2em',
     [theme.breakpoints.down('md')]: {
@@ -24,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   pointer: {
     cursor: 'pointer'
   }
-}));
+});
 
 export default function Home({pageContext: {topics}}) {
   const classes = useStyles();

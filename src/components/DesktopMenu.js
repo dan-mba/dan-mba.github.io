@@ -55,7 +55,7 @@ export default function DesktopMenu() {
       <Link to="/" color="inherit" underline="none" className={`${classes.linkItem} ${classes.hover}`}>
         <Typography variant="h5">About</Typography>
       </Link>
-      <PopupState variant="popover" popupId="demo-popup-popover">
+      <PopupState variant="popover" popupId="portfolio-menu">
         {(popupState) => (
           <React.Fragment>
             <Button

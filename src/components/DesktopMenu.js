@@ -1,9 +1,10 @@
-import React, {useRef, useEffect, useState} from "react";
-import {Typography, Popper, Grow, Paper,Button, ClickAwayListener, MenuList, MenuItem} from "@material-ui/core"
+import React from "react";
+import {Typography, Popover, Paper, Button, MenuList, MenuItem} from "@material-ui/core";
 import {LinkedIn, GitHub} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/core/styles";
 import {decomposeColor, recomposeColor, hexToRgb, rgbToHex} from "@material-ui/core/styles/colorManipulator"
 import {IconButton, Link} from "gatsby-theme-material-ui";
+import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
 const fullBlue = (color) => {
@@ -48,80 +49,57 @@ const useStyles = makeStyles({
 
 export default function DesktopMenu() {
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
-  const anchorRef = useRef(null);
-
-  const handleToggle = () => {
-    setOpen((prevOpen) => !prevOpen);
-  };
-
-  const handleClose = (event) => {
-    if (anchorRef.current && anchorRef.current.contains(event.target)) {
-      return;
-    }
-    setOpen(false);
-  };
-
-  function handleListKeyDown(event) {
-    if (event.key === 'Tab') {
-      event.preventDefault();
-      setOpen(false);
-    }
-  }
-
-  // return focus to the button when we transitioned from !open -> open
-  const prevOpen = useRef(open);
-  useEffect(() => {
-    if (prevOpen.current === true && open === false) {
-      anchorRef.current.focus();
-    }
-    prevOpen.current = open;
-  }, [open]);
-
+  
   return(
     <div className={classes.linkBar}>
       <Link to="/" color="inherit" underline="none" className={`${classes.linkItem} ${classes.hover}`}>
         <Typography variant="h5">About</Typography>
       </Link>
-      <Button
-        ref={anchorRef} color="inherit" size="large"
-        aria-controls={open ? 'menu-list-grow' : undefined}
-        aria-haspopup="true"
-        onClick={handleToggle}
-        classes={{root: `${classes.buttonStyle} ${classes.hover}`}}
-      >
-        Portfolio
-      </Button>
-      <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
-        {({ TransitionProps, placement }) => (
-          <Grow
-            {...TransitionProps}
-            style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-          >
-            <Paper classes={{root: classes.paper}}>
-              <ClickAwayListener onClickAway={handleClose}>
-                <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                  <MenuItem component={Link} to="/portfolio" underline="none" onClick={handleClose}>
+      <PopupState variant="popover" popupId="demo-popup-popover">
+        {(popupState) => (
+          <React.Fragment>
+            <Button
+              color="inherit" size="large"
+              aria-haspopup="true"
+              {...bindTrigger(popupState)}
+              classes={{root: `${classes.buttonStyle} ${classes.hover}`}}
+            >
+              Portfolio
+            </Button>
+            <Popover
+              {...bindPopover(popupState)}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+              }}
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'center',
+              }}
+            >
+              <Paper classes={{root: classes.paper}}>
+                <MenuList autoFocusItem={open} id="menu-list-grow">
+                  <MenuItem component={Link} to="/portfolio" underline="none">
                     <Typography variant="h6" classes={{root: `${classes.menuFont} ${classes.hover}`}}>
                       Projects
                     </Typography>
                   </MenuItem>
-                  <MenuItem component={Link} to="/topics" underline="none" onClick={handleClose}>
+                  <MenuItem component={Link} to="/topics" underline="none">
                     <Typography variant="h6" classes={{root: `${classes.menuFont} ${classes.hover}`}}>
                       Topics
                     </Typography>
                   </MenuItem>
-                  <MenuItem component={Link} to="/contributions" underline="none" onClick={handleClose}>
+                  <MenuItem component={Link} to="/contributions" underline="none">
                     <Typography variant="h6" classes={{root: `${classes.menuFont} ${classes.hover}`}}>
                       Contributions
                     </Typography>
                   </MenuItem>
                 </MenuList>
-              </ClickAwayListener>
-            </Paper>
-          </Grow>
+              </Paper>
+            </Popover>
+          </React.Fragment>
         )}
-      </Popper>
+      </PopupState>
       <IconButton
         color="inherit"
         aria-label="GitHub"

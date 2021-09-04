@@ -1,7 +1,8 @@
 import React from "react";
-import {Avatar, Chip, Grid} from "@material-ui/core";
+import {Avatar, Chip, Grid, Link} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
-import {Link} from "gatsby-theme-material-ui";
+// Use Link from reach-router to prevent gatsby preloading all links
+import {Link as ReachLink} from "@gatsbyjs/reach-router";
 import {Helmet} from "react-helmet";
 import Layout from "../components/Layout";
 import theme from "../gatsby-theme-material-ui-top-layout/theme"
@@ -32,7 +33,7 @@ export default function Home({pageContext: {topics}}) {
 
   const items = topics.map((topic, index) => (
     <Grid item key={index} classes={{item: classes.gridItem}}>
-      <Link to={`/topics/${topic.name}`} className={classes.pointer}>
+      <Link to={`/topics/${topic.name}`} className={classes.pointer} component={ReachLink}>
         <Chip color="secondary" variant="outlined" classes={{root: `${classes.pointer} ${classes.chip}`}}
           label={topic.name} avatar={<Avatar>{topic.count}</Avatar>}
         />

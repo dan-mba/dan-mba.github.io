@@ -41,7 +41,7 @@ export default function IconTooltip({buttonClass, icon, title, top, url}) {
   return (
     <>
       <IconButton 
-        aria-label="code repository"
+        aria-label={title}
         href={url}
         target="_blank"
         rel="noreferrer noopener"

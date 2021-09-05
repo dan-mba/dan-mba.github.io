@@ -5,7 +5,8 @@
   "version": "0.1.0",
   "license": "0BSD",
   "browserslist": [
-    ">2%"
+    ">2%",
+    "last 1 firefox version"
   ],
   "scripts": {
     "build": "gatsby build",

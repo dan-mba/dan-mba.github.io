@@ -1,8 +1,9 @@
 import React from "react";
-import {Card, CardActions, CardContent, CardHeader, CardMedia, Chip, Typography} from "@material-ui/core";
+import {Card, CardActions, CardContent, CardHeader, CardMedia, Chip, Link, Typography} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import {Code, Link as LinkIcon} from "@material-ui/icons";
-import {Link} from "gatsby-theme-material-ui";
+// use Link from reach router to avoid pre-fetching topics
+import {Link as ReachLink} from "@gatsbyjs/reach-router";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import IconTooltip from "./IconTooltip";
 
@@ -68,7 +69,9 @@ export default function RepoCard({repo, index}) {
         <div className={classes.topicArea}>
           {repo.topics.map(topic => {
             return (
-              <Link to={`/topics/${topic}`} className={classes.pointer} key={topic} >
+              <Link to={`/topics/${topic}`} component={ReachLink}
+                className={classes.pointer} key={topic}
+              >
                 <Chip color="secondary" variant="outlined" size="small"
                   label={topic} className={`${classes.topic} ${classes.pointer}`}
                 />

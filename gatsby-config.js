@@ -27,20 +27,21 @@ module.exports = {
           fonts: {
             google: [
               {
-                family: "Roboto",
-                variants: ["300", "400", "500"],
-              },
-              {
                 family: "Damion",
                 variants: ["400"],
                 text: 'Dan',
                 strategy: 'base64',
+              },
+              {
+                family: "Roboto",
+                variants: ["300", "400", "500"],
               },
             ],
           },
         },
         usePreconnect: true,
       },
-    }
+    },
+    //'gatsby-plugin-webpack-bundle-analyser-v2'
   ],
 };

@@ -23,7 +23,7 @@
     "@material-ui/lab": "^4.0.0-alpha.60",
     "gatsby": "^3.12.1",
     "gatsby-awesome-pagination": "^0.3.8",
-    "gatsby-plugin-image": "^1.12.0",
+    "gatsby-plugin-image": "^1.13.0",
     "gatsby-plugin-react-helmet": "^4.12.0",
     "gatsby-plugin-sharp": "^3.12.0",
     "gatsby-plugin-sitemap": "^4.8.0",

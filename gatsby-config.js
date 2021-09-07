@@ -38,8 +38,8 @@ module.exports = {
               },
             ],
           },
+          formats: ["woff2"],
         },
-        usePreconnect: true,
       },
     },
     //'gatsby-plugin-webpack-bundle-analyser-v2'

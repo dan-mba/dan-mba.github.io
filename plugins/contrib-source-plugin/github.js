@@ -77,12 +77,18 @@ async function getGithubContribs(userid) {
 
       // filter out PRs that are not merged
       contribs = contribs.filter(c => c.merged);
+      if (contribs.length === 0) {
+        return 'X';
+      }
       repo.repository.owner = repo.repository.owner.login;
       repo = {...repo.repository, contributionPrs: contribs, totalContribs: contribs.length};
 
       return repo;
     });
-    repos = [...prs];
+    prs = prs.filter(r => r !== 'X');
+    if (prs.length > 0) {
+      repos = [...prs];
+    }
 
     // filter out repos from the provided userid
     issues = issues.filter(r => r.repository.owner.login !== userid);
@@ -90,15 +96,20 @@ async function getGithubContribs(userid) {
       let repo = JSON.parse(JSON.stringify(r))
       let contribs = repo.contributions.edges.map(e => e.node.issue);
 
-      // filter out isses that are not closed and the userid did not author
+      // filter out issues that are not closed and the userid did not author
       contribs = contribs.filter(c => c.closed && c.viewerDidAuthor);
+      if (contribs.length === 0) {
+        return 'X';
+      }
       repo.repository.owner = repo.repository.owner.login;
       repo = {...repo.repository, contributionIssues: contribs, totalContribs: contribs.length};
 
       return repo;
     });
 
-    // if repo already in the array, add issues to it otherise push it to the array
+    issues = issues.filter(r => r !== 'X');
+
+    // if repo already in the array, add issues to it otherwise push it to the array
     issues.forEach(r => {
       const exists = repos.findIndex(repo => {
         return (repo.name === r.name) && (repo.owner === r.owner);

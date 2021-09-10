@@ -6,8 +6,9 @@ import {Helmet} from "react-helmet";
 import Layout from "../components/Layout";
 import RepoCard from "../components/RepoCard";
 import RepoPagination from "../components/RepoPagination";
+import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   container: {
     padding: '0 min(2%, 1em)'
   },
@@ -36,7 +37,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     padding: '0 0 1em'
   }
-}));
+});
 
 export default function Home({data, pageContext: {numberOfPages, humanPageNumber}}) {
   const classes = useStyles();
@@ -95,11 +96,11 @@ export const pageQuery = graphql`
         localImage {
           childImageSharp {
             gatsbyImageData(
-              width: 600,
+              width: 572,
               layout: CONSTRAINED,
               placeholder: NONE,
-              quality: 70,
-              outputPixelDensities: [0.5, 0.75, 1, 1.5, 2]
+              quality: 40,
+              outputPixelDensities: [1, 1.25, 1.5, 1.75, 2]
             )
           }
         }

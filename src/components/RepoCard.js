@@ -1,9 +1,11 @@
 import React from "react";
-import {Card, CardActions, CardContent, CardHeader, CardMedia, Chip, Typography, Tooltip} from "@material-ui/core";
+import {Card, CardActions, CardContent, CardHeader, CardMedia, Chip, Link, Typography} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import {Code, Link as LinkIcon} from "@material-ui/icons";
-import {IconButton, Link} from "gatsby-theme-material-ui";
+// use Link from reach router to avoid pre-fetching topics
+import {Link as ReachLink} from "@gatsbyjs/reach-router";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
+import IconTooltip from "./IconTooltip";
 
 const useStyles = makeStyles({
   root: {
@@ -67,7 +69,9 @@ export default function RepoCard({repo, index}) {
         <div className={classes.topicArea}>
           {repo.topics.map(topic => {
             return (
-              <Link to={`/topics/${topic}`} className={classes.pointer} key={topic} >
+              <Link to={`/topics/${topic}`} component={ReachLink}
+                className={classes.pointer} key={topic}
+              >
                 <Chip color="secondary" variant="outlined" size="small"
                   label={topic} className={`${classes.topic} ${classes.pointer}`}
                 />
@@ -77,27 +81,9 @@ export default function RepoCard({repo, index}) {
         </div>
       </CardContent>
       <CardActions>
-        <Tooltip title="code repository">
-          <IconButton 
-            aria-label="code repository"
-            href={repo.url}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <Code />
-          </IconButton>
-        </Tooltip>
+        <IconTooltip top title="code repository" url={repo.url} icon={<Code/>}/>
         {!repo.homepageUrl ? null:
-          <Tooltip title="demo site">
-            <IconButton 
-              aria-label="demo site"
-              href={repo.homepageUrl}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <LinkIcon />
-            </IconButton>
-          </Tooltip>
+          <IconTooltip top title="demo site" url={repo.homepageUrl} icon={<LinkIcon/>}/>
         }
       </CardActions>
     </Card>

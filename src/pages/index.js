@@ -1,17 +1,18 @@
 import React from "react";
 import {List, ListItem, ListItemIcon, ListItemText, Typography, useMediaQuery} from "@material-ui/core";
 import {PlaceOutlined} from "@material-ui/icons";
-import {makeStyles, useTheme} from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import {alpha, darken, lighten} from "@material-ui/core/styles/colorManipulator";
 import {graphql} from "gatsby";
 import {Helmet} from "react-helmet";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import {Link} from "gatsby-theme-material-ui";
-import BackgroundImage from "../components/BackgtoundImage";
+import BackgroundImage from "../components/BackgroundImage";
 import Layout from "../components/Layout";
+import theme from "../gatsby-theme-material-ui-top-layout/theme";
 import PageData from "../data/index.yml";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   paper: {
     backgroundColor: theme.palette.background.paper,
     margin: '0',
@@ -95,11 +96,11 @@ const useStyles = makeStyles(theme => ({
   listType: {
     fontSize: '1rem',
   }
-}));
+});
 
 export default function Home({data}) {
   const classes = useStyles();
-  const theme = useTheme();
+
   const isWide = useMediaQuery(theme.breakpoints.up(900));
   const heroImgData = getImage(data.hero);
   const mapImgData = getImage(data.map);
@@ -184,7 +185,7 @@ export const pageQuery = graphql`
   query IndexPage {
     hero: file(relativePath: {eq: "binary.jpg" }) {
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH, placeholder: NONE, quality: 50)
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: NONE, quality: 30)
       }
     }
     map: file(relativePath: {eq: "map.png" }) {

@@ -9,6 +9,6 @@ describe('Home Page', () => {
   
   it('shows Portfolio dropdown', () => {
     cy.get('#nav-bar').contains('button','Portfolio').click()
-    cy.get('#nav-bar > div > div').children().should('have.length', 5)
+    cy.get('#portfolio-menu ul a').should('have.length', 3)
   })
 })

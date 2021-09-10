@@ -1,8 +1,9 @@
 import React from "react";
-import {Card, CardContent, CardHeader, Typography, Tooltip} from "@material-ui/core";
+import {Card, CardContent, CardHeader, Typography} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import {Code} from "@material-ui/icons";
-import {IconButton, Link} from "gatsby-theme-material-ui";
+import {Link} from "gatsby-theme-material-ui";
+import IconTooltip from "./IconTooltip";
 
 const useStyles = makeStyles({
   root: {
@@ -64,17 +65,9 @@ export default function RepoCard({repo}) {
         subheader={cropString(repo.description)}
         subheaderTypographyProps={{align: 'center', color: 'secondary'}}
         action={
-          <Tooltip title="code repository">
-            <IconButton
-              classes={{root: classes.button}}
-              aria-label="code repository"
-              href={repo.url}
-              target="_blank"
-              rel="noreferrer noopener"
-              >
-              <Code />
-            </IconButton>
-          </Tooltip>
+          <IconTooltip title="code repository" url={repo.url}
+            icon={<Code/>} buttonClass={classes.button}
+          />
         }
         />
       <CardContent classes={{root: classes.grow}}>

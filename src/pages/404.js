@@ -5,11 +5,12 @@ import {alpha} from "@material-ui/core/styles/colorManipulator";
 import {getImage} from "gatsby-plugin-image";
 import {graphql} from "gatsby";
 import {Helmet} from "react-helmet";
-import BackgroundImage from "../components/BackgtoundImage";
+import BackgroundImage from "../components/BackgroundImage";
 import Layout from "../components/Layout";
+import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   hero: {
     width: '100%',
     height: '30em'
@@ -21,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     borderRadius: '5px'
   },
-}));
+});
 
 export default function FourZeroFour({data}) {
   const classes = useStyles();

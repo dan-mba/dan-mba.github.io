@@ -3,9 +3,10 @@ import {Typography, Grid, Container} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import {graphql} from "gatsby";
 import {Helmet} from "react-helmet";
+import loadable from "@loadable/component";
 import Layout from "../components/Layout";
 import ContribCard from "../components/ContribCard";
-import RepoPagination from "../components/RepoPagination";
+const RepoPagination = loadable(() => import("../components/RepoPagination"));
 
 const useStyles = makeStyles({
   title: {

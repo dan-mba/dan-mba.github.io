@@ -39,7 +39,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function RepoCard({repo}) {
+export default function ContribCard({repo}) {
   const classes = useStyles();
 
   const cropString = (str) => {

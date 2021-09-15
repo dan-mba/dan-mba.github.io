@@ -1,5 +1,4 @@
 import React from "react";
-//import {Container} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles"
 import {Helmet} from "react-helmet";
 import {withPrefix} from "gatsby";
@@ -13,7 +12,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function Layout({children}) {
+export default function Layout({title, description, children}) {
   const classes = useStyles();
 
   return (
@@ -23,6 +22,10 @@ export default function Layout({children}) {
         <meta name="theme-color" content="#212121" />
 
         <meta property="author" content="Daniel Burkhardt" />
+        <title>{title}</title>
+        <meta property="og:title" content={title} />
+        <meta name="description" content={description} />
+        <meta name="og:description" content={description} />
         <meta property="og:url" content="https://dan-mba.github.io/" />
         <meta property="og:type" content="website" />
         <meta name="google-site-verification" content="zqAgp2x3Kjf_R3oZBUqt9L-zco6Ma-o14sC2F2MFVvg" />

@@ -3,7 +3,6 @@ import {Avatar, Chip, Grid, Link} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 // Use Link from reach-router to prevent gatsby preloading all links
 import {Link as ReachLink} from "@gatsbyjs/reach-router";
-import {Helmet} from "react-helmet";
 import Layout from "../components/Layout";
 import theme from "../gatsby-theme-material-ui-top-layout/theme"
 
@@ -42,17 +41,9 @@ export default function Home({pageContext: {topics}}) {
   ));
 
   return (
-    <Layout>
-      <Helmet>
-        <title>{`Daniel Burkhardt - Portfolio Topics`}</title>
-        <meta property="og:title" content={`Daniel Burkhardt - Portfolio Topics`}/>
-        <meta name="description"
-          content={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Topics`}
-        />
-        <meta name="og:description"
-          content={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Topics`}
-        />
-      </Helmet>
+    <Layout title={`Daniel Burkhardt - Portfolio Topics`}
+      description={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Topics`}
+    >
       <Grid container justifyContent="center" alignItems="center" classes={{root: classes.grid}}>
         {items}
       </Grid>

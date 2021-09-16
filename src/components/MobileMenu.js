@@ -47,7 +47,7 @@ export default function MobileMenu() {
   const openDrawer = () => setDrawer(true);
 
   return(
-    <React.Fragment>
+    <>
       <div className={classes.linkBar}>
         <IconButton
           color="inherit"
@@ -134,6 +134,6 @@ export default function MobileMenu() {
           </ListItem>
         </List>
       </Drawer>
-    </React.Fragment>
+    </>
   );
 }

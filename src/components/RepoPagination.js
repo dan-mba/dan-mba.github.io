@@ -17,5 +17,4 @@ export default function RepoPagination({page, count, baseLink}) {
       )}
     />
   );
-
 }

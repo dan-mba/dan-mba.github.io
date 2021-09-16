@@ -52,15 +52,15 @@ export default function RepoCard({repo, index}) {
         subheaderTypographyProps={{align: 'center', color: 'secondary'}}
       />
       <CardMedia>
-          <GatsbyImage
-            image={getImage(repo.localImage)}
-            alt={`${repo.name} image`}
-            objectFit="contain"
-            loading={
-              /* Only use eager loading on first card for mobile performance */
-              index===0 ? "eager" : "lazy"
-            }
-          />
+        <GatsbyImage
+          image={getImage(repo.localImage)}
+          alt={`${repo.name} image`}
+          objectFit="contain"
+          loading={
+            /* Only use eager loading on first card for mobile performance */
+            index===0 ? "eager" : "lazy"
+          }
+        />
       </CardMedia>
       <CardContent classes={{root: classes.grow}}>
         <Typography variant="body1" align="center" className={classes.desc}>

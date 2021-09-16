@@ -69,14 +69,14 @@ export default function ContribCard({repo}) {
             icon={<Code/>} buttonClass={classes.button}
           />
         }
-        />
+      />
       <CardContent classes={{root: classes.grow}}>
         {!repo.contributionPrs ? null : 
           <div>
             <Typography variant="h6" align="center">Pull Requests</Typography>
             {repo.contributionPrs.map((r,i) => (
               <Link key={i} underline="hover" href={r.url}
-              target="_blank" rel="noreferrer noopener"
+                target="_blank" rel="noreferrer noopener"
               >
                 <Typography variant="body1">
                   {r.title}

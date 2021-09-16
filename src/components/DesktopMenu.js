@@ -57,7 +57,7 @@ export default function DesktopMenu() {
       </Link>
       <PopupState variant="popover" popupId="portfolio-menu">
         {(popupState) => (
-          <React.Fragment>
+          <>
             <Button
               color="inherit" size="large"
               aria-haspopup="true"
@@ -97,7 +97,7 @@ export default function DesktopMenu() {
                 </MenuList>
               </Paper>
             </Popover>
-          </React.Fragment>
+          </>
         )}
       </PopupState>
       <IconButton

@@ -4,7 +4,6 @@ import {PlaceOutlined} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/core/styles";
 import {alpha, darken, lighten} from "@material-ui/core/styles/colorManipulator";
 import {graphql} from "gatsby";
-import {Helmet} from "react-helmet";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import {Link} from "gatsby-theme-material-ui";
 import BackgroundImage from "../components/BackgroundImage";
@@ -106,13 +105,7 @@ export default function Home({data}) {
   const mapImgData = getImage(data.map);
 
   return (
-    <Layout>
-      <Helmet>
-        <title>{PageData.title}</title>
-        <meta property="og:title" content={PageData.title} />
-        <meta name="description" content={PageData.description} />
-        <meta name="og:description" content={PageData.description} />
-      </Helmet>
+    <Layout title={PageData.title} description={PageData.description}>
       <BackgroundImage className={classes.hero} image={heroImgData}>
         <div className={classes.heroText}>
           <Typography variant="h3">{PageData.name}</Typography>

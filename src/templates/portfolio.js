@@ -2,11 +2,12 @@ import React from "react";
 import {Typography, Grid, Container} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import {graphql} from "gatsby";
-import {Helmet} from "react-helmet";
+import loadable from "@loadable/component";
 import Layout from "../components/Layout";
-import RepoCard from "../components/RepoCard";
-import RepoPagination from "../components/RepoPagination";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
+import RepoCard from "../components/RepoCard";
+
+const RepoPagination = loadable(() => import("../components/RepoPagination"));
 
 const useStyles = makeStyles({
   container: {
@@ -51,17 +52,9 @@ export default function Home({data, pageContext: {numberOfPages, humanPageNumber
   ));
 
   return (
-    <Layout>
-      <Helmet>
-        <title>{`Daniel Burkhardt - Portfolio Page ${humanPageNumber}`}</title>
-        <meta property="og:title" content={`Daniel Burkhardt - Portfolio Page ${humanPageNumber}`}/>
-        <meta name="description"
-          content={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Page ${humanPageNumber}`}
-        />
-        <meta name="og:description"
-          content={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Page ${humanPageNumber}`}
-        />
-      </Helmet>
+    <Layout title={`Daniel Burkhardt - Portfolio Page ${humanPageNumber}`}
+      description={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Page ${humanPageNumber}`}
+    >
       <Container maxWidth="xl" disableGutters className={classes.container}>
         <Typography variant="h3" align="center" className={classes.title}>Portfolio</Typography>
         <Grid container justifyContent="center" alignItems="stretch" classes={{container: classes.gridContainer}}>
@@ -100,7 +93,7 @@ export const pageQuery = graphql`
               layout: CONSTRAINED,
               placeholder: NONE,
               quality: 40,
-              outputPixelDensities: [1, 1.25, 1.5, 1.75, 2]
+              outputPixelDensities: [0.67, 0.75, 1, 1.25, 1.5, 1.75, 2]
             )
           }
         }

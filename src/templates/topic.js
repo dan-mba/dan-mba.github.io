@@ -2,7 +2,6 @@ import React from "react";
 import {Typography, Grid, Container} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import {graphql} from "gatsby";
-import {Helmet} from "react-helmet";
 import Layout from "../components/Layout";
 import TopicCard from "../components/TopicCard";
 
@@ -28,17 +27,9 @@ export default function Home({data, pageContext: {topic}}) {
   ));
 
   return (
-    <Layout>
-      <Helmet>
-        <title>{`Daniel Burkhardt - Portfolio Topic - ${topic}`}</title>
-        <meta property="og:title" content={`Daniel Burkhardt - Portfolio Topics - ${topic}`}/>
-        <meta name="description"
-          content={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Topics - ${topic}`}
-        />
-        <meta name="og:description"
-          content={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Topics - ${topic}`}
-        />
-      </Helmet>
+    <Layout title={`Daniel Burkhardt - Portfolio Topic - ${topic}`}
+      description={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Topics - ${topic}`}
+    >
       <Container maxWidth="xl" disableGutters>
         <Typography variant="h3" align="center" className={classes.title}>{topic}</Typography>
         <Grid container justifyContent="center" alignItems="stretch" classes={{root: classes.gridRoot}}>

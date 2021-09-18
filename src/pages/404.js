@@ -4,7 +4,6 @@ import {makeStyles} from "@material-ui/core/styles";
 import {alpha} from "@material-ui/core/styles/colorManipulator";
 import {getImage} from "gatsby-plugin-image";
 import {graphql} from "gatsby";
-import {Helmet} from "react-helmet";
 import BackgroundImage from "../components/BackgroundImage";
 import Layout from "../components/Layout";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
@@ -29,11 +28,7 @@ export default function FourZeroFour({data}) {
   const heroImgData = getImage(data.hero);
 
   return (
-    <Layout>
-      <Helmet>
-        <title>Page Not Found</title>
-        <meta property="og:title" content="Page Not Found" />
-      </Helmet>
+    <Layout title="Page Not Found" description="Page Not Found">
       <BackgroundImage className={classes.hero} image={heroImgData}>
         <div className={classes.heroText}>
           <Typography variant="h3">Page Not Found</Typography>

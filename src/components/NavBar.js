@@ -1,9 +1,11 @@
 import React from "react";
 import {AppBar, Toolbar, Typography, useMediaQuery} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
-import DesktopMenu from "./DesktopMenu";
-import MobileMenu from "./MobileMenu";
+import loadable from "@loadable/component";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
+import MobileMenu from "./MobileMenu";
+
+const DesktopMenu = loadable(()=> import("./DesktopMenu"));
 
 const useStyles = makeStyles({
   toolbar: {

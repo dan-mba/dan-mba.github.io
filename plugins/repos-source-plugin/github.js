@@ -1,11 +1,11 @@
 const {GraphQLClient, gql} = require('graphql-request');
 
-async function getGithubRepos(userid) {
+async function getGithubRepos(userid, authToken, portfolioLangs) {
   const endpoint = 'https://api.github.com/graphql';
 
   const graphqlClient = new GraphQLClient(endpoint, {
     headers: {
-      Authorization: `bearer ${process.env.GITHUB_TOKEN}` 
+      Authorization: `bearer ${authToken}` 
     }
   });
 
@@ -83,7 +83,7 @@ async function getGithubRepos(userid) {
       return flatRepo;
     });
 
-    const portfolioLangs = ['JavaScript','Vue','Python','TypeScript'];
+    //const portfolioLangs = ['JavaScript','Vue','Python','TypeScript'];
     // filter out repos not including one of my primary languages
     repos = repos.filter(repo => (repo.languages.some(l => portfolioLangs.includes(l.name))));
     // filter out repos with no topics (not ready to be displayed on portfolio)

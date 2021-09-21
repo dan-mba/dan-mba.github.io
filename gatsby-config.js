@@ -7,7 +7,14 @@ module.exports = {
     siteUrl: 'https://dan-mba.github.io'
   },
   plugins: [
-    'repos-source-plugin',
+    {
+      resolve: 'repos-source-plugin',
+      options: {
+        githubUserId: 'dan-mba',
+        githubUserToken: process.env.GITHUB_TOKEN,
+        portfolioLanguages: ['JavaScript','Vue','Python','TypeScript']
+      }
+    },
     'contrib-source-plugin',
     'gatsby-plugin-sitemap',
     {

@@ -1,23 +1,18 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
-// You can delete this file if you're not using it
-
-/**
- * You can uncomment the following line to verify that
- * your plugin is being loaded in your site.
- *
- * See: https://www.gatsbyjs.com/docs/creating-a-local-plugin/#developing-a-local-plugin-that-is-outside-your-project
- */
-const getGithubRepos = require('./github');
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
+const getGithubRepos = require('./github');
 
-exports.onPreInit = () => console.log("Loaded repos-source-plugin")
+exports.pluginOptionsSchema = ({ Joi }) => Joi.object({
+  githubUserId: Joi.string().required()
+    .description('GitHub user id to fetch repos for'),
+  githubUserToken: Joi.string().required()
+    .description('GitHub user token for auth'),
+  portfolioLanguages: Joi.array().items(Joi.string()).default(['JavaScript'])
+    .description('List of languages for repo to be included'),
+})
 
-exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
-  const repos = await getGithubRepos('dan-mba');
+exports.sourceNodes = async ({ actions, createNodeId, createContentDigest },
+  {githubUserId, githubUserToken, portfolioLanguages}) => {
+  const repos = await getGithubRepos(githubUserId, githubUserToken, portfolioLanguages);
 
   repos.forEach(repo => {
     const node = {

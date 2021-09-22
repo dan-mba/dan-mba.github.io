@@ -15,7 +15,15 @@ module.exports = {
         portfolioLanguages: ['JavaScript','Vue','Python','TypeScript']
       }
     },
-    'contrib-source-plugin',
+    {
+      resolve: 'contrib-source-plugin',
+      options: {
+        githubUserId: 'dan-mba',
+        githubUserToken: process.env.GITHUB_TOKEN,
+        startDateTime: '2020-01-01T00:00:01',
+        repoFilter: [{owner: 'firstcontributions', name: 'first-contributions'}]
+      }
+    },
     'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-source-filesystem',

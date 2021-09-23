@@ -56,7 +56,8 @@ async function getGithubRepos(userid, authToken, portfolioLangs) {
 
   try {
     let data = await graphqlClient.request(query, {"login": userid});
-    let repos = data.user.repositories.nodes;
+    let repos = [...data.user.repositories.nodes];
+
     while (data.user.repositories.pageInfo.hasNextPage) {
       data = await graphqlClient.request(query, {
         "login": userid,
@@ -76,14 +77,16 @@ async function getGithubRepos(userid, authToken, portfolioLangs) {
           size: Math.round((lang.size / repo.languages.totalSize) * 10000) / 100
         };
       });
+
       flatRepo.languages = langs.filter(l => l.size > 1);
+
       flatRepo.topics = repo.repositoryTopics.nodes.map(t => t.topic.name).sort();
       delete flatRepo.repositoryTopics;
+      
       flatRepo.isPinned = pins.includes(repo.name);
       return flatRepo;
     });
 
-    //const portfolioLangs = ['JavaScript','Vue','Python','TypeScript'];
     // filter out repos not including one of my primary languages
     repos = repos.filter(repo => (repo.languages.some(l => portfolioLangs.includes(l.name))));
     // filter out repos with no topics (not ready to be displayed on portfolio)

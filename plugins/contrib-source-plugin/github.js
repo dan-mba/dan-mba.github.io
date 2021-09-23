@@ -84,6 +84,7 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
         {"login": userid, "startDateTime": start.toISOString(), "endDateTime": end.toISOString()});
       prs = [...prs, ...data.user.contributionsCollection.pullRequestContributionsByRepository];
       issues = [...issues, ...data.user.contributionsCollection.issueContributionsByRepository];
+
       start = new Date(end.getTime() + 1);
     }
 
@@ -105,6 +106,7 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
 
       return repo;
     });
+    
     prs = prs.filter(r => r !== 'X');
     if (prFilter.length > 0) {
       prFilter.forEach(r => {

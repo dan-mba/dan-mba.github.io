@@ -20,6 +20,7 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
               owner {
                 login
               }
+              stargazerCount
               url
             }
             contributions(first: 10) {
@@ -43,6 +44,7 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
               owner {
                 login
               }
+              stargazerCount
               url
             }
             contributions(first: 10) {
@@ -79,7 +81,6 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
         end = now;
       }
 
-      console.log(start.toISOString(), end.toISOString());
       const data = await graphqlClient.request(query,
         {"login": userid, "startDateTime": start.toISOString(), "endDateTime": end.toISOString()});
       prs = [...prs, ...data.user.contributionsCollection.pullRequestContributionsByRepository];

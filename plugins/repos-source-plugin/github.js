@@ -14,7 +14,9 @@ async function getGithubRepos(userid, authToken, portfolioLangs) {
       user(login: $login) {
         repositories(first: 100, after: $after) {
           nodes {
-            name
+            description
+            homepageUrl
+            isFork
             languages(orderBy: {field: SIZE, direction: DESC}, first: 3) {
               edges {
                 node {
@@ -24,8 +26,9 @@ async function getGithubRepos(userid, authToken, portfolioLangs) {
               }
               totalSize
             }
-            description
-            url
+            name
+            openGraphImageUrl
+            pushedAt
             repositoryTopics(first: 50) {
               nodes {
                 topic {
@@ -33,10 +36,8 @@ async function getGithubRepos(userid, authToken, portfolioLangs) {
                 }
               }
             }
-            homepageUrl
-            openGraphImageUrl
-            isFork
-            pushedAt
+            stargazerCount
+            url
           }
           pageInfo {
             endCursor
@@ -87,7 +88,7 @@ async function getGithubRepos(userid, authToken, portfolioLangs) {
       return flatRepo;
     });
 
-    // filter out repos not including one of my primary languages
+    // filter out repos not including one of specified languages
     repos = repos.filter(repo => (repo.languages.some(l => portfolioLangs.includes(l.name))));
     // filter out repos with no topics (not ready to be displayed on portfolio)
     repos = repos.filter(repo => repo.topics.length > 0);

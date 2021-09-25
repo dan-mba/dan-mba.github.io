@@ -24,7 +24,7 @@ export default function NavBar() {
   const classes = useStyles();
 
   return(
-    <AppBar position="relative" id="nav-bar">
+    <AppBar position="sticky" id="nav-bar">
       <Toolbar className={classes.toolbar} disableGutters>
         <Typography className={classes.handwriting} variant="h3">
           Dan

@@ -78,7 +78,7 @@ export default function DesktopMenu() {
               }}
             >
               <Paper classes={{root: classes.paper}}>
-                <MenuList autoFocusItem={open} id="menu-list-grow">
+                <MenuList autoFocusItem={popupState.isOpen} id="menu-list-grow">
                   <MenuItem component={Link} to="/portfolio" underline="none">
                     <Typography variant="h6" classes={{root: `${classes.menuFont} ${classes.hover}`}}>
                       Projects

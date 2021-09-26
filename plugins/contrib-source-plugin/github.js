@@ -1,18 +1,18 @@
 const {GraphQLClient, gql} = require('graphql-request');
 
-async function getGithubContribs(userid) {
+async function getGithubContribs(userid, userToken, startDateTime, repoFilter, issueFilter, prFilter) {
   const endpoint = 'https://api.github.com/graphql';
 
   const graphqlClient = new GraphQLClient(endpoint, {
     headers: {
-      Authorization: `bearer ${process.env.GITHUB_TOKEN}` 
+      Authorization: `bearer ${userToken}` 
     }
   });
 
   const query = gql`
-    query getContribData($login: String!) {
+    query getContribData($login: String!, $startDateTime: DateTime!, $endDateTime: DateTime!) {
       user(login: $login) {
-        contributionsCollection {
+        contributionsCollection(from: $startDateTime, to: $endDateTime) {
           pullRequestContributionsByRepository {
             repository {
               description
@@ -20,6 +20,7 @@ async function getGithubContribs(userid) {
               owner {
                 login
               }
+              stargazerCount
               url
             }
             contributions(first: 10) {
@@ -28,6 +29,7 @@ async function getGithubContribs(userid) {
                   pullRequest {
                     merged
                     mergedAt
+                    number
                     title
                     url
                   }
@@ -42,6 +44,7 @@ async function getGithubContribs(userid) {
               owner {
                 login
               }
+              stargazerCount
               url
             }
             contributions(first: 10) {
@@ -50,6 +53,7 @@ async function getGithubContribs(userid) {
                   issue {
                     closed
                     closedAt
+                    number
                     title
                     url
                     viewerDidAuthor
@@ -64,9 +68,27 @@ async function getGithubContribs(userid) {
   `;
 
   try {
-    const data = await graphqlClient.request(query, {"login": userid});
-    let prs = data.user.contributionsCollection.pullRequestContributionsByRepository;
-    let issues = data.user.contributionsCollection.issueContributionsByRepository;
+    const now = new Date(Date.now());
+    let start = new Date(startDateTime);
+    let prs = [];
+    let issues = [];
+
+    while (start < now) {
+      let end = new Date(start);
+      end.setFullYear(end.getFullYear() + 1);
+      end = new Date(end.getTime() - 1);
+      if (end > now) {
+        end = now;
+      }
+
+      const data = await graphqlClient.request(query,
+        {"login": userid, "startDateTime": start.toISOString(), "endDateTime": end.toISOString()});
+      prs = [...prs, ...data.user.contributionsCollection.pullRequestContributionsByRepository];
+      issues = [...issues, ...data.user.contributionsCollection.issueContributionsByRepository];
+
+      start = new Date(end.getTime() + 1);
+    }
+
     let repos = [];
 
     // filter out repos from the provided userid
@@ -85,7 +107,24 @@ async function getGithubContribs(userid) {
 
       return repo;
     });
+    
     prs = prs.filter(r => r !== 'X');
+    if (prFilter.length > 0) {
+      prFilter.forEach(r => {
+        const index = prs.findIndex(repo => (repo.name === r.name) && (repo.owner === r.owner));
+        if (index >= 0) {
+          const prIndex = prs[index].contributionPrs.findIndex(pr => pr.number === r.number);
+          if (prIndex >= 0) {
+            prs[index].contributionPrs.splice(prIndex, 1);
+            prs[index].totalContribs--;
+          }
+          if (prs[index].totalContribs === 0) {
+            prs.splice(index, 1);
+          }
+        }
+      })
+    }
+
     if (prs.length > 0) {
       repos = [...prs];
     }
@@ -108,6 +147,21 @@ async function getGithubContribs(userid) {
     });
 
     issues = issues.filter(r => r !== 'X');
+    if (issueFilter.length > 0) {
+      issueFilter.forEach(r => {
+        const index = issues.findIndex(repo => (repo.name === r.name) && (repo.owner === r.owner));
+        if (index >= 0) {
+          const issueIndex = issues[index].contributionIssues.findIndex(issue => issue.number === r.number);
+          if (issueIndex >= 0) {
+            issues[index].contributionIssues.splice(issueIndex, 1);
+            issues[index].totalContribs--;
+          }
+          if (issues[index].totalContribs === 0) {
+            issues.splice(index, 1);
+          }
+        }
+      })
+    }
 
     // if repo already in the array, add issues to it otherwise push it to the array
     issues.forEach(r => {
@@ -124,8 +178,17 @@ async function getGithubContribs(userid) {
       repos[exists].totalContribs += r.totalContribs;
     });
 
-    const repoFilter = ['first-contributions']
-    repos = repos.filter(r => !repoFilter.includes(r.name));
+    //const repoFilter = ['first-contributions']
+    if (repoFilter.length > 0) {
+      repoFilter.forEach(r => {
+        const index = repos.findIndex(repo => {
+          return (repo.name === r.name) && (repo.owner === r.owner);
+        });
+        if (index >= 0) {
+          repos.splice(index, 1);
+        }
+      })
+    }
 
     return repos;
   } catch(e) {

@@ -1,11 +1,11 @@
 const {GraphQLClient, gql} = require('graphql-request');
 
-async function getGithubRepos(userid) {
+async function getGithubRepos(userid, authToken, portfolioLangs) {
   const endpoint = 'https://api.github.com/graphql';
 
   const graphqlClient = new GraphQLClient(endpoint, {
     headers: {
-      Authorization: `bearer ${process.env.GITHUB_TOKEN}` 
+      Authorization: `bearer ${authToken}` 
     }
   });
 
@@ -14,7 +14,9 @@ async function getGithubRepos(userid) {
       user(login: $login) {
         repositories(first: 100, after: $after) {
           nodes {
-            name
+            description
+            homepageUrl
+            isFork
             languages(orderBy: {field: SIZE, direction: DESC}, first: 3) {
               edges {
                 node {
@@ -24,8 +26,9 @@ async function getGithubRepos(userid) {
               }
               totalSize
             }
-            description
-            url
+            name
+            openGraphImageUrl
+            pushedAt
             repositoryTopics(first: 50) {
               nodes {
                 topic {
@@ -33,10 +36,8 @@ async function getGithubRepos(userid) {
                 }
               }
             }
-            homepageUrl
-            openGraphImageUrl
-            isFork
-            pushedAt
+            stargazerCount
+            url
           }
           pageInfo {
             endCursor
@@ -56,7 +57,8 @@ async function getGithubRepos(userid) {
 
   try {
     let data = await graphqlClient.request(query, {"login": userid});
-    let repos = data.user.repositories.nodes;
+    let repos = [...data.user.repositories.nodes];
+
     while (data.user.repositories.pageInfo.hasNextPage) {
       data = await graphqlClient.request(query, {
         "login": userid,
@@ -76,15 +78,17 @@ async function getGithubRepos(userid) {
           size: Math.round((lang.size / repo.languages.totalSize) * 10000) / 100
         };
       });
+
       flatRepo.languages = langs.filter(l => l.size > 1);
+
       flatRepo.topics = repo.repositoryTopics.nodes.map(t => t.topic.name).sort();
       delete flatRepo.repositoryTopics;
+      
       flatRepo.isPinned = pins.includes(repo.name);
       return flatRepo;
     });
 
-    const portfolioLangs = ['JavaScript','Vue','Python','TypeScript'];
-    // filter out repos not including one of my primary languages
+    // filter out repos not including one of specified languages
     repos = repos.filter(repo => (repo.languages.some(l => portfolioLangs.includes(l.name))));
     // filter out repos with no topics (not ready to be displayed on portfolio)
     repos = repos.filter(repo => repo.topics.length > 0);

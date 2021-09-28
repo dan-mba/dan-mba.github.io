@@ -9,6 +9,6 @@ describe('Home Page', () => {
 
   it('Menu loads', () => {
     cy.get('#nav-bar button').click()
-    cy.get('div.MuiDrawer-paper').should('be.visible')
+    cy.get('#menu-drawer').should('be.visible')
   })
 })

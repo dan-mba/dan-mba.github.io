@@ -46,9 +46,19 @@ const useStyles = makeStyles({
   badge: {
     fontSize: '0.9rem',
     border: `1px solid ${theme.palette.secondary.main}`,
+    top: 0,
+    left: 0,
+    transform: 'translate(24px, -40%)',
+    color: theme.palette.secondary.main,
+    backgroundColor: theme.palette.secondary.contrastText,
+  },
+  badgeRoot: {
+    backgroundColor: theme.palette.secondary.main,
+    borderRadius: '50%'
   },
   star: {
-    fontSize: '48px'
+    fontSize: '48px',
+    color: theme.palette.secondary.contrastText,
   }
 });
 
@@ -90,7 +100,6 @@ export default function ContribCard({repo}) {
         }
         avatar={
           <Badge badgeContent={repo.stargazerCount} max={9999}
-            anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
             classes={{root: classes.badgeRoot, badge: classes.badge}}
             aria-label={`${repo.stargazerCount} stars`}
           >

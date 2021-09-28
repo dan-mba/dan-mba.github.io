@@ -21,3 +21,5 @@ jobs:
           build: npm run build
           start: npm run serve
           wait-on: 'http://localhost:8000'
+          browser: chrome
+          headless: true

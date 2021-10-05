@@ -24,7 +24,7 @@ module.exports = {
         repoFilter: [{owner: 'firstcontributions', name: 'first-contributions'}]
       }
     },
-    'gatsby-plugin-sitemap',
+    'gatsby-plugin-advanced-sitemap',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

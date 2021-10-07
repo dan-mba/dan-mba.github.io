@@ -48,6 +48,7 @@ const useStyles = makeStyles({
     border: `1px solid ${theme.palette.secondary.main}`,
     top: 0,
     left: 0,
+    right: 'unset',
     transform: 'translate(24px, -40%)',
     color: theme.palette.secondary.main,
     backgroundColor: theme.palette.secondary.contrastText,

@@ -16,7 +16,8 @@
     "clean": "gatsby clean",
     "browserslist": "npx browserslist@latest --update-db",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run --headless"
+    "cypress:run": "cypress run --browser chrome --headless",
+    "cypress:verify": "cypress verify"
   },
   "dependencies": {
     "@loadable/component": "^5.15.0",

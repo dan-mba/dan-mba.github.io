@@ -72,6 +72,7 @@ export const pageQuery = graphql`
         }
         description
         name
+        stargazerCount
         url
       }
     }

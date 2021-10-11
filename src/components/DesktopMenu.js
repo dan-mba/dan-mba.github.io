@@ -66,7 +66,7 @@ export default function DesktopMenu() {
             >
               Portfolio
             </Button>
-            <Popover
+            <Popover keepMounted
               {...bindPopover(popupState)}
               anchorOrigin={{
                 vertical: 'bottom',

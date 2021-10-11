@@ -67,6 +67,7 @@ export default function MobileMenu() {
         open={drawer}
         onClose={closeDrawer}
         classes={{paper: classes.drawerRoot}}
+        ModalProps={{keepMounted: true}}
       >
         <List>
           <ListItem component={Link} to="/" color="inherit" underline="none">

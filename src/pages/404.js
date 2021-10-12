@@ -1,7 +1,7 @@
 import React from "react";
-import {Typography} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
-import {alpha} from "@material-ui/core/styles/colorManipulator";
+import {Typography} from "@mui/material";
+import { alpha } from "@mui/material/styles";
+import makeStyles from '@mui/styles/makeStyles';
 import {getImage} from "gatsby-plugin-image";
 import {graphql} from "gatsby";
 import BackgroundImage from "../components/BackgroundImage";
@@ -37,7 +37,7 @@ export default function FourZeroFour({data}) {
       </BackgroundImage>
     </Layout>
   );
-};
+}
 
 export const pageQuery = graphql`
   query FourZeroFourPage {

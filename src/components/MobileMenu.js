@@ -1,140 +1,125 @@
 import React, {useState} from "react";
-import {Drawer, List, ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
-import {LinkedIn, GitHub, Home, Code, Menu as MenuIcon} from "@material-ui/icons";
-import {makeStyles} from "@material-ui/core/styles";
+import {Drawer, List, ListItem, ListItemIcon, ListItemText} from "@mui/material";
+import {styled} from '@mui/material/styles';
+import {LinkedIn, GitHub, Home, Code, Menu as MenuIcon} from "@mui/icons-material";
 import {IconButton, Link} from "gatsby-theme-material-ui";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
-const useStyles = makeStyles({
-  linkBar: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    flexGrow: 1
-  },
-  drawerRoot: {
+const LinkBar = styled('div')({
+  display: 'flex',
+  justifyContent: 'flex-end',
+  alignItems: 'center',
+  flexGrow: 1
+});
+
+const ButtonIcon = styled(IconButton)({
+    flexDirection: 'column'
+});
+
+const MenuIconText = styled('div')({
+  fontSize: '.9rem',
+})
+
+const MenuDrawer = styled(Drawer)({
+  '.MuiPaper-root': {
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.primary.contrastText,
     minWidth: '14rem'
-  },
-  iconColor: {
-    color: theme.palette.primary.contrastText
-  },
-  iconRoot: {
-    flexDirection: 'column'
-  },
-  menuIconText: {
-    fontSize: '.9rem'
-  },
-  menuSlim: {
-    paddingTop: 0,
-    marginLeft: '56px'
-  },
-  menuTextSlim: {
-    margin: 0
-  },
-  subMenuText: {
+  }
+});
+
+const ListIcon = styled(ListItemIcon)({
+  color: theme.palette.primary.contrastText
+});
+
+const SlimListItem = styled(ListItem)({
+  paddingTop: 0,
+  marginLeft: '56px'
+});
+
+const SlimListText = styled(ListItemText)({
+  margin: 0,
+  '.MuiListItemText-primary': {
     fontWeight: 400
   }
 });
 
 export default function MobileMenu() {
-  const classes = useStyles();
   const [drawer, setDrawer] = useState(false);
-
   const closeDrawer = () => setDrawer(false);
-
   const openDrawer = () => setDrawer(true);
 
-  return(
-    <>
-      <div className={classes.linkBar}>
-        <IconButton
+  return <>
+    <LinkBar>
+      <ButtonIcon
+        color="inherit"
+        aria-controls="menu-dropdown"
+        aria-haspopup="menu"
+        disableRipple
+        onClick={openDrawer}
+        size="large">
+        <MenuIcon />
+        <MenuIconText>Menu</MenuIconText>
+      </ButtonIcon>
+    </LinkBar>
+    <MenuDrawer
+      id="menu-drawer"
+      anchor="right"
+      open={drawer}
+      onClose={closeDrawer}
+      ModalProps={{keepMounted: true}}
+    >
+      <List>
+        <ListItem component={Link} to="/" color="inherit" underline="none">
+          <ListIcon>
+            <Home />
+          </ListIcon>
+          <ListItemText primary="About" primaryTypographyProps={{variant: "h5"}}/>
+        </ListItem>
+        <ListItem color="inherit" underline="none">
+          <ListIcon>
+            <Code />
+          </ListIcon>
+          <SlimListText primary="Portfolio" primaryTypographyProps={{variant: "h5"}}/>
+        </ListItem>
+        <SlimListItem component={Link} to="/portfolio" color="inherit" underline="none">
+          <SlimListText primary="Projects" primaryTypographyProps={{variant: "h6"}}/>
+        </SlimListItem>
+        <SlimListItem component={Link} to="/topics" color="inherit" underline="none">
+          <SlimListText primary="Topics" primaryTypographyProps={{variant: "h6"}}/>
+        </SlimListItem>
+        <SlimListItem component={Link} to="/contributions" color="inherit" underline="none">
+          <SlimListText primary="Contributions" primaryTypographyProps={{variant: "h6"}}/>
+        </SlimListItem>
+        <ListItem
+          component={Link}
           color="inherit"
-          aria-controls="menu-dropdown"
-          aria-haspopup="menu"
-          disableRipple
-          classes={{label: classes.iconRoot}}
-          onClick={openDrawer}
+          underline="none"
+          href="https://github.com/dan-mba"
+          target="_blank"
+          rel="noreferrer noopener"
+          onClick={closeDrawer}
         >
-          <MenuIcon />
-          <div className={classes.menuIconText}>Menu</div>
-        </IconButton>
-      </div>
-      <Drawer
-        id="menu-drawer"
-        anchor="right"
-        open={drawer}
-        onClose={closeDrawer}
-        classes={{paper: classes.drawerRoot}}
-        ModalProps={{keepMounted: true}}
-      >
-        <List>
-          <ListItem component={Link} to="/" color="inherit" underline="none">
-            <ListItemIcon classes={{root: classes.iconColor}}>
-              <Home />
-            </ListItemIcon>
-            <ListItemText primary="About" primaryTypographyProps={{variant: "h5"}}/>
-          </ListItem>
-          <ListItem color="inherit" underline="none">
-            <ListItemIcon classes={{root: classes.iconColor}}>
-              <Code />
-            </ListItemIcon>
-            <ListItemText primary="Portfolio" primaryTypographyProps={{variant: "h5"}}
-              classes={{root: classes.menuTextSlim}}
-            />
-          </ListItem>
-          <ListItem component={Link} to="/portfolio" color="inherit" underline="none"
-            classes={{root: classes.menuSlim}}
-          >
-            <ListItemText primary="Projects" primaryTypographyProps={{variant: "h6"}}
-              classes={{root: classes.menuTextSlim, primary: classes.subMenuText}}
-            />
-          </ListItem>
-          <ListItem component={Link} to="/topics" color="inherit" underline="none"
-            classes={{root: classes.menuSlim}}
-          >
-            <ListItemText primary="Topics" primaryTypographyProps={{variant: "h6"}}
-              classes={{root: classes.menuTextSlim, primary: classes.subMenuText}}
-            />
-          </ListItem>
-          <ListItem component={Link} to="/contributions" color="inherit" underline="none"
-            classes={{root: classes.menuSlim}}
-          >
-            <ListItemText primary="Contributions" primaryTypographyProps={{variant: "h6"}}
-              classes={{root: classes.menuTextSlim, primary: classes.subMenuText}}
-            />
-          </ListItem>
-          <ListItem
-            component={Link}
-            color="inherit"
-            underline="none"
-            href="https://github.com/dan-mba"
-            target="_blank"
-            rel="noreferrer noopener"
-            onClick={closeDrawer}
-          >
-            <ListItemIcon classes={{root: classes.iconColor}}>
-              <GitHub/>
-            </ListItemIcon>
-            <ListItemText primary="GitHub" primaryTypographyProps={{variant: "h5"}}/>
-          </ListItem>
-          <ListItem
-            component={Link}
-            color="inherit"
-            underline="none"
-            href="https://linkedin.com/danburkhardt"
-            target="_blank"
-            rel="noreferrer noopener"
-            onClick={closeDrawer}
-          >
-            <ListItemIcon classes={{root: classes.iconColor}}>
-              <LinkedIn />
-            </ListItemIcon>
-            <ListItemText primary="LinkedIn" primaryTypographyProps={{variant: "h5"}}/>
-          </ListItem>
-        </List>
-      </Drawer>
-    </>
-  );
+          <ListIcon>
+            <GitHub/>
+          </ListIcon>
+          <ListItemText primary="GitHub" primaryTypographyProps={{variant: "h5"}}/>
+        </ListItem>
+        <ListItem
+          component={Link}
+          color="inherit"
+          underline="none"
+          href="https://linkedin.com/danburkhardt"
+          target="_blank"
+          rel="noreferrer noopener"
+          onClick={closeDrawer}
+        >
+          <ListIcon>
+            <LinkedIn />
+          </ListIcon>
+          <ListItemText primary="LinkedIn" primaryTypographyProps={{variant: "h5"}}/>
+        </ListItem>
+      </List>
+    </MenuDrawer>
+  </>;
 }

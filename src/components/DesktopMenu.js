@@ -1,8 +1,7 @@
 import React from "react";
-import {Typography, Popover, Paper, Button, MenuList, MenuItem} from "@material-ui/core";
-import {LinkedIn, GitHub} from "@material-ui/icons";
-import {makeStyles} from "@material-ui/core/styles";
-import {decomposeColor, recomposeColor, hexToRgb, rgbToHex} from "@material-ui/core/styles/colorManipulator"
+import {Typography, Popover, Paper, Button, MenuList, MenuItem} from "@mui/material";
+import {LinkedIn, GitHub} from "@mui/icons-material";
+import {decomposeColor, recomposeColor, hexToRgb, rgbToHex, styled} from "@mui/material/styles";
 import {IconButton, Link} from "gatsby-theme-material-ui";
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
@@ -16,56 +15,67 @@ const fullBlue = (color) => {
   return rgbToHex(recomposeColor(sec));
 }
 
-const useStyles = makeStyles({
-  linkBar: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    flexGrow: 1
-  },
-  linkItem: {
-    padding: '16px 12px 8px',
-  },
-  hover: {
-    '&:hover': {
-      color: fullBlue(theme.palette.secondary.main)
-    }
-  },
-  paper: {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText
-  },
-  buttonStyle: {
-    textTransform: 'none',
-    lineHeight: 1.334,
-    fontSize: '1.5rem',
-    fontWeight: 400,
-    padding: '16px 12px 8px'
-  },
-  menuFont: {
-    fontWeight: 400
+const LinkBar = styled('div')({
+  display: 'flex',
+  justifyContent: 'flex-end',
+  alignItems: 'center',
+  flexGrow: 1
+});
+
+const MyPaper = styled(Paper)({
+  backgroundColor: theme.palette.primary.main,
+  color: theme.palette.primary.contrastText
+});
+
+const MyButton = styled(Button)({
+  textTransform: 'none',
+  lineHeight: 1.334,
+  fontSize: '1.5rem',
+  fontWeight: 400,
+  padding: '16px 12px 8px',
+  '&:hover': {
+    color: fullBlue(theme.palette.secondary.main)
   }
 });
 
+const HoverLink = styled(Link)({
+  padding: '16px 12px 8px',
+  '&:hover': {
+    color: fullBlue(theme.palette.secondary.main)
+  }
+});
+
+const HoverIcon = styled(IconButton)({
+  '&:hover': {
+    color: fullBlue(theme.palette.secondary.main)
+  }
+});
+
+const MenuType = styled(Typography)({
+  fontWeight: 400,
+  '&:hover': {
+    color: fullBlue(theme.palette.secondary.main)
+  }
+});
+
+
+
 export default function DesktopMenu() {
-  const classes = useStyles();
-  
-  return(
-    <div className={classes.linkBar}>
-      <Link to="/" color="inherit" underline="none" className={`${classes.linkItem} ${classes.hover}`}>
+  return (
+    <LinkBar>
+      <HoverLink to="/" color="inherit" underline="none">
         <Typography variant="h5">About</Typography>
-      </Link>
+      </HoverLink>
       <PopupState variant="popover" popupId="portfolio-menu">
         {(popupState) => (
           <>
-            <Button
+            <MyButton
               color="inherit" size="large"
               aria-haspopup="true"
               {...bindTrigger(popupState)}
-              classes={{root: `${classes.buttonStyle} ${classes.hover}`}}
             >
               Portfolio
-            </Button>
+            </MyButton>
             <Popover keepMounted
               {...bindPopover(popupState)}
               anchorOrigin={{
@@ -77,49 +87,47 @@ export default function DesktopMenu() {
                 horizontal: 'center',
               }}
             >
-              <Paper classes={{root: classes.paper}}>
+              <MyPaper>
                 <MenuList autoFocusItem={popupState.isOpen} id="menu-list-grow">
                   <MenuItem component={Link} to="/portfolio" underline="none">
-                    <Typography variant="h6" classes={{root: `${classes.menuFont} ${classes.hover}`}}>
+                    <MenuType variant="h6">
                       Projects
-                    </Typography>
+                    </MenuType>
                   </MenuItem>
                   <MenuItem component={Link} to="/topics" underline="none">
-                    <Typography variant="h6" classes={{root: `${classes.menuFont} ${classes.hover}`}}>
+                    <MenuType variant="h6">
                       Topics
-                    </Typography>
+                    </MenuType>
                   </MenuItem>
                   <MenuItem component={Link} to="/contributions" underline="none">
-                    <Typography variant="h6" classes={{root: `${classes.menuFont} ${classes.hover}`}}>
+                    <MenuType variant="h6">
                       Contributions
-                    </Typography>
+                    </MenuType>
                   </MenuItem>
                 </MenuList>
-              </Paper>
+              </MyPaper>
             </Popover>
           </>
         )}
       </PopupState>
-      <IconButton
+      <HoverIcon
         color="inherit"
         aria-label="GitHub"
         href="https://github.com/dan-mba"
         target="_blank"
         rel="noreferrer noopener"
-        className={classes.hover}
-      >
+        size="large">
         <GitHub fontSize="large"/>
-      </IconButton>
-      <IconButton
+      </HoverIcon>
+      <HoverIcon
         color="inherit"
         aria-label="LinkedIn"
         href="https://linkedin.com/danburkhardt"
         target="_blank"
         rel="noreferrer noopener"
-        className={classes.hover}
-      >
+        size="large">
         <LinkedIn fontSize="large" />
-      </IconButton>
-    </div>
+      </HoverIcon>
+    </LinkBar>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
-import { Pagination, PaginationItem } from "@material-ui/lab";
+import { Pagination } from '@mui/material';
+import { PaginationItem } from '@mui/lab';
 import { Link } from "gatsby-theme-material-ui";
 
 export default function RepoPagination({page, count, baseLink}) {

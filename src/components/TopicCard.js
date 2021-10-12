@@ -1,7 +1,7 @@
 import React from "react";
-import {Card, CardActions, CardContent, CardHeader, Typography} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
-import {Code, Link as LinkIcon} from "@material-ui/icons";
+import {Card, CardActions, CardContent, CardHeader, Typography} from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
+import {Code, Link as LinkIcon} from "@mui/icons-material";
 import IconTooltip from "./IconTooltip";
 
 const useStyles = makeStyles({

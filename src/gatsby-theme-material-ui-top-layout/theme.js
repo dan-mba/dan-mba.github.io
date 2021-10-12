@@ -1,4 +1,4 @@
-import { createTheme } from "@material-ui/core/styles";
+import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
@@ -21,14 +21,16 @@ const theme = createTheme({
       xl: 1200,
     },
   },
-  overrides: {
+  components: {
     MuiTypography: {
-      body1: {
-        maxWidth: '70ch',
-      },
+      styleOverrides: {
+        body1: {
+          maxWidth: '70ch',
+        },
+      }
     },
     MuiCssBaseline: {
-      '@global': {
+      styleOverrides: {
         body: {
           backgroundColor: '#e0e0e0'
         },

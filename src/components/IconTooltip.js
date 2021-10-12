@@ -1,6 +1,6 @@
 import React from 'react';
-import { Popover, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Popover, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { IconButton } from "gatsby-theme-material-ui";
 
 const useStyles = makeStyles({
@@ -38,42 +38,40 @@ export default function IconTooltip({buttonClass, icon, title, top, url}) {
 
   const open = Boolean(anchorEl);
 
-  return (
-    <>
-      <IconButton 
-        aria-label={title}
-        href={url}
-        target="_blank"
-        rel="noreferrer noopener"
-        classes={buttonClass ? {root: buttonClass} : {}}
-        aria-owns={open ? 'mouse-over-popover' : undefined}
-        aria-haspopup="true"
-        onMouseEnter={handlePopoverOpen}
-        onMouseLeave={handlePopoverClose}
-      >
-        {icon}
-      </IconButton>
-      <Popover
-        id="mouse-over-popover"
-        className={classes.popover}
-        classes={{
-          paper: classes.paper,
-        }}
-        open={open}
-        anchorEl={anchorEl}
-        anchorOrigin={{
-          vertical: top ? 'top' : 'bottom',
-          horizontal: 'center',
-        }}
-        transformOrigin={{
-          vertical: top ? 'bottom' : 'top',
-          horizontal: 'center',
-        }}
-        onClose={handlePopoverClose}
-        disableRestoreFocus
-      >
-        <Typography className={classes.typography}>{title}</Typography>
-      </Popover>
-    </>
-  );
+  return <>
+    <IconButton
+      aria-label={title}
+      href={url}
+      target="_blank"
+      rel="noreferrer noopener"
+      classes={buttonClass ? {root: buttonClass} : {}}
+      aria-owns={open ? 'mouse-over-popover' : undefined}
+      aria-haspopup="true"
+      onMouseEnter={handlePopoverOpen}
+      onMouseLeave={handlePopoverClose}
+      size="large">
+      {icon}
+    </IconButton>
+    <Popover
+      id="mouse-over-popover"
+      className={classes.popover}
+      classes={{
+        paper: classes.paper,
+      }}
+      open={open}
+      anchorEl={anchorEl}
+      anchorOrigin={{
+        vertical: top ? 'top' : 'bottom',
+        horizontal: 'center',
+      }}
+      transformOrigin={{
+        vertical: top ? 'bottom' : 'top',
+        horizontal: 'center',
+      }}
+      onClose={handlePopoverClose}
+      disableRestoreFocus
+    >
+      <Typography className={classes.typography}>{title}</Typography>
+    </Popover>
+  </>;
 }

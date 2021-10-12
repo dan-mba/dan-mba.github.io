@@ -1,6 +1,6 @@
 import React from "react";
-import {Avatar, Chip, Grid, Link} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
+import {Avatar, Chip, Grid, Link} from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
 // Use Link from reach-router to prevent gatsby preloading all links
 import {Link as ReachLink} from "@gatsbyjs/reach-router";
 import Layout from "../components/Layout";
@@ -9,7 +9,7 @@ import theme from "../gatsby-theme-material-ui-top-layout/theme"
 const useStyles = makeStyles({
   grid: {
     padding: '5em 1em 2em',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('lg')]: {
       padding: '2em 2%'
     },
     display: 'flex',

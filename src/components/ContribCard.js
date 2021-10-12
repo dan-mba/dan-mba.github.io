@@ -1,7 +1,7 @@
 import React from "react";
-import {Badge, Card, CardContent, CardHeader, Typography} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
-import {Code, StarOutlineRounded} from "@material-ui/icons";
+import {Badge, Card, CardContent, CardHeader, Typography} from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
+import {Code, StarOutlineRounded} from "@mui/icons-material";
 import {Link} from "gatsby-theme-material-ui";
 import IconTooltip from "./IconTooltip";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";

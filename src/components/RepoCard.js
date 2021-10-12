@@ -1,7 +1,7 @@
 import React from "react";
-import {Card, CardActions, CardContent, CardHeader, CardMedia, Chip, Link, Typography} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
-import {Code, Link as LinkIcon} from "@material-ui/icons";
+import {Card, CardActions, CardContent, CardHeader, CardMedia, Chip, Link, Typography} from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
+import {Code, Link as LinkIcon} from "@mui/icons-material";
 // use Link from reach router to avoid pre-fetching topics
 import {Link as ReachLink} from "@gatsbyjs/reach-router";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";

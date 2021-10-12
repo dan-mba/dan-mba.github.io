@@ -36,9 +36,6 @@ const useStyles = makeStyles({
   contribSpacer: {
     marginBottom: '1.5em'
   },
-  button: {
-    padding: '0 12px 6px'
-  },
  avatar:{
     alignSelf: 'start',
     marginRight: '28px'
@@ -96,7 +93,7 @@ export default function ContribCard({repo}) {
         subheaderTypographyProps={{align: 'center', color: 'secondary', variant: 'body1'}}
         action={
           <IconTooltip title="code repository" url={repo.url}
-            icon={<Code/>} buttonClass={classes.button}
+            icon={<Code/>} style={{padding: '0 12px 6px'}}
           />
         }
         avatar={

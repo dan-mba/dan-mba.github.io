@@ -1,39 +1,35 @@
 import React from "react";
 import {Typography} from "@mui/material";
-import { alpha } from "@mui/material/styles";
-import makeStyles from '@mui/styles/makeStyles';
+import { alpha, styled } from "@mui/material/styles";
 import {getImage} from "gatsby-plugin-image";
 import {graphql} from "gatsby";
 import BackgroundImage from "../components/BackgroundImage";
 import Layout from "../components/Layout";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
+const heroStyle = {
+  width: '100%',
+  height: '30em'
+};
 
-const useStyles = makeStyles({
-  hero: {
-    width: '100%',
-    height: '30em'
-  },
-  heroText: {
-    color: theme.palette.primary.contrastText,
-    backgroundColor: alpha(theme.palette.primary.main,0.5),
-    padding: '2px',
-    textAlign: 'center',
-    borderRadius: '5px'
-  },
+const HeroText = styled('div') ({
+  color: theme.palette.primary.contrastText,
+  backgroundColor: alpha(theme.palette.primary.main,0.5),
+  padding: '2px',
+  textAlign: 'center',
+  borderRadius: '5px'
 });
 
 export default function FourZeroFour({data}) {
-  const classes = useStyles();
   const heroImgData = getImage(data.hero);
 
   return (
     <Layout title="Page Not Found" description="Page Not Found">
-      <BackgroundImage className={classes.hero} image={heroImgData}>
-        <div className={classes.heroText}>
+      <BackgroundImage image={heroImgData} style={heroStyle}>
+        <HeroText>
           <Typography variant="h3">Page Not Found</Typography>
           <Typography variant="body1">Oops! The page you are looking for has been removed or relocated</Typography>
-        </div>
+        </HeroText>
       </BackgroundImage>
     </Layout>
   );

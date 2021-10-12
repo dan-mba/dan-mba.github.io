@@ -1,31 +1,29 @@
 import React from 'react';
 import { Popover, Typography } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import {styled} from '@mui/material/styles'
 import { IconButton } from "gatsby-theme-material-ui";
 
-const useStyles = makeStyles({
-  popover: {
-    pointerEvents: 'none',
-  },
-  paper: {
+const Text = styled(Typography)({
+  color: '#fff',
+  padding: '4px 8px',
+  fontSize: '0.75rem',
+  maxWidth: '300px',
+  wordWrap: 'break-word',
+  fontWeight: 400,
+  lineHeight: '1.4em',
+  borderRadius: '4px;',
+  backgroundColor: 'rgba(97, 97, 97, 0.9)',
+});
+
+const MenuPopover = styled(Popover)({
+  pointerEvents: 'none',
+  '.MuiPopover-paper': {
     backgroundColor: 'transparent',
     margin: '.5rem 0'
   },
-  typography: {
-    color: '#fff',
-    padding: '4px 8px',
-    fontSize: '0.75rem',
-    maxWidth: '300px',
-    wordWrap: 'break-word',
-    fontWeight: 400,
-    lineHeight: '1.4em',
-    borderRadius: '4px;',
-    backgroundColor: 'rgba(97, 97, 97, 0.9)',
-  }
 });
 
-export default function IconTooltip({buttonClass, icon, title, top, url}) {
-  const classes = useStyles();
+export default function IconTooltip({style, icon, title, top, url}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handlePopoverOpen = (event) => {
@@ -44,7 +42,7 @@ export default function IconTooltip({buttonClass, icon, title, top, url}) {
       href={url}
       target="_blank"
       rel="noreferrer noopener"
-      classes={buttonClass ? {root: buttonClass} : {}}
+      style={style ? style : {}}
       aria-owns={open ? 'mouse-over-popover' : undefined}
       aria-haspopup="true"
       onMouseEnter={handlePopoverOpen}
@@ -52,12 +50,8 @@ export default function IconTooltip({buttonClass, icon, title, top, url}) {
       size="large">
       {icon}
     </IconButton>
-    <Popover
+    <MenuPopover
       id="mouse-over-popover"
-      className={classes.popover}
-      classes={{
-        paper: classes.paper,
-      }}
       open={open}
       anchorEl={anchorEl}
       anchorOrigin={{
@@ -71,7 +65,7 @@ export default function IconTooltip({buttonClass, icon, title, top, url}) {
       onClose={handlePopoverClose}
       disableRestoreFocus
     >
-      <Typography className={classes.typography}>{title}</Typography>
-    </Popover>
+      <Text>{title}</Text>
+    </MenuPopover>
   </>;
 }

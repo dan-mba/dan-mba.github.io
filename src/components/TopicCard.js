@@ -26,10 +26,11 @@ const useStyles = makeStyles({
     margin: 0,
     flexGrow: 1
   },
-  button: {
-    padding: '0 12px 6px'
-  }
 });
+
+const buttonStyle = {
+  padding: '0 12px 6px'
+};
 
 export default function RepoCard({repo}) {
   const classes = useStyles();
@@ -49,11 +50,11 @@ export default function RepoCard({repo}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <IconTooltip title="code repository" buttonClass={classes.button}
+        <IconTooltip title="code repository" style={buttonStyle}
           url={repo.url} icon={<Code/>}
         />
         {!repo.homepageUrl ? null:
-          <IconTooltip title="demo site" buttonClass={classes.button}
+          <IconTooltip title="demo site" style={buttonStyle}
             url={repo.homepageUrl} icon={<LinkIcon/>}
           />
         }

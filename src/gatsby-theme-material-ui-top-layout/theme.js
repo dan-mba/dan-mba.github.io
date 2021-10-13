@@ -32,7 +32,10 @@ const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          backgroundColor: '#e0e0e0'
+          backgroundColor: '#e0e0e0',
+          fontSize: '0.875rem',
+          lineHeight: '1.43',
+          letterSpacing: '0.01071em',
         },
       },
     },

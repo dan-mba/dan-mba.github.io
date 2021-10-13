@@ -1,53 +1,76 @@
 import React from "react";
 import {Typography, Grid, Container} from "@mui/material";
-import makeStyles from '@mui/styles/makeStyles';
+import {styled} from '@mui/material/styles'
 import {graphql} from "gatsby";
 import loadable from "@loadable/component";
 import Layout from "../components/Layout";
+import theme from "../gatsby-theme-material-ui-top-layout"
 import ContribCard from "../components/ContribCard";
 
 const RepoPagination = loadable(() => import("../components/RepoPagination"));
 
-const useStyles = makeStyles({
-  title: {
-    padding: '1em 0 0'
-  },
-  gridRoot: {
-    padding: '2em .5em'
-  },
-  gridItem: {
-    padding: '1em .5em'
-  },
-  linkArea: {
-    display: 'flex',
-    justifyContent: 'center',
-    padding: '0 0 1em'
+const LayoutContainer = styled(Container)({
+  padding: '0 min(2%, 1em)'
+});
+
+const GridContainer = styled(Grid)({
+  padding: '2em 0'
+});
+
+const Title = styled(Typography)({
+  padding: '1em 0 0'
+});
+
+const LinkArea = styled('div')({
+  display: 'flex',
+  justifyContent: 'center',
+  padding: '0 0 1em'
+});
+
+const GridLeft = styled(Grid)({
+  paddingTop: '1em',
+  paddingBottom: '1em',
+  [theme.breakpoints.up('md')]: {
+    paddingRight: '1em'
+  }
+});
+
+const GridRight = styled(Grid)({
+  paddingTop: '1em',
+  paddingBottom: '1em',
+  [theme.breakpoints.up('md')]: {
+    paddingLeft: '1em'
   }
 });
 
 export default function Home({data, pageContext: {numberOfPages, humanPageNumber}}) {
-  const classes = useStyles();
   const repos = data.repos.nodes;
-  const items = repos.map((repo) => (
-    <Grid item xs={12} md={6} key={repo.name} classes={{root: classes.gridItem}}>
-      <ContribCard repo={repo} />
-    </Grid>
-  ));
+  const items = repos.map((repo, index) => {
+    return index%2 === 0 ? (
+      <GridLeft item xs={12} md={6} key={repo.name}>
+        <ContribCard repo={repo} index={index}/>
+      </GridLeft>
+    ) : (
+      <GridRight item xs={12} md={6} key={repo.name}>
+        <ContribCard repo={repo} index={index}/>
+      </GridRight>
+    );
+  });
 
   return (
     <Layout title={`Daniel Burkhardt - Contributions`}
       description={`Software Development Portfolio Site for Daniel Burkhardt - Contributions`}
     >
-      <Container maxWidth="xl" disableGutters>
-        <Typography variant="h3" align="center" className={classes.title}>Open Source Contributions</Typography>
-        <Grid container justifyContent="center" alignItems="stretch" classes={{root: classes.gridRoot}}>
+      <LayoutContainer maxWidth="xl" disableGutters>
+        <Title variant="h3" align="center">Open Source Contributions</Title>
+        <GridContainer container justifyContent="center" alignItems="stretch">
           {items}
-        </Grid>
+        </GridContainer>
         {numberOfPages == 1 ? null :
-          <div className={classes.linkArea}>
+          <LinkArea>
             <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/contributions'}/>
-          </div>}
-      </Container>
+          </LinkArea>}
+      </LayoutContainer>
     </Layout>
   );
 };

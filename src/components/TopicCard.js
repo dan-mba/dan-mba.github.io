@@ -1,31 +1,32 @@
 import React from "react";
 import {Card, CardActions, CardContent, CardHeader, Typography} from "@mui/material";
-import makeStyles from '@mui/styles/makeStyles';
+import {styled} from "@mui/material/styles";
 import {Code, Link as LinkIcon} from "@mui/icons-material";
 import IconTooltip from "./IconTooltip";
 
-const useStyles = makeStyles({
-  root: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column'
-  },
-  header: {
-    padding: '1em .25em .5em'
-  },
-  subheader: {
+const CardRoot = styled(Card)({
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column'
+});
+
+const Header = styled(CardHeader)({
+  padding: '1em .25em .5em',
+  '.MuiCardHeader-subheader': {
     minHeight: '3em',
   },
-  grow: {
-    flexGrow: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '0 16px'
-  },
-  desc: {
-    margin: 0,
-    flexGrow: 1
-  },
+});
+
+const Content = styled(CardContent)({
+  display: 'flex',
+  flexDirection: 'column',
+  flexGrow: 1,
+  padding: '0 16px'
+});
+
+const Description = styled(Typography)({
+  margin: 0,
+  flexGrow: 1
 });
 
 const buttonStyle = {
@@ -33,22 +34,19 @@ const buttonStyle = {
 };
 
 export default function RepoCard({repo}) {
-  const classes = useStyles();
-
   return (
-    <Card classes={{root: classes.root}}>
-      <CardHeader
-        classes={{root: classes.header, subheader: classes.subheader}}
+    <CardRoot>
+      <Header
         title={repo.name}
         titleTypographyProps={{align: 'center'}}
         subheader={repo.languages.map(l => `${l.name}: ${l.size}%`).join(', ')}
         subheaderTypographyProps={{align: 'center', color: 'secondary'}}
       />
-      <CardContent classes={{root: classes.grow}}>
-        <Typography variant="body1" align="center" className={classes.desc}>
+      <Content>
+        <Description variant="body1" align="center">
           {repo.description}
-        </Typography>
-      </CardContent>
+        </Description>
+      </Content>
       <CardActions>
         <IconTooltip title="code repository" style={buttonStyle}
           url={repo.url} icon={<Code/>}
@@ -59,6 +57,6 @@ export default function RepoCard({repo}) {
           />
         }
       </CardActions>
-    </Card>
+    </CardRoot>
   );
 }

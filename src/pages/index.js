@@ -1,7 +1,7 @@
 import React from "react";
 import {List, ListItem, ListItemIcon, ListItemText, Typography, useMediaQuery} from "@mui/material";
 import {PlaceOutlined} from "@mui/icons-material";
-import { alpha, darken, lighten, styled } from "@mui/material/styles";
+import {alpha, darken, lighten, styled} from "@mui/material/styles";
 import {graphql} from "gatsby";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import {Link} from "gatsby-theme-material-ui";

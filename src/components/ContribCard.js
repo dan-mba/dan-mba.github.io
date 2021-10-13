@@ -1,46 +1,49 @@
 import React from "react";
 import {Badge, Card, CardContent, CardHeader, Typography} from "@mui/material";
-import makeStyles from '@mui/styles/makeStyles';
+import {styled} from "@mui/material/styles";
 import {Code, StarOutlineRounded} from "@mui/icons-material";
 import {Link} from "gatsby-theme-material-ui";
 import IconTooltip from "./IconTooltip";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
-const useStyles = makeStyles({
-  root: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column'
-  },
-  header: {
-    padding: '1em .25em .5em',
-    marginLeft: '12px'
-  },
-  title: {
+
+const CardRoot = styled(Card)({
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column'
+})
+
+const Header = styled(CardHeader)({
+  padding: '1em .25em .5em',
+  marginLeft: '12px',  
+  '.MuiCardHeader-title': {
     marginBottom: '.5em',
     fontWeight: '500'
   },
-  subheader: {
+  '.MuiCardHeader-subheader': {
     minHeight: '4.5em',
   },
-  action: {
+  '.MuiCardHeader-action': {
     margin: 0,
     marginLeft: '16px'
   },
-  grow: {
-    flexGrow: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '0 16px'
-  },
-  contribSpacer: {
-    marginBottom: '1.5em'
-  },
- avatar:{
+  '.MuiCardHeader-avatar': {
     alignSelf: 'start',
     marginRight: '28px'
   },
-  badge: {
+})
+
+const Content = styled(CardContent)({
+  display: 'flex',
+  flexDirection: 'column',
+  flexGrow: 1,
+  padding: '0 16px'
+});
+
+const StarBadge = styled(Badge)({
+  backgroundColor: theme.palette.secondary.main,
+  borderRadius: '50%',
+  '.MuiBadge-badge': {
     fontSize: '0.9rem',
     border: `1px solid ${theme.palette.secondary.main}`,
     top: 0,
@@ -49,20 +52,19 @@ const useStyles = makeStyles({
     transform: 'translate(24px, -40%)',
     color: theme.palette.secondary.main,
     backgroundColor: theme.palette.secondary.contrastText,
-  },
-  badgeRoot: {
-    backgroundColor: theme.palette.secondary.main,
-    borderRadius: '50%'
-  },
-  star: {
-    fontSize: '48px',
-    color: theme.palette.secondary.contrastText,
   }
 });
 
-export default function ContribCard({repo}) {
-  const classes = useStyles();
+const StarIcon = styled(StarOutlineRounded)({
+  color: theme.palette.secondary.contrastText,
+  fontSize: '48px',
+});
 
+const Spacer = styled('div')({
+  marginBottom: '1.5em'
+})
+
+export default function ContribCard({repo}) {
   const cropString = (str) => {
     if (str.length > 80) {
       const word = str.substring(80).indexOf(' ');
@@ -76,17 +78,8 @@ export default function ContribCard({repo}) {
   }
 
   return (
-    <Card classes={{root: classes.root}}>
-      <CardHeader
-        classes={
-          {
-            root: classes.header,
-            title: classes.title,
-            subheader: classes.subheader,
-            action: classes.action,
-            avatar: classes.avatar,
-          }
-        }
+    <CardRoot>
+      <Header
         title={repo.name}
         titleTypographyProps={{align: 'center', variant: 'h5'}}
         subheader={cropString(repo.description)}
@@ -97,15 +90,14 @@ export default function ContribCard({repo}) {
           />
         }
         avatar={
-          <Badge badgeContent={repo.stargazerCount} max={9999}
-            classes={{root: classes.badgeRoot, badge: classes.badge}}
+          <StarBadge badgeContent={repo.stargazerCount} max={9999}
             aria-label={`${repo.stargazerCount} stars`}
           >
-            <StarOutlineRounded color="secondary" classes={{root: classes.star}}/>
-          </Badge>
+            <StarIcon color="secondary"/>
+          </StarBadge>
         }
       />
-      <CardContent classes={{root: classes.grow}}>
+      <Content>
         {!repo.contributionPrs ? null : 
           <div>
             <Typography variant="h6" align="center">Pull Requests</Typography>
@@ -121,7 +113,7 @@ export default function ContribCard({repo}) {
           </div>
         }
         {repo.contributionPrs && repo.contributionIssues ?
-          <div className={classes.contribSpacer}></div> : null
+          <Spacer/> : null
         }
         {!repo.contributionIssues ? null : 
           <div>
@@ -137,7 +129,7 @@ export default function ContribCard({repo}) {
             ))}
           </div>
         }
-      </CardContent>
-    </Card>
+      </Content>
+    </CardRoot>
   );
 }

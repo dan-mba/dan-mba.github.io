@@ -4,7 +4,7 @@ import {styled} from '@mui/material/styles'
 import {graphql} from "gatsby";
 import loadable from "@loadable/component";
 import Layout from "../components/Layout";
-import theme from "../gatsby-theme-material-ui-top-layout"
+import theme from "../gatsby-theme-material-ui-top-layout/theme";
 import ContribCard from "../components/ContribCard";
 
 const RepoPagination = loadable(() => import("../components/RepoPagination"));

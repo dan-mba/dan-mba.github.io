@@ -9,7 +9,6 @@ describe('Home Page', () => {
 
   it('Menu loads', () => {
     cy.get('#menu-button').click()
-    // avoid unexplainable timeout
     cy.get('#menu-drawer').should('be.visible')
   })
 })

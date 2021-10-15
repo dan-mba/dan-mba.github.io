@@ -52,6 +52,7 @@ export default function MobileMenu() {
   return <>
     <LinkBar>
       <ButtonIcon
+        id="menu-button"
         color="inherit"
         aria-controls="menu-dropdown"
         aria-haspopup="menu"

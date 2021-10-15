@@ -8,8 +8,8 @@ describe('Home Page', () => {
   })
 
   it('Menu loads', () => {
-    cy.get('#nav-bar button').click()
+    cy.get('#menu-button').click()
     // avoid unexplainable timeout
-    //cy.get('#menu-drawer').should('be.visible')
+    cy.get('#menu-drawer').should('be.visible')
   })
 })

@@ -62,7 +62,7 @@ const MenuType = styled(Typography)({
 
 export default function DesktopMenu() {
   return (
-    <LinkBar>
+    <LinkBar id="desktop-links">
       <HoverLink to="/" color="inherit" underline="none">
         <Typography variant="h5">About</Typography>
       </HoverLink>

@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "cypress": "^8.5.0",
-    "eslint": "^8.0.0",
+    "eslint": "^8.0.1",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-react": "^7.26.1",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.25"

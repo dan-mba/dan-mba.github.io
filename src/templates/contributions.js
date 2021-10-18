@@ -43,7 +43,7 @@ const GridRight = styled(Grid)({
   }
 });
 
-export default function Home({data, pageContext: {numberOfPages, humanPageNumber}}) {
+export default function Contributions({data, pageContext: {numberOfPages, humanPageNumber}}) {
   const repos = data.repos.nodes;
   const items = repos.map((repo, index) => {
     return index%2 === 0 ? (

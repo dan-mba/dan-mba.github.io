@@ -22,12 +22,12 @@ const LinkBar = styled('div')({
   flexGrow: 1
 });
 
-const MyPaper = styled(Paper)({
+const StyledPaper = styled(Paper)({
   backgroundColor: theme.palette.primary.main,
   color: theme.palette.primary.contrastText
 });
 
-const MyButton = styled(Button)({
+const StyledButton = styled(Button)({
   textTransform: 'none',
   lineHeight: 1.334,
   fontSize: '1.5rem',
@@ -69,13 +69,13 @@ export default function DesktopMenu() {
       <PopupState variant="popover" popupId="portfolio-menu">
         {(popupState) => (
           <>
-            <MyButton
+            <StyledButton
               color="inherit" size="large"
               aria-haspopup="true"
               {...bindTrigger(popupState)}
             >
               Portfolio
-            </MyButton>
+            </StyledButton>
             <Popover keepMounted
               {...bindPopover(popupState)}
               anchorOrigin={{
@@ -87,7 +87,7 @@ export default function DesktopMenu() {
                 horizontal: 'center',
               }}
             >
-              <MyPaper>
+              <StyledPaper>
                 <MenuList autoFocusItem={popupState.isOpen} id="menu-list-grow">
                   <MenuItem component={Link} to="/portfolio" underline="none">
                     <MenuType variant="h6">
@@ -105,7 +105,7 @@ export default function DesktopMenu() {
                     </MenuType>
                   </MenuItem>
                 </MenuList>
-              </MyPaper>
+              </StyledPaper>
             </Popover>
           </>
         )}

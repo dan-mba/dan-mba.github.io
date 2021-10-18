@@ -17,7 +17,7 @@ const GridItem = styled(Grid)({
   padding: '1em .5em'
 });
 
-export default function Home({data, pageContext: {topic}}) {
+export default function Topic({data, pageContext: {topic}}) {
   const repos = data.repos.nodes;
   const items = repos.map((repo, index) => (
     <GridItem item xs={12} md={6} lg={4} key={repo.name}>

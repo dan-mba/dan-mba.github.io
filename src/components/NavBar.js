@@ -7,7 +7,7 @@ import MobileMenu from "./MobileMenu";
 
 const DesktopMenu = loadable(()=> import("./DesktopMenu"));
 
-const MyToolbar = styled(Toolbar)({
+const StyledToolbar = styled(Toolbar)({
   maxWidth: theme.breakpoints.values.xl,
   margin: '0 auto',
   width: '100%',
@@ -22,12 +22,12 @@ const Handwriting = styled(Typography)({
 export default function NavBar() {
   return(
     <AppBar position="sticky" id="nav-bar">
-      <MyToolbar disableGutters>
+      <StyledToolbar disableGutters>
         <Handwriting variant="h3">
           Dan
         </Handwriting>
         {useMediaQuery(theme.breakpoints.up('md')) ? <DesktopMenu/> : <MobileMenu/>}
-      </MyToolbar>
+      </StyledToolbar>
     </AppBar>
   );
 };

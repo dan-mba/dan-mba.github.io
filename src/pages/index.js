@@ -18,14 +18,14 @@ const Paragraph = ({children}) => {
   )
 };
 
-const MySection = styled('section')({
+const StyledSection = styled('section')({
   padding: '1em min(2%, 2em)',
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
 });
 
-const JobSection = styled(MySection)({
+const JobSection = styled(StyledSection)({
   alignItems: 'center',
   justifyContent: 'center',
   [theme.breakpoints.up(900)]: {
@@ -47,7 +47,7 @@ const AccentSection = styled(JobSection)({
   },
 });
 
-const MyPaper = styled('div')({
+const StyledPaper = styled('div')({
   backgroundColor: theme.palette.background.paper,
   margin: '0',
   padding: '2em 0 1em',
@@ -74,7 +74,7 @@ const ImageDiv = styled('div')({
   flex: 'none'
 });
 
-const MyList = styled(List)({
+const StyledList = styled(List)({
   maxWidth: '70ch',
   margin: '0 auto',
   paddingTop: '0'
@@ -97,7 +97,7 @@ const Map = styled(GatsbyImage)({
   margin: '1em 0 .5em'
 })
 
-const MyLink = styled(Link)({
+const StyledLink = styled(Link)({
   '& h4:hover': {
     textDecoration: 'underline'
   }
@@ -126,13 +126,13 @@ export default function Home({data}) {
           <Typography variant="h4">{PageData.langs}</Typography>
         </HeroText>
       </BackgroundImage>
-      <MyPaper>
-        <MySection>
+      <StyledPaper>
+        <StyledSection>
             <Typography variant="h3" align="center">About Me</Typography>
             {PageData.about.map((item, i) => {
               return (<Paragraph key={i}>{item}</Paragraph>)
             })}
-        </MySection>
+        </StyledSection>
         {PageData.jobHistory.map((d, i) => {
           const imgID = data.jobs.nodes.findIndex(job => job.original.src.includes(d.img));
           const InnerSection = ({d}) => {
@@ -141,11 +141,11 @@ export default function Home({data}) {
                 <JobText>
                   {!d.titleUrl ?
                     <Title variant="h4" align="center">{d.title}</Title> :
-                    <MyLink href={d.titleUrl} underline="none"
+                    <StyledLink href={d.titleUrl} underline="none"
                       target="_blank" rel="noopener noreferrer"
                     >
                       <TitleUrl variant="h4" align="center">{d.title}</TitleUrl>
-                    </MyLink>
+                    </StyledLink>
                   }
                   {d.p.map((text, count) => {
                     return (<Paragraph key={count}>{text}</Paragraph>)
@@ -174,7 +174,7 @@ export default function Home({data}) {
             )
           }
         })}
-        <MySection>
+        <StyledSection>
           <Map image={mapImgData}
             alt="Map of Florida with Pin in Broward County"
           />
@@ -182,7 +182,7 @@ export default function Home({data}) {
           <Paragraph>
             I am open to opportunities in the following locations:
           </Paragraph>
-          <MyList dense>
+          <StyledList dense>
             {PageData.openLocations.map((location, i) => {
               return (
                 <ListItem key={i}>
@@ -191,9 +191,9 @@ export default function Home({data}) {
                 </ListItem>
               );
             })}
-          </MyList>
-        </MySection>
-      </MyPaper>
+          </StyledList>
+        </StyledSection>
+      </StyledPaper>
     </Layout>
   );
 }

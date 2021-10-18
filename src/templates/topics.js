@@ -30,7 +30,7 @@ const TopicChip = styled(Chip)({
   cursor: 'pointer'
 });
 
-export default function Home({pageContext: {topics}}) {
+export default function Topics({pageContext: {topics}}) {
   const items = topics.map((topic, index) => (
     <GridItem item key={index}>
       <TopicLink to={`/topics/${topic.name}`} component={ReachLink}>

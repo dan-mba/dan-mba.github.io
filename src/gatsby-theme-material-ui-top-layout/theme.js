@@ -35,8 +35,13 @@ const theme = createTheme({
           backgroundColor: '#e0e0e0',
           fontSize: '0.875rem',
           lineHeight: '1.43',
-          letterSpacing: '0.01071em',
+          letterSpacing: '0.01071em'
         },
+        ':root': {
+          scrollbarColor: '#666 #212121',
+          colorScheme: 'dark'
+        }
+        
       },
     },
   },

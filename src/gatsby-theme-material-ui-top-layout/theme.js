@@ -1,4 +1,5 @@
-import { createTheme } from "@mui/material/styles";
+import {createTheme} from "@mui/material/styles";
+import {darkScrollbar} from "@mui/material";
 
 const theme = createTheme({
   palette: {
@@ -37,10 +38,7 @@ const theme = createTheme({
           lineHeight: '1.43',
           letterSpacing: '0.01071em'
         },
-        ':root': {
-          scrollbarColor: '#666 #212121',
-          colorScheme: 'dark'
-        }
+        html: darkScrollbar({track: '#212121', thumb: '#666'})
         
       },
     },

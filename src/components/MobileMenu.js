@@ -54,7 +54,7 @@ export default function MobileMenu() {
       <ButtonIcon
         id="menu-button"
         color="inherit"
-        aria-controls="menu-dropdown"
+        aria-controls="menu-drawer"
         aria-haspopup="menu"
         disableRipple
         onClick={openDrawer}

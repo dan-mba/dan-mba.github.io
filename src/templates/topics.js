@@ -33,7 +33,7 @@ const TopicChip = styled(Chip)({
 export default function Topics({pageContext: {topics}}) {
   const items = topics.map((topic, index) => (
     <GridItem item key={index}>
-      <TopicLink to={`/topics/${topic.name}`} component={ReachLink}>
+      <TopicLink to={`/topics/${topic.name}`} underline="none" component={ReachLink}>
         <TopicChip color="secondary" variant="outlined" label={topic.name}
           avatar={<Avatar>{topic.count}</Avatar>}
         />

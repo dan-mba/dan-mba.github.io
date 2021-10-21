@@ -32,19 +32,24 @@ exports.onCreateNode = async ({
   node, // the node that was just created
   actions: { createNode },
   createNodeId,
-  getCache,
+  cache,
+  store
 }) => {
+  console.log(`onCreateNode called for ${node.id} ${node.type}`)
   if (node.internal.type === "Repo") {
+    console.log(`Creating node for ${node.name}`);
     const fileNode = await createRemoteFileNode({
       // the url of the remote image to generate a node for
       url: node.openGraphImageUrl,
       parentNodeId: node.id,
       createNode,
       createNodeId,
-      getCache,
+      cache,
+      store
     })
 
     if (fileNode) {
+      console.log(`Created node for ${node.name}`);
       node.localImage___NODE = fileNode.id
     }
   }

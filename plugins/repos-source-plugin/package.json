@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "graphql-request": "^3.6.1",
-    "gatsby-source-filesystem": "^3.14.0"
+    "gatsby-source-filesystem": "^4.0.0"
   },
   "keywords": [
     "gatsby",

@@ -1,11 +1,12 @@
 import React from "react";
 import {AppBar, Toolbar, Typography, useMediaQuery} from "@mui/material";
 import {styled} from '@mui/material/styles';
-import loadable from "@loadable/component";
+//import loadable from "@loadable/component";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
 import MobileMenu from "./MobileMenu";
 
-const DesktopMenu = loadable(()=> import("./DesktopMenu"));
+//const DesktopMenu = loadable(()=> import("./DesktopMenu"));
+import DesktopMenu from "./DesktopMenu";
 
 const StyledToolbar = styled(Toolbar)({
   maxWidth: theme.breakpoints.values.xl,

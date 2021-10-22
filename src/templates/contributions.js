@@ -2,12 +2,13 @@ import React from "react";
 import {Typography, Grid, Container} from "@mui/material";
 import {styled} from '@mui/material/styles'
 import {graphql} from "gatsby";
-import loadable from "@loadable/component";
+//import loadable from "@loadable/component";
 import Layout from "../components/Layout";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
 import ContribCard from "../components/ContribCard";
 
-const RepoPagination = loadable(() => import("../components/RepoPagination"));
+//const RepoPagination = loadable(() => import("../components/RepoPagination"));
+import RepoPagination from "../components/RepoPagination";
 
 const LayoutContainer = styled(Container)({
   padding: '0 min(2%, 1em)'

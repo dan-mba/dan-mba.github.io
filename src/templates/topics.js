@@ -1,52 +1,53 @@
 import React from "react";
-import {Avatar, Chip, Grid, Link} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
+import {Avatar, Chip, Grid, Link} from "@mui/material";
+import {styled} from "@mui/material/styles";
 // Use Link from reach-router to prevent gatsby preloading all links
 import {Link as ReachLink} from "@gatsbyjs/reach-router";
 import Layout from "../components/Layout";
 import theme from "../gatsby-theme-material-ui-top-layout/theme"
 
-const useStyles = makeStyles({
-  grid: {
-    padding: '5em 1em 2em',
-    [theme.breakpoints.down('md')]: {
-      padding: '2em 2%'
-    },
-    display: 'flex',
-    margin: '0 auto',
-    maxWidth: '90ch'
-  },
-  gridItem: {
-    margin: '.5em'
-  },
-  chip: {
-    fontSize: '1em',
-  },
-  pointer: {
-    cursor: 'pointer'
+
+const GridContainer = styled(Grid)({
+  padding: '5em 1em 2em',
+  display: 'flex',
+  margin: '0 auto',
+  maxWidth: '90ch',
+  [theme.breakpoints.down('lg')]: {
+    padding: '2em 2%'
   }
 });
 
-export default function Home({pageContext: {topics}}) {
-  const classes = useStyles();
+const GridItem = styled(Grid)({
+  margin: '.5em'
+});
 
+const TopicLink = styled(Link)({
+  cursor: 'pointer'
+});
+
+const TopicChip = styled(Chip)({
+  fontSize: '1em',
+  cursor: 'pointer'
+});
+
+export default function Topics({pageContext: {topics}}) {
   const items = topics.map((topic, index) => (
-    <Grid item key={index} classes={{item: classes.gridItem}}>
-      <Link to={`/topics/${topic.name}`} className={classes.pointer} component={ReachLink}>
-        <Chip color="secondary" variant="outlined" classes={{root: `${classes.pointer} ${classes.chip}`}}
-          label={topic.name} avatar={<Avatar>{topic.count}</Avatar>}
+    <GridItem item key={index}>
+      <TopicLink to={`/topics/${topic.name}`} underline="none" component={ReachLink}>
+        <TopicChip color="secondary" variant="outlined" label={topic.name}
+          avatar={<Avatar>{topic.count}</Avatar>}
         />
-      </Link>
-    </Grid>
+      </TopicLink>
+    </GridItem>
   ));
 
   return (
     <Layout title={`Daniel Burkhardt - Portfolio Topics`}
       description={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Topics`}
     >
-      <Grid container justifyContent="center" alignItems="center" classes={{root: classes.grid}}>
+      <GridContainer container justifyContent="center" alignItems="center">
         {items}
-      </Grid>
+      </GridContainer>
     </Layout>
   );
 };

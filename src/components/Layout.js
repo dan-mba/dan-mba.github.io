@@ -1,20 +1,16 @@
 import React from "react";
-import {makeStyles} from "@material-ui/core/styles"
+import {styled} from '@mui/material/styles'
 import {Helmet} from "react-helmet";
 import {withPrefix} from "gatsby";
 import NavBar from "./NavBar";
 
-const useStyles = makeStyles({
-  container: {
-    width: '100%',
-    boxSizing: 'border-box',
-    margin: '0 auto 1em',
-  }
+const StyledContainer = styled('div')({
+  width: '100%',
+  boxSizing: 'border-box',
+  margin: '0 auto 1em',
 });
 
 export default function Layout({title, description, children}) {
-  const classes = useStyles();
-
   return (
     <>
       <Helmet>
@@ -45,9 +41,9 @@ export default function Layout({title, description, children}) {
         <meta name="msapplication-config" content={`${withPrefix('/')}img/browserconfig.xml`} />
       </Helmet>
       <NavBar/>
-      <div className={classes.container}>
+      <StyledContainer>
         {children}
-      </div>
+      </StyledContainer>
     </>
   );
 };

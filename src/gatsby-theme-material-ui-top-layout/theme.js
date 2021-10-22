@@ -1,4 +1,5 @@
-import { createTheme } from "@material-ui/core/styles";
+import {createTheme} from "@mui/material/styles";
+import {darkScrollbar} from "@mui/material";
 
 const theme = createTheme({
   palette: {
@@ -21,17 +22,24 @@ const theme = createTheme({
       xl: 1200,
     },
   },
-  overrides: {
+  components: {
     MuiTypography: {
-      body1: {
-        maxWidth: '70ch',
-      },
+      styleOverrides: {
+        body1: {
+          maxWidth: '70ch',
+        },
+      }
     },
     MuiCssBaseline: {
-      '@global': {
+      styleOverrides: {
         body: {
-          backgroundColor: '#e0e0e0'
+          backgroundColor: '#e0e0e0',
+          fontSize: '0.875rem',
+          lineHeight: '1.43',
+          letterSpacing: '0.01071em'
         },
+        html: darkScrollbar({track: '#212121', thumb: '#666'})
+        
       },
     },
   },

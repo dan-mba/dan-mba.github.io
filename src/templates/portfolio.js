@@ -1,6 +1,6 @@
 import React from "react";
-import {Typography, Grid, Container} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
+import {Typography, Grid, Container} from "@mui/material";
+import {styled} from "@mui/material/styles";
 import {graphql} from "gatsby";
 import loadable from "@loadable/component";
 import Layout from "../components/Layout";
@@ -9,61 +9,67 @@ import RepoCard from "../components/RepoCard";
 
 const RepoPagination = loadable(() => import("../components/RepoPagination"));
 
-const useStyles = makeStyles({
-  container: {
-    padding: '0 min(2%, 1em)'
-  },
-  gridContainer: {
-    padding: '2em 0'
-  },
-  gridItem: {
-    paddingTop: '1em',
-    paddingBottom: '1em'
-  },
-  gridLeft: {
-    [theme.breakpoints.up('md')]: {
-      paddingRight: '1em'
-    }
-  },
-  gridRight: {
-    [theme.breakpoints.up('md')]: {
-      paddingLeft: '1em'
-    }
-  },
-  title: {
-    padding: '1em 0 0'
-  },
-  linkArea: {
-    display: 'flex',
-    justifyContent: 'center',
-    padding: '0 0 1em'
+const LayoutContainer = styled(Container)({
+  padding: '0 min(2%, 1em)'
+});
+
+const GridContainer = styled(Grid)({
+  padding: '2em 0'
+});
+
+const Title = styled(Typography)({
+  padding: '1em 0 0'
+});
+
+const LinkArea = styled('div')({
+  display: 'flex',
+  justifyContent: 'center',
+  padding: '0 0 1em'
+});
+
+const GridLeft = styled(Grid)({
+  paddingTop: '1em',
+  paddingBottom: '1em',
+  [theme.breakpoints.up('md')]: {
+    paddingRight: '1em'
   }
 });
 
-export default function Home({data, pageContext: {numberOfPages, humanPageNumber}}) {
-  const classes = useStyles();
+const GridRight = styled(Grid)({
+  paddingTop: '1em',
+  paddingBottom: '1em',
+  [theme.breakpoints.up('md')]: {
+    paddingLeft: '1em'
+  }
+});
+
+export default function Portfolio({data, pageContext: {numberOfPages, humanPageNumber}}) {
   const repos = data.repos.nodes;
-  const items = repos.map((repo, index) => (
-    <Grid item xs={12} md={6} key={repo.name} classes={{
-      item: `${classes.gridItem} ${index%2===0 ? classes.gridLeft : classes.gridRight}`
-    }}>
-      <RepoCard repo={repo} index={index}/>
-    </Grid>
-  ));
+  const items = repos.map((repo, index) => {
+    return index%2 === 0 ? (
+      <GridLeft item xs={12} md={6} key={repo.name}>
+        <RepoCard repo={repo} index={index}/>
+      </GridLeft>
+    ) : (
+      <GridRight item xs={12} md={6} key={repo.name}>
+        <RepoCard repo={repo} index={index}/>
+      </GridRight>
+    );
+  });
 
   return (
     <Layout title={`Daniel Burkhardt - Portfolio Page ${humanPageNumber}`}
       description={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Page ${humanPageNumber}`}
     >
-      <Container maxWidth="xl" disableGutters className={classes.container}>
-        <Typography variant="h3" align="center" className={classes.title}>Portfolio</Typography>
-        <Grid container justifyContent="center" alignItems="stretch" classes={{container: classes.gridContainer}}>
+      <LayoutContainer maxWidth="xl" disableGutters>
+        <Title variant="h3" align="center">Portfolio</Title>
+        <GridContainer container justifyContent="center" alignItems="stretch">
           {items}
-        </Grid>
-        <div className={classes.linkArea}>
+        </GridContainer>
+        <LinkArea>
           <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/portfolio'}/>
-        </div>
-      </Container>
+        </LinkArea>
+      </LayoutContainer>
     </Layout>
   );
 };

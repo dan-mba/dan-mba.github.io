@@ -23,9 +23,9 @@
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "@loadable/component": "^5.15.0",
-    "@mui/icons-material": "^5.0.4",
-    "@mui/material": "^5.0.4",
-    "gatsby": "^4.0.0",
+    "@mui/icons-material": "^5.0.5",
+    "@mui/material": "^5.0.5",
+    "gatsby": "^4.0.1",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-advanced-sitemap": "^2.0.0",
     "gatsby-plugin-image": "^2.0.0",
@@ -42,8 +42,8 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "cypress": "^8.6.0",
-    "eslint": "^8.0.1",
+    "cypress": "^8.7.0",
+    "eslint": "^8.1.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-react": "^7.26.1",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.25"

@@ -83,8 +83,38 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
 
       const data = await graphqlClient.request(query,
         {"login": userid, "startDateTime": start.toISOString(), "endDateTime": end.toISOString()});
-      prs = [...prs, ...data.user.contributionsCollection.pullRequestContributionsByRepository];
-      issues = [...issues, ...data.user.contributionsCollection.issueContributionsByRepository];
+      if(prs.length === 0) {
+        prs = [...data.user.contributionsCollection.pullRequestContributionsByRepository];
+      } else {
+        const newPrs = data.user.contributionsCollection.pullRequestContributionsByRepository;
+        newPrs.forEach(newPr => {
+          const foundPr = prs.find(pr => (
+            pr.repository.name === newPr.repository.name &&
+            pr.repository.owner.login === newPr.repository.owner.login
+          ));
+          if (foundPr) {
+            foundPr.contributions.edges = [...foundPr.contributions.edges, ...newPr.contributions.edges];
+          } else {
+            prs.push(newPr);
+          }
+        });
+      }
+      if(issues.length === 0) {
+        issues = [...data.user.contributionsCollection.issueContributionsByRepository];
+      } else {
+        const newIssues = data.user.contributionsCollection.issueContributionsByRepository;
+        newIssues.forEach(newIssue => {
+          const foundIssue = issues.find(issue => (
+            issue.repository.name === newIssue.repository.name &&
+            issue.repository.owner.login === newIssue.repository.owner.login
+          ));
+          if (foundIssue) {
+            foundIssue.contributions.edges = [...foundIssue.contributions.edges, ...newIssue.contributions.edges];
+          } else {
+            issues.push(newIssue);
+          }
+        });
+      }
 
       start = new Date(end.getTime() + 1);
     }

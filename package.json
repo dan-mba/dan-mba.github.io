@@ -23,8 +23,8 @@
     "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",
     "@loadable/component": "^5.15.0",
-    "@mui/icons-material": "^5.1.1",
-    "@mui/material": "^5.1.1",
+    "@mui/icons-material": "^5.2.0",
+    "@mui/material": "^5.2.0",
     "gatsby": "^4.2.0",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-image": "^2.2.0",
@@ -42,7 +42,7 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "cypress": "^9.0.0",
+    "cypress": "^9.1.0",
     "eslint": "^8.3.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-react": "^7.27.1",

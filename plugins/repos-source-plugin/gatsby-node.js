@@ -10,42 +10,48 @@ exports.pluginOptionsSchema = ({ Joi }) => Joi.object({
     .description('List of languages for repo to be included'),
 })
 
-exports.sourceNodes = async ({ actions, createNodeId, createContentDigest },
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  createTypes(
+    `
+      type Repo implements Node {
+        localImage: File @link(from: "localImageId")
+      }
+    `
+  );
+}
+
+exports.sourceNodes = async ({ actions, createNodeId, createContentDigest, store, cache, reporter },
   {githubUserId, githubUserToken, portfolioLanguages}) => {
+  const { createNode } = actions;
   const repos = await getGithubRepos(githubUserId, githubUserToken, portfolioLanguages);
 
-  repos.forEach(repo => {
+  for (const repo of repos) {
+    const id = createNodeId(`REPO-${repo.name}`);
+    
+    const fileNode = await createRemoteFileNode({
+      // the url of the remote image to generate a node for
+      url: repo.openGraphImageUrl,
+      parentNodeId: id,
+      createNode,
+      createNodeId,
+      reporter,
+      cache,
+      store
+    })
+
     const node = {
       ...repo,
-      id: createNodeId(`REPO-${repo.name}`),
+      id,
+      parent: null,
+      children: [],
+      localImageId: fileNode.id,
       internal: {
         type: "Repo",
+        content: JSON.stringify(repo),
         contentDigest: createContentDigest(repo),
       },
     }
-    actions.createNode(node)
-  })
-};
-
-// called each time a node is created
-exports.onCreateNode = async ({
-  node, // the node that was just created
-  actions: { createNode },
-  createNodeId,
-  getCache,
-}) => {
-  if (node.internal.type === "Repo") {
-    const fileNode = await createRemoteFileNode({
-      // the url of the remote image to generate a node for
-      url: node.openGraphImageUrl,
-      parentNodeId: node.id,
-      createNode,
-      createNodeId,
-      getCache,
-    })
-
-    if (fileNode) {
-      node.localImage___NODE = fileNode.id
-    }
+    createNode(node)
   }
-}
+};

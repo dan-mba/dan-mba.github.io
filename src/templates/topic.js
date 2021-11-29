@@ -4,17 +4,24 @@ import {styled} from "@mui/material/styles"
 import {graphql} from "gatsby";
 import Layout from "../components/Layout";
 import TopicCard from "../components/TopicCard";
+import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
 const Title = styled(Typography)({
   padding: '1em 0 0'
 });
 
 const GridContainer = styled(Grid)({
-  padding: '2em .5em'
+  padding: '2em min(2%, .5em)',
+  gap: '1.5em 1em'
 });
 
 const GridItem = styled(Grid)({
-  padding: '1em .5em'
+  [theme.breakpoints.only('md')]: {
+    flexBasis: 'calc(50% - .5em)',
+  },
+  [theme.breakpoints.up('lg')]: {
+    flexBasis: 'calc(33% - .67em)',
+  },
 });
 
 export default function Topic({data, pageContext: {topic}}) {

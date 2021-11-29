@@ -24,7 +24,7 @@
     "@emotion/styled": "^11.6.0",
     "@loadable/component": "^5.15.0",
     "@mui/icons-material": "^5.1.1",
-    "@mui/material": "^5.1.1",
+    "@mui/material": "^5.2.1",
     "gatsby": "^3.14.6",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-advanced-sitemap": "^2.0.0",

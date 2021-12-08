@@ -4,32 +4,21 @@ import {styled} from "@mui/material/styles"
 import {graphql} from "gatsby";
 import Layout from "../components/Layout";
 import TopicCard from "../components/TopicCard";
-import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
 const Title = styled(Typography)({
   padding: '1em 0 0'
 });
 
 const GridContainer = styled(Grid)({
-  padding: '2em min(2%, .5em)',
-  gap: '1.5em 1em'
-});
-
-const GridItem = styled(Grid)({
-  [theme.breakpoints.only('md')]: {
-    flexBasis: 'calc(50% - .5em)',
-  },
-  [theme.breakpoints.up('lg')]: {
-    flexBasis: 'calc(33% - .67em)',
-  },
+  padding: '2em min(2%, .5em)'
 });
 
 export default function Topic({data, pageContext: {topic}}) {
   const repos = data.repos.nodes;
   const items = repos.map((repo, index) => (
-    <GridItem item xs={12} md={6} lg={4} key={repo.name}>
+    <Grid item xs={12} md={6} lg={4} key={repo.name}>
       <TopicCard repo={repo} index={index} />
-    </GridItem>
+    </Grid>
   ));
 
   return (
@@ -38,7 +27,7 @@ export default function Topic({data, pageContext: {topic}}) {
     >
       <Container maxWidth="xl" disableGutters>
         <Title variant="h3" align="center">{topic}</Title>
-        <GridContainer container justifyContent="center" alignItems="stretch">
+        <GridContainer container columnSpacing={3} rowSpacing={2} justifyContent="center" alignItems="stretch">
           {items}
         </GridContainer>
       </Container>

@@ -5,7 +5,6 @@ import {graphql} from "gatsby";
 import loadable from "@loadable/component";
 import Layout from "../components/Layout";
 import ContribCard from "../components/ContribCard";
-import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
 const RepoPagination = loadable(() => import("../components/RepoPagination"));
 
@@ -14,8 +13,7 @@ const LayoutContainer = styled(Container)({
 });
 
 const GridContainer = styled(Grid)({
-  padding: '2em 0',
-  gap: '2em',
+  padding: '2em 0'
 });
 
 const Title = styled(Typography)({
@@ -28,18 +26,13 @@ const LinkArea = styled('div')({
   padding: '0 0 1em'
 });
 
-const Contrib = styled(Grid)({
-  [theme.breakpoints.up('md')]: {
-    flexBasis: 'calc(50% - 1em)',
-  }
-});
 
 export default function Contributions({data, pageContext: {numberOfPages, humanPageNumber}}) {
   const repos = data.repos.nodes;
   const items = repos.map((repo, index) => (
-    <Contrib item xs={12} md={6} key={repo.name}>
+    <Grid item xs={12} md={6} key={repo.name}>
       <ContribCard repo={repo} index={index}/>
-    </Contrib>
+    </Grid>
   ));
 
   return (
@@ -48,7 +41,7 @@ export default function Contributions({data, pageContext: {numberOfPages, humanP
     >
       <LayoutContainer maxWidth="xl" disableGutters>
         <Title variant="h3" align="center">Open Source Contributions</Title>
-        <GridContainer container justifyContent="center" alignItems="stretch">
+        <GridContainer container spacing={4} justifyContent="center" alignItems="stretch">
           {items}
         </GridContainer>
         {numberOfPages == 1 ? null :

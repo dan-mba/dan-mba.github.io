@@ -22,6 +22,7 @@ const theme = createTheme({
       xl: 1200,
     },
   },
+  spacing: (factor) => `${0.5 * factor}rem`,
   components: {
     MuiTypography: {
       styleOverrides: {

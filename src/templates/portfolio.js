@@ -5,7 +5,6 @@ import {graphql} from "gatsby";
 import loadable from "@loadable/component";
 import Layout from "../components/Layout";
 import RepoCard from "../components/RepoCard";
-//import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
 const RepoPagination = loadable(() => import("../components/RepoPagination"));
 
@@ -15,7 +14,6 @@ const LayoutContainer = styled(Container)({
 
 const GridContainer = styled(Grid)({
   padding: '2em 0',
-//  gap: '2em',
 });
 
 const Title = styled(Typography)({
@@ -27,13 +25,7 @@ const LinkArea = styled('div')({
   justifyContent: 'center',
   padding: '0 0 1em'
 });
-/*
-const Repo = styled(Grid)({
-  [theme.breakpoints.up('md')]: {
-    flexBasis: 'calc(50% - 1em)',
-  },
-});
-*/
+
 export default function Portfolio({data, pageContext: {numberOfPages, humanPageNumber}}) {
   const repos = data.repos.nodes;
   const items = repos.map((repo, index) => (

@@ -28,7 +28,7 @@
     "gatsby": "^4.3.0",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-image": "^2.4.0",
-    "gatsby-plugin-loadable-components-ssr": "^4.1.0",
+    "gatsby-plugin-loadable-components-ssr": "^4.1.2",
     "gatsby-plugin-react-helmet": "^5.3.0",
     "gatsby-plugin-sharp": "^4.4.0",
     "gatsby-plugin-sitemap": "^5.3.0",

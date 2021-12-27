@@ -23,7 +23,7 @@
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@loadable/component": "^5.15.2",
-    "@mui/icons-material": "^5.2.1",
+    "@mui/icons-material": "^5.2.5",
     "@mui/material": "^5.2.4",
     "gatsby": "^4.4.0",
     "gatsby-awesome-pagination": "^0.3.8",

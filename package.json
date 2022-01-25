@@ -30,7 +30,7 @@
     "gatsby-plugin-image": "^2.5.2",
     "gatsby-plugin-loadable-components-ssr": "^4.1.2",
     "gatsby-plugin-react-helmet": "^5.4.0",
-    "gatsby-plugin-sharp": "^4.4.0",
+    "gatsby-plugin-sharp": "^4.5.2",
     "gatsby-plugin-sitemap": "^5.4.0",
     "gatsby-source-filesystem": "^4.5.2",
     "gatsby-theme-material-ui": "^5.1.0",

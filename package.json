@@ -25,7 +25,7 @@
     "@loadable/component": "^5.15.2",
     "@mui/icons-material": "^5.3.0",
     "@mui/material": "^5.3.1",
-    "gatsby": "^4.4.0",
+    "gatsby": "^4.5.5",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-image": "^2.5.2",
     "gatsby-plugin-loadable-components-ssr": "^4.1.2",

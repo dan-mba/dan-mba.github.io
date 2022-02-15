@@ -27,7 +27,7 @@
     "@mui/material": "^5.4.1",
     "gatsby": "^4.6.2",
     "gatsby-awesome-pagination": "^0.3.8",
-    "gatsby-plugin-image": "^2.6.0",
+    "gatsby-plugin-image": "^2.7.0",
     "gatsby-plugin-loadable-components-ssr": "^4.1.2",
     "gatsby-plugin-react-helmet": "^5.7.0",
     "gatsby-plugin-sharp": "^4.7.0",

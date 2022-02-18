@@ -4,7 +4,6 @@ import {styled} from '@mui/material/styles'
 import {graphql} from "gatsby";
 import loadable from "@loadable/component";
 import Layout from "../components/Layout";
-import theme from "../gatsby-theme-material-ui-top-layout/theme";
 import ContribCard from "../components/ContribCard";
 
 const RepoPagination = loadable(() => import("../components/RepoPagination"));
@@ -27,35 +26,14 @@ const LinkArea = styled('div')({
   padding: '0 0 1em'
 });
 
-const GridLeft = styled(Grid)({
-  paddingTop: '1em',
-  paddingBottom: '1em',
-  [theme.breakpoints.up('md')]: {
-    paddingRight: '1em'
-  }
-});
-
-const GridRight = styled(Grid)({
-  paddingTop: '1em',
-  paddingBottom: '1em',
-  [theme.breakpoints.up('md')]: {
-    paddingLeft: '1em'
-  }
-});
 
 export default function Contributions({data, pageContext: {numberOfPages, humanPageNumber}}) {
   const repos = data.repos.nodes;
-  const items = repos.map((repo, index) => {
-    return index%2 === 0 ? (
-      <GridLeft item xs={12} md={6} key={repo.name}>
-        <ContribCard repo={repo} index={index}/>
-      </GridLeft>
-    ) : (
-      <GridRight item xs={12} md={6} key={repo.name}>
-        <ContribCard repo={repo} index={index}/>
-      </GridRight>
-    );
-  });
+  const items = repos.map((repo, index) => (
+    <Grid item xs={12} md={6} key={repo.name}>
+      <ContribCard repo={repo} index={index}/>
+    </Grid>
+  ));
 
   return (
     <Layout title={`Daniel Burkhardt - Contributions`}
@@ -63,7 +41,7 @@ export default function Contributions({data, pageContext: {numberOfPages, humanP
     >
       <LayoutContainer maxWidth="xl" disableGutters>
         <Title variant="h3" align="center">Open Source Contributions</Title>
-        <GridContainer container justifyContent="center" alignItems="stretch">
+        <GridContainer container spacing={4} justifyContent="center" alignItems="stretch">
           {items}
         </GridContainer>
         {numberOfPages == 1 ? null :

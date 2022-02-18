@@ -10,19 +10,15 @@ const Title = styled(Typography)({
 });
 
 const GridContainer = styled(Grid)({
-  padding: '2em .5em'
-});
-
-const GridItem = styled(Grid)({
-  padding: '1em .5em'
+  padding: '2em min(2%, .5em)'
 });
 
 export default function Topic({data, pageContext: {topic}}) {
   const repos = data.repos.nodes;
   const items = repos.map((repo, index) => (
-    <GridItem item xs={12} md={6} lg={4} key={repo.name}>
+    <Grid item xs={12} md={6} lg={4} key={repo.name}>
       <TopicCard repo={repo} index={index} />
-    </GridItem>
+    </Grid>
   ));
 
   return (
@@ -31,7 +27,7 @@ export default function Topic({data, pageContext: {topic}}) {
     >
       <Container maxWidth="xl" disableGutters>
         <Title variant="h3" align="center">{topic}</Title>
-        <GridContainer container justifyContent="center" alignItems="stretch">
+        <GridContainer container columnSpacing={3} rowSpacing={2} justifyContent="center" alignItems="stretch">
           {items}
         </GridContainer>
       </Container>

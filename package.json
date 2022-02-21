@@ -20,7 +20,7 @@
     "cypress:verify": "cypress verify"
   },
   "dependencies": {
-    "@emotion/react": "^11.7.1",
+    "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.6.0",
     "@loadable/component": "^5.15.2",
     "@mui/icons-material": "^5.4.2",

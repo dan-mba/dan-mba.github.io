@@ -15,7 +15,7 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
         contributionsCollection(from: $startDateTime, to: $endDateTime) {
           pullRequestContributionsByRepository {
             repository {
-              description
+              descriptionHTML
               name
               owner {
                 login
@@ -39,7 +39,7 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
           }
           issueContributionsByRepository {
             repository {
-              description
+              descriptionHTML
               name
               owner {
                 login

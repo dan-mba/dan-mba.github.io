@@ -71,7 +71,7 @@ export const pageQuery = graphql`
           title
           url
         }
-        description
+        descriptionHTML
         name
         stargazerCount
         url

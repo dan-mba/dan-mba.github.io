@@ -65,27 +65,15 @@ const Spacer = styled('div')({
 })
 
 export default function ContribCard({repo}) {
-  /*const cropString = (str) => {
-    if (str.length > 80) {
-      const word = str.substring(80).indexOf(' ');
-      if (word < 0) {
-        return str;
-      }
-
-      return `${str.substring(0, 80+word)}...`;
-    }
-    return str;
-  }*/
+  
 
   return (
     <CardRoot>
       <Header
         title={repo.name}
         titleTypographyProps={{align: 'center', variant: 'h5'}}
-        subheader={
-          <div dangerouslySetInnerHTML={{__html: repo.descriptionHTML.slice(5,-6)}}/>
-        }
-        subheaderTypographyProps={{align: 'center', color: 'secondary', variant: 'body1', sx:{fontSize: '.95rem'}}}
+        subheader={repo.descriptionEmoji}
+        subheaderTypographyProps={{align: 'center', color: 'secondary', variant: 'body1'}}
         action={
           <IconTooltip title="code repository" url={repo.url}
             icon={<Code/>} style={{padding: '0 12px 6px'}}

@@ -1,4 +1,9 @@
 const {GraphQLClient, gql} = require('graphql-request');
+const EmojiConvertor = require('emoji-js');
+const emoji = new EmojiConvertor();
+emoji.replace_mode = 'unified';
+emoji.allow_native = true;
+emoji.allow_caps = true;
 
 async function getGithubContribs(userid, userToken, startDateTime, repoFilter, issueFilter, prFilter) {
   const endpoint = 'https://api.github.com/graphql';
@@ -66,6 +71,18 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
       }
     }
   `;
+
+  const cropString = (str) => {
+    if (str.length > 80) {
+      const word = str.substring(80).indexOf(' ');
+      if (word < 0) {
+        return str;
+      }
+
+      return `${str.substring(0, 80+word)}...`;
+    }
+    return str;
+  }
 
   try {
     const now = new Date(Date.now());
@@ -219,6 +236,8 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
         }
       })
     }
+
+    repos = repos.map(repo => ({...repo, descriptionEmoji: cropString(emoji.replace_colons(repo.description))}));
 
     return repos;
   } catch(e) {

@@ -71,7 +71,7 @@ export const pageQuery = graphql`
           title
           url
         }
-        description
+        descriptionEmoji
         name
         stargazerCount
         url

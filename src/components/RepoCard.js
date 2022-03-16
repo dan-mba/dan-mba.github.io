@@ -1,4 +1,3 @@
-import React from "react";
 import {Card, CardActions, CardContent, CardHeader, CardMedia, Chip, Link, Typography} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import {Code, Link as LinkIcon} from "@mui/icons-material";
@@ -6,6 +5,7 @@ import {Code, Link as LinkIcon} from "@mui/icons-material";
 import {Link as ReachLink} from "@gatsbyjs/reach-router";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import IconTooltip from "./IconTooltip";
+import PreloadImage from "./PreloadImage";
 
 const CardRoot = styled(Card)({
   height: '100%',
@@ -63,6 +63,7 @@ export default function RepoCard({repo, index}) {
             index===0 ? "eager" : "lazy"
           }
         />
+        {index === 0 ? <PreloadImage image={getImage(repo.localImage)} /> : null}
       </CardMedia>
       <Content>
         <Description variant="body1" align="center">

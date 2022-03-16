@@ -1,4 +1,3 @@
-import React from "react";
 import {Avatar, Chip, Grid, Link} from "@mui/material";
 import {styled} from "@mui/material/styles";
 // Use Link from reach-router to prevent gatsby preloading all links

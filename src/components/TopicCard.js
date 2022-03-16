@@ -1,4 +1,3 @@
-import React from "react";
 import {Card, CardActions, CardContent, CardHeader, Typography} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import {Code, Link as LinkIcon} from "@mui/icons-material";

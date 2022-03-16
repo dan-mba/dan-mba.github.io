@@ -1,4 +1,3 @@
-import React from "react";
 import {Badge, Card, CardContent, CardHeader, Typography} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import {Code, StarOutlineRounded} from "@mui/icons-material";

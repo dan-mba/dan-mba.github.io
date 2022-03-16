@@ -1,4 +1,3 @@
-import React from "react";
 import {styled} from '@mui/material/styles'
 import {Helmet} from "react-helmet";
 import {withPrefix} from "gatsby";

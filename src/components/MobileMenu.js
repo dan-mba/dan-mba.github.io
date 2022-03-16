@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import {Drawer, List, ListItem, ListItemIcon, ListItemText} from "@mui/material";
 import {styled} from '@mui/material/styles';
 import {LinkedIn, GitHub, Home, Code, Menu as MenuIcon} from "@mui/icons-material";

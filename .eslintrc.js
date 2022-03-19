@@ -1,32 +1,34 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "node": true
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:cypress/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+        "jsx": true
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:cypress/recommended"
-    ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react",
-        "cypress"
-    ],
-    "rules": {
-        "react/prop-types": 0,
-        "no-extra-semi": 0
-    },
-    "settings": {
-      "react": {
-        "version": "detect"
-      }
-    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "cypress"
+  ],
+  "rules": {
+    "no-extra-semi": 0,
+    "react/jsx-uses-react": 'off',
+    "react/prop-types": 0,
+    "react/react-in-jsx-scope": 'off'
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
 };

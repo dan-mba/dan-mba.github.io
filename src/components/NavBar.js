@@ -1,4 +1,3 @@
-import React from "react";
 import {AppBar, Toolbar, Typography, useMediaQuery} from "@mui/material";
 import {styled} from '@mui/material/styles';
 import loadable from "@loadable/component";

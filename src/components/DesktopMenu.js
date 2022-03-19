@@ -1,4 +1,3 @@
-import React from "react";
 import {Typography, Popover, Paper, Button, MenuList, MenuItem} from "@mui/material";
 import {LinkedIn, GitHub} from "@mui/icons-material";
 import {decomposeColor, recomposeColor, hexToRgb, rgbToHex, styled} from "@mui/material/styles";

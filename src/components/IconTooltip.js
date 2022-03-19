@@ -1,7 +1,7 @@
-import React from 'react';
-import { Popover, Typography } from '@mui/material';
+import {useState} from 'react';
+import {Popover, Typography} from '@mui/material';
 import {styled} from '@mui/material/styles'
-import { IconButton } from "gatsby-theme-material-ui";
+import {IconButton} from "gatsby-theme-material-ui";
 
 const Text = styled(Typography)({
   color: '#fff',
@@ -24,7 +24,7 @@ const MenuPopover = styled(Popover)({
 });
 
 export default function IconTooltip({style, icon, title, top, url}) {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handlePopoverOpen = (event) => {
     setAnchorEl(event.currentTarget);

@@ -1,4 +1,3 @@
-import React from "react";
 import {Typography, Grid, Container} from "@mui/material";
 import {styled} from '@mui/material/styles'
 import {graphql} from "gatsby";

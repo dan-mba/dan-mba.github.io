@@ -47,7 +47,7 @@
     "eslint": "^8.11.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-react": "^7.29.4",
-    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.26"
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.27"
   },
   "repository": {
     "type": "git",

@@ -9,13 +9,15 @@ import Layout from "../components/Layout";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
 import PageData from "../data/index.yml";
 
-const Paragraph = ({children}) => {
-  return (
-    <Typography variant="body1" sx={{margin: '1em auto'}}>
-      {children}
-    </Typography>
-  )
-};
+const PType = styled(Typography)({
+  margin: '1em auto',
+});
+
+const Paragraph = ({children}) => (
+  <PType variant="body1" paragraph>
+    {children}
+  </PType>
+);
 
 const StyledSection = styled('section')({
   padding: '1em min(2%, 2em)',

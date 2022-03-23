@@ -1,4 +1,4 @@
-import {List, ListItem, ListItemIcon, ListItemText, Typography, useMediaQuery} from "@mui/material";
+import {List, ListItem, ListItemIcon, ListItemText, Typography} from "@mui/material";
 import {PlaceOutlined} from "@mui/icons-material";
 import {alpha, darken, lighten, styled} from "@mui/material/styles";
 import {graphql} from "gatsby";
@@ -9,13 +9,15 @@ import Layout from "../components/Layout";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
 import PageData from "../data/index.yml";
 
-const Paragraph = ({children}) => {
-  return (
-    <Typography variant="body1" sx={{margin: '1em auto'}}>
-      {children}
-    </Typography>
-  )
-};
+const PType = styled(Typography)({
+  margin: '1em auto',
+});
+
+const Paragraph = ({children}) => (
+  <PType variant="body1" paragraph>
+    {children}
+  </PType>
+);
 
 const StyledSection = styled('section')({
   padding: '1em min(2%, 2em)',
@@ -27,9 +29,16 @@ const StyledSection = styled('section')({
 const JobSection = styled(StyledSection)({
   alignItems: 'center',
   justifyContent: 'center',
+  '&:nth-child(even)': {
+    color: theme.palette.secondary.contrastText,
+    backgroundColor: darken(theme.palette.secondary.main, 0.7),
+  },
   [theme.breakpoints.up(900)]: {
     minHeight: '350px',
     flexDirection: 'row',
+    '&:nth-child(even)': {
+      flexDirection: 'row-reverse',
+    },
     justifyContent: 'space-around',
   }
 });
@@ -37,14 +46,6 @@ const JobSection = styled(StyledSection)({
 const JobText = styled('div')({
   padding: '0 1em'
 })
-
-const AccentSection = styled(JobSection)({
-  color: theme.palette.secondary.contrastText,
-  backgroundColor: darken(theme.palette.secondary.main, 0.7),
-  [theme.breakpoints.up(900)]: {
-    flexDirection: 'row-reverse',
-  },
-});
 
 const StyledPaper = styled('div')({
   backgroundColor: theme.palette.background.paper,
@@ -70,7 +71,10 @@ const HeroStyle = {
 
 const ImageDiv = styled('div')({
   width: '300px',
-  flex: 'none'
+  flex: 'none',
+  [theme.breakpoints.down(900)]: {
+    display: 'none',
+  },
 });
 
 const StyledList = styled(List)({
@@ -112,7 +116,6 @@ const TitleUrl = styled(Typography)({
 })
 
 export default function Home({data}) {
-  const isWide = useMediaQuery(theme.breakpoints.up(900));
   const heroImgData = getImage(data.hero);
   const mapImgData = getImage(data.map);
 
@@ -150,28 +153,18 @@ export default function Home({data}) {
                     return (<Paragraph key={count}>{text}</Paragraph>)
                   })}
                 </JobText>
-                {!isWide ? null : 
-                  <ImageDiv>
-                    <GatsbyImage image={data.jobs.nodes[imgID]['gatsbyImageData']} alt={d.imgAlt} />
-                  </ImageDiv>
-                }
+                <ImageDiv>
+                  <GatsbyImage image={data.jobs.nodes[imgID]['gatsbyImageData']} alt={d.imgAlt} />
+                </ImageDiv>
               </>
             );
           };
 
-          if(i%2 === 0) {
-            return (
-              <AccentSection key={`paragraph-${i}`}>
-                <InnerSection d={d} />
-              </AccentSection>
-            )
-          } else {
-            return (
-              <JobSection key={`paragraph-${i}`}>
-                <InnerSection d={d} />
-              </JobSection>
-            )
-          }
+          return (
+            <JobSection key={`paragraph-${i}`}>
+              <InnerSection d={d} />
+            </JobSection>
+          )
         })}
         <StyledSection>
           <Map image={mapImgData}

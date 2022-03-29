@@ -26,7 +26,7 @@
     "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.2",
     "emoji-js": "^3.7.0",
-    "gatsby": "^4.10.1",
+    "gatsby": "^4.10.3",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-image": "^2.10.1",
     "gatsby-plugin-loadable-components-ssr": "^4.2.0",

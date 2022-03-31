@@ -1,0 +1,17 @@
+.layout {
+  padding: 0 min(2vw, 1em)
+}
+
+.grid {
+  padding: 2em 0;
+}
+
+.title {
+  padding: 1em 0 0;
+}
+
+.link-area {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 1em;
+}

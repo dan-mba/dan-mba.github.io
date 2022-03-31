@@ -1,0 +1,40 @@
+.root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: .5rem 4px;
+  height: 7rem;
+}
+
+.header :global(.MuiCardHeader-content) {
+  flex: 1;
+}
+
+.content {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.description {
+  margin: .5em 0 1em;
+  flex-grow: 1;
+}
+
+.topic-area {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.topic-link {
+  cursor: pointer;
+}
+
+.topic-chip {
+  cursor: pointer;
+  margin: 4px;
+}

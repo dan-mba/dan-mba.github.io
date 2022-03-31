@@ -1,0 +1,25 @@
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: 1em .25em .5em;
+}
+
+.header :global(.MuiCardHeader-subheader) {
+  min-height: 3em;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 0 16px;
+}
+
+.description {
+  margin: 0;
+  flex-grow: 1;
+}

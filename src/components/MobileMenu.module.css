@@ -1,0 +1,37 @@
+.link-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.button-icon{
+    flex-direction: column;
+}
+
+.menu-icon-text{
+  font-size: .9rem;
+}
+
+.menu-drawer :global(.MuiPaper-root) {
+  background-color: var(--color-primary-main);
+  color: var(--color-primary-text);
+  min-width: 14rem;
+}
+
+.list-icon {
+  color: var(--color-primary-text);
+}
+
+.slim-list-item {
+  padding-top: 0;
+  margin-left: 56px;
+}
+
+.slim-list-text {
+  margin: 0;
+}
+
+.slim-list-text :global(.MuiListItemText-primary) {
+    font-weight: 400
+}

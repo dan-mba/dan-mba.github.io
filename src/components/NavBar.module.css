@@ -1,0 +1,11 @@
+.toolbar {
+  max-width: var(--xl-size);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 1%;
+}
+
+.handwriting {
+  font-family: "Damion", cursive;
+  padding-left: 12px;
+}

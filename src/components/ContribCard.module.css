@@ -1,0 +1,60 @@
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: 1em .25em .5em;
+  margin-left: 12px;
+}
+
+.header :global(.MuiCardHeader-title) {
+  margin-bottom: 0.5em;
+  font-weight: 500;
+}
+
+.header :global(.MuiCardHeader-subheader) {
+  min-height: 4.5em;
+}
+
+.header :global(.MuiCardHeader-action) {
+  margin: 0 0 0 16px;
+}
+
+.header :global(.MuiCardHeader-avatar) {
+  align-self: start;
+  margin-right:28px;
+}
+
+.content {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  padding: 0 16px;
+}
+
+.badge {
+  background-color: var(--color-secondary-main);
+  border-radius: 50%;
+}
+
+.badge :global(.MuiBadge-badge) {
+  font-size: 0.9rem;
+  border: 1px solid var(--color-secondary-main);
+  top: 0;
+  left: 0;
+  right: unset;
+  transform: translate(24px, -40%);
+  color: var(--color-secondary-main);
+  background-color: var(--color-primary-text);
+}
+
+.star {
+  color: var(--color-primary-text);
+  font-size: 48px;
+}
+
+.spacer {
+  margin-bottom: 1.5em;
+}

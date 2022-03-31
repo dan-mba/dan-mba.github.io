@@ -1,29 +1,11 @@
 import {Typography, Grid, Container} from "@mui/material";
-import {styled} from "@mui/material/styles";
 import {graphql} from "gatsby";
 import loadable from "@loadable/component";
 import Layout from "../components/Layout";
 import RepoCard from "../components/RepoCard";
+import {layout, grid, title, linkArea} from "./portfolio.module.css";
 
 const RepoPagination = loadable(() => import("../components/RepoPagination"));
-
-const LayoutContainer = styled(Container)({
-  padding: '0 min(2%, 1em)'
-});
-
-const GridContainer = styled(Grid)({
-  padding: '2em 0',
-});
-
-const Title = styled(Typography)({
-  padding: '1em 0 0'
-});
-
-const LinkArea = styled('div')({
-  display: 'flex',
-  justifyContent: 'center',
-  padding: '0 0 1em'
-});
 
 export default function Portfolio({data, pageContext: {numberOfPages, humanPageNumber}}) {
   const repos = data.repos.nodes;
@@ -37,15 +19,15 @@ export default function Portfolio({data, pageContext: {numberOfPages, humanPageN
     <Layout title={`Daniel Burkhardt - Portfolio Page ${humanPageNumber}`}
       description={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Page ${humanPageNumber}`}
     >
-      <LayoutContainer maxWidth="xl" disableGutters>
-        <Title variant="h3" align="center">Portfolio</Title>
-        <GridContainer container spacing={4} justifyContent="center" alignItems="stretch">
+      <Container maxWidth="xl" disableGutters classes={{root: layout}}>
+        <Typography variant="h3" align="center" classes={{root: title}}>Portfolio</Typography>
+        <Grid container spacing={4} justifyContent="center" alignItems="stretch" classes={{root: grid}}>
           {items}
-        </GridContainer>
-        <LinkArea>
+        </Grid>
+        <div className={linkArea}>
           <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/portfolio'}/>
-        </LinkArea>
-      </LayoutContainer>
+        </div>
+      </Container>
     </Layout>
   );
 };

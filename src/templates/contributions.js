@@ -1,29 +1,11 @@
 import {Typography, Grid, Container} from "@mui/material";
-import {styled} from '@mui/material/styles'
 import {graphql} from "gatsby";
 import loadable from "@loadable/component";
 import Layout from "../components/Layout";
 import ContribCard from "../components/ContribCard";
+import {layout, grid, title, linkArea} from "./portfolio.module.css";
 
 const RepoPagination = loadable(() => import("../components/RepoPagination"));
-
-const LayoutContainer = styled(Container)({
-  padding: '0 min(2%, 1em)'
-});
-
-const GridContainer = styled(Grid)({
-  padding: '2em 0'
-});
-
-const Title = styled(Typography)({
-  padding: '1em 0 0'
-});
-
-const LinkArea = styled('div')({
-  display: 'flex',
-  justifyContent: 'center',
-  padding: '0 0 1em'
-});
 
 
 export default function Contributions({data, pageContext: {numberOfPages, humanPageNumber}}) {
@@ -38,16 +20,16 @@ export default function Contributions({data, pageContext: {numberOfPages, humanP
     <Layout title={`Daniel Burkhardt - Contributions`}
       description={`Software Development Portfolio Site for Daniel Burkhardt - Contributions`}
     >
-      <LayoutContainer maxWidth="xl" disableGutters>
-        <Title variant="h3" align="center">Open Source Contributions</Title>
-        <GridContainer container spacing={4} justifyContent="center" alignItems="stretch">
+      <Container maxWidth="xl" disableGutters className={layout}>
+        <Typography variant="h3" align="center" className={title}>Open Source Contributions</Typography>
+        <Grid container spacing={4} justifyContent="center" alignItems="stretch" className={grid}>
           {items}
-        </GridContainer>
+        </Grid>
         {numberOfPages == 1 ? null :
-          <LinkArea>
+          <div className={linkArea}>
             <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/contributions'}/>
-          </LinkArea>}
-      </LayoutContainer>
+          </div>}
+      </Container>
     </Layout>
   );
 };

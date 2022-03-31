@@ -1,27 +1,7 @@
 import {useState} from 'react';
 import {Popover, Typography} from '@mui/material';
-import {styled} from '@mui/material/styles'
 import {IconButton} from "gatsby-theme-material-ui";
-
-const Text = styled(Typography)({
-  color: '#fff',
-  padding: '4px 8px',
-  fontSize: '0.75rem',
-  maxWidth: '300px',
-  wordWrap: 'break-word',
-  fontWeight: 400,
-  lineHeight: '1.4em',
-  borderRadius: '4px;',
-  backgroundColor: 'rgba(97, 97, 97, 0.9)',
-});
-
-const MenuPopover = styled(Popover)({
-  pointerEvents: 'none',
-  '.MuiPopover-paper': {
-    backgroundColor: 'transparent',
-    margin: '.5rem 0'
-  },
-});
+import {text, popover} from "./IconTooltip.module.css";
 
 export default function IconTooltip({style, icon, title, top, url}) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -50,7 +30,7 @@ export default function IconTooltip({style, icon, title, top, url}) {
       size="large">
       {icon}
     </IconButton>
-    <MenuPopover
+    <Popover
       id="mouse-over-popover"
       open={open}
       anchorEl={anchorEl}
@@ -63,9 +43,10 @@ export default function IconTooltip({style, icon, title, top, url}) {
         horizontal: 'center',
       }}
       onClose={handlePopoverClose}
+      classes={{root: popover}}
       disableRestoreFocus
     >
-      <Text>{title}</Text>
-    </MenuPopover>
+      <Typography classes={{root: text}}>{title}</Typography>
+    </Popover>
   </>;
 }

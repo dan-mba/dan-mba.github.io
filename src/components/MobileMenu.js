@@ -1,48 +1,33 @@
 import {useState} from "react";
-import {Drawer, List, ListItem, ListItemIcon, ListItemText} from "@mui/material";
-import {styled} from '@mui/material/styles';
+import {Drawer, Link, List, ListItem, ListItemIcon, ListItemText} from "@mui/material";
 import {LinkedIn, GitHub, Home, Code, Menu as MenuIcon} from "@mui/icons-material";
-import {IconButton, Link} from "gatsby-theme-material-ui";
-import theme from "../gatsby-theme-material-ui-top-layout/theme";
+import {IconButton} from "gatsby-theme-material-ui";
+//use Link from reach-router to avoid pre-fetching on mobile
+import {Link as ReachLink} from "@gatsbyjs/reach-router";
+import {linkBar, buttonIcon, menuIconText, menuDrawer, listIcon, slimListItem, slimListText} from "./MobileMenu.module.css";
 
-const LinkBar = styled('div')({
-  display: 'flex',
-  justifyContent: 'flex-end',
-  alignItems: 'center',
-  flexGrow: 1
-});
+const Lnk = ({children, ...props}) => (
+  <Link component={ReachLink} {...props}>
+    {children}
+  </Link>
+)
 
-const ButtonIcon = styled(IconButton)({
-    flexDirection: 'column'
-});
+const ListIcon = ({children}) => (
+  <ListItemIcon className={listIcon} >
+    {children}
+  </ListItemIcon>
+);
 
-const MenuIconText = styled('div')({
-  fontSize: '.9rem',
-})
 
-const MenuDrawer = styled(Drawer)({
-  '.MuiPaper-root': {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
-    minWidth: '14rem'
-  }
-});
+const SlimListItem = ({children, ...props}) => (
+  <ListItem className={slimListItem} component={Lnk} color="inherit" underline="none" {...props}>
+    {children}
+  </ListItem>
+);
 
-const ListIcon = styled(ListItemIcon)({
-  color: theme.palette.primary.contrastText
-});
-
-const SlimListItem = styled(ListItem)({
-  paddingTop: 0,
-  marginLeft: '56px'
-});
-
-const SlimListText = styled(ListItemText)({
-  margin: 0,
-  '.MuiListItemText-primary': {
-    fontWeight: 400
-  }
-});
+const SlimListText = (props) => (
+  <ListItemText className={slimListText} primaryTypographyProps={{variant: "h6"}} {...props}/>
+);
 
 export default function MobileMenu() {
   const [drawer, setDrawer] = useState(false);
@@ -50,28 +35,31 @@ export default function MobileMenu() {
   const openDrawer = () => setDrawer(true);
 
   return <>
-    <LinkBar>
-      <ButtonIcon
+    <div className={linkBar}>
+      <IconButton
         id="menu-button"
         color="inherit"
         aria-controls="menu-drawer"
         aria-haspopup="menu"
         disableRipple
         onClick={openDrawer}
-        size="large">
+        size="large"
+        className={buttonIcon}
+      >
         <MenuIcon />
-        <MenuIconText>Menu</MenuIconText>
-      </ButtonIcon>
-    </LinkBar>
-    <MenuDrawer
+        <div className={menuIconText}>Menu</div>
+      </IconButton>
+    </div>
+    <Drawer
       id="menu-drawer"
       anchor="right"
+      className={menuDrawer}
       open={drawer}
       onClose={closeDrawer}
       ModalProps={{keepMounted: true}}
     >
       <List>
-        <ListItem component={Link} to="/" color="inherit" underline="none">
+        <ListItem component={Lnk} to="/" color="inherit" underline="none">
           <ListIcon>
             <Home />
           </ListIcon>
@@ -81,16 +69,16 @@ export default function MobileMenu() {
           <ListIcon>
             <Code />
           </ListIcon>
-          <SlimListText primary="Portfolio" primaryTypographyProps={{variant: "h5"}}/>
+          <SlimListText primary="Portfolio"/>
         </ListItem>
-        <SlimListItem component={Link} to="/portfolio" color="inherit" underline="none">
-          <SlimListText primary="Projects" primaryTypographyProps={{variant: "h6"}}/>
+        <SlimListItem to="/portfolio">
+          <SlimListText primary="Projects"/>
         </SlimListItem>
-        <SlimListItem component={Link} to="/topics" color="inherit" underline="none">
-          <SlimListText primary="Topics" primaryTypographyProps={{variant: "h6"}}/>
+        <SlimListItem to="/topics">
+          <SlimListText primary="Topics"/>
         </SlimListItem>
-        <SlimListItem component={Link} to="/contributions" color="inherit" underline="none">
-          <SlimListText primary="Contributions" primaryTypographyProps={{variant: "h6"}}/>
+        <SlimListItem to="/contributions">
+          <SlimListText primary="Contributions"/>
         </SlimListItem>
         <ListItem
           component={Link}
@@ -121,6 +109,6 @@ export default function MobileMenu() {
           <ListItemText primary="LinkedIn" primaryTypographyProps={{variant: "h5"}}/>
         </ListItem>
       </List>
-    </MenuDrawer>
+    </Drawer>
   </>;
 }

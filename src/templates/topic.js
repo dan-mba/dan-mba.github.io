@@ -1,16 +1,8 @@
 import {Typography, Grid, Container} from "@mui/material";
-import {styled} from "@mui/material/styles"
 import {graphql} from "gatsby";
 import Layout from "../components/Layout";
 import TopicCard from "../components/TopicCard";
-
-const Title = styled(Typography)({
-  padding: '1em 0 0'
-});
-
-const GridContainer = styled(Grid)({
-  padding: '2em min(2%, .5em)'
-});
+import {title, container} from "./topic.module.css";
 
 export default function Topic({data, pageContext: {topic}}) {
   const repos = data.repos.nodes;
@@ -25,10 +17,10 @@ export default function Topic({data, pageContext: {topic}}) {
       description={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Topics - ${topic}`}
     >
       <Container maxWidth="xl" disableGutters>
-        <Title variant="h3" align="center">{topic}</Title>
-        <GridContainer container columnSpacing={3} rowSpacing={2} justifyContent="center" alignItems="stretch">
+        <Typography variant="h3" align="center" className={title}>{topic}</Typography>
+        <Grid container columnSpacing={3} rowSpacing={2} justifyContent="center" alignItems="stretch" className={container}>
           {items}
-        </GridContainer>
+        </Grid>
       </Container>
     </Layout>
   );

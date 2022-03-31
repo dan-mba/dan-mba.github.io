@@ -39,8 +39,18 @@ const theme = createTheme({
           lineHeight: '1.43',
           letterSpacing: '0.01071em'
         },
-        html: darkScrollbar({track: '#212121', thumb: '#666'})
-        
+        html: {
+          '--xl-size': '1200px',
+          '--color-primary-main': '#212121',
+          '--color-primary-text': '#fff',
+          '--color-secondary-main': '#004d73',
+          '--color-secondary-blue': 'rgb(140, 217, 255)',
+          '--color-accent-background': 'rgb(0, 23, 34)',
+          '--color-paper-background': '#dbe3e8',
+          '--color-hero-background': 'rgba(33, 33, 33, 0.6)',
+          '--color-title-url': 'rgb(81, 133, 159)',
+          ...darkScrollbar({track: '#212121', thumb: '#666'}),
+        },
       },
     },
   },

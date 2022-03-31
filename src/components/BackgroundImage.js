@@ -1,34 +1,21 @@
-import {styled} from '@mui/material/styles';
 import {GatsbyImage} from "gatsby-plugin-image";
-import PreloadImage from './PreloadImage';
+import PreloadImage from "./PreloadImage";
 
-const HeroBox = styled('div')({
-  height: '100%',
-  width: '100%',
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-  zIndex: 10
-})
-
-const BkgImage = styled(GatsbyImage)({
-  height: '100%',
-  width: '100%',
-  overflow: 'hidden',
-})
-
-export default function BackgroundImage({image, children, style}) {
+export default function BackgroundImage({image, children, ...props}) {
   return (
-    <section style={{position: 'relative', ...style}}>
+    <section style={{display: 'grid'}} {...props}>
       <PreloadImage image={image} />
-      <BkgImage image={image} loading="eager" alt=""/>
-      <HeroBox>
+      <GatsbyImage image={image} loading="eager" alt="" style={{gridArea: '1/1'}}/>
+      <div
+        style={{
+          gridArea: '1/1',
+          position: 'relative',
+          placeItems: 'center',
+          display: 'grid',
+        }}
+      >
         {children}
-      </HeroBox>
+      </div>
     </section>
   );
 };

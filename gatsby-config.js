@@ -61,6 +61,9 @@ module.exports = {
           },
           formats: ["woff2"],
         },
+        muiPluginConfig: {
+          pathToEmotionCacheProps: `src/emotion/emotion-cache-props`,
+        }
       },
     },
     'gatsby-plugin-loadable-components-ssr',

@@ -1,0 +1,25 @@
+.container {
+  padding: 5em 1em 2em;
+  display: flex;
+  margin: 0 auto;
+  max-width: 90ch;
+}
+
+@media (max-width: 750px) {
+  .container {
+    padding: 2em 2vw;
+  }
+}
+
+.item {
+  margin: 0.5em;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.chip {
+  font-size: 1em;
+  cursor: pointer;
+}

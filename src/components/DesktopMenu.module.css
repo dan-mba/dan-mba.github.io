@@ -1,0 +1,43 @@
+.link-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.paper {
+  color: var(--color-primary-text);
+  background-color: var(--color-primary-main);
+}
+
+.button {
+  text-transform: none;
+  line-height: 1.334;
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding: 16px 12px 8px;
+}
+
+.button:hover {
+  color: var(--color-secondary-blue);
+}
+
+.link {
+  padding: 16px 12px 8px;
+}
+
+.link:hover {
+  color: var(--color-secondary-blue);
+}
+
+.icon:hover {
+  color: var(--color-secondary-blue);
+}
+
+.menu-type {
+  font-weight: 400;
+}
+
+.menu-type:hover {
+  color: var(--color-secondary-blue);
+}

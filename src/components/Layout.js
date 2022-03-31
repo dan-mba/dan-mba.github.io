@@ -1,13 +1,7 @@
-import {styled} from '@mui/material/styles'
 import {Helmet} from "react-helmet";
 import {withPrefix} from "gatsby";
 import NavBar from "./NavBar";
-
-const StyledContainer = styled('div')({
-  width: '100%',
-  boxSizing: 'border-box',
-  margin: '0 auto 1em',
-});
+import {container} from "./Layout.module.css";
 
 export default function Layout({title, description, children}) {
   return (
@@ -40,9 +34,9 @@ export default function Layout({title, description, children}) {
         <meta name="msapplication-config" content={`${withPrefix('/')}img/browserconfig.xml`} />
       </Helmet>
       <NavBar/>
-      <StyledContainer>
+      <div className={container}>
         {children}
-      </StyledContainer>
+      </div>
     </>
   );
 };

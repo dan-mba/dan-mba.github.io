@@ -2,15 +2,16 @@ import {Avatar, Chip, Grid, Link} from "@mui/material";
 // Use Link from reach-router to prevent gatsby preloading all links
 import {Link as ReachLink} from "@gatsbyjs/reach-router";
 import Layout from "../components/Layout";
-import {container, item, link, chip} from "./topics.module.css";
+import {container, link, chip} from "./topics.module.css";
 
 
 export default function Topics({pageContext: {topics}}) {
   const items = topics.map((topic, index) => (
-    <Grid item key={index} className={item}>
+    <Grid item key={index} style={{margin: '0.5em'}}>
       <Link to={`/topics/${topic.name}`} underline="none" component={ReachLink} className={link}>
         <Chip color="secondary" variant="outlined" label={topic.name} className={chip}
           avatar={<Avatar>{topic.count}</Avatar>}
+          size="large"
         />
       </Link>
     </Grid>

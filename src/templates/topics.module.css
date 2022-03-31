@@ -1,6 +1,5 @@
 .container {
   padding: 5em 1em 2em;
-  display: flex;
   margin: 0 auto;
   max-width: 90ch;
 }
@@ -11,15 +10,8 @@
   }
 }
 
-.item {
-  margin: 0.5em;
-}
-
-.link {
-  cursor: pointer;
-}
-
+.link,
 .chip {
-  font-size: 1em;
   cursor: pointer;
 }
+

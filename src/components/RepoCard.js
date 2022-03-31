@@ -5,7 +5,7 @@ import {Link as ReachLink} from "@gatsbyjs/reach-router";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import IconTooltip from "./IconTooltip";
 import PreloadImage from "./PreloadImage";
-import {root, header, content, description, topicArea, topicLink, topicChip} from "./RepoCard.module.css";
+import {root, content, topicArea, topicLink, topicChip} from "./RepoCard.module.css";
 
 export default function RepoCard({repo, index}) {
   return (
@@ -15,7 +15,10 @@ export default function RepoCard({repo, index}) {
         titleTypographyProps={{align: 'center'}}
         subheader={repo.languages.map(l => `${l.name}: ${l.size}%`).join(', ')}
         subheaderTypographyProps={{align: 'center', color: 'secondary'}}
-        classes={{root: header}}
+        style={{
+          padding: '0.5em  4px',
+          height: '7rem',
+        }}
       />
       <CardMedia>
         <GatsbyImage
@@ -30,7 +33,12 @@ export default function RepoCard({repo, index}) {
         {index === 0 ? <PreloadImage image={getImage(repo.localImage)} /> : null}
       </CardMedia>
       <CardContent className={content}>
-        <Typography variant="body1" align="center" className={description}>
+        <Typography variant="body1" align="center"
+          style={{
+            margin: '0.5em 0 1em',
+            flexGrow: 1,
+          }}
+        >
           {repo.description}
         </Typography>
         <div className={topicArea}>

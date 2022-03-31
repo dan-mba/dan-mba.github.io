@@ -7,6 +7,7 @@ module.exports = {
   siteMetadata: {
     siteUrl: 'https://dan-mba.github.io'
   },
+  trailingSlash: 'always',
   plugins: [
     {
       resolve: 'repos-source-plugin',

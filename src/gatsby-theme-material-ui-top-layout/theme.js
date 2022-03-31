@@ -31,6 +31,14 @@ const theme = createTheme({
         },
       }
     },
+    MuiChip: {
+      variants: [
+        {
+          props: {size: 'large'},
+          style: {fontSize: '1em'},
+        }
+      ]
+    },
     MuiCssBaseline: {
       styleOverrides: {
         body: {

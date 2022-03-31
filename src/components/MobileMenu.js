@@ -71,13 +71,13 @@ export default function MobileMenu() {
           </ListIcon>
           <SlimListText primary="Portfolio"/>
         </ListItem>
-        <SlimListItem to="/portfolio">
+        <SlimListItem to="/portfolio/">
           <SlimListText primary="Projects"/>
         </SlimListItem>
-        <SlimListItem to="/topics">
+        <SlimListItem to="/topics/">
           <SlimListText primary="Topics"/>
         </SlimListItem>
-        <SlimListItem to="/contributions">
+        <SlimListItem to="/contributions/">
           <SlimListText primary="Contributions"/>
         </SlimListItem>
         <ListItem

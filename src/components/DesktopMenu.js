@@ -39,17 +39,17 @@ export default function DesktopMenu() {
             >
               <Paper className={paper}>
                 <MenuList autoFocusItem={popupState.isOpen} id="menu-list-grow">
-                  <MenuItem component={Link} to="/portfolio" underline="none">
+                  <MenuItem component={Link} to="/portfolio/" underline="none">
                     <MenuType>
                       Projects
                     </MenuType>
                   </MenuItem>
-                  <MenuItem component={Link} to="/topics" underline="none">
+                  <MenuItem component={Link} to="/topics/" underline="none">
                     <MenuType>
                       Topics
                     </MenuType>
                   </MenuItem>
-                  <MenuItem component={Link} to="/contributions" underline="none">
+                  <MenuItem component={Link} to="/contributions/" underline="none">
                     <MenuType>
                       Contributions
                     </MenuType>

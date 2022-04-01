@@ -36,10 +36,10 @@ const JobSection = styled(StyledSection)({
   [theme.breakpoints.up(900)]: {
     minHeight: '350px',
     flexDirection: 'row',
+    justifyContent: 'space-around',
     '&:nth-child(even)': {
       flexDirection: 'row-reverse',
     },
-    justifyContent: 'space-around',
   }
 });
 
@@ -72,8 +72,9 @@ const HeroStyle = {
 const ImageDiv = styled('div')({
   width: '300px',
   flex: 'none',
-  [theme.breakpoints.down(900)]: {
-    display: 'none',
+  display: 'none',
+  [theme.breakpoints.up(900)]: {
+    display: 'block'
   },
 });
 

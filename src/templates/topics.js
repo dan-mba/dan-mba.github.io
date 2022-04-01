@@ -8,11 +8,10 @@ import theme from "../gatsby-theme-material-ui-top-layout/theme"
 
 const GridContainer = styled(Grid)({
   padding: '5em 1em 2em',
-  display: 'flex',
   margin: '0 auto',
   maxWidth: '90ch',
   [theme.breakpoints.down('lg')]: {
-    padding: '2em 2%'
+    padding: '2em 2vw'
   }
 });
 

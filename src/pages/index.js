@@ -1,6 +1,6 @@
 import {List, ListItem, ListItemIcon, ListItemText, Typography} from "@mui/material";
 import {PlaceOutlined} from "@mui/icons-material";
-import {alpha, darken, lighten, styled} from "@mui/material/styles";
+import {styled} from "@mui/material/styles";
 import {graphql} from "gatsby";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import {Link} from "gatsby-theme-material-ui";
@@ -20,7 +20,7 @@ const Paragraph = ({children}) => (
 );
 
 const StyledSection = styled('section')({
-  padding: '1em min(2%, 2em)',
+  padding: '1em min(2vw, 2em)',
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
@@ -31,7 +31,7 @@ const JobSection = styled(StyledSection)({
   justifyContent: 'center',
   '&:nth-child(even)': {
     color: theme.palette.secondary.contrastText,
-    backgroundColor: darken(theme.palette.secondary.main, 0.7),
+    backgroundColor: theme.pages.index.accentBackground,
   },
   [theme.breakpoints.up(900)]: {
     minHeight: '350px',
@@ -58,7 +58,7 @@ const StyledPaper = styled('div')({
 
 const HeroText = styled('div')({
   color: theme.palette.primary.contrastText,
-  backgroundColor: alpha(theme.palette.primary.main,0.6),
+  backgroundColor: theme.pages.index.heroBackground,
   padding: '2px',
   textAlign: 'center',
   borderRadius: '5px'
@@ -111,7 +111,7 @@ const Title = styled(Typography)({
 })
 
 const TitleUrl = styled(Typography)({
-  color: lighten(theme.palette.secondary.main, 0.32),
+  color: theme.pages.index.titleURLColor,
   fontWeight: 'bold'
 })
 

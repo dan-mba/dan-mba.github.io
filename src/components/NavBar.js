@@ -15,7 +15,8 @@ const StyledToolbar = styled(Toolbar)({
 
 const Handwriting = styled(Typography)({
   fontFamily: '"Damion", cursive',
-  paddingLeft: '12px'
+  paddingLeft: '12px',
+  minWidth: '100px',
 });
 
 export default function NavBar() {

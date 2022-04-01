@@ -5,38 +5,26 @@ import {Link as ReachLink} from "@gatsbyjs/reach-router";
 import Layout from "../components/Layout";
 import theme from "../gatsby-theme-material-ui-top-layout/theme"
 
-
 const GridContainer = styled(Grid)({
-  padding: '5em 1em 2em',
+  padding: '2em 1vw',
   margin: '0 auto',
   maxWidth: '90ch',
-  [theme.breakpoints.down('lg')]: {
-    padding: '2em 2vw'
+  [theme.breakpoints.up('lg')]: {
+    padding: '5rem 1rem 2rem',
   }
 });
 
-const GridItem = styled(Grid)({
-  margin: '.5em'
-});
-
-const TopicLink = styled(Link)({
-  cursor: 'pointer'
-});
-
-const TopicChip = styled(Chip)({
-  fontSize: '1em',
-  cursor: 'pointer'
-});
-
 export default function Topics({pageContext: {topics}}) {
-  const items = topics.map((topic, index) => (
-    <GridItem item key={index}>
-      <TopicLink to={`/topics/${topic.name}/`} underline="none" component={ReachLink}>
-        <TopicChip color="secondary" variant="outlined" label={topic.name}
-          avatar={<Avatar>{topic.count}</Avatar>}
+  const items = topics.map((topic) => (
+    <Grid item m={1} key={topic}>
+      <Link to={`/topics/${topic.name}/`} style={{cursor: 'pointer'}}
+        underline="none" component={ReachLink}
+      >
+        <Chip color="secondary" variant="outlined" label={topic.name} size="large"
+          avatar={<Avatar>{topic.count}</Avatar>} style={{cursor: 'pointer'}}
         />
-      </TopicLink>
-    </GridItem>
+      </Link>
+    </Grid>
   ));
 
   return (

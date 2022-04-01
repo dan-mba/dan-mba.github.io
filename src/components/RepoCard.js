@@ -1,11 +1,10 @@
-import {Card, CardActions, CardContent, CardHeader, CardMedia, Chip, Link, Typography} from "@mui/material";
+import {Card, CardActions, CardContent, CardHeader, CardMedia, Typography} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import {Code, Link as LinkIcon} from "@mui/icons-material";
-// use Link from reach router to avoid pre-fetching topics
-import {Link as ReachLink} from "@gatsbyjs/reach-router";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import IconTooltip from "./IconTooltip";
 import PreloadImage from "./PreloadImage";
+import TopicChip from "./TopicChip";
 
 const CardRoot = styled(Card)({
   height: '100%',
@@ -35,15 +34,6 @@ const TopicArea = styled('div')({
   flexWrap: 'wrap' 
 })
 
-const TopicLink = styled(Link)({
-  cursor: 'pointer'
-});
-
-const TopicChip = styled(Chip)({
-  margin: '4px',
-  cursor: 'pointer'
-});
-
 export default function RepoCard({repo, index}) {
   return (
     <CardRoot>
@@ -72,9 +62,7 @@ export default function RepoCard({repo, index}) {
         <TopicArea>
           {repo.topics.map(topic => {
             return (
-              <TopicLink to={`/topics/${topic}/`} component={ReachLink} key={topic}>
-                <TopicChip color="secondary" variant="outlined" size="small" label={topic}/>
-              </TopicLink>
+              <TopicChip size="small" name={topic} key={topic} />
             )
           })}
         </TopicArea>

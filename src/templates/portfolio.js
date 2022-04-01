@@ -19,9 +19,9 @@ export default function Portfolio({data, pageContext: {numberOfPages, humanPageN
     <Layout title={`Daniel Burkhardt - Portfolio Page ${humanPageNumber}`}
       description={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Page ${humanPageNumber}`}
     >
-      <Container maxWidth="xl" disableGutters classes={{root: layout}}>
-        <Typography variant="h3" align="center" classes={{root: title}}>Portfolio</Typography>
-        <Grid container spacing={4} justifyContent="center" alignItems="stretch" classes={{root: grid}}>
+      <Container maxWidth="xl" disableGutters className={layout}>
+        <Typography variant="h3" align="center" className={title}>Portfolio</Typography>
+        <Grid container spacing={4} justifyContent="center" alignItems="stretch" className={grid}>
           {items}
         </Grid>
         <div className={linkArea}>

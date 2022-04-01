@@ -1,4 +1,4 @@
-import {Card, CardActions, CardContent, CardHeader, CardMedia, Chip, Link, Typography} from "@mui/material";
+import {Card, CardActions, CardContent, CardHeader, Chip, Link, Typography} from "@mui/material";
 import {Code, Link as LinkIcon} from "@mui/icons-material";
 // use Link from reach router to avoid pre-fetching topics
 import {Link as ReachLink} from "@gatsbyjs/reach-router";
@@ -20,18 +20,16 @@ export default function RepoCard({repo, index}) {
           height: '7rem',
         }}
       />
-      <CardMedia>
-        <GatsbyImage
-          image={getImage(repo.localImage)}
-          alt={`${repo.name} image`}
-          objectFit="contain"
-          loading={
-            /* Only use eager loading on first card for mobile performance */
-            index===0 ? "eager" : "lazy"
-          }
-        />
-        {index === 0 ? <PreloadImage image={getImage(repo.localImage)} /> : null}
-      </CardMedia>
+      <GatsbyImage
+        image={getImage(repo.localImage)}
+        alt={`${repo.name} image`}
+        objectFit="contain"
+        loading={
+          /* Only use eager loading on first card for mobile performance */
+          index===0 ? "eager" : "lazy"
+        }
+      />
+      {index === 0 ? <PreloadImage image={getImage(repo.localImage)} /> : null}
       <CardContent className={content}>
         <Typography variant="body1" align="center"
           style={{

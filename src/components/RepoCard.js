@@ -72,7 +72,7 @@ export default function RepoCard({repo, index}) {
         <TopicArea>
           {repo.topics.map(topic => {
             return (
-              <TopicLink to={`/topics/${topic}`} component={ReachLink} key={topic}>
+              <TopicLink to={`/topics/${topic}/`} component={ReachLink} key={topic}>
                 <TopicChip color="secondary" variant="outlined" size="small" label={topic}/>
               </TopicLink>
             )

@@ -5,11 +5,11 @@ import Layout from "../components/Layout";
 import TopicCard from "../components/TopicCard";
 
 const Title = styled(Typography)({
-  padding: '1em 0 0'
+  padding: '3rem 0 0'
 });
 
 const GridContainer = styled(Grid)({
-  padding: '2em min(2vw, .5em)'
+  padding: '1.5rem min(2vw, .5rem)'
 });
 
 export default function Topic({data, pageContext: {topic}}) {

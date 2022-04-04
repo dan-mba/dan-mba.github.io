@@ -13,8 +13,8 @@ const CardRoot = styled(Card)({
 });
 
 const Header = styled(CardHeader)({
-  padding: '1em 4px',
-  height: '8em', 
+  padding: '1rem 4px',
+  height: '7rem', 
 });
 
 const Content = styled(CardContent)({
@@ -24,7 +24,7 @@ const Content = styled(CardContent)({
 });
 
 const Description = styled(Typography)({
-  margin: '.5em 0 1em',
+  margin: '.5rem 0 1rem',
   flexGrow: 1
 });
 

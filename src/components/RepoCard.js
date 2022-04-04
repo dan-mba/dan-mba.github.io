@@ -1,4 +1,4 @@
-import {Card, CardActions, CardContent, CardHeader, CardMedia, Typography} from "@mui/material";
+import {Card, CardActions, CardContent, CardHeader, Typography} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import {Code, Link as LinkIcon} from "@mui/icons-material";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
@@ -43,18 +43,16 @@ export default function RepoCard({repo, index}) {
         subheader={repo.languages.map(l => `${l.name}: ${l.size}%`).join(', ')}
         subheaderTypographyProps={{align: 'center', color: 'secondary'}}
       />
-      <CardMedia>
-        <GatsbyImage
-          image={getImage(repo.localImage)}
-          alt={`${repo.name} image`}
-          objectFit="contain"
-          loading={
-            /* Only use eager loading on first card for mobile performance */
-            index===0 ? "eager" : "lazy"
-          }
-        />
-        {index === 0 ? <PreloadImage image={getImage(repo.localImage)} /> : null}
-      </CardMedia>
+      <GatsbyImage
+        image={getImage(repo.localImage)}
+        alt={`${repo.name} image`}
+        objectFit="contain"
+        loading={
+          /* Only use eager loading on first card for mobile performance */
+          index===0 ? "eager" : "lazy"
+        }
+      />
+      {index === 0 ? <PreloadImage image={getImage(repo.localImage)} /> : null}
       <Content>
         <Description variant="body1" align="center">
           {repo.description}

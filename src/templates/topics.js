@@ -5,7 +5,7 @@ import TopicChip from "../components/TopicChip";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
 const GridContainer = styled(Grid)({
-  padding: '2em 1vw',
+  padding: '2rem 1vw',
   margin: '0 auto',
   maxWidth: '90ch',
   [theme.breakpoints.up('lg')]: {
@@ -15,7 +15,7 @@ const GridContainer = styled(Grid)({
 
 export default function Topics({pageContext: {topics}}) {
   const items = topics.map((topic) => (
-    <Grid item m={1} key={topic}>
+    <Grid item m={0.5} key={topic.name}>
       <TopicChip size="large" name={topic.name} count={topic.count}/>
     </Grid>
   ));

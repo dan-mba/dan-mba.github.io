@@ -9,7 +9,7 @@ const Title = styled(Typography)({
 });
 
 const GridContainer = styled(Grid)({
-  padding: '2em min(2%, .5em)'
+  padding: '2em min(2vw, .5em)'
 });
 
 export default function Topic({data, pageContext: {topic}}) {

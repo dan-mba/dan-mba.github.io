@@ -29,7 +29,7 @@ const StyledSection = styled('section')({
 const JobSection = styled(StyledSection)({
   alignItems: 'center',
   justifyContent: 'center',
-  '&:nth-child(even)': {
+  '&:nth-of-type(2n)': {
     color: theme.palette.secondary.contrastText,
     backgroundColor: theme.pages.index.accentBackground,
   },
@@ -37,7 +37,7 @@ const JobSection = styled(StyledSection)({
     minHeight: '350px',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    '&:nth-child(even)': {
+    '&:nth-of-type(2n)': {
       flexDirection: 'row-reverse',
     },
   }

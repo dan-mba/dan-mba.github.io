@@ -6,7 +6,7 @@ import NavBar from "./NavBar";
 const StyledContainer = styled('div')({
   width: '100%',
   boxSizing: 'border-box',
-  margin: '0 auto 1em',
+  margin: '0 auto 1rem',
 });
 
 export default function Layout({title, description, children}) {

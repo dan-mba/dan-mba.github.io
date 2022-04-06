@@ -8,21 +8,21 @@ import ContribCard from "../components/ContribCard";
 const RepoPagination = loadable(() => import("../components/RepoPagination"));
 
 const LayoutContainer = styled(Container)({
-  padding: '0 min(2%, 1em)'
+  padding: '0 min(2vw, 1rem)'
 });
 
 const GridContainer = styled(Grid)({
-  padding: '2em 0'
+  padding: '1.5rem 0'
 });
 
 const Title = styled(Typography)({
-  padding: '1em 0 0'
+  padding: '3rem 0 0'
 });
 
 const LinkArea = styled('div')({
   display: 'flex',
   justifyContent: 'center',
-  padding: '0 0 1em'
+  padding: '0 0 1rem'
 });
 
 

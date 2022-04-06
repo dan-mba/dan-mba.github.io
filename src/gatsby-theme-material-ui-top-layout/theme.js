@@ -31,6 +31,14 @@ const theme = createTheme({
         },
       }
     },
+    MuiChip: {
+      variants: [
+        {
+          props: {size: 'large'},
+          style: {fontSize: '1em'},
+        }
+      ]
+    },
     MuiCssBaseline: {
       styleOverrides: {
         body: {
@@ -42,6 +50,13 @@ const theme = createTheme({
         html: darkScrollbar({track: '#212121', thumb: '#666'})
         
       },
+    },
+  },
+  pages: {
+    index: {
+      accentBackground: 'rgb(0, 23, 34)', // darken(theme.palette.secondary.main, 0.7)
+      heroBackground: 'rgba(33, 33, 33, 0.6)', // alpha(theme.palette.primary.main,0.6)
+      titleURLColor: 'rgb(81, 133, 159)', // lighten(theme.palette.secondary.main, 0.32)
     },
   },
 });

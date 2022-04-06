@@ -83,13 +83,13 @@ export default function MobileMenu() {
           </ListIcon>
           <SlimListText primary="Portfolio" primaryTypographyProps={{variant: "h5"}}/>
         </ListItem>
-        <SlimListItem component={Link} to="/portfolio" color="inherit" underline="none">
+        <SlimListItem component={Link} to="/portfolio/" color="inherit" underline="none">
           <SlimListText primary="Projects" primaryTypographyProps={{variant: "h6"}}/>
         </SlimListItem>
-        <SlimListItem component={Link} to="/topics" color="inherit" underline="none">
+        <SlimListItem component={Link} to="/topics/" color="inherit" underline="none">
           <SlimListText primary="Topics" primaryTypographyProps={{variant: "h6"}}/>
         </SlimListItem>
-        <SlimListItem component={Link} to="/contributions" color="inherit" underline="none">
+        <SlimListItem component={Link} to="/contributions/" color="inherit" underline="none">
           <SlimListText primary="Contributions" primaryTypographyProps={{variant: "h6"}}/>
         </SlimListItem>
         <ListItem

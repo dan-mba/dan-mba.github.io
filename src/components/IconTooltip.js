@@ -10,7 +10,7 @@ const Text = styled(Typography)({
   maxWidth: '300px',
   wordWrap: 'break-word',
   fontWeight: 400,
-  lineHeight: '1.4em',
+  lineHeight: '1.3rem',
   borderRadius: '4px;',
   backgroundColor: 'rgba(97, 97, 97, 0.9)',
 });

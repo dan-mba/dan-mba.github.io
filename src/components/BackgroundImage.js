@@ -3,27 +3,19 @@ import {GatsbyImage} from "gatsby-plugin-image";
 import PreloadImage from './PreloadImage';
 
 const HeroBox = styled('div')({
-  height: '100%',
-  width: '100%',
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-  zIndex: 10
+  gridArea: '1/1',
+  position: 'relative',
+  placeItems: 'center',
+  display: 'grid',
 })
 
 const BkgImage = styled(GatsbyImage)({
-  height: '100%',
-  width: '100%',
-  overflow: 'hidden',
+  gridArea: '1/1',
 })
 
 export default function BackgroundImage({image, children, style}) {
   return (
-    <section style={{position: 'relative', ...style}}>
+    <section style={{display: 'grid', ...style}}>
       <PreloadImage image={image} />
       <BkgImage image={image} loading="eager" alt=""/>
       <HeroBox>

@@ -13,14 +13,14 @@ const CardRoot = styled(Card)({
 })
 
 const Header = styled(CardHeader)({
-  padding: '1em .25em .5em',
+  padding: '1rem .25rem .5rem',
   marginLeft: '12px',  
   '.MuiCardHeader-title': {
-    marginBottom: '.5em',
+    marginBottom: '.75rem',
     fontWeight: '500'
   },
   '.MuiCardHeader-subheader': {
-    minHeight: '4.5em',
+    minHeight: '4.5rem',
   },
   '.MuiCardHeader-action': {
     margin: 0,
@@ -60,7 +60,7 @@ const StarIcon = styled(StarOutlineRounded)({
 });
 
 const Spacer = styled('div')({
-  marginBottom: '1.5em'
+  marginBottom: '1.3rem'
 })
 
 export default function ContribCard({repo}) {

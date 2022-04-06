@@ -10,9 +10,9 @@ const CardRoot = styled(Card)({
 });
 
 const Header = styled(CardHeader)({
-  padding: '1em .25em .5em',
+  padding: '1rem .25rem .5rem',
   '.MuiCardHeader-subheader': {
-    minHeight: '3em',
+    minHeight: '3rem',
   },
 });
 

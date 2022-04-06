@@ -57,7 +57,7 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
     items: repos,
     component: path.resolve('./src/templates/portfolio.js'),
     itemsPerPage: 6,
-    pathPrefix: '/portfolio/'
+    pathPrefix: '/portfolio'
   });
   
   topicArr.forEach(topic => {
@@ -88,6 +88,6 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
     items: contribs,
     component: path.resolve('./src/templates/contributions.js'),
     itemsPerPage: 6,
-    pathPrefix: '/contributions/'
+    pathPrefix: '/contributions'
   });
 }

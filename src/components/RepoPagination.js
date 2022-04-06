@@ -10,7 +10,7 @@ export default function RepoPagination({page, count, baseLink}) {
       renderItem={(item) => (
         <PaginationItem
           component={Link}
-          to={`${baseLink}${item.page === 1 ? '/' : `/${item.page}`}/`}
+          to={`${baseLink}${item.page === 1 ? '/' : `/${item.page}/`}`}
           {...item}
         />
       )}

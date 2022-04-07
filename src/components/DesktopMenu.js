@@ -69,7 +69,7 @@ export default function DesktopMenu() {
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? 'link-menu' : undefined;
+  const id = open ? 'portfolio-menu' : undefined;
 
   return (
     <LinkBar id="desktop-links">

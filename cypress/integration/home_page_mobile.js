@@ -6,9 +6,9 @@ describe('Home Page', () => {
   it('successfully loads', () => {
     cy.visit('/')
   })
-
+  
   it('Menu loads', () => {
-    cy.wait(200) // wait because this arbitrarily fails
+    cy.visit('/')
     cy.get('#menu-button').click()
     cy.get('#menu-drawer').should('be.visible')
   })

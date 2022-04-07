@@ -8,7 +8,6 @@ describe('Home Page', () => {
   })
   
   it('Menu loads', () => {
-    cy.visit('/')
     cy.get('#menu-button').click()
     cy.get('#menu-drawer').should('be.visible')
   })

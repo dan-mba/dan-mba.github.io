@@ -1,8 +1,8 @@
+import {useState} from "react";
 import {Typography, Popover, Paper, Button, MenuList, MenuItem} from "@mui/material";
 import {LinkedIn, GitHub} from "@mui/icons-material";
 import {decomposeColor, recomposeColor, hexToRgb, rgbToHex, styled} from "@mui/material/styles";
 import {IconButton, Link} from "gatsby-theme-material-ui";
-import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
 const fullBlue = (color) => {
@@ -57,58 +57,67 @@ const MenuType = styled(Typography)({
   }
 });
 
-
-
 export default function DesktopMenu() {
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'link-menu' : undefined;
+
   return (
     <LinkBar id="desktop-links">
       <HoverLink to="/" color="inherit" underline="none">
         <Typography variant="h5">About</Typography>
       </HoverLink>
-      <PopupState variant="popover" popupId="portfolio-menu">
-        {(popupState) => (
-          <>
-            <StyledButton
-              color="inherit" size="large"
-              aria-haspopup="true"
-              {...bindTrigger(popupState)}
-            >
-              Portfolio
-            </StyledButton>
-            <Popover keepMounted
-              {...bindPopover(popupState)}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'center',
-              }}
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'center',
-              }}
-            >
-              <StyledPaper>
-                <MenuList autoFocusItem={popupState.isOpen} id="menu-list-grow">
-                  <MenuItem component={Link} to="/portfolio/" underline="none">
-                    <MenuType variant="h6">
-                      Projects
-                    </MenuType>
-                  </MenuItem>
-                  <MenuItem component={Link} to="/topics/" underline="none">
-                    <MenuType variant="h6">
-                      Topics
-                    </MenuType>
-                  </MenuItem>
-                  <MenuItem component={Link} to="/contributions/" underline="none">
-                    <MenuType variant="h6">
-                      Contributions
-                    </MenuType>
-                  </MenuItem>
-                </MenuList>
-              </StyledPaper>
-            </Popover>
-          </>
-        )}
-      </PopupState>
+      <StyledButton
+        color="inherit" size="large"
+        aria-haspopup="true"
+        aria-describedby="link-menu"
+        onClick={handleClick}
+      >
+        Portfolio
+      </StyledButton>
+      <Popover keepMounted
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <StyledPaper>
+          <MenuList autoFocusItem={open} id="menu-list-grow">
+            <MenuItem component={Link} to="/portfolio/" underline="none">
+              <MenuType variant="h6">
+                Projects
+              </MenuType>
+            </MenuItem>
+            <MenuItem component={Link} to="/topics/" underline="none">
+              <MenuType variant="h6">
+                Topics
+              </MenuType>
+            </MenuItem>
+            <MenuItem component={Link} to="/contributions/" underline="none">
+              <MenuType variant="h6">
+                Contributions
+              </MenuType>
+            </MenuItem>
+          </MenuList>
+        </StyledPaper>
+      </Popover>
       <HoverIcon
         color="inherit"
         aria-label="GitHub"

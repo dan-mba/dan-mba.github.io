@@ -25,7 +25,6 @@ const LinkArea = styled('div')({
   padding: '0 0 1rem'
 });
 
-
 export default function Contributions({data, pageContext: {numberOfPages, humanPageNumber}}) {
   const repos = data.repos.nodes;
   const items = repos.map((repo, index) => (
@@ -35,7 +34,7 @@ export default function Contributions({data, pageContext: {numberOfPages, humanP
   ));
 
   return (
-    <Layout title={`Daniel Burkhardt - Contributions`}
+    <Layout title={`Daniel Burkhardt - Contributions${numberOfPages == 1 ? '' : ` Page ${humanPageNumber}`}`}
       description={`Software Development Portfolio Site for Daniel Burkhardt - Contributions`}
     >
       <LayoutContainer maxWidth="xl" disableGutters>
@@ -45,10 +44,11 @@ export default function Contributions({data, pageContext: {numberOfPages, humanP
         </GridContainer>
         {numberOfPages == 1 ? null :
           <LinkArea>
-            <Suspense>
+            <Suspense fallback={<div></div>}>
               <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/contributions'}/>
             </Suspense>
-          </LinkArea>}
+          </LinkArea>
+        }
       </LayoutContainer>
     </Layout>
   );

@@ -1,16 +1,15 @@
-import {List, ListItem, ListItemIcon, ListItemText, Typography} from "@mui/material";
+import {Link, List, ListItem, ListItemIcon, ListItemText, Typography} from "@mui/material";
 import {PlaceOutlined} from "@mui/icons-material";
 import {styled} from "@mui/material/styles";
 import {graphql} from "gatsby";
-import {GatsbyImage, getImage} from "gatsby-plugin-image";
-import {Link} from "gatsby-theme-material-ui";
+import {GatsbyImage, StaticImage, getImage} from "gatsby-plugin-image";
 import BackgroundImage from "../components/BackgroundImage";
 import Layout from "../components/Layout";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
 import PageData from "../data/index.yml";
 
 const PType = styled(Typography)({
-  margin: '1em auto',
+  margin: '1rem auto',
 });
 
 const Paragraph = ({children}) => (
@@ -20,10 +19,11 @@ const Paragraph = ({children}) => (
 );
 
 const StyledSection = styled('section')({
-  padding: '1em min(2vw, 2em)',
+  padding: '1rem min(2vw, 2em)',
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
+  alignItems: 'center',
 });
 
 const JobSection = styled(StyledSection)({
@@ -44,13 +44,13 @@ const JobSection = styled(StyledSection)({
 });
 
 const JobText = styled('div')({
-  padding: '0 1em'
+  padding: '0 1rem'
 })
 
 const StyledPaper = styled('div')({
   backgroundColor: theme.palette.background.paper,
   margin: '0',
-  padding: '2em 0 1em',
+  padding: '2rem 0 1rem',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center'
@@ -66,7 +66,7 @@ const HeroText = styled('div')({
 
 const HeroStyle = {
   width: '100%',
-  height: '23em'
+  height: '23rem'
 };
 
 const ImageDiv = styled('div')({
@@ -79,27 +79,18 @@ const ImageDiv = styled('div')({
 });
 
 const StyledList = styled(List)({
-  maxWidth: '70ch',
   margin: '0 auto',
   paddingTop: '0'
 })
 
 const ListIcon = styled(ListItemIcon)({
   minWidth: 'unset',
-  paddingRight: '1em'
+  paddingRight: '1rem'
 });
 
 const ListText = styled(ListItemText)({
   margin: '0',
-  '& .MuiTypography-root': {
-    fontSize: '1rem'
-  }
 });
-
-const Map = styled(GatsbyImage)({
-  alignSelf: 'center',
-  margin: '1em 0 .5em'
-})
 
 const StyledLink = styled(Link)({
   '& h4:hover': {
@@ -118,10 +109,10 @@ const TitleUrl = styled(Typography)({
 
 export default function Home({data}) {
   const heroImgData = getImage(data.hero);
-  const mapImgData = getImage(data.map);
 
   return (
     <Layout title={PageData.title} description={PageData.description}>
+      
       <BackgroundImage image={heroImgData} style={HeroStyle}>
         <HeroText>
           <Typography variant="h3">{PageData.name}</Typography>
@@ -151,7 +142,7 @@ export default function Home({data}) {
                     </StyledLink>
                   }
                   {d.p.map((text, count) => {
-                    return (<Paragraph key={count}>{text}</Paragraph>)
+                    return (<Paragraph key={`${d.title} ${count}`}>{text}</Paragraph>)
                   })}
                 </JobText>
                 <ImageDiv>
@@ -168,19 +159,26 @@ export default function Home({data}) {
           )
         })}
         <StyledSection>
-          <Map image={mapImgData}
+          <StaticImage
+            src="../../static/img/map.png"
             alt="Map of Florida with Pin in Broward County"
+            placeholder="none"
+            width={300}
+            height={300}
+            style={{margin: '1rem 0 .5rem'}}
           />
           <Paragraph>{PageData.residence}</Paragraph>
           <Paragraph>
             I am open to opportunities in the following locations:
           </Paragraph>
           <StyledList dense>
-            {PageData.openLocations.map((location, i) => {
+            {PageData.openLocations.map((location) => {
               return (
-                <ListItem key={i}>
+                <ListItem key={location}>
                   <ListIcon ><PlaceOutlined color="secondary"/></ListIcon>
-                  <ListText primary={location}/>
+                  <ListText primary={location}
+                    primaryTypographyProps={{variant: 'body1'}}
+                  />
                 </ListItem>
               );
             })}
@@ -198,17 +196,12 @@ export const pageQuery = graphql`
         gatsbyImageData(layout: FULL_WIDTH, placeholder: NONE, quality: 30)
       }
     }
-    map: file(relativePath: {eq: "map.png" }) {
-      childImageSharp {
-        gatsbyImageData(width: 300, height: 300, layout: FIXED, placeholder: TRACED_SVG, quality: 70)
-      }
-    }
     jobs: allImageSharp(filter: {original: {src: {glob: "/static/index-*"}}}) {
       nodes {
         original {
           src
         }
-        gatsbyImageData(width: 300, layout: CONSTRAINED, placeholder: TRACED_SVG, quality: 70)
+        gatsbyImageData(width: 300, layout: CONSTRAINED, placeholder: NONE, quality: 70)
       }
     }
   }

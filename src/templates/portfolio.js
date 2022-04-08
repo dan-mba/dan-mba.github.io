@@ -43,7 +43,7 @@ export default function Portfolio({data, pageContext: {numberOfPages, humanPageN
           {items}
         </GridContainer>
         <LinkArea>
-          <Suspense>
+          <Suspense fallback={<div></div>}>
             <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/portfolio'}/>
           </Suspense>
         </LinkArea>

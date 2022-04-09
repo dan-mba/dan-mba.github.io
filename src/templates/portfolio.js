@@ -1,11 +1,9 @@
-import {lazy, Suspense} from "react";
 import {Typography, Grid, Container} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import {graphql} from "gatsby";
 import Layout from "../components/Layout";
 import RepoCard from "../components/RepoCard";
-
-const RepoPagination = lazy(() => import("../components/RepoPagination"));
+import RepoPagination from "../components/RepoPagination";
 
 const LayoutContainer = styled(Container)({
   padding: '0 min(2vw, 1rem)'
@@ -43,9 +41,7 @@ export default function Portfolio({data, pageContext: {numberOfPages, humanPageN
           {items}
         </GridContainer>
         <LinkArea>
-          <Suspense fallback={<div></div>}>
-            <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/portfolio'}/>
-          </Suspense>
+          <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/portfolio'}/>
         </LinkArea>
       </LayoutContainer>
     </Layout>

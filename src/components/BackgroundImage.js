@@ -9,15 +9,11 @@ const HeroBox = styled('div')({
   display: 'grid',
 })
 
-const BkgImage = styled(GatsbyImage)({
-  gridArea: '1/1',
-})
-
 export default function BackgroundImage({image, children, style}) {
   return (
     <section style={{display: 'grid', ...style}}>
       <PreloadImage image={image} />
-      <BkgImage image={image} loading="eager" alt=""/>
+      <GatsbyImage image={image} loading="eager" alt="" style={{gridArea: '1/1'}}/>
       <HeroBox>
         {children}
       </HeroBox>

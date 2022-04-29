@@ -28,10 +28,6 @@ const Description = styled(Typography)({
   flexGrow: 1
 });
 
-const buttonStyle = {
-  padding: '0 12px 6px'
-};
-
 export default function RepoCard({repo}) {
   return (
     <CardRoot>
@@ -47,13 +43,9 @@ export default function RepoCard({repo}) {
         </Description>
       </Content>
       <CardActions>
-        <IconTooltip title="code repository" style={buttonStyle}
-          url={repo.url} icon={<Code/>}
-        />
+        <IconTooltip title="code repository" url={repo.url} icon={<Code/>} />
         {!repo.homepageUrl ? null:
-          <IconTooltip title="demo site" style={buttonStyle}
-            url={repo.homepageUrl} icon={<LinkIcon/>}
-          />
+          <IconTooltip title="demo site" url={repo.homepageUrl} icon={<LinkIcon/>} />
         }
       </CardActions>
     </CardRoot>

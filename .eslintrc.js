@@ -24,7 +24,7 @@ module.exports = {
     "no-extra-semi": 0,
     "react/jsx-uses-react": 'off',
     "react/prop-types": 0,
-    "react/react-in-jsx-scope": 'off'
+    "react/react-in-jsx-scope": 'off',
   },
   "settings": {
     "react": {

@@ -1,11 +1,11 @@
+import {lazy, Suspense} from "react";
 import {Typography, Grid, Container} from "@mui/material";
 import {styled} from '@mui/material/styles'
 import {graphql} from "gatsby";
-import loadable from "@loadable/component";
 import Layout from "../components/Layout";
 import ContribCard from "../components/ContribCard";
 
-const RepoPagination = loadable(() => import("../components/RepoPagination"));
+const RepoPagination = lazy(() => import("../components/RepoPagination"));
 
 const LayoutContainer = styled(Container)({
   padding: '0 min(2vw, 1rem)'
@@ -25,7 +25,6 @@ const LinkArea = styled('div')({
   padding: '0 0 1rem'
 });
 
-
 export default function Contributions({data, pageContext: {numberOfPages, humanPageNumber}}) {
   const repos = data.repos.nodes;
   const items = repos.map((repo, index) => (
@@ -35,7 +34,7 @@ export default function Contributions({data, pageContext: {numberOfPages, humanP
   ));
 
   return (
-    <Layout title={`Daniel Burkhardt - Contributions`}
+    <Layout title={`Daniel Burkhardt - Contributions${numberOfPages == 1 ? '' : ` Page ${humanPageNumber}`}`}
       description={`Software Development Portfolio Site for Daniel Burkhardt - Contributions`}
     >
       <LayoutContainer maxWidth="xl" disableGutters>
@@ -45,8 +44,11 @@ export default function Contributions({data, pageContext: {numberOfPages, humanP
         </GridContainer>
         {numberOfPages == 1 ? null :
           <LinkArea>
-            <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/contributions'}/>
-          </LinkArea>}
+            <Suspense fallback={<div></div>}>
+              <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/contributions'}/>
+            </Suspense>
+          </LinkArea>
+        }
       </LayoutContainer>
     </Layout>
   );

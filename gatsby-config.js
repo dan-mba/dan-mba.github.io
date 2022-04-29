@@ -64,7 +64,6 @@ module.exports = {
         },
       },
     },
-    'gatsby-plugin-loadable-components-ssr',
     //'gatsby-plugin-webpack-bundle-analyser-v2'
   ],
 };

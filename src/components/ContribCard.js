@@ -74,9 +74,7 @@ export default function ContribCard({repo}) {
         subheader={repo.descriptionEmoji}
         subheaderTypographyProps={{align: 'center', color: 'secondary', variant: 'body1'}}
         action={
-          <IconTooltip title="code repository" url={repo.url}
-            icon={<Code/>} style={{padding: '0 12px 6px'}}
-          />
+          <IconTooltip title="code repository" url={repo.url} icon={<Code/>} />
         }
         avatar={
           <StarBadge badgeContent={repo.stargazerCount} max={9999}

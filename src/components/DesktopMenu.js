@@ -1,5 +1,5 @@
-import {useState} from "react";
-import {Typography, Popover, Paper, Button, MenuList, MenuItem} from "@mui/material";
+import {useEffect, useRef, useState} from "react";
+import {Typography, Popper, Grow, ClickAwayListener, Paper, Button, MenuList, MenuItem} from "@mui/material";
 import {LinkedIn, GitHub} from "@mui/icons-material";
 import {decomposeColor, recomposeColor, hexToRgb, rgbToHex, styled} from "@mui/material/styles";
 import {IconButton, Link} from "gatsby-theme-material-ui";
@@ -13,6 +13,8 @@ const fullBlue = (color) => {
   }
   return rgbToHex(recomposeColor(sec));
 }
+
+const myBlue = fullBlue(theme.palette.secondary.main);
 
 const LinkBar = styled('div')({
   display: 'flex',
@@ -33,43 +35,64 @@ const StyledButton = styled(Button)({
   fontWeight: 400,
   padding: '16px 12px 8px',
   '&:hover': {
-    color: fullBlue(theme.palette.secondary.main)
+    color: myBlue
   }
 });
 
 const HoverLink = styled(Link)({
   padding: '16px 12px 8px',
   '&:hover': {
-    color: fullBlue(theme.palette.secondary.main)
+    color: myBlue
   }
 });
 
 const HoverIcon = styled(IconButton)({
   '&:hover': {
-    color: fullBlue(theme.palette.secondary.main)
+    color: myBlue
   }
 });
 
 const MenuType = styled(Typography)({
   fontWeight: 400,
   '&:hover': {
-    color: fullBlue(theme.palette.secondary.main)
+    color: myBlue
   }
 });
 
 export default function DesktopMenu() {
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [open, setOpen] = useState(false);
+  const anchorRef = useRef(null);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen);
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
+  const handleClose = (event) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+
+    setOpen(false);
   };
 
-  const open = Boolean(anchorEl);
-  const id = open ? 'portfolio-menu' : undefined;
+  function handleListKeyDown(event) {
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      setOpen(false);
+    } else if (event.key === 'Escape') {
+      setOpen(false);
+    }
+  }
+
+  // return focus to the button when we transitioned from !open -> open
+  const prevOpen = useRef(open);
+  useEffect(() => {
+    if (prevOpen.current === true && open === false) {
+      anchorRef.current.focus();
+    }
+
+    prevOpen.current = open;
+  }, [open]);
 
   return (
     <LinkBar id="desktop-links">
@@ -77,47 +100,45 @@ export default function DesktopMenu() {
         <Typography variant="h5">About</Typography>
       </HoverLink>
       <StyledButton
+        id="portfolio-button"
         color="inherit" size="large"
+        aria-controls={open ? 'portfolio-menu' : undefined}
+        aria-expanded={open ? 'true' : undefined}
         aria-haspopup="true"
         aria-describedby="link-menu"
-        onClick={handleClick}
+        placement="bottom-start"
+        ref={anchorRef}
+        onClick={handleToggle}
       >
         Portfolio
       </StyledButton>
-      <Popover keepMounted
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'center',
-        }}
-      >
-        <StyledPaper>
-          <MenuList autoFocusItem={open} id="menu-list-grow">
-            <MenuItem component={Link} to="/portfolio/" underline="none">
-              <MenuType variant="h6">
-                Projects
-              </MenuType>
-            </MenuItem>
-            <MenuItem component={Link} to="/topics/" underline="none">
-              <MenuType variant="h6">
-                Topics
-              </MenuType>
-            </MenuItem>
-            <MenuItem component={Link} to="/contributions/" underline="none">
-              <MenuType variant="h6">
-                Contributions
-              </MenuType>
-            </MenuItem>
-          </MenuList>
-        </StyledPaper>
-      </Popover>
+      <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal keepMounted>
+        {({ TransitionProps, placement }) => (
+          <Grow
+            {...TransitionProps}
+            style={{ transformOrigin: placement === 'bottom-start' ? 'center top' : 'center bottom' }}
+          >
+            <StyledPaper>
+              <ClickAwayListener onClickAway={handleClose}>
+                <MenuList
+                  autoFocusItem={open} id="portfolio-menu"
+                  aria-labelledby="portfolio-button" onKeyDown={handleListKeyDown}
+                >
+                  <MenuItem component={Link} to="/portfolio/" underline="none" onClick={handleClose}>
+                    <MenuType variant="h6">Projects</MenuType>
+                  </MenuItem>
+                  <MenuItem component={Link} to="/topics/" underline="none" onClick={handleClose}>
+                    <MenuType variant="h6">Topics</MenuType>
+                  </MenuItem>
+                  <MenuItem component={Link} to="/contributions/" underline="none" onClick={handleClose}>
+                    <MenuType variant="h6">Contributions</MenuType>
+                  </MenuItem>
+                </MenuList>
+              </ClickAwayListener>
+            </StyledPaper>
+          </Grow>
+        )}
+      </Popper>
       <HoverIcon
         color="inherit"
         aria-label="GitHub"

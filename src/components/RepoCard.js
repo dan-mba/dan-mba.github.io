@@ -66,9 +66,9 @@ export default function RepoCard({repo, index}) {
         </TopicArea>
       </Content>
       <CardActions>
-        <IconTooltip top title="code repository" url={repo.url} icon={<Code/>} />
+        <IconTooltip top title="code repository" url={repo.url} icon={<Code/>}/>
         {!repo.homepageUrl ? null:
-          <IconTooltip top title="demo site" url={repo.homepageUrl} icon={<LinkIcon/>} />
+          <IconTooltip top title="demo site" url={repo.homepageUrl} icon={<LinkIcon/>}/>
         }
       </CardActions>
     </CardRoot>

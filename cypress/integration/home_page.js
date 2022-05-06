@@ -4,6 +4,7 @@ describe('Home Page', () => {
   })
 
   it('shows 4 nav elements', () => {
+    // 4 nav element + hidden dropdown
     cy.get('#desktop-links').children().should('have.length', 5)
   })
     

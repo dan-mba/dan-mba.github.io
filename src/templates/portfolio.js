@@ -73,7 +73,7 @@ export const pageQuery = graphql`
               layout: CONSTRAINED,
               placeholder: NONE,
               quality: 40,
-              outputPixelDensities: [0.67, 0.75, 1, 1.25, 1.5, 1.75, 2]
+              outputPixelDensities: [1, 1.125, 1.25, 1.375, 1.5, 1.625, 1.75, 1.875, 2]
             )
           }
         }

@@ -5,7 +5,6 @@ module.exports = defineConfig({
     baseUrl: "http://localhost:8000",
     video: false,
     screenshotOnRunFailure: false,
-    defaultCommandTimeout: 10000,
     supportFile: false,
     specPattern: 'cypress/integration/**/*.js',
     setupNodeEvents(on) {

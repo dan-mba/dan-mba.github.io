@@ -9,6 +9,6 @@ describe('Home Page', () => {
   
   it('Menu loads', { retries: 3 }, () => {
     cy.get('#menu-button').click()
-    cy.get('#menu-drawer:not(.MuiModal-hidden)').should('be.visible')
+    cy.get('#menu-drawer').should('be.visible')
   })
 })

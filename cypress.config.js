@@ -15,6 +15,7 @@ module.exports = defineConfig({
 
         if (browser.isHeadless) {
           // disable WebGL for headless browsers
+          launchOptions.args.push('--disable-gpu')
           launchOptions.args.push('--disable-software-rasterizer')
         }
 

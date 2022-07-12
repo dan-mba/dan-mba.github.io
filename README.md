@@ -8,7 +8,7 @@
   Portfolio Website
 </h1>
 <h2 align=center>
-  A gatsby generated staic website that provides highlights of my career & my code portfolio
+  A gatsby generated static website that provides highlights of my career & my code portfolio
 </h3>
 
 ___

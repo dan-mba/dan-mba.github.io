@@ -12,7 +12,7 @@ async function getGithubRepos(userid, authToken, portfolioLangs) {
   const query = gql`
     query getRepoData($login: String!, $after: String) {
       user(login: $login) {
-        repositories(first: 100, after: $after) {
+        repositories(first: 100, privacy: PUBLIC, after: $after) {
           nodes {
             description
             homepageUrl

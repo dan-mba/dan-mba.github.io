@@ -4,6 +4,8 @@ import {getImage} from "gatsby-plugin-image";
 import {graphql} from "gatsby";
 import BackgroundImage from "../components/BackgroundImage";
 import Layout from "../components/Layout";
+import SEO from "../components/SEO";
+import PreloadImage from "../components/PreloadImage";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
 const heroStyle = {
@@ -23,7 +25,7 @@ export default function FourZeroFour({data}) {
   const heroImgData = getImage(data.hero);
 
   return (
-    <Layout title="Page Not Found" description="Page Not Found">
+    <Layout>
       <BackgroundImage image={heroImgData} style={heroStyle}>
         <HeroText>
           <Typography variant="h3">Page Not Found</Typography>
@@ -32,6 +34,15 @@ export default function FourZeroFour({data}) {
       </BackgroundImage>
     </Layout>
   );
+}
+
+export const Head = ({data}) => {
+  const image = getImage(data.hero);
+  return (
+    <SEO title="Page Not Found" description="Page Not Found">
+      <PreloadImage image={image} />
+    </SEO>
+  )
 }
 
 export const pageQuery = graphql`

@@ -5,6 +5,8 @@ import {graphql} from "gatsby";
 import {GatsbyImage, StaticImage, getImage} from "gatsby-plugin-image";
 import BackgroundImage from "../components/BackgroundImage";
 import Layout from "../components/Layout";
+import SEO from "../components/SEO";
+import PreloadImage from "../components/PreloadImage";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
 import PageData from "../data/index.yml";
 
@@ -111,8 +113,7 @@ export default function Home({data}) {
   const heroImgData = getImage(data.hero);
 
   return (
-    <Layout title={PageData.title} description={PageData.description}>
-      
+    <Layout>
       <BackgroundImage image={heroImgData} style={HeroStyle}>
         <HeroText>
           <Typography variant="h3">{PageData.name}</Typography>
@@ -187,6 +188,15 @@ export default function Home({data}) {
       </StyledPaper>
     </Layout>
   );
+}
+
+export const Head = ({data}) => {
+  const image = getImage(data.hero);
+  return (
+    <SEO title={PageData.title} description={PageData.description}>
+      <PreloadImage image={image} />
+    </SEO>
+  )
 }
 
 export const pageQuery = graphql`

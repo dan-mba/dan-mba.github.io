@@ -1,7 +1,10 @@
 import {Typography, Grid, Container} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import {graphql} from "gatsby";
+import {getImage} from "gatsby-plugin-image";
 import Layout from "../components/Layout";
+import SEO from "../components/SEO";
+import PreloadImage from "../components/PreloadImage";
 import RepoCard from "../components/RepoCard";
 import RepoPagination from "../components/RepoPagination";
 
@@ -32,9 +35,7 @@ export default function Portfolio({data, pageContext: {numberOfPages, humanPageN
   ));
 
   return (
-    <Layout title={`Daniel Burkhardt - Portfolio Page ${humanPageNumber}`}
-      description={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Page ${humanPageNumber}`}
-    >
+    <Layout>
       <LayoutContainer maxWidth="xl" disableGutters>
         <Title variant="h3" align="center">Portfolio</Title>
         <GridContainer container spacing={4} justifyContent="center" alignItems="stretch">
@@ -47,6 +48,18 @@ export default function Portfolio({data, pageContext: {numberOfPages, humanPageN
     </Layout>
   );
 };
+
+export const Head = ({data, pageContext: {humanPageNumber}}) => {
+  const repo = data.repos.nodes[0];
+  const image = getImage(repo.localImage);
+  return (
+    <SEO title={`Daniel Burkhardt - Portfolio Page ${humanPageNumber}`}
+      description={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Page ${humanPageNumber}`}
+    >
+      <PreloadImage image={image} />
+    </SEO>
+  )
+}
 
 export const pageQuery = graphql`
   query ($skip: Int!, $limit: Int!) {

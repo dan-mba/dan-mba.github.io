@@ -1,3 +1,4 @@
+import {Suspense} from "react";
 import {Typography, Grid, Container} from "@mui/material";
 import {styled} from "@mui/material/styles"
 import {graphql} from "gatsby";
@@ -26,9 +27,11 @@ export default function Topic({data, pageContext: {topic}}) {
     >
       <Container maxWidth="xl" disableGutters>
         <Title variant="h3" align="center">{topic}</Title>
-        <GridContainer container columnSpacing={3} rowSpacing={2} justifyContent="center" alignItems="stretch">
-          {items}
-        </GridContainer>
+        <Suspense>
+          <GridContainer container columnSpacing={3} rowSpacing={2} justifyContent="center" alignItems="stretch">
+            {items}
+          </GridContainer>
+        </Suspense>
       </Container>
     </Layout>
   );

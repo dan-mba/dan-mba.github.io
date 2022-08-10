@@ -1,3 +1,4 @@
+import {Suspense} from "react";
 import {Grid} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import Layout from "../components/Layout";
@@ -24,9 +25,11 @@ export default function Topics({pageContext: {topics}}) {
     <Layout title={`Daniel Burkhardt - Portfolio Topics`}
       description={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Topics`}
     >
-      <GridContainer container justifyContent="center" alignItems="center">
-        {items}
-      </GridContainer>
+      <Suspense>
+        <GridContainer container justifyContent="center" alignItems="center">
+          {items}
+        </GridContainer>
+      </Suspense>
     </Layout>
   );
 };

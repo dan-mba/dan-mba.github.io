@@ -1,12 +1,11 @@
-import {lazy, Suspense} from "react";
+import {Suspense} from "react";
 import {Typography, Grid, Container} from "@mui/material";
 import {styled} from '@mui/material/styles'
 import {graphql} from "gatsby";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import ContribCard from "../components/ContribCard";
-
-const RepoPagination = lazy(() => import("../components/RepoPagination"));
+import RepoPagination from "../components/RepoPagination";
 
 const LayoutContainer = styled(Container)({
   padding: '0 min(2vw, 1rem)'
@@ -38,16 +37,16 @@ export default function Contributions({data, pageContext: {numberOfPages, humanP
     <Layout>
       <LayoutContainer maxWidth="xl" disableGutters>
         <Title variant="h3" align="center">Open Source Contributions</Title>
-        <GridContainer container spacing={4} justifyContent="center" alignItems="stretch">
-          {items}
-        </GridContainer>
-        {numberOfPages == 1 ? null :
-          <LinkArea>
-            <Suspense fallback={<div></div>}>
+        <Suspense>
+          <GridContainer container spacing={4} justifyContent="center" alignItems="stretch">
+            {items}
+          </GridContainer>
+          {numberOfPages == 1 ? null :
+            <LinkArea>
               <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/contributions'}/>
-            </Suspense>
-          </LinkArea>
-        }
+            </LinkArea>
+          }
+        </Suspense>
       </LayoutContainer>
     </Layout>
   );

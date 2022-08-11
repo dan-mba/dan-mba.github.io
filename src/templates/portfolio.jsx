@@ -1,3 +1,4 @@
+import {Suspense} from "react";
 import {Typography, Grid, Container} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import {graphql} from "gatsby";
@@ -38,12 +39,14 @@ export default function Portfolio({data, pageContext: {numberOfPages, humanPageN
     <Layout>
       <LayoutContainer maxWidth="xl" disableGutters>
         <Title variant="h3" align="center">Portfolio</Title>
-        <GridContainer container spacing={4} justifyContent="center" alignItems="stretch">
-          {items}
-        </GridContainer>
-        <LinkArea>
-          <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/portfolio'}/>
-        </LinkArea>
+        <Suspense>
+          <GridContainer container spacing={4} justifyContent="center" alignItems="stretch">
+            {items}
+          </GridContainer>
+          <LinkArea>
+            <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/portfolio'}/>
+          </LinkArea>
+        </Suspense>
       </LayoutContainer>
     </Layout>
   );

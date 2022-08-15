@@ -3,7 +3,6 @@ import {styled} from "@mui/material/styles";
 import {Code, Link as LinkIcon} from "@mui/icons-material";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import IconTooltip from "./IconTooltip";
-import PreloadImage from "./PreloadImage";
 import TopicChip from "./TopicChip";
 
 const CardRoot = styled(Card)({
@@ -52,7 +51,6 @@ export default function RepoCard({repo, index}) {
           index===0 ? "eager" : "lazy"
         }
       />
-      {index === 0 ? <PreloadImage image={getImage(repo.localImage)} /> : null}
       <Content>
         <Description variant="body1" align="center">
           {repo.description}

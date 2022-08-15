@@ -1,6 +1,5 @@
 import {styled} from '@mui/material/styles';
 import {GatsbyImage} from "gatsby-plugin-image";
-import PreloadImage from './PreloadImage';
 
 const HeroBox = styled('div')({
   gridArea: '1/1',
@@ -12,7 +11,6 @@ const HeroBox = styled('div')({
 export default function BackgroundImage({image, children, style}) {
   return (
     <section style={{display: 'grid', ...style}}>
-      <PreloadImage image={image} />
       <GatsbyImage image={image} loading="eager" alt="" style={{gridArea: '1/1'}}/>
       <HeroBox>
         {children}

@@ -30,7 +30,7 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
 
   createPage({
     path: `/topics/`,
-    component: path.resolve('./src/templates/topics.js'),
+    component: path.resolve('./src/templates/topics.jsx'),
     context: {
       topics,
     }
@@ -55,7 +55,7 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
   paginate({
     createPage,
     items: repos,
-    component: path.resolve('./src/templates/portfolio.js'),
+    component: path.resolve('./src/templates/portfolio.jsx'),
     itemsPerPage: 6,
     pathPrefix: '/portfolio'
   });
@@ -63,7 +63,7 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
   topicArr.forEach(topic => {
     createPage({
       path: `/topics/${topic}/`,
-      component: path.resolve('./src/templates/topic.js'),
+      component: path.resolve('./src/templates/topic.jsx'),
       context: {
         topic,
       }
@@ -86,7 +86,7 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
   paginate({
     createPage,
     items: contribs,
-    component: path.resolve('./src/templates/contributions.js'),
+    component: path.resolve('./src/templates/contributions.jsx'),
     itemsPerPage: 6,
     pathPrefix: '/contributions'
   });

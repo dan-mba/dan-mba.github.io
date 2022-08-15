@@ -3,6 +3,7 @@ import {Typography, Grid, Container} from "@mui/material";
 import {styled} from '@mui/material/styles'
 import {graphql} from "gatsby";
 import Layout from "../components/Layout";
+import SEO from "../components/SEO";
 import ContribCard from "../components/ContribCard";
 import RepoPagination from "../components/RepoPagination";
 
@@ -33,9 +34,7 @@ export default function Contributions({data, pageContext: {numberOfPages, humanP
   ));
 
   return (
-    <Layout title={`Daniel Burkhardt - Contributions${numberOfPages == 1 ? '' : ` Page ${humanPageNumber}`}`}
-      description={`Software Development Portfolio Site for Daniel Burkhardt - Contributions`}
-    >
+    <Layout>
       <LayoutContainer maxWidth="xl" disableGutters>
         <Title variant="h3" align="center">Open Source Contributions</Title>
         <Suspense>
@@ -52,6 +51,12 @@ export default function Contributions({data, pageContext: {numberOfPages, humanP
     </Layout>
   );
 };
+
+export const Head = ({pageContext: {numberOfPages, humanPageNumber}}) => (
+  <SEO title={`Daniel Burkhardt - Contributions${numberOfPages == 1 ? '' : ` Page ${humanPageNumber}`}`}
+    description={`Software Development Portfolio Site for Daniel Burkhardt - Contributions${numberOfPages == 1 ? '' : ` Page ${humanPageNumber}`}`}
+  />
+)
 
 export const pageQuery = graphql`
   query ($skip: Int, $limit: Int) {

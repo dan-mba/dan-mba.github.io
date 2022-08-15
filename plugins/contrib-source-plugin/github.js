@@ -225,7 +225,6 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
       repos[exists].totalContribs += r.totalContribs;
     });
 
-    //const repoFilter = ['first-contributions']
     if (repoFilter.length > 0) {
       repoFilter.forEach(r => {
         const index = repos.findIndex(repo => {
@@ -238,6 +237,12 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
     }
 
     repos = repos.map(repo => ({...repo, descriptionEmoji: cropString(emoji.replace_colons(repo.description))}));
+
+    const sortContribs = (a, b) => (b.number - a.number);
+    repos.forEach(repo => {
+      if (repo.contributionPrs && repo.contributionPrs.length > 1) repo.contributionPrs.sort(sortContribs);
+      if (repo.contributionIssues && repo.contributionIssues.length > 1) repo.contributionIssues.sort(sortContribs);
+    });
 
     return repos;
   } catch(e) {

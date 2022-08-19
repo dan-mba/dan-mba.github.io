@@ -1,5 +1,5 @@
 import {Typography} from "@mui/material";
-import { alpha, styled } from "@mui/material/styles";
+import {styled} from "@mui/material/styles";
 import {getImage} from "gatsby-plugin-image";
 import {graphql} from "gatsby";
 import BackgroundImage from "../components/BackgroundImage";
@@ -14,8 +14,7 @@ const heroStyle = {
 };
 
 const HeroText = styled('div') ({
-  color: theme.palette.primary.contrastText,
-  backgroundColor: alpha(theme.palette.primary.main,0.5),
+  color: theme.pages.index.heroText,
   padding: '2px',
   textAlign: 'center',
   borderRadius: '5px'
@@ -49,7 +48,9 @@ export const pageQuery = graphql`
   query FourZeroFourPage {
     hero: file(relativePath: {eq: "binary.jpg" }) {
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH, placeholder: NONE, quality: 50)
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: NONE, quality: 30,
+          transformOptions: {grayscale: true}
+        )
       }
     }
   }

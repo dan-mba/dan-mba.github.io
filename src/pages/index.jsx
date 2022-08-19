@@ -60,8 +60,7 @@ const StyledPaper = styled('div')({
 });
 
 const HeroText = styled('div')({
-  color: theme.palette.primary.contrastText,
-  backgroundColor: theme.pages.index.heroBackground,
+  color: theme.pages.index.heroText,
   padding: '2px',
   textAlign: 'center',
   borderRadius: '5px'
@@ -205,7 +204,9 @@ export const pageQuery = graphql`
   query IndexPage {
     hero: file(relativePath: {eq: "binary.jpg" }) {
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH, placeholder: NONE, quality: 30)
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: NONE, quality: 30,
+          transformOptions: {grayscale: true}
+        )
       }
     }
     jobs: allImageSharp(filter: {original: {src: {glob: "/static/index-*"}}}) {

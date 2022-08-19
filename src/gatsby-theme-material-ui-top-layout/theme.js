@@ -55,7 +55,7 @@ const theme = createTheme({
   pages: {
     index: {
       accentBackground: 'rgb(0, 23, 34)', // darken(theme.palette.secondary.main, 0.7)
-      heroBackground: 'rgba(33, 33, 33, 0.6)', // alpha(theme.palette.primary.main,0.6)
+      heroText: 'rgb(140, 217, 255)', 
       titleURLColor: 'rgb(81, 133, 159)', // lighten(theme.palette.secondary.main, 0.32)
     },
   },

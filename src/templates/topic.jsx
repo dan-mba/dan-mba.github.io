@@ -1,5 +1,6 @@
 import {Suspense} from "react";
-import {Typography, Grid, Container} from "@mui/material";
+import {Typography, Container} from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2";
 import {styled} from "@mui/material/styles"
 import {graphql} from "gatsby";
 import Layout from "../components/Layout";
@@ -17,7 +18,7 @@ const GridContainer = styled(Grid)({
 export default function Topic({data, pageContext: {topic}}) {
   const repos = data.repos.nodes;
   const items = repos.map((repo, index) => (
-    <Grid item xs={12} md={6} lg={4} key={repo.name}>
+    <Grid xs={12} md={6} lg={4} key={repo.name}>
       <TopicCard repo={repo} index={index} />
     </Grid>
   ));

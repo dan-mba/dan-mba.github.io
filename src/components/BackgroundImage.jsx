@@ -6,12 +6,15 @@ const HeroBox = styled('div')({
   position: 'relative',
   placeItems: 'center',
   display: 'grid',
+  color: '#8cd9ff'
 })
 
 export default function BackgroundImage({image, children, style}) {
   return (
-    <section style={{display: 'grid', ...style}}>
-      <GatsbyImage image={image} loading="eager" alt="" style={{gridArea: '1/1'}}/>
+    <section style={{display: 'grid', backgroundColor: 'black', ...style}}>
+      <GatsbyImage image={image} loading="eager" alt=""
+        style={{gridArea: '1/1', opacity: 0.5}}
+      />
       <HeroBox>
         {children}
       </HeroBox>

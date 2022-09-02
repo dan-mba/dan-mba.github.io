@@ -5,17 +5,15 @@
 name: Deploy Gatsby site to Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 2,4,6'
   push:
     branches:
       - src
     paths-ignore:
       - ".github/**"
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * 2,4,6'
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:

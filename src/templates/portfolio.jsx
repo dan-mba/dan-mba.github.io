@@ -1,5 +1,6 @@
 import {Suspense} from "react";
-import {Typography, Grid, Container} from "@mui/material";
+import {Typography, Container} from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2";
 import {styled} from "@mui/material/styles";
 import {graphql} from "gatsby";
 import {getImage} from "gatsby-plugin-image";
@@ -30,7 +31,7 @@ const LinkArea = styled('div')({
 export default function Portfolio({data, pageContext: {numberOfPages, humanPageNumber}}) {
   const repos = data.repos.nodes;
   const items = repos.map((repo, index) => (
-    <Grid item xs={12} md={6} key={repo.name}>
+    <Grid xs={12} md={6} key={repo.name}>
       <RepoCard repo={repo} index={index}/>
     </Grid>
   ));

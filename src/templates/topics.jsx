@@ -1,5 +1,5 @@
 import {Suspense} from "react";
-import {Grid} from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2";
 import {styled} from "@mui/material/styles";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
@@ -17,7 +17,7 @@ const GridContainer = styled(Grid)({
 
 export default function Topics({pageContext: {topics}}) {
   const items = topics.map((topic) => (
-    <Grid item m={0.5} key={topic.name}>
+    <Grid m={0.5} key={topic.name}>
       <TopicChip size="large" name={topic.name} count={topic.count}/>
     </Grid>
   ));

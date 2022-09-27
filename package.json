@@ -34,7 +34,7 @@
     "gatsby-plugin-sitemap": "^5.23.1",
     "gatsby-source-filesystem": "^4.23.0",
     "gatsby-theme-material-ui": "^5.3.0",
-    "gatsby-transformer-sharp": "^4.23.0",
+    "gatsby-transformer-sharp": "^4.23.1",
     "graphql-request": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

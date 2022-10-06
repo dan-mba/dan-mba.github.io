@@ -2,7 +2,6 @@ import {Badge, Card, CardContent, CardHeader, Typography} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import {Code, StarOutlineRounded} from "@mui/icons-material";
 import {Link} from "gatsby-theme-material-ui";
-import numbro from "numbro";
 import IconTooltip from "./IconTooltip";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
@@ -79,10 +78,7 @@ export default function ContribCard({repo}) {
         }
         avatar={
           <StarBadge
-            badgeContent={
-              repo.stargazerCount < 1000 ? repo.stargazerCount :
-              numbro(repo.stargazerCount).format({average: true, mantissa: 1})
-            }
+            badgeContent={repo.stargazerPrint}
             max={1000}
             aria-label={`${repo.stargazerCount} stars`}
           >

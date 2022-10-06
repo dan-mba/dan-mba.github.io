@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "emoji-js": "^3.7.0",
-    "graphql-request": "^4.2.0"
+    "graphql-request": "^5.0.0",
+    "numbro": "^2.3.6"
   },
   "keywords": [
     "gatsby",

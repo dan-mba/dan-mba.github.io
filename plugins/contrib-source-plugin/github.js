@@ -1,4 +1,5 @@
 const {GraphQLClient, gql} = require('graphql-request');
+const numbro = require('numbro');
 const EmojiConvertor = require('emoji-js');
 const emoji = new EmojiConvertor();
 emoji.replace_mode = 'unified';
@@ -236,7 +237,12 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
       })
     }
 
-    repos = repos.map(repo => ({...repo, descriptionEmoji: cropString(emoji.replace_colons(repo.description))}));
+    repos = repos.map(repo => ({
+      ...repo,
+      descriptionEmoji: cropString(emoji.replace_colons(repo.description)),
+      stargazerPrint: repo.stargazerCount < 1000 ? `${repo.stargazerCount}` :
+        numbro(repo.stargazerCount).format({average: true, mantissa: 1})
+    }));
 
     const sortContribs = (a, b) => (b.number - a.number);
     repos.forEach(repo => {

@@ -80,6 +80,7 @@ export const pageQuery = graphql`
         descriptionEmoji
         name
         stargazerCount
+        stargazerPrint
         url
       }
     }

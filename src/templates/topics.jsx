@@ -1,3 +1,4 @@
+"client export"
 import {Suspense} from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import {styled} from "@mui/material/styles";

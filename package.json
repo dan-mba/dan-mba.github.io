@@ -24,10 +24,10 @@
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
-    "@mui/icons-material": "^5.10.6",
-    "@mui/material": "^5.10.8",
+    "@mui/icons-material": "^5.10.9",
+    "@mui/material": "^5.10.9",
     "emoji-js": "^3.7.0",
-    "gatsby": "^4.24.4",
+    "gatsby": "5.0.0-next.1",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-image": "^2.24.0",
     "gatsby-plugin-sharp": "^4.24.0",
@@ -37,14 +37,14 @@
     "gatsby-transformer-sharp": "^4.24.0",
     "graphql-request": "^5.0.0",
     "numbro": "^2.3.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "0.0.0-experimental-a8c16a004-20221012",
+    "react-dom": "0.0.0-experimental-a8c16a004-20221012"
   },
   "devDependencies": {
-    "cypress": "^10.9.0",
+    "cypress": "^10.10.0",
     "eslint": "^8.25.0",
     "eslint-plugin-cypress": "^2.12.1",
-    "eslint-plugin-react": "^7.31.9",
+    "eslint-plugin-react": "^7.31.10",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.27"
   },
   "repository": {

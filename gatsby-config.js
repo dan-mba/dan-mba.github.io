@@ -7,6 +7,9 @@ module.exports = {
   siteMetadata: {
     siteUrl: 'https://dan-mba.github.io'
   },
+  flags: {
+    PARTIAL_HYDRATION: false
+  },
   trailingSlash: 'always',
   plugins: [
     {

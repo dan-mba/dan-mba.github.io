@@ -22,7 +22,6 @@ module.exports = {
       options: {
         githubUserId: 'dan-mba',
         githubUserToken: process.env.GITHUB_TOKEN,
-        startDateTime: '2020-01-01T00:00:01',
         repoFilter: [{owner: 'firstcontributions', name: 'first-contributions'}],
         issueFilter: [
           {owner: 'gatsbyjs', name: 'gatsby', number: 36192},

@@ -15,8 +15,6 @@ module.exports = {
         githubUserId: 'github-id', // REQUIRED
         // GitHub Auth Token for access (use an environment variable)
         githubUserToken: process.env.GITHUB_AUTH_TOKEN, //REQUIRED
-        // DateTime of when to start fetching data ofr
-        startDateTime: '2020-01-01T00:00:01', //REQUIRED
         // Array of repos to filter out of sourced data
         // Default: []
         repoFilter: [{owner: 'firstcontributions', name: 'first-contributions'}],

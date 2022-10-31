@@ -62,7 +62,7 @@ export const Head = ({pageContext: {numberOfPages, humanPageNumber}}) => (
 export const pageQuery = graphql`
   query ($skip: Int, $limit: Int) {
     repos: allContrib(
-      sort: {fields: [totalContribs, name], order: [DESC, ASC]},
+      sort: {fields: [totalContribs, sortName], order: [DESC, ASC]},
       skip: $skip,
       limit: $limit
     ) {

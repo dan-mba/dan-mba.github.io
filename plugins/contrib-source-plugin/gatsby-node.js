@@ -5,8 +5,6 @@ exports.pluginOptionsSchema = ({ Joi }) => Joi.object({
     .description('GitHub user id to fetch repos for'),
   githubUserToken: Joi.string().required()
     .description('GitHub user token for auth'),
-  startDateTime: Joi.date().iso().required()
-    .description('Start date to fetch repos for'),
   repoFilter: Joi.array().items(Joi.object()).default([])
     .description('Array repos to filter out'),
   issueFilter: Joi.array().items(Joi.object()).default([])
@@ -17,10 +15,10 @@ exports.pluginOptionsSchema = ({ Joi }) => Joi.object({
 })
 
 exports.sourceNodes = async ({ actions, createNodeId, createContentDigest },
-  {githubUserId, githubUserToken, startDateTime, repoFilter, issueFilter, prFilter}) => {
+  {githubUserId, githubUserToken, repoFilter, issueFilter, prFilter}) => {
 
   const repos = await getGithubContribs(githubUserId, githubUserToken,
-    startDateTime, repoFilter, issueFilter, prFilter);
+    repoFilter, issueFilter, prFilter);
 
   repos.forEach(repo => {
     const node = {

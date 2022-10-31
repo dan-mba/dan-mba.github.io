@@ -6,7 +6,7 @@ emoji.replace_mode = 'unified';
 emoji.allow_native = true;
 emoji.allow_caps = true;
 
-async function getGithubContribs(userid, userToken, startDateTime, repoFilter, issueFilter, prFilter) {
+async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prFilter) {
   const endpoint = 'https://api.github.com/graphql';
 
   const graphqlClient = new GraphQLClient(endpoint, {
@@ -86,21 +86,21 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
   }
 
   try {
-    const now = new Date(Date.now());
-    let start = new Date(startDateTime);
+    let end = new Date(Date.now());
+    let start = new Date(end);
     let prs = [];
     let issues = [];
 
-    while (start < now) {
-      let end = new Date(start);
-      end.setFullYear(end.getFullYear() + 1);
-      end = new Date(end.getTime() - 1);
-      if (end > now) {
-        end = now;
-      }
+    for(;;) {
+      start.setFullYear(start.getFullYear() - 1);
+      start = new Date(start.getTime() + 1);
 
       const data = await graphqlClient.request(query,
         {"login": userid, "startDateTime": start.toISOString(), "endDateTime": end.toISOString()});
+      if(data.user.contributionsCollection.pullRequestContributionsByRepository.length === 0 && 
+        data.user.contributionsCollection.issueContributionsByRepository.length === 0) {
+          break;
+        }
       if(prs.length === 0) {
         prs = [...data.user.contributionsCollection.pullRequestContributionsByRepository];
       } else {
@@ -134,7 +134,7 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
         });
       }
 
-      start = new Date(end.getTime() + 1);
+      end = new Date(start.getTime() - 1);
     }
 
     let repos = [];
@@ -151,6 +151,7 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
         return 'X';
       }
       repo.repository.owner = repo.repository.owner.login;
+      repo.repository.sortName = repo.repository.name.toLowerCase();
       repo = {...repo.repository, contributionPrs: contribs, totalContribs: contribs.length};
 
       return repo;

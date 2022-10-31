@@ -151,6 +151,7 @@ async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prF
         return 'X';
       }
       repo.repository.owner = repo.repository.owner.login;
+      repo.repository.sortName = repo.repository.name.toLowerCase();
       repo = {...repo.repository, contributionPrs: contribs, totalContribs: contribs.length};
 
       return repo;

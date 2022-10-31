@@ -111,7 +111,12 @@ async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prF
             pr.repository.owner.login === newPr.repository.owner.login
           ));
           if (foundPr) {
-            foundPr.contributions.edges = [...foundPr.contributions.edges, ...newPr.contributions.edges];
+            newPr.contributions.edges.forEach(pr => {
+              const inList = foundPr.contributions.edges.findIndex(p => pr.node.pullRequest.number === p.node.pullRequest.number);
+              if(inList < 0) {
+                foundPr.contributions.edges.push(pr);
+              }
+            });
           } else {
             prs.push(newPr);
           }
@@ -127,7 +132,12 @@ async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prF
             issue.repository.owner.login === newIssue.repository.owner.login
           ));
           if (foundIssue) {
-            foundIssue.contributions.edges = [...foundIssue.contributions.edges, ...newIssue.contributions.edges];
+            newIssue.contributions.edges.forEach(issue => {
+              const inList = foundIssue.contributions.edges.findIndex(i => issue.node.issue.number === i.node.issue.number);
+              if(inList < 0) {
+                foundIssue.contributions.edges.push(issue);
+              }
+            });
           } else {
             issues.push(newIssue);
           }
@@ -190,6 +200,7 @@ async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prF
         return 'X';
       }
       repo.repository.owner = repo.repository.owner.login;
+      repo.repository.sortName = repo.repository.name.toLowerCase();
       repo = {...repo.repository, contributionIssues: contribs, totalContribs: contribs.length};
 
       return repo;

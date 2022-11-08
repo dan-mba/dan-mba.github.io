@@ -6,7 +6,7 @@ emoji.replace_mode = 'unified';
 emoji.allow_native = true;
 emoji.allow_caps = true;
 
-async function getGithubContribs(userid, userToken, startDateTime, repoFilter, issueFilter, prFilter) {
+async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prFilter) {
   const endpoint = 'https://api.github.com/graphql';
 
   const graphqlClient = new GraphQLClient(endpoint, {
@@ -86,21 +86,21 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
   }
 
   try {
-    const now = new Date(Date.now());
-    let start = new Date(startDateTime);
+    let end = new Date(Date.now());
+    let start = new Date(end);
     let prs = [];
     let issues = [];
 
-    while (start < now) {
-      let end = new Date(start);
-      end.setFullYear(end.getFullYear() + 1);
-      end = new Date(end.getTime() - 1);
-      if (end > now) {
-        end = now;
-      }
+    for(;;) {
+      start.setFullYear(start.getFullYear() - 1);
+      start = new Date(start.getTime() + 1);
 
       const data = await graphqlClient.request(query,
         {"login": userid, "startDateTime": start.toISOString(), "endDateTime": end.toISOString()});
+      if(data.user.contributionsCollection.pullRequestContributionsByRepository.length === 0 && 
+        data.user.contributionsCollection.issueContributionsByRepository.length === 0) {
+          break;
+        }
       if(prs.length === 0) {
         prs = [...data.user.contributionsCollection.pullRequestContributionsByRepository];
       } else {
@@ -111,7 +111,12 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
             pr.repository.owner.login === newPr.repository.owner.login
           ));
           if (foundPr) {
-            foundPr.contributions.edges = [...foundPr.contributions.edges, ...newPr.contributions.edges];
+            newPr.contributions.edges.forEach(pr => {
+              const inList = foundPr.contributions.edges.findIndex(p => pr.node.pullRequest.number === p.node.pullRequest.number);
+              if(inList < 0) {
+                foundPr.contributions.edges.push(pr);
+              }
+            });
           } else {
             prs.push(newPr);
           }
@@ -127,14 +132,19 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
             issue.repository.owner.login === newIssue.repository.owner.login
           ));
           if (foundIssue) {
-            foundIssue.contributions.edges = [...foundIssue.contributions.edges, ...newIssue.contributions.edges];
+            newIssue.contributions.edges.forEach(issue => {
+              const inList = foundIssue.contributions.edges.findIndex(i => issue.node.issue.number === i.node.issue.number);
+              if(inList < 0) {
+                foundIssue.contributions.edges.push(issue);
+              }
+            });
           } else {
             issues.push(newIssue);
           }
         });
       }
 
-      start = new Date(end.getTime() + 1);
+      end = new Date(start.getTime() - 1);
     }
 
     let repos = [];
@@ -151,6 +161,7 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
         return 'X';
       }
       repo.repository.owner = repo.repository.owner.login;
+      repo.repository.sortName = repo.repository.name.toLowerCase();
       repo = {...repo.repository, contributionPrs: contribs, totalContribs: contribs.length};
 
       return repo;
@@ -189,6 +200,7 @@ async function getGithubContribs(userid, userToken, startDateTime, repoFilter, i
         return 'X';
       }
       repo.repository.owner = repo.repository.owner.login;
+      repo.repository.sortName = repo.repository.name.toLowerCase();
       repo = {...repo.repository, contributionIssues: contribs, totalContribs: contribs.length};
 
       return repo;

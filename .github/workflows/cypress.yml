@@ -45,5 +45,5 @@ jobs:
         with:
           install: false
           start: npm run serve
-          wait-on: 'http://localhost:8000/'
+          # wait-on: 'http://localhost:8000/'
           browser: chrome

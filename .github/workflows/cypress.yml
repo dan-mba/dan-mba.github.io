@@ -23,7 +23,7 @@ jobs:
         uses: cypress-io/github-action@v4
         env:
           GITHUB_TOKEN: ${{ secrets.BUILD_GITHUB_TOKEN }}
-          NODE_OPTIONS: --openssl-legacy-provider
+          # NODE_OPTIONS: --openssl-legacy-provider
         with:
           build: npm run build
           start: npm run serve

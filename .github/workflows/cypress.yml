@@ -19,13 +19,31 @@ jobs:
           node-version: "18"
           cache: "npm"
 
+      - name: Restore cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            public
+            .cache
+          key: ${{ runner.os }}-gatsby-build-${{ hashFiles('public') }}
+          restore-keys: |
+            ${{ runner.os }}-gatsby-build-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build with Gatsby
+        env:
+          GITHUB_TOKEN: ${{ secrets.BUILD_GITHUB_TOKEN }}
+        run: npm run build
+
       - name: Cypress
         uses: cypress-io/github-action@v4
         env:
           GITHUB_TOKEN: ${{ secrets.BUILD_GITHUB_TOKEN }}
           # NODE_OPTIONS: --openssl-legacy-provider
         with:
-          build: npm run build
+          install: false
           start: npm run serve
           wait-on: 'http://localhost:8000/'
           browser: chrome

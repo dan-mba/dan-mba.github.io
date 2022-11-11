@@ -5,7 +5,7 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
   const query = await graphql(`
     query {
       repos: allRepo {
-        topics: group(field: topics) {
+        topics: group(field: {topics: SELECT}) {
           fieldValue
           totalCount
         }
@@ -38,7 +38,7 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
   
   const data = await graphql(`
   {
-    allRepo(sort: {fields: [isPinned, pushedAt], order: [DESC, DESC]}) {
+    allRepo(sort: [{isPinned: DESC}, {pushedAt: DESC}]) {
       nodes {
         id
         topics
@@ -73,7 +73,7 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
   
   const dataC = await graphql(`
   {
-    allContrib(sort: {fields: [totalContribs, name], order: [DESC, ASC]}) {
+    allContrib(sort: [{totalContribs: DESC}, {name: ASC}]) {
       nodes {
         id
       }

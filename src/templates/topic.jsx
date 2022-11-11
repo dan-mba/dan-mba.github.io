@@ -46,7 +46,7 @@ export const Head = ({pageContext: {topic}}) => (
 export const pageQuery = graphql`
   query ($topic: String) {
     repos: allRepo(
-      sort: {fields: [isPinned, pushedAt], order: [DESC, DESC]}
+      sort: [{isPinned: DESC}, {pushedAt: DESC}]
       filter: {topics: {in: [$topic]}}
     ) {
       nodes {

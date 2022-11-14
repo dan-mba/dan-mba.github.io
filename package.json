@@ -16,10 +16,7 @@
     "clean": "gatsby clean",
     "version": "gatsby --version",
     "issue": "gatsby info --clipboard",
-    "browserslist": "npx update-browserslist-db@latest",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run --browser chrome",
-    "cypress:verify": "cypress verify"
+    "browserslist": "npx update-browserslist-db@latest"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -27,7 +24,7 @@
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.13",
     "emoji-js": "^3.7.0",
-    "gatsby": "5.0.0",
+    "gatsby": "^5.0.1",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-image": "^3.0.0",
     "gatsby-plugin-sharp": "^5.0.0",
@@ -41,7 +38,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "cypress": "^10.11.0",
+    "@playwright/test": "^1.27.1",
     "eslint": "^8.27.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-react": "^7.31.10",

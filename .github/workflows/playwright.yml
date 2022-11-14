@@ -1,24 +1,21 @@
-name: Cypress
-
+name: Playwright Tests
 on:
   workflow_dispatch:
   pull_request:
 
 jobs:
   test:
-    name: Test
+    name: Test Playwright
+    timeout-minutes: 60
     runs-on: ubuntu-latest
     if: github.actor != 'dependabot[bot]'
-
     steps:
       - uses: actions/checkout@v3
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: "18"
+          node-version: 18
           cache: "npm"
-
+      
       - name: Restore cache
         uses: actions/cache@v3
         with:
@@ -28,22 +25,22 @@ jobs:
           key: ${{ runner.os }}-gatsby-build-${{ hashFiles('public') }}
           restore-keys: |
             ${{ runner.os }}-gatsby-build-
-
+  
       - name: Install dependencies
         run: npm ci
-
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      
       - name: Build with Gatsby
         env:
           GITHUB_TOKEN: ${{ secrets.BUILD_GITHUB_TOKEN }}
         run: npm run build
-
-      - name: Cypress
-        uses: cypress-io/github-action@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.BUILD_GITHUB_TOKEN }}
-          # NODE_OPTIONS: --openssl-legacy-provider
+  
+      - name: Run Playwright tests
+        run: npx playwright test
+      - uses: actions/upload-artifact@v3
+        if: always()
         with:
-          install: false
-          start: npm run serve
-          # wait-on: 'http://localhost:8000/'
-          browser: chrome
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30

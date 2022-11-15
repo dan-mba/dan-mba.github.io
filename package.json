@@ -16,7 +16,8 @@
     "clean": "gatsby clean",
     "version": "gatsby --version",
     "issue": "gatsby info --clipboard",
-    "browserslist": "npx update-browserslist-db@latest"
+    "browserslist": "npx update-browserslist-db@latest",
+    "test": "npx playwright test"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",

@@ -28,6 +28,7 @@ module.exports = {
         repoFilter: [{owner: 'firstcontributions', name: 'first-contributions'}],
         issueFilter: [
           {owner: 'gatsbyjs', name: 'gatsby', number: 36192},
+          {owner: 'microsoft', name: 'playwright', number: 18847},
           {owner: 'EddieHubCommunity', name: 'support', number: 5763}
         ]
       }

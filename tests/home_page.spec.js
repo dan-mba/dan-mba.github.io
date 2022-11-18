@@ -1,9 +1,18 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
+const AxeBuilder = require('@axe-core/playwright').default;
 
 test.describe('Homepage Common Tests', () => {
   test('Page loads', async ({ page }) => {
     await page.goto('/');
+  });
+
+  test('should pass axe wcag accessibility issues', async ({ page }) => {
+    await page.goto('/');
+    const accessibilityScanResults = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag2aaa', 'wcag21a', 'wcag21aa', 'wcag21aaa'])
+      .analyze();
+    expect(accessibilityScanResults.violations).toEqual([]);
   });
 });
 

@@ -70,3 +70,6 @@ yarn-error.log
 
 # VSCode settings
 .vscode/
+/test-results/
+/playwright-report/
+/playwright/.cache/

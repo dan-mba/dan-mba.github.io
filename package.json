@@ -23,7 +23,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.14",
-    "@mui/material": "^5.10.13",
+    "@mui/material": "^5.10.15",
     "emoji-js": "^3.7.0",
     "gatsby": "^5.0.1",
     "gatsby-awesome-pagination": "^0.3.8",

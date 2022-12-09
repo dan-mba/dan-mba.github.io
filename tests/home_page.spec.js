@@ -7,7 +7,7 @@ test.describe('Homepage Common Tests', () => {
     await page.goto('/');
   });
 
-  test('should pass axe wcag accessibility issues', async ({ page }) => {
+  test('should pass axe wcag accessibility tests', async ({ page }) => {
     await page.goto('/');
     const accessibilityScanResults = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag2aaa', 'wcag21a', 'wcag21aa', 'wcag21aaa'])

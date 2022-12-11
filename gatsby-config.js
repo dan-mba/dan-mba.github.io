@@ -29,7 +29,8 @@ module.exports = {
         issueFilter: [
           {owner: 'gatsbyjs', name: 'gatsby', number: 36192},
           {owner: 'microsoft', name: 'playwright', number: 18847},
-          {owner: 'EddieHubCommunity', name: 'support', number: 5763}
+          {owner: 'EddieHubCommunity', name: 'support', number: 5763},
+          {owner: 'EddieHubCommunity', name: 'EddieHubLive', number: 64}
         ]
       }
     },

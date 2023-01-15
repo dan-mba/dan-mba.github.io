@@ -29,7 +29,7 @@ async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prF
               stargazerCount
               url
             }
-            contributions(first: 10) {
+            contributions(first: 15) {
               edges {
                 node {
                   pullRequest {
@@ -53,7 +53,7 @@ async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prF
               stargazerCount
               url
             }
-            contributions(first: 10) {
+            contributions(first: 15) {
               edges {
                 node {
                   issue {
@@ -256,10 +256,16 @@ async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prF
         numbro(repo.stargazerCount).format({average: true, mantissa: 1})
     }));
 
-    const sortContribs = (a, b) => (b.number - a.number);
+    const sortContribs = (field) => {
+      return (a, b) => {
+        const aDate = new Date(a[field])
+        const bDate = new Date(b[field])
+        return bDate - aDate;
+      }
+    }
     repos.forEach(repo => {
-      if (repo.contributionPrs && repo.contributionPrs.length > 1) repo.contributionPrs.sort(sortContribs);
-      if (repo.contributionIssues && repo.contributionIssues.length > 1) repo.contributionIssues.sort(sortContribs);
+      if (repo.contributionPrs && repo.contributionPrs.length > 1) repo.contributionPrs.sort(sortContribs("mergedAt"));
+      if (repo.contributionIssues && repo.contributionIssues.length > 1) repo.contributionIssues.sort(sortContribs("closedAt"));
     });
 
     return repos;

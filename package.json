@@ -28,7 +28,7 @@
     "gatsby": "^5.3.3",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-image": "^3.3.2",
-    "gatsby-plugin-sharp": "^5.3.2",
+    "gatsby-plugin-sharp": "^5.4.0",
     "gatsby-plugin-sitemap": "^6.3.1",
     "gatsby-source-filesystem": "^5.3.1",
     "gatsby-theme-material-ui": "^5.3.0",

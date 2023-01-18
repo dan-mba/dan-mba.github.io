@@ -5,7 +5,7 @@ emoji.replace_mode = 'unified';
 emoji.allow_native = true;
 emoji.allow_caps = true;
 
-async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prFilter) {
+async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prFilter, maxContributions) {
   const endpoint = 'https://api.github.com/graphql';
 
   const graphqlClient = new GraphQLClient(endpoint, {
@@ -266,8 +266,7 @@ async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prF
       if (repo.contributionPrs && repo.contributionPrs.length > 1) repo.contributionPrs.sort(sortContribs("mergedAt"));
       if (repo.contributionIssues && repo.contributionIssues.length > 1) repo.contributionIssues.sort(sortContribs("closedAt"));
       
-      const maxContribs = 12;
-      const removeContribs = repo.totalContribs - maxContribs
+      const removeContribs = repo.totalContribs - maxContributions;
       if (removeContribs > 0) {
         const dates = repo.contributionPrs.slice(-removeContribs)
           .map((pr => {return {time: pr.mergedAt}}));

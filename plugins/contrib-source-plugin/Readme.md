@@ -24,6 +24,8 @@ module.exports = {
         // Array of pull requests to filter out of sourced data
         // Default: []
         prFilter: [{owner: 'firstcontributions', name: 'first-contributions', number: 1234}],
+        // Maximum number of contributions per repo (most recently closed / merged will be kept)
+        maxContributions: 12,
       }
     }
   ]

@@ -27,6 +27,8 @@ async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prF
               }
               stargazerCount
               url
+              viewerCanAdminister
+              viewerPermission
             }
             contributions(first: 15) {
               edges {
@@ -51,6 +53,8 @@ async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prF
               }
               stargazerCount
               url
+              viewerCanAdminister
+              viewerPermission
             }
             contributions(first: 15) {
               edges {
@@ -250,6 +254,7 @@ async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prF
 
     repos = repos.map(repo => ({
       ...repo,
+      isMaintainer: repo.viewerCanAdminister || (repo.viewerPermission === 'WRITE'),
       descriptionEmoji: cropString(emoji.replace_colons(repo.description)),
       stargazerPrint: repo.stargazerCount < 1000 ? `${repo.stargazerCount}` :
         Intl.NumberFormat('en-US', { notation: 'compact', compactDisplay: 'short' }).format(repo.stargazerCount)

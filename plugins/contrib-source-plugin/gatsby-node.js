@@ -11,14 +11,15 @@ exports.pluginOptionsSchema = ({ Joi }) => Joi.object({
     .description('Array issues to issues out'),
   prFilter: Joi.array().items(Joi.object()).default([])
     .description('Array pull requests to filter out'),
-  
+  maxContributions: Joi.number().integer().default(12)
+    .description('Max number of contributions to show per repo'),
 })
 
 exports.sourceNodes = async ({ actions, createNodeId, createContentDigest },
-  {githubUserId, githubUserToken, repoFilter, issueFilter, prFilter}) => {
+  {githubUserId, githubUserToken, repoFilter, issueFilter, prFilter, maxContributions}) => {
 
   const repos = await getGithubContribs(githubUserId, githubUserToken,
-    repoFilter, issueFilter, prFilter);
+    repoFilter, issueFilter, prFilter, maxContributions);
 
   repos.forEach(repo => {
     const node = {

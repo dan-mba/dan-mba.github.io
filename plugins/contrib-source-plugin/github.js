@@ -1,12 +1,11 @@
 const {GraphQLClient, gql} = require('graphql-request');
-const numbro = require('numbro');
 const EmojiConvertor = require('emoji-js');
 const emoji = new EmojiConvertor();
 emoji.replace_mode = 'unified';
 emoji.allow_native = true;
 emoji.allow_caps = true;
 
-async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prFilter) {
+async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prFilter, maxContributions) {
   const endpoint = 'https://api.github.com/graphql';
 
   const graphqlClient = new GraphQLClient(endpoint, {
@@ -28,8 +27,10 @@ async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prF
               }
               stargazerCount
               url
+              viewerCanAdminister
+              viewerPermission
             }
-            contributions(first: 10) {
+            contributions(first: 15) {
               edges {
                 node {
                   pullRequest {
@@ -52,8 +53,10 @@ async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prF
               }
               stargazerCount
               url
+              viewerCanAdminister
+              viewerPermission
             }
-            contributions(first: 10) {
+            contributions(first: 15) {
               edges {
                 node {
                   issue {
@@ -251,16 +254,49 @@ async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prF
 
     repos = repos.map(repo => ({
       ...repo,
+      isMaintainer: repo.viewerCanAdminister || (repo.viewerPermission === 'WRITE'),
       descriptionEmoji: cropString(emoji.replace_colons(repo.description)),
       stargazerPrint: repo.stargazerCount < 1000 ? `${repo.stargazerCount}` :
-        numbro(repo.stargazerCount).format({average: true, mantissa: 1})
+        Intl.NumberFormat('en-US', { notation: 'compact', compactDisplay: 'short' }).format(repo.stargazerCount)
     }));
 
-    const sortContribs = (a, b) => (b.number - a.number);
+    const sortContribs = (field) => {
+      return (a, b) => {
+        const aDate = new Date(a[field])
+        const bDate = new Date(b[field])
+        return bDate - aDate;
+      }
+    }
     repos.forEach(repo => {
-      if (repo.contributionPrs && repo.contributionPrs.length > 1) repo.contributionPrs.sort(sortContribs);
-      if (repo.contributionIssues && repo.contributionIssues.length > 1) repo.contributionIssues.sort(sortContribs);
+      if (repo.contributionPrs && repo.contributionPrs.length > 1) repo.contributionPrs.sort(sortContribs("mergedAt"));
+      if (repo.contributionIssues && repo.contributionIssues.length > 1) repo.contributionIssues.sort(sortContribs("closedAt"));
+      
+      const removeContribs = repo.totalContribs - maxContributions;
+      if (removeContribs > 0) {
+        const dates = repo.contributionPrs.slice(-removeContribs)
+          .map((pr => {return {time: pr.mergedAt}}));
+        dates.concat(repo.contributionIssues.slice(-removeContribs)
+          .map((pr => {return {time: pr.closedAt}})));
+        dates.sort(sortContribs("time"));
+
+        const dateArr = dates.map(d => d.time).reverse();
+        const dateFilter = dateArr[removeContribs-1];
+
+        const filterDates = (field) => {
+          return (input) => {
+            const aDate = new Date(input[field])
+            const bDate = new Date(dateFilter)
+            return bDate < aDate;
+          }
+        }
+
+        repo.contributionPrs = repo.contributionPrs.filter(filterDates("mergedAt"));
+        repo.contributionIssues = repo.contributionIssues.filter(filterDates("closedAt"));
+        repo.totalContribs = repo.contributionIssues.length + repo.contributionPrs.length;
+      }
     });
+
+  
 
     return repos;
   } catch(e) {

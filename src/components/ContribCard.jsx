@@ -87,7 +87,7 @@ export default function ContribCard({repo}) {
         }
       />
       <Content>
-        {!repo.contributionPrs ? null : 
+        {repo.contributionPrs?.length > 0 ? 
           <div>
             <Typography variant="h6" align="center">Pull Requests</Typography>
             {repo.contributionPrs.map((r,i) => (
@@ -99,12 +99,12 @@ export default function ContribCard({repo}) {
                 </Typography>
               </Link>
             ))}
-          </div>
+          </div> : null
         }
-        {repo.contributionPrs && repo.contributionIssues ?
+        {(repo.contributionPrs?.length > 0) && (repo.contributionIssues?.length > 0) ?
           <Spacer/> : null
         }
-        {!repo.contributionIssues ? null : 
+        {repo.contributionIssues?.length > 0 ? 
           <div>
             <Typography variant="h6" align="center">Issues</Typography>
             {repo.contributionIssues.map((r,i) => (
@@ -116,7 +116,7 @@ export default function ContribCard({repo}) {
                 </Typography>
               </Link>
             ))}
-          </div>
+          </div> : null
         }
       </Content>
     </CardRoot>

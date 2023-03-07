@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.6.0",
-    "@playwright/test": "^1.31.1",
+    "@playwright/test": "^1.31.2",
     "eslint": "^8.35.0",
     "eslint-plugin-react": "^7.32.2",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.30"

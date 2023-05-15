@@ -1,20 +1,11 @@
 import {useEffect, useRef, useState} from "react";
 import {Typography, Popper, Grow, ClickAwayListener, Paper, Button, MenuList, MenuItem} from "@mui/material";
 import {LinkedIn, GitHub} from "@mui/icons-material";
-import {decomposeColor, recomposeColor, hexToRgb, rgbToHex, styled} from "@mui/material/styles";
+import {styled} from "@mui/material/styles";
 import {IconButton, Link} from "gatsby-theme-material-ui";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
-const fullBlue = (color) => {
-  const sec = decomposeColor(color[0] === '#' ? hexToRgb(color) : color);
-  const blue = 255 - sec.values[2];
-  for(let i = 0; i < sec.values.length; i++) {
-    sec.values[i] += blue;
-  }
-  return rgbToHex(recomposeColor(sec));
-}
-
-const myBlue = fullBlue(theme.palette.secondary.main);
+const myBlue = theme.util.lightBlue
 
 const LinkBar = styled('div')({
   display: 'flex',

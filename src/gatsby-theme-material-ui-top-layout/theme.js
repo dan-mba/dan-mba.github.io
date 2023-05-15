@@ -1,7 +1,16 @@
-import {createTheme} from "@mui/material/styles";
+import {decomposeColor, recomposeColor, hexToRgb, rgbToHex, createTheme} from "@mui/material/styles";
 import {darkScrollbar} from "@mui/material";
 
-const theme = createTheme({
+const fullBlue = (color) => {
+  const sec = decomposeColor(color[0] === '#' ? hexToRgb(color) : color);
+  const blue = 255 - sec.values[2];
+  for(let i = 0; i < sec.values.length; i++) {
+    sec.values[i] += blue;
+  }
+  return rgbToHex(recomposeColor(sec));
+}
+
+const lightTheme = createTheme({
   palette: {
     primary: {
       main: '#212121',
@@ -59,6 +68,31 @@ const theme = createTheme({
       titleURLColor: 'rgb(81, 133, 159)', // lighten(theme.palette.secondary.main, 0.32)
     },
   },
+  util: {
+    lightBlue: fullBlue('#004d73')
+  }
 });
 
-export default theme;
+export const darkTheme = createTheme({
+  ...lightTheme,
+  palette: {
+    mode: 'dark',
+    secondary: {
+      main: lightTheme.util.lightBlue,
+    },
+    background: {
+      paper: '#121212',
+    },
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          backgroundColor: '#000',
+        },
+      },
+    },
+  },
+});
+
+export default lightTheme;

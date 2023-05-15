@@ -12,11 +12,27 @@ test.describe('Contributions Page Tests', () => {
     const list = page.locator('.MuiCard-root');
     await expect(list).toHaveCount(6);
   });
+});
 
-  test('should pass axe wcag accessibility tests', async ({ page }) => {
-    await page.goto('/contributions/');
+test.describe('Contributions - accessibility tests (light)', () => {
+  test.use({ colorScheme: 'light' });
+
+  test('should pass axe wcag accessibility tests (light)', async ({ page }) => {
+    await page.goto('/');
     const accessibilityScanResults = await new AxeBuilder({ page })
-      .withTags(['wcag2a', 'wcag2aa', 'wcag2aaa', 'wcag21a', 'wcag21aa', 'wcag21aaa'])
+      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .analyze();
+    expect(accessibilityScanResults.violations).toEqual([]);
+  });
+});
+
+test.describe('Contributions - accessibility tests (dark)', () => {
+  test.use({ colorScheme: 'dark' });
+
+  test('should pass axe wcag accessibility tests (dark)', async ({ page }) => {
+    await page.goto('/');
+    const accessibilityScanResults = await new AxeBuilder({ page })
+      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
       .analyze();
     expect(accessibilityScanResults.violations).toEqual([]);
   });

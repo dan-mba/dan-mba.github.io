@@ -30,7 +30,7 @@
     "gatsby-plugin-image": "^3.10.0",
     "gatsby-plugin-sharp": "^5.10.0",
     "gatsby-plugin-sitemap": "^6.9.0",
-    "gatsby-source-filesystem": "^5.9.0",
+    "gatsby-source-filesystem": "^5.10.0",
     "gatsby-theme-material-ui": "^5.3.0",
     "gatsby-transformer-sharp": "^5.10.0",
     "graphql-request": "^6.0.0",

@@ -41,7 +41,7 @@ export default function Portfolio({data, pageContext: {numberOfPages, humanPageN
       <LayoutContainer maxWidth="xl" disableGutters>
         <Title variant="h3" align="center">Portfolio</Title>
         <Suspense>
-          <GridContainer container spacing={4} justifyContent="center" alignItems="stretch">
+          <GridContainer container columnSpacing={{xs:0, md:4}} rowSpacing={4} justifyContent="center" alignItems="stretch">
             {items}
           </GridContainer>
           <LinkArea>

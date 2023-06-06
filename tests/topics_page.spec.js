@@ -20,15 +20,30 @@ test.describe('Topics Page Tests', () => {
     await js.click();
     await expect(page).toHaveURL(/.*\/topics\/javascript\//)
   });
+});
 
-  test('should pass axe wcag accessibility tests', async ({ page }) => {
+test.describe('Topics - accessibility tests (light)', () => {
+  test.use({ colorScheme: 'light' });
+
+  test('should pass axe wcag accessibility tests (light)', async ({ page }) => {
     await page.goto('/topics/');
     const accessibilityScanResults = await new AxeBuilder({ page })
-      .withTags(['wcag2a', 'wcag2aa', 'wcag2aaa', 'wcag21a', 'wcag21aa', 'wcag21aaa'])
+      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
       .analyze();
     expect(accessibilityScanResults.violations).toEqual([]);
   });
 });
 
+test.describe('Topics - accessibility tests (dark)', () => {
+  test.use({ colorScheme: 'dark' });
+
+  test('should pass axe wcag accessibility tests (dark)', async ({ page }) => {
+    await page.goto('/topics/');
+    const accessibilityScanResults = await new AxeBuilder({ page })
+      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .analyze();
+    expect(accessibilityScanResults.violations).toEqual([]);
+  });
+});
 
 

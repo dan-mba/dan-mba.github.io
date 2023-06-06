@@ -93,6 +93,7 @@ export default function ContribCard({repo}) {
             {repo.contributionPrs.map((r,i) => (
               <Link key={i} underline="hover" href={r.url}
                 target="_blank" rel="noreferrer noopener"
+                color="inherit"
               >
                 <Typography variant="body1">
                   {r.title}
@@ -110,6 +111,7 @@ export default function ContribCard({repo}) {
             {repo.contributionIssues.map((r,i) => (
               <Link key={i} underline="hover" href={r.url}
                 target="_blank" rel="noreferrer noopener"
+                color="inherit"
               >
                 <Typography variant="body1">
                   {r.title}

@@ -1,5 +1,5 @@
 import {Suspense} from "react";
-import {Link, List, ListItem, ListItemIcon, ListItemText, Typography} from "@mui/material";
+import {Link, List, ListItem, ListItemIcon, ListItemText, Typography, useMediaQuery} from "@mui/material";
 import {PlaceOutlined} from "@mui/icons-material";
 import {styled} from "@mui/material/styles";
 import {graphql} from "gatsby";
@@ -8,7 +8,7 @@ import BackgroundImage from "../components/BackgroundImage";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import PreloadImage from "../components/PreloadImage";
-import theme from "../gatsby-theme-material-ui-top-layout/theme";
+import theme,{darkTheme} from "../gatsby-theme-material-ui-top-layout/theme";
 import PageData from "../data/index.yml";
 
 const PType = styled(Typography)({
@@ -50,7 +50,7 @@ const JobText = styled('div')({
   padding: '0 1rem'
 })
 
-const StyledPaper = styled('div')({
+const LightPaper = styled('div')({
   backgroundColor: theme.palette.background.paper,
   margin: '0',
   padding: '2rem 0 1rem',
@@ -58,6 +58,18 @@ const StyledPaper = styled('div')({
   flexDirection: 'column',
   alignItems: 'center'
 });
+
+const DarkPaper = styled(LightPaper)({
+  backgroundColor: darkTheme.palette.background.paper,
+});
+
+const StyledPaper = ({children}) => {
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+
+  return prefersDarkMode ? 
+    <DarkPaper>{children}</DarkPaper> : 
+    <LightPaper>{children}</LightPaper>
+}
 
 const HeroText = styled('div')({
   color: theme.pages.index.heroText,

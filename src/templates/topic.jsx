@@ -28,7 +28,7 @@ export default function Topic({data, pageContext: {topic}}) {
       <Container maxWidth="xl" disableGutters>
         <Title variant="h3" align="center">{topic}</Title>
         <Suspense>
-          <GridContainer container columnSpacing={3} rowSpacing={2} justifyContent="center" alignItems="stretch">
+          <GridContainer container columnSpacing={{xs:0, md:3}} rowSpacing={2} justifyContent="center" alignItems="stretch">
             {items}
           </GridContainer>
         </Suspense>

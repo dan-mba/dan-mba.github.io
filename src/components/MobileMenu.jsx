@@ -23,8 +23,10 @@ const MenuIconText = styled('div')({
 const MenuDrawer = styled(Drawer)({
   '.MuiPaper-root': {
     backgroundColor: theme.palette.primary.main,
+    backgroundImage: 'unset',
     color: theme.palette.primary.contrastText,
-    minWidth: '14rem'
+    minWidth: '14rem',
+    overflow: 'hidden'
   }
 });
 

@@ -271,28 +271,23 @@ async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prF
       if (repo.contributionPrs && repo.contributionPrs.length > 1) repo.contributionPrs.sort(sortContribs("mergedAt"));
       if (repo.contributionIssues && repo.contributionIssues.length > 1) repo.contributionIssues.sort(sortContribs("closedAt"));
       
-      const removeContribs = repo.totalContribs - maxContributions;
-      if (removeContribs > 0) {
-        const dates = repo.contributionPrs.slice(-removeContribs)
-          .map((pr => {return {time: pr.mergedAt}}));
-        dates.concat(repo.contributionIssues.slice(-removeContribs)
-          .map((pr => {return {time: pr.closedAt}})));
-        dates.sort(sortContribs("time"));
 
-        const dateArr = dates.map(d => d.time).reverse();
-        const dateFilter = dateArr[removeContribs-1];
-
-        const filterDates = (field) => {
-          return (input) => {
-            const aDate = new Date(input[field])
-            const bDate = new Date(dateFilter)
-            return bDate < aDate;
+      while ((repo.totalContribs - maxContributions) > 0) {
+        if(!repo.contributionPrs || repo.contributionPrs.length == 0) {
+          repo.contributionIssues.slice(0, maxContributions - repo.totalContribs);
+          repo.totalContribs = maxContributions;
+        } else if (!repo.contributionIssues || repo.contributionIssues.length == 0) {
+          repo.contributionPrs.slice(0, maxContributions - repo.totalContribs);
+          repo.totalContribs = maxContributions;
+        } else {
+          if (repo.contributionPrs.at(-1)["mergedAt"] < repo.contributionIssues.at(-1)["closedAt"]) {
+            repo.contributionPrs.pop();
+            repo.totalContribs--;
+          } else {
+            repo.contributionIssues.pop();
+            repo.totalContribs--;
           }
         }
-
-        repo.contributionPrs = repo.contributionPrs.filter(filterDates("mergedAt"));
-        repo.contributionIssues = repo.contributionIssues.filter(filterDates("closedAt"));
-        repo.totalContribs = repo.contributionIssues.length + repo.contributionPrs.length;
       }
     });
 

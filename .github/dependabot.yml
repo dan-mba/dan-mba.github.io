@@ -7,6 +7,16 @@ updates:
     open-pull-requests-limit: 10
     schedule:
       interval: "weekly"
+    groups:
+      emotion:
+        patterns:
+          - "@emotion*"
+      mui:
+        patterns:
+          - "@mui*"
+      gatsby:
+        patterns:
+          - "gatsby*"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:

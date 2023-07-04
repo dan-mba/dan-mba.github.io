@@ -14,6 +14,15 @@ const LinkBar = styled('div')({
   flexGrow: 1
 });
 
+const NavbarDiv = styled('div')({
+    margin: '0px',
+    fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+    fontWeight: 400,
+    fontSize: '1.5rem',
+    lineHeight: 1.334,
+    letterSpacing: '0.02857em',
+});
+
 const StyledPaper = styled(Paper)({
   backgroundColor: theme.palette.primary.main,
   color: theme.palette.primary.contrastText
@@ -88,7 +97,7 @@ export default function DesktopMenu() {
   return (
     <LinkBar id="desktop-links">
       <HoverLink to="/" color="inherit" underline="none">
-        <Typography variant="h5">About</Typography>
+        <NavbarDiv>About</NavbarDiv>
       </HoverLink>
       <StyledButton
         id="portfolio-button"

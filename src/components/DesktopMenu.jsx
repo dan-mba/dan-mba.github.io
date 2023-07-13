@@ -151,7 +151,7 @@ export default function DesktopMenu() {
       <HoverIcon
         color="inherit"
         aria-label="LinkedIn"
-        href="https://linkedin.com/danburkhardt"
+        href="https://www.linkedin.com/in/danburkhardt/"
         target="_blank"
         rel="noreferrer noopener"
         size="large">

@@ -112,7 +112,7 @@ export default function MobileMenu() {
           component={Link}
           color="inherit"
           underline="none"
-          href="https://linkedin.com/danburkhardt"
+          href="https://www.linkedin.com/in/danburkhardt/"
           target="_blank"
           rel="noreferrer noopener"
           onClick={closeDrawer}

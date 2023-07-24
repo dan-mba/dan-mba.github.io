@@ -26,7 +26,7 @@ export default function NavBar() {
         <Handwriting variant="h3">
           Dan
         </Handwriting>
-        {useMediaQuery(theme.breakpoints.up('md')) ?
+        {useMediaQuery(theme.breakpoints.up('lg')) ?
           <Suspense fallback={<div></div>}>
             <DesktopMenu/>
           </Suspense> :

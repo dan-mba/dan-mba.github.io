@@ -23,13 +23,16 @@ const NavbarDiv = styled('div')({
 });
 
 const HoverLink = styled(Link)({
-  padding: '16px 12px 8px',
+  padding: '16px 8px 8px',
+  textUnderlineOffset: '8px',
+  textDecorationThickness: '2px',
   '&:hover': {
     color: myBlue
   }
 });
 
 const HoverIcon = styled(IconButton)({
+  padding: '12px 8px',
   '&:hover': {
     color: myBlue
   }
@@ -51,8 +54,8 @@ export default function DesktopMenu() {
       <HoverLink to="/portfolio/" color="inherit" underline={underline('/portfolio/')}>
         <NavbarDiv>Projects</NavbarDiv>
       </HoverLink>
-      <HoverLink to="/topics/" color="inherit" underline={underline('/topics/')}>
-        <NavbarDiv>Topics</NavbarDiv>
+      <HoverLink to="/technologies/" color="inherit" underline={underline('/technologies/')}>
+        <NavbarDiv>Technologies</NavbarDiv>
       </HoverLink>
       <HoverLink to="/contributions/" color="inherit" underline={underline('/contributions/')}>
         <NavbarDiv>Contributions</NavbarDiv>

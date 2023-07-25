@@ -5,7 +5,7 @@ import {styled} from "@mui/material/styles"
 import {graphql} from "gatsby";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import TopicCard from "../components/TopicCard";
+import TechCard from "../components/TechCard";
 
 const Title = styled(Typography)({
   padding: '3rem 0 0'
@@ -15,11 +15,11 @@ const GridContainer = styled(Grid)({
   padding: '1.5rem min(2vw, .5rem)'
 });
 
-export default function Topic({data, pageContext: {topic}}) {
+export default function Technology({data, pageContext: {topic}}) {
   const repos = data.repos.nodes;
   const items = repos.map((repo, index) => (
     <Grid xs={12} md={6} lg={4} key={repo.name}>
-      <TopicCard repo={repo} index={index} />
+      <TechCard repo={repo} index={index} />
     </Grid>
   ));
 
@@ -38,8 +38,8 @@ export default function Topic({data, pageContext: {topic}}) {
 };
 
 export const Head = ({pageContext: {topic}}) => (
-  <SEO title={`Daniel Burkhardt - Portfolio Topic - ${topic}`}
-    description={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Topics - ${topic}`}
+  <SEO title={`Daniel Burkhardt - Portfolio Technology - ${topic}`}
+    description={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Technology - ${topic}`}
   />
 )
 

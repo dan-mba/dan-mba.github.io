@@ -3,7 +3,7 @@ import {styled} from "@mui/material/styles";
 import {Code, Link as LinkIcon} from "@mui/icons-material";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import IconTooltip from "./IconTooltip";
-import TopicChip from "./TopicChip";
+import TechChip from "./TechChip";
 
 const CardRoot = styled(Card)({
   height: '100%',
@@ -27,7 +27,7 @@ const Description = styled(Typography)({
   flexGrow: 1
 });
 
-const TopicArea = styled('div')({
+const TechArea = styled('div')({
   display: 'flex',
   justifyContent: 'space-evenly',
   flexWrap: 'wrap' 
@@ -55,13 +55,13 @@ export default function RepoCard({repo, index}) {
         <Description variant="body1" align="center">
           {repo.description}
         </Description>
-        <TopicArea>
+        <TechArea>
           {repo.topics.map(topic => {
             return (
-              <TopicChip size="small" name={topic} key={topic} />
+              <TechChip size="small" name={topic} key={topic} />
             )
           })}
-        </TopicArea>
+        </TechArea>
       </Content>
       <CardActions>
         <IconTooltip top title="code repository" url={repo.url} icon={<Code/>}/>

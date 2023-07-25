@@ -3,7 +3,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import {styled} from "@mui/material/styles";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import TopicChip from "../components/TopicChip";
+import TechChip from "../components/TechChip";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
 const GridContainer = styled(Grid)({
@@ -15,10 +15,10 @@ const GridContainer = styled(Grid)({
   }
 });
 
-export default function Topics({pageContext: {topics}}) {
+export default function Technologies({pageContext: {topics}}) {
   const items = topics.map((topic) => (
     <Grid m={0.5} key={topic.name}>
-      <TopicChip size="large" name={topic.name} count={topic.count}/>
+      <TechChip size="large" name={topic.name} count={topic.count}/>
     </Grid>
   ));
 
@@ -34,7 +34,7 @@ export default function Topics({pageContext: {topics}}) {
 };
 
 export const Head = () => (
-  <SEO title={`Daniel Burkhardt - Portfolio Topics`}
-    description={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Topics`}
+  <SEO title={`Daniel Burkhardt - Portfolio Technologies`}
+    description={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Technologies`}
   />
 )

@@ -17,6 +17,7 @@ const Header = styled(CardHeader)({
   marginLeft: '12px',  
   '.MuiCardHeader-title': {
     marginBottom: '.75rem',
+    paddingInline: '4px',
     fontWeight: '500'
   },
   '.MuiCardHeader-subheader': {
@@ -28,7 +29,7 @@ const Header = styled(CardHeader)({
   },
   '.MuiCardHeader-avatar': {
     alignSelf: 'start',
-    marginRight: '28px'
+    marginRight: '16px'
   },
 })
 

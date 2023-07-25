@@ -29,7 +29,7 @@ const LinkArea = styled('div')({
 export default function Contributions({data, pageContext: {numberOfPages, humanPageNumber}}) {
   const repos = data.repos.nodes;
   const items = repos.map((repo, index) => (
-    <Grid xs={12} md={6} key={repo.name}>
+    <Grid xs={12} lg={6} key={repo.name}>
       <ContribCard repo={repo} index={index}/>
     </Grid>
   ));

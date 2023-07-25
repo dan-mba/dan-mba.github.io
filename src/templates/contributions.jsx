@@ -39,7 +39,7 @@ export default function Contributions({data, pageContext: {numberOfPages, humanP
       <LayoutContainer maxWidth="xl" disableGutters>
         <Title variant="h3" align="center">Open Source Contributions</Title>
         <Suspense>
-          <GridContainer container columnSpacing={{xs:0, md:4}} rowSpacing={4} justifyContent="center" alignItems="stretch">
+          <GridContainer container columnSpacing={{xs:0, lg:4}} rowSpacing={4} justifyContent="center" alignItems="stretch">
             {items}
           </GridContainer>
           {numberOfPages == 1 ? null :

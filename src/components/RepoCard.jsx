@@ -14,6 +14,9 @@ const CardRoot = styled(Card)({
 const Header = styled(CardHeader)({
   padding: '1rem 4px',
   height: '7rem', 
+  '.MuiCardHeader-subheader': {
+    margin: '0 auto'
+  }
 });
 
 const Content = styled(CardContent)({
@@ -23,7 +26,7 @@ const Content = styled(CardContent)({
 });
 
 const Description = styled(Typography)({
-  margin: '.5rem 0 1rem',
+  margin: '.5rem auto 1rem',
   flexGrow: 1
 });
 

@@ -36,6 +36,10 @@ const TechArea = styled('div')({
   flexWrap: 'wrap' 
 })
 
+const Actions = styled(CardActions)({
+  justifyContent: "space-between"
+})
+
 export default function RepoCard({repo, index}) {
   return (
     <CardRoot>
@@ -66,12 +70,12 @@ export default function RepoCard({repo, index}) {
           })}
         </TechArea>
       </Content>
-      <CardActions>
+      <Actions>
         <IconTooltip top title="code repository" url={repo.url} icon={<Code/>}/>
         {!repo.homepageUrl ? null:
           <IconTooltip top title="demo site" url={repo.homepageUrl} icon={<LinkIcon/>}/>
         }
-      </CardActions>
+      </Actions>
     </CardRoot>
   );
 }

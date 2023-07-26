@@ -23,8 +23,8 @@ const NavbarDiv = styled('div')({
 });
 
 const HoverLink = styled(Link)({
-  padding: '16px 8px 8px',
-  textUnderlineOffset: '8px',
+  margin: '16px 10px 8px',
+  textUnderlineOffset: '6px',
   textDecorationThickness: '2px',
   '&:hover': {
     color: myBlue
@@ -32,7 +32,8 @@ const HoverLink = styled(Link)({
 });
 
 const HoverIcon = styled(IconButton)({
-  padding: '12px 8px',
+  padding: '0',
+  margin: '12px 4px',
   '&:hover': {
     color: myBlue
   }

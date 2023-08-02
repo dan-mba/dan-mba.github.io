@@ -29,7 +29,7 @@ const LinkArea = styled('div')({
 export default function Contributions({data, pageContext: {numberOfPages, humanPageNumber}}) {
   const repos = data.repos.nodes;
   const items = repos.map((repo, index) => (
-    <Grid xs={12} md={6} key={repo.name}>
+    <Grid xs={12} lg={6} key={repo.name}>
       <ContribCard repo={repo} index={index}/>
     </Grid>
   ));
@@ -39,7 +39,7 @@ export default function Contributions({data, pageContext: {numberOfPages, humanP
       <LayoutContainer maxWidth="xl" disableGutters>
         <Title variant="h3" align="center">Open Source Contributions</Title>
         <Suspense>
-          <GridContainer container columnSpacing={{xs:0, md:4}} rowSpacing={4} justifyContent="center" alignItems="stretch">
+          <GridContainer container columnSpacing={{xs:0, lg:4}} rowSpacing={4} justifyContent="center" alignItems="stretch">
             {items}
           </GridContainer>
           {numberOfPages == 1 ? null :

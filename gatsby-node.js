@@ -29,8 +29,8 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
   });
 
   createPage({
-    path: `/topics/`,
-    component: path.resolve('./src/templates/topics.jsx'),
+    path: `/technologies/`,
+    component: path.resolve('./src/templates/technologies.jsx'),
     context: {
       topics,
     }
@@ -62,8 +62,8 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
   
   topicArr.forEach(topic => {
     createPage({
-      path: `/topics/${topic}/`,
-      component: path.resolve('./src/templates/topic.jsx'),
+      path: `/technologies/${topic}/`,
+      component: path.resolve('./src/templates/technology.jsx'),
       context: {
         topic,
       }

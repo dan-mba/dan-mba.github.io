@@ -1,7 +1,6 @@
-import {useEffect, useRef, useState} from "react";
-import {Typography, Popper, Grow, ClickAwayListener, Paper, Button, MenuList, MenuItem} from "@mui/material";
 import {LinkedIn, GitHub} from "@mui/icons-material";
 import {styled} from "@mui/material/styles";
+import {useLocation} from "@reach/router";
 import {IconButton, Link} from "gatsby-theme-material-ui";
 import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
@@ -23,122 +22,45 @@ const NavbarDiv = styled('div')({
     letterSpacing: '0.02857em',
 });
 
-const StyledPaper = styled(Paper)({
-  backgroundColor: theme.palette.primary.main,
-  color: theme.palette.primary.contrastText
-});
-
-const StyledButton = styled(Button)({
-  textTransform: 'none',
-  lineHeight: 1.334,
-  fontSize: '1.5rem',
-  fontWeight: 400,
-  padding: '16px 12px 8px',
-  '&:hover': {
-    color: myBlue
-  }
-});
-
 const HoverLink = styled(Link)({
-  padding: '16px 12px 8px',
+  margin: '16px 10px 8px',
+  textUnderlineOffset: '6px',
+  textDecorationThickness: '2px',
   '&:hover': {
     color: myBlue
   }
 });
 
 const HoverIcon = styled(IconButton)({
-  '&:hover': {
-    color: myBlue
-  }
-});
-
-const MenuType = styled(Typography)({
-  fontWeight: 400,
+  padding: '0',
+  margin: '12px 4px',
   '&:hover': {
     color: myBlue
   }
 });
 
 export default function DesktopMenu() {
-  const [open, setOpen] = useState(false);
-  const anchorRef = useRef(null);
-
-  const handleToggle = () => {
-    setOpen((prevOpen) => !prevOpen);
-  };
-
-  const handleClose = (event) => {
-    if (anchorRef.current && anchorRef.current.contains(event.target)) {
-      return;
+  const location = useLocation();
+  function underline (path) {
+    if (location.pathname === path) {
+      return "always";
     }
-
-    setOpen(false);
-  };
-
-  function handleListKeyDown(event) {
-    if (event.key === 'Tab') {
-      event.preventDefault();
-      setOpen(false);
-    } else if (event.key === 'Escape') {
-      setOpen(false);
-    }
+    return "none";
   }
-
-  // return focus to the button when we transitioned from !open -> open
-  const prevOpen = useRef(open);
-  useEffect(() => {
-    if (prevOpen.current === true && open === false) {
-      anchorRef.current.focus();
-    }
-
-    prevOpen.current = open;
-  }, [open]);
-
   return (
     <LinkBar id="desktop-links">
-      <HoverLink to="/" color="inherit" underline="none">
+      <HoverLink to="/" color="inherit" underline={underline('/')}>
         <NavbarDiv>About</NavbarDiv>
       </HoverLink>
-      <StyledButton
-        id="portfolio-button"
-        color="inherit" size="large"
-        aria-controls={open ? 'portfolio-menu' : undefined}
-        aria-expanded={open ? 'true' : undefined}
-        aria-haspopup="true"
-        aria-describedby="link-menu"
-        placement="bottom-start"
-        ref={anchorRef}
-        onClick={handleToggle}
-      >
-        Portfolio
-      </StyledButton>
-      <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal keepMounted>
-        {({ TransitionProps, placement }) => (
-          <Grow
-            {...TransitionProps}
-            style={{ transformOrigin: placement === 'bottom-start' ? 'center top' : 'center bottom' }}
-          >
-            <StyledPaper>
-              <ClickAwayListener onClickAway={handleClose}>
-                <MenuList
-                  autoFocusItem={open} id="portfolio-menu"
-                  aria-labelledby="portfolio-button" onKeyDown={handleListKeyDown}
-                >
-                  <MenuItem component={Link} to="/portfolio/" underline="none" onClick={handleClose}>
-                    <MenuType variant="h6">Projects</MenuType>
-                  </MenuItem>
-                  <MenuItem component={Link} to="/topics/" underline="none" onClick={handleClose}>
-                    <MenuType variant="h6">Topics</MenuType>
-                  </MenuItem>
-                  <MenuItem component={Link} to="/contributions/" underline="none" onClick={handleClose}>
-                    <MenuType variant="h6">Contributions</MenuType>
-                  </MenuItem>
-                </MenuList>
-              </ClickAwayListener>
-            </StyledPaper>
-          </Grow>
-        )}
-      </Popper>
+      <HoverLink to="/portfolio/" color="inherit" underline={underline('/portfolio/')}>
+        <NavbarDiv>Projects</NavbarDiv>
+      </HoverLink>
+      <HoverLink to="/technologies/" color="inherit" underline={underline('/technologies/')}>
+        <NavbarDiv>Technologies</NavbarDiv>
+      </HoverLink>
+      <HoverLink to="/contributions/" color="inherit" underline={underline('/contributions/')}>
+        <NavbarDiv>Contributions</NavbarDiv>
+      </HoverLink>
       <HoverIcon
         color="inherit"
         aria-label="GitHub"

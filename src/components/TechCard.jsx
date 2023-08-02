@@ -28,7 +28,7 @@ const Description = styled(Typography)({
   flexGrow: 1
 });
 
-export default function RepoCard({repo}) {
+export default function TechCard({repo}) {
   return (
     <CardRoot>
       <Header

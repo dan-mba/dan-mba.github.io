@@ -88,8 +88,8 @@ export default function MobileMenu() {
         <SlimListItem component={Link} to="/portfolio/" color="inherit" underline="none">
           <SlimListText primary="Projects" primaryTypographyProps={{variant: "h6"}}/>
         </SlimListItem>
-        <SlimListItem component={Link} to="/topics/" color="inherit" underline="none">
-          <SlimListText primary="Topics" primaryTypographyProps={{variant: "h6"}}/>
+        <SlimListItem component={Link} to="/technologies/" color="inherit" underline="none">
+          <SlimListText primary="Technologies" primaryTypographyProps={{variant: "h6"}}/>
         </SlimListItem>
         <SlimListItem component={Link} to="/contributions/" color="inherit" underline="none">
           <SlimListText primary="Contributions" primaryTypographyProps={{variant: "h6"}}/>

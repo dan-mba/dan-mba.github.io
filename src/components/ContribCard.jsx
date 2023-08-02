@@ -17,6 +17,7 @@ const Header = styled(CardHeader)({
   marginLeft: '12px',  
   '.MuiCardHeader-title': {
     marginBottom: '.75rem',
+    paddingInline: '4px',
     fontWeight: '500'
   },
   '.MuiCardHeader-subheader': {
@@ -28,7 +29,7 @@ const Header = styled(CardHeader)({
   },
   '.MuiCardHeader-avatar': {
     alignSelf: 'start',
-    marginRight: '28px'
+    marginRight: '16px'
   },
 })
 
@@ -63,6 +64,10 @@ const Spacer = styled('div')({
   marginBottom: '1.3rem'
 })
 
+const Item = styled(Typography)({
+  maxWidth: 'unset',
+})
+
 export default function ContribCard({repo}) {
   
 
@@ -95,9 +100,9 @@ export default function ContribCard({repo}) {
                 target="_blank" rel="noreferrer noopener"
                 color="inherit"
               >
-                <Typography variant="body1">
+                <Item variant="body1">
                   {r.title}
-                </Typography>
+                </Item>
               </Link>
             ))}
           </div> : null

@@ -16,10 +16,11 @@ export default function IconTooltip({icon, title, top, url}) {
           {
             name: 'offset',
             options: {
-              offset: [0, -15],
+              offset: [0, -5],
             },
           },
         ],
+        keepMounted: true
       }}
     >
       <Button

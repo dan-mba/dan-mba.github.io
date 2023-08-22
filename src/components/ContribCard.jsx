@@ -3,7 +3,6 @@ import {styled} from "@mui/material/styles";
 import {Code, StarOutlineRounded} from "@mui/icons-material";
 import {Link} from "gatsby-theme-material-ui";
 import IconTooltip from "./IconTooltip";
-import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
 
 const CardRoot = styled(Card)({
@@ -41,22 +40,23 @@ const Content = styled(CardContent)({
 });
 
 const StarBadge = styled(Badge)({
-  backgroundColor: theme.palette.secondary.main,
+  backgroundColor: 'var(--mui-palette-starColor)',
   borderRadius: '50%',
   '.MuiBadge-badge': {
     fontSize: '0.9rem',
-    border: `1px solid ${theme.palette.secondary.main}`,
+    border: `1px solid var(--mui-palette-starColor)`,
     top: 0,
     left: 0,
     right: 'unset',
     transform: 'translate(24px, -40%)',
-    color: theme.palette.secondary.main,
-    backgroundColor: theme.palette.secondary.contrastText,
+    color: 'var(--mui-palette-starColor)',
+    backgroundColor: 'var(--mui-palette-common-white)',
   }
 });
 
 const StarIcon = styled(StarOutlineRounded)({
-  color: theme.palette.secondary.contrastText,
+  color: 'var(--mui-palette-StarColor)',
+  fill: 'var(--mui-palette-common-white)',
   fontSize: '48px',
 });
 

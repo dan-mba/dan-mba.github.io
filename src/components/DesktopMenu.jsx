@@ -2,9 +2,8 @@ import {LinkedIn, GitHub} from "@mui/icons-material";
 import {styled} from "@mui/material/styles";
 import {useLocation} from "@reach/router";
 import {IconButton, Link} from "gatsby-theme-material-ui";
-import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
-const myBlue = theme.util.lightBlue
+const myBlue = 'var(--mui-palette-lightBlue)'
 
 const LinkBar = styled('div')({
   display: 'flex',

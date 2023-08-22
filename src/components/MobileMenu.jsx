@@ -3,7 +3,6 @@ import {Drawer, List, ListItem, ListItemIcon, ListItemText} from "@mui/material"
 import {styled} from '@mui/material/styles';
 import {LinkedIn, GitHub, Home, Code, Menu as MenuIcon} from "@mui/icons-material";
 import {IconButton, Link} from "gatsby-theme-material-ui";
-import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
 const LinkBar = styled('div')({
   display: 'flex',
@@ -22,16 +21,16 @@ const MenuIconText = styled('div')({
 
 const MenuDrawer = styled(Drawer)({
   '.MuiPaper-root': {
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: 'var(--mui-palette-primary-main)',
     backgroundImage: 'unset',
-    color: theme.palette.primary.contrastText,
+    color: 'var(--mui-palette-primary-contrastText)',
     minWidth: '14rem',
     overflow: 'hidden'
   }
 });
 
 const ListIcon = styled(ListItemIcon)({
-  color: theme.palette.primary.contrastText
+  color: 'var(--mui-palette-primary-contrastText)'
 });
 
 const SlimListItem = styled(ListItem)({

@@ -51,7 +51,7 @@ export default function DesktopMenu() {
       <HoverLink to="/" color="inherit" underline={underline('/')}>
         <NavbarDiv>About</NavbarDiv>
       </HoverLink>
-      <HoverLink to="/portfolio/" color="inherit" underline={underline('/portfolio/')}>
+      <HoverLink to="/projects/" color="inherit" underline={underline('/projects/')}>
         <NavbarDiv>Projects</NavbarDiv>
       </HoverLink>
       <HoverLink to="/technologies/" color="inherit" underline={underline('/technologies/')}>

@@ -55,9 +55,9 @@ exports.createPages = async ({graphql, actions: {createPage}}) => {
   paginate({
     createPage,
     items: repos,
-    component: path.resolve('./src/templates/portfolio.jsx'),
+    component: path.resolve('./src/templates/projects.jsx'),
     itemsPerPage: 6,
-    pathPrefix: '/portfolio'
+    pathPrefix: '/projects'
   });
   
   topicArr.forEach(topic => {

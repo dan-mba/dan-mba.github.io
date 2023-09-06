@@ -39,13 +39,13 @@ export default function Portfolio({data, pageContext: {numberOfPages, humanPageN
   return (
     <Layout>
       <LayoutContainer maxWidth="xl" disableGutters>
-        <Title variant="h3" align="center">Portfolio</Title>
+        <Title variant="h3" align="center">Personal Projects</Title>
         <Suspense>
           <GridContainer container columnSpacing={{xs:0, lg:4}} rowSpacing={4} justifyContent="center" alignItems="stretch">
             {items}
           </GridContainer>
           <LinkArea>
-            <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/portfolio'}/>
+            <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/projects'}/>
           </LinkArea>
         </Suspense>
       </LayoutContainer>
@@ -57,8 +57,8 @@ export const Head = ({data, pageContext: {humanPageNumber}}) => {
   const repo = data.repos.nodes[0];
   const image = getImage(repo.localImage);
   return (
-    <SEO title={`Daniel Burkhardt - Portfolio Page ${humanPageNumber}`}
-      description={`Software Development Portfolio Site for Daniel Burkhardt - Portfolio Page ${humanPageNumber}`}
+    <SEO title={`Daniel Burkhardt - Projects Page ${humanPageNumber}`}
+      description={`Software Development Portfolio Site for Daniel Burkhardt - Projects Page ${humanPageNumber}`}
     >
       <PreloadImage image={image} />
     </SEO>

@@ -1,16 +1,15 @@
 import {AppBar, Toolbar, Typography, useMediaQuery} from "@mui/material";
 import {styled} from '@mui/material/styles';
 import {Link} from "gatsby-theme-material-ui";
-import theme from "../gatsby-theme-material-ui-top-layout/theme";
 import MobileMenu from "./MobileMenu";
 import DesktopMenu from "./DesktopMenu";
 
-const StyledToolbar = styled(Toolbar)({
+const StyledToolbar = styled(Toolbar)(({theme}) => ({
   maxWidth: theme.breakpoints.values.xl,
   margin: '0 auto',
   width: '100%',
   padding: '0 1%'
-});
+}));
 
 const Handwriting = styled(Typography)({
   fontFamily: '"Damion", cursive',
@@ -27,7 +26,7 @@ export default function NavBar() {
             Dan
           </Handwriting>
         </Link>
-        {useMediaQuery(theme.breakpoints.up('lg')) ?
+        {useMediaQuery((theme) => theme.breakpoints.up('lg')) ?
           <DesktopMenu/> :
           <MobileMenu/>
         }

@@ -1,5 +1,5 @@
 import {Suspense} from "react";
-import {Link, List, ListItem, ListItemIcon, ListItemText, Typography, useMediaQuery} from "@mui/material";
+import {Link, List, ListItem, ListItemIcon, ListItemText, Typography} from "@mui/material";
 import {PlaceOutlined} from "@mui/icons-material";
 import {styled} from "@mui/material/styles";
 import {graphql} from "gatsby";
@@ -8,7 +8,6 @@ import BackgroundImage from "../components/BackgroundImage";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import PreloadImage from "../components/PreloadImage";
-import theme,{darkTheme} from "../gatsby-theme-material-ui-top-layout/theme";
 import PageData from "../data/index.yml";
 
 const PType = styled(Typography)({
@@ -29,12 +28,12 @@ const StyledSection = styled('section')({
   alignItems: 'center',
 });
 
-const JobSection = styled(StyledSection)({
+const JobSection = styled(StyledSection)(({theme}) => ({
   alignItems: 'center',
   justifyContent: 'center',
   '&:nth-of-type(2n)': {
-    color: theme.palette.secondary.contrastText,
-    backgroundColor: theme.pages.index.accentBackground,
+    color: 'var(--mui-palette-primary-contrastText)',
+    backgroundColor: 'var(--mui-palette-accentBackground)',
   },
   [theme.breakpoints.up(900)]: {
     minHeight: '350px',
@@ -44,14 +43,14 @@ const JobSection = styled(StyledSection)({
       flexDirection: 'row-reverse',
     },
   }
-});
+}));
 
 const JobText = styled('div')({
   padding: '0 1rem'
 })
 
-const LightPaper = styled('div')({
-  backgroundColor: theme.palette.background.paper,
+const StyledPaper = styled('div')({
+  backgroundColor: 'var(--mui-palette-background-paper)',
   margin: '0',
   padding: '2rem 0 1rem',
   display: 'flex',
@@ -59,20 +58,8 @@ const LightPaper = styled('div')({
   alignItems: 'center'
 });
 
-const DarkPaper = styled(LightPaper)({
-  backgroundColor: darkTheme.palette.background.paper,
-});
-
-const StyledPaper = ({children}) => {
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-
-  return prefersDarkMode ? 
-    <DarkPaper>{children}</DarkPaper> : 
-    <LightPaper>{children}</LightPaper>
-}
-
 const HeroText = styled('div')({
-  color: theme.pages.index.heroText,
+  color: 'var(--mui-palette-heroText)',
   padding: '2px',
   textAlign: 'center',
   borderRadius: '5px'
@@ -83,14 +70,14 @@ const HeroStyle = {
   height: '23rem'
 };
 
-const ImageDiv = styled('div')({
+const ImageDiv = styled('div')(({theme}) => ({
   width: '300px',
   flex: 'none',
   display: 'none',
   [theme.breakpoints.up(900)]: {
     display: 'block'
   },
-});
+}));
 
 const StyledList = styled(List)({
   margin: '0 auto',
@@ -117,7 +104,7 @@ const Title = styled(Typography)({
 })
 
 const TitleUrl = styled(Typography)({
-  color: theme.pages.index.titleURLColor,
+  color: 'var(--mui-palette-titleURLColor)',
   fontWeight: 'bold'
 })
 

@@ -4,16 +4,15 @@ import {styled} from "@mui/material/styles";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import TechChip from "../components/TechChip";
-import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
-const GridContainer = styled(Grid)({
+const GridContainer = styled(Grid)(({theme}) => ({
   padding: '2rem 1vw',
   margin: '0 auto',
   maxWidth: '90ch',
   [theme.breakpoints.up('lg')]: {
     padding: '4.5rem 1rem 2rem',
   }
-});
+}));
 
 export default function Technologies({pageContext: {topics}}) {
   const items = topics.map((topic) => (

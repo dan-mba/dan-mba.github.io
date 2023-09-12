@@ -1,18 +1,14 @@
-import { useMemo } from "react";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import ThemeTopLayout from "gatsby-theme-material-ui-top-layout/src/components/top-layout";
-
-import { darkTheme } from "../theme";
+import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
 export default function TopLayout({ children, theme }) {
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-
-  const ColorTheme = useMemo(
-    () => prefersDarkMode ? darkTheme : theme,
-    [prefersDarkMode],
-  );
-  
   return (
-    <ThemeTopLayout theme={ColorTheme}>{children}</ThemeTopLayout>
+    <>
+      <CssVarsProvider theme={theme} defaultMode='system'>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline />
+        {children}
+      </CssVarsProvider>
+    </>
   );
 }

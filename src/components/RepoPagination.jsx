@@ -7,6 +7,8 @@ export default function RepoPagination({page, count, baseLink}) {
       page={page}
       count={count}
       color="primary"
+      hidePrevButton={page === 1}
+      hideNextButton={page === count}
       renderItem={(item) => (
         <PaginationItem
           component={Link}

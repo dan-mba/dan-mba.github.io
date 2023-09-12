@@ -2,9 +2,8 @@ import {LinkedIn, GitHub} from "@mui/icons-material";
 import {styled} from "@mui/material/styles";
 import {useLocation} from "@reach/router";
 import {IconButton, Link} from "gatsby-theme-material-ui";
-import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
-const myBlue = theme.util.lightBlue
+const myBlue = 'var(--mui-palette-lightBlue)'
 
 const LinkBar = styled('div')({
   display: 'flex',
@@ -52,7 +51,7 @@ export default function DesktopMenu() {
       <HoverLink to="/" color="inherit" underline={underline('/')}>
         <NavbarDiv>About</NavbarDiv>
       </HoverLink>
-      <HoverLink to="/portfolio/" color="inherit" underline={underline('/portfolio/')}>
+      <HoverLink to="/projects/" color="inherit" underline={underline('/projects/')}>
         <NavbarDiv>Projects</NavbarDiv>
       </HoverLink>
       <HoverLink to="/technologies/" color="inherit" underline={underline('/technologies/')}>

@@ -1,4 +1,3 @@
-import {Suspense} from "react";
 import {Typography, Container} from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import {styled} from "@mui/material/styles";
@@ -40,14 +39,12 @@ export default function Portfolio({data, pageContext: {numberOfPages, humanPageN
     <Layout>
       <LayoutContainer maxWidth="xl" disableGutters>
         <Title variant="h3" align="center">Personal Projects</Title>
-        <Suspense>
-          <GridContainer container columnSpacing={{xs:0, lg:4}} rowSpacing={4} justifyContent="center" alignItems="stretch">
-            {items}
-          </GridContainer>
-          <LinkArea>
-            <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/projects'}/>
-          </LinkArea>
-        </Suspense>
+        <GridContainer container columnSpacing={{xs:0, lg:4}} rowSpacing={4} justifyContent="center" alignItems="stretch">
+          {items}
+        </GridContainer>
+        <LinkArea>
+          <RepoPagination page={humanPageNumber} count={numberOfPages} baseLink={'/projects'}/>
+        </LinkArea>
       </LayoutContainer>
     </Layout>
   );

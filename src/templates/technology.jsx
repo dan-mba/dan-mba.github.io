@@ -1,4 +1,3 @@
-import {Suspense} from "react";
 import {Typography, Container} from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import {styled} from "@mui/material/styles"
@@ -27,11 +26,9 @@ export default function Technology({data, pageContext: {topic}}) {
     <Layout>
       <Container maxWidth="xl" disableGutters>
         <Title variant="h3" align="center">{topic}</Title>
-        <Suspense>
-          <GridContainer container columnSpacing={{xs:0, md:3}} rowSpacing={2} justifyContent="center" alignItems="stretch">
-            {items}
-          </GridContainer>
-        </Suspense>
+        <GridContainer container columnSpacing={{xs:0, md:3}} rowSpacing={2} justifyContent="center" alignItems="stretch">
+          {items}
+        </GridContainer>
       </Container>
     </Layout>
   );

@@ -20,7 +20,7 @@ test.describe('Contributions - accessibility tests (light)', () => {
   test('should pass axe wcag accessibility tests (light)', async ({ page }) => {
     await page.goto('/contributions/');
     const accessibilityScanResults = await new AxeBuilder({ page })
-      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
       .analyze();
     expect(accessibilityScanResults.violations).toEqual([]);
   });
@@ -32,7 +32,7 @@ test.describe('Contributions - accessibility tests (dark)', () => {
   test('should pass axe wcag accessibility tests (dark)', async ({ page }) => {
     await page.goto('/contributions/');
     const accessibilityScanResults = await new AxeBuilder({ page })
-      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
       .analyze();
     expect(accessibilityScanResults.violations).toEqual([]);
   });

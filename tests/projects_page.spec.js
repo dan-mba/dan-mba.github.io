@@ -31,7 +31,7 @@ test.describe('Projects - accessibility tests (light)', () => {
   test('should pass axe wcag accessibility tests (light)', async ({ page }) => {
     await page.goto('/projects/');
     const accessibilityScanResults = await new AxeBuilder({ page })
-      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
       .analyze();
     expect(accessibilityScanResults.violations).toEqual([]);
   });
@@ -43,7 +43,7 @@ test.describe("Projects - accessibility tests (dark)", () => {
   test('should pass axe wcag accessibility tests (dark)', async ({ page }) => {
     await page.goto('/projects/');
     const accessibilityScanResults = await new AxeBuilder({ page })
-      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
       .analyze();
     expect(accessibilityScanResults.violations).toEqual([]);
   });

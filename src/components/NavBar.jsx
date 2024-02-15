@@ -1,9 +1,9 @@
+import { Suspense } from "react";
 import {AppBar, Toolbar, Typography, useMediaQuery} from "@mui/material";
 import {styled} from '@mui/material/styles';
 import {Link} from "gatsby-theme-material-ui";
 import MobileMenu from "./MobileMenu";
 import DesktopMenu from "./DesktopMenu";
-import { Suspense } from "react";
 
 const StyledToolbar = styled(Toolbar)(({theme}) => ({
   maxWidth: theme.breakpoints.values.xl,
@@ -27,12 +27,13 @@ export default function NavBar() {
             Dan
           </Handwriting>
         </Link>
-        <Suspense>
-          {useMediaQuery((theme) => theme.breakpoints.up('lg')) ?
-            <DesktopMenu/> :
-            <MobileMenu/>
-          }
-        </Suspense>
+        { useMediaQuery((theme) => theme.breakpoints.up('lg')) ?
+          <Suspense>
+            <DesktopMenu/>
+          </Suspense> :
+          <MobileMenu/>
+        }
+
       </StyledToolbar>
     </AppBar>
   );

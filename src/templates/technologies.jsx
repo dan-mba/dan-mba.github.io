@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import {styled} from "@mui/material/styles";
 import Layout from "../components/Layout";
@@ -23,7 +24,7 @@ export default function Technologies({pageContext: {topics}}) {
   return (
     <Layout>
       <GridContainer container justifyContent="center" alignItems="center">
-        {items}
+        <Suspense>{items}</Suspense>
       </GridContainer>
     </Layout>
   );

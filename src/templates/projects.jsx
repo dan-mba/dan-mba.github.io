@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import {Typography, Container} from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import {styled} from "@mui/material/styles";
@@ -31,7 +32,12 @@ export default function Portfolio({data, pageContext: {numberOfPages, humanPageN
   const repos = data.repos.nodes;
   const items = repos.map((repo, index) => (
     <Grid xs={12} lg={6} key={repo.name}>
-      <RepoCard repo={repo} index={index}/>
+      {index === 0 ? 
+        <RepoCard repo={repo} index={index}/> :  
+        <Suspense>
+          <RepoCard repo={repo} index={index}/>
+        </Suspense>
+      }
     </Grid>
   ));
 

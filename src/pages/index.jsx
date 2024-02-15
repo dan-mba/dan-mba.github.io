@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import {Link, List, ListItem, ListItemIcon, ListItemText, Typography} from "@mui/material";
 import {PlaceOutlined} from "@mui/icons-material";
 import {styled} from "@mui/material/styles";
@@ -119,70 +120,72 @@ export default function Home({data}) {
           <Typography variant="h4">{PageData.langs}</Typography>
         </HeroText>
       </BackgroundImage>
-      <StyledPaper>
-        <StyledSection>
-            <Typography variant="h3" align="center">About Me</Typography>
-            {PageData.about.map((item, i) => {
-              return (<Paragraph key={i}>{item}</Paragraph>)
-            })}
-        </StyledSection>
-        {PageData.jobHistory.map((d, i) => {
-          const imgID = data.jobs.nodes.findIndex(job => job.original.src.includes(d.img));
-          const InnerSection = ({d}) => {
-            return (
-              <>
-                <JobText>
-                  {!d.titleUrl ?
-                    <Title variant="h4" align="center">{d.title}</Title> :
-                    <StyledLink href={d.titleUrl} underline="none"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <TitleUrl variant="h4" align="center">{d.title}</TitleUrl>
-                    </StyledLink>
-                  }
-                  {d.p.map((text, count) => {
-                    return (<Paragraph key={`${d.title} ${count}`}>{text}</Paragraph>)
-                  })}
-                </JobText>
-                <ImageDiv>
-                  <GatsbyImage image={data.jobs.nodes[imgID]['gatsbyImageData']} alt={d.imgAlt} />
-                </ImageDiv>
-              </>
-            );
-          };
-          return (
-            <JobSection key={`paragraph-${i}`}>
-              <InnerSection d={d} />
-            </JobSection>
-          )
-        })}
-        <StyledSection>
-          <StaticImage
-            src="../../static/img/map.png"
-            alt="Map of Florida with Pin in Broward County"
-            placeholder="none"
-            width={300}
-            height={300}
-            style={{margin: '1rem 0 .5rem'}}
-          />
-          <Paragraph>{PageData.residence}</Paragraph>
-          <Paragraph>
-            I am open to opportunities in the following locations:
-          </Paragraph>
-          <StyledList dense>
-            {PageData.openLocations.map((location) => {
+      <Suspense>
+        <StyledPaper>
+          <StyledSection>
+              <Typography variant="h3" align="center">About Me</Typography>
+              {PageData.about.map((item, i) => {
+                return (<Paragraph key={i}>{item}</Paragraph>)
+              })}
+          </StyledSection>
+          {PageData.jobHistory.map((d, i) => {
+            const imgID = data.jobs.nodes.findIndex(job => job.original.src.includes(d.img));
+            const InnerSection = ({d}) => {
               return (
-                <ListItem key={location}>
-                  <ListIcon ><PlaceOutlined color="secondary"/></ListIcon>
-                  <ListText primary={location}
-                    primaryTypographyProps={{variant: 'body1'}}
-                  />
-                </ListItem>
+                <>
+                  <JobText>
+                    {!d.titleUrl ?
+                      <Title variant="h4" align="center">{d.title}</Title> :
+                      <StyledLink href={d.titleUrl} underline="none"
+                        target="_blank" rel="noopener noreferrer"
+                      >
+                        <TitleUrl variant="h4" align="center">{d.title}</TitleUrl>
+                      </StyledLink>
+                    }
+                    {d.p.map((text, count) => {
+                      return (<Paragraph key={`${d.title} ${count}`}>{text}</Paragraph>)
+                    })}
+                  </JobText>
+                  <ImageDiv>
+                    <GatsbyImage image={data.jobs.nodes[imgID]['gatsbyImageData']} alt={d.imgAlt} />
+                  </ImageDiv>
+                </>
               );
-            })}
-          </StyledList>
-        </StyledSection>
-      </StyledPaper>
+            };
+            return (
+              <JobSection key={`paragraph-${i}`}>
+                <InnerSection d={d} />
+              </JobSection>
+            )
+          })}
+          <StyledSection>
+            <StaticImage
+              src="../../static/img/map.png"
+              alt="Map of Florida with Pin in Broward County"
+              placeholder="none"
+              width={300}
+              height={300}
+              style={{margin: '1rem 0 .5rem'}}
+            />
+            <Paragraph>{PageData.residence}</Paragraph>
+            <Paragraph>
+              I am open to opportunities in the following locations:
+            </Paragraph>
+            <StyledList dense>
+              {PageData.openLocations.map((location) => {
+                return (
+                  <ListItem key={location}>
+                    <ListIcon ><PlaceOutlined color="secondary"/></ListIcon>
+                    <ListText primary={location}
+                      primaryTypographyProps={{variant: 'body1'}}
+                    />
+                  </ListItem>
+                );
+              })}
+            </StyledList>
+          </StyledSection>
+        </StyledPaper>
+      </Suspense>
     </Layout>
   );
 }

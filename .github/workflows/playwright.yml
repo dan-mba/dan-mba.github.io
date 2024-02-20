@@ -38,6 +38,3 @@ jobs:
   
       - name: Run Playwright tests
         run: npx playwright test
-      - uses: test-summary/action@v2
-        with:
-          paths: "results.xml"

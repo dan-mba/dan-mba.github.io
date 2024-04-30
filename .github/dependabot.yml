@@ -17,6 +17,11 @@ updates:
       gatsby:
         patterns:
           - "gatsby*"
+      lint:
+        patterns:
+          - "eslint*"
+          - "@eslint*"
+          - "globals"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:

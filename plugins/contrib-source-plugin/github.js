@@ -1,5 +1,5 @@
-const {GraphQLClient, gql} = require('graphql-request');
-const EmojiConvertor = require('emoji-js');
+import {GraphQLClient, gql} from 'graphql-request';
+import EmojiConvertor from 'emoji-js';
 const emoji = new EmojiConvertor();
 emoji.replace_mode = 'unified';
 emoji.allow_native = true;
@@ -300,4 +300,4 @@ async function getGithubContribs(userid, userToken, repoFilter, issueFilter, prF
   }
 }
 
-module.exports = getGithubContribs;
+export default getGithubContribs;

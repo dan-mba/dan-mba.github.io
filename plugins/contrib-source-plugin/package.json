@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "A Gatsby plugin to source my github contributions",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "echo \"No build script setup\""
   },
   "dependencies": {
-    "emoji-js": "^3.7.0",
-    "graphql-request": "^5.1.0"
+    "emoji-js": "^3.8.0",
+    "graphql-request": "^7.0.1"
   },
   "keywords": [
     "gatsby",

@@ -1,4 +1,4 @@
-const {GraphQLClient, gql} = require('graphql-request');
+import {GraphQLClient, gql} from 'graphql-request';
 
 async function getGithubRepos(userid, authToken, portfolioLangs) {
   const endpoint = 'https://api.github.com/graphql';
@@ -100,4 +100,4 @@ async function getGithubRepos(userid, authToken, portfolioLangs) {
   }
 }
 
-module.exports = getGithubRepos;
+export default getGithubRepos;

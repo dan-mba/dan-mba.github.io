@@ -1,7 +1,7 @@
-const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
-const getGithubRepos = require('./github');
+import { createRemoteFileNode } from 'gatsby-source-filesystem';
+import getGithubRepos from './github.js';
 
-exports.pluginOptionsSchema = ({ Joi }) => Joi.object({
+export const pluginOptionsSchema = ({ Joi }) => Joi.object({
   githubUserId: Joi.string().required()
     .description('GitHub user id to fetch repos for'),
   githubUserToken: Joi.string().required()
@@ -10,7 +10,7 @@ exports.pluginOptionsSchema = ({ Joi }) => Joi.object({
     .description('List of languages for repo to be included'),
 })
 
-exports.createSchemaCustomization = ({ actions }) => {
+export const createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   createTypes(
     `
@@ -21,7 +21,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   );
 }
 
-exports.sourceNodes = async ({ actions, createNodeId, createContentDigest, store, cache, reporter },
+export const sourceNodes = async ({ actions, createNodeId, createContentDigest, store, cache, reporter },
   {githubUserId, githubUserToken, portfolioLanguages}) => {
   const { createNode } = actions;
   const repos = await getGithubRepos(githubUserId, githubUserToken, portfolioLanguages);

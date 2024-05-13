@@ -1,6 +1,6 @@
-const getGithubContribs = require('./github');
+import getGithubContribs from './github.js';
 
-exports.pluginOptionsSchema = ({ Joi }) => Joi.object({
+export const pluginOptionsSchema = ({ Joi }) => Joi.object({
   githubUserId: Joi.string().required()
     .description('GitHub user id to fetch repos for'),
   githubUserToken: Joi.string().required()
@@ -15,7 +15,7 @@ exports.pluginOptionsSchema = ({ Joi }) => Joi.object({
     .description('Max number of contributions to show per repo'),
 })
 
-exports.sourceNodes = async ({ actions, createNodeId, createContentDigest },
+export const sourceNodes = async ({ actions, createNodeId, createContentDigest },
   {githubUserId, githubUserToken, repoFilter, issueFilter, prFilter, maxContributions}) => {
 
   const repos = await getGithubContribs(githubUserId, githubUserToken,

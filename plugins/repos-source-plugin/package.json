@@ -9,8 +9,8 @@
     "build": "echo \"No build script setup\""
   },
   "dependencies": {
-    "graphql-request": "^4.2.0",
-    "gatsby-source-filesystem": "^7.0.1"
+    "graphql-request": "^7.0.1",
+    "gatsby-source-filesystem": "^5.13.1"
   },
   "keywords": [
     "gatsby",

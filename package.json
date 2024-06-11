@@ -44,7 +44,7 @@
     "eslint": "^9.4.0",
     "eslint-plugin-react": "^7.34.2",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.32",
-    "globals": "^15.3.0"
+    "globals": "^15.4.0"
   },
   "repository": {
     "type": "git",

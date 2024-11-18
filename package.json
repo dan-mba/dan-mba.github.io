@@ -40,7 +40,7 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.10.1",
     "@playwright/test": "^1.48.2",
-    "eslint": "^9.14.0",
+    "eslint": "^9.15.0",
     "eslint-plugin-react": "^7.37.2",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.32",
     "globals": "^15.12.0"

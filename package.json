@@ -20,8 +20,8 @@
     "test": "npx playwright test"
   },
   "dependencies": {
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
+    "@emotion/react": "^11.13.5",
+    "@emotion/styled": "^11.13.5",
     "@mui/icons-material": "^5.16.7",
     "@mui/material": "^5.16.7",
     "emoji-js": "^3.8.0",
@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.1",
-    "@playwright/test": "^1.48.2",
+    "@playwright/test": "^1.49.0",
     "eslint": "^9.15.0",
     "eslint-plugin-react": "^7.37.2",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.32",

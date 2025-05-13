@@ -25,7 +25,10 @@ module.exports = {
       options: {
         githubUserId: 'dan-mba',
         githubUserToken: process.env.GITHUB_TOKEN,
-        repoFilter: [{owner: 'firstcontributions', name: 'first-contributions'}],
+        repoFilter: [
+          {owner: 'firstcontributions', name: 'first-contributions'},
+          {owner: 'uBlockOrigin', name: 'uAssets'}
+        ],
         issueFilter: [
           {owner: 'gatsbyjs', name: 'gatsby', number: 36192},
           {owner: 'microsoft', name: 'playwright', number: 18847},

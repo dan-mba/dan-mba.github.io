@@ -9,8 +9,8 @@
     "build": "echo \"No build script setup\""
   },
   "dependencies": {
-    "emoji-js": "^3.8.0",
-    "graphql-request": "^7.0.1"
+    "emoji-js": "^3.8.1",
+    "graphql-request": "^7.1.2"
   },
   "keywords": [
     "gatsby",

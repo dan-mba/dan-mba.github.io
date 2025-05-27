@@ -44,7 +44,7 @@
     "eslint": "^9.27.0",
     "eslint-plugin-react": "^7.37.5",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.32",
-    "globals": "^16.1.0"
+    "globals": "^16.2.0"
   },
   "overrides": {
     "css-minimizer-webpack-plugin": "^7.0.0",

@@ -38,7 +38,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.10.1",
+    "@axe-core/playwright": "^4.10.2",
     "@playwright/test": "^1.52.0",
     "ajv": "^8.17.1",
     "eslint": "^9.28.0",
@@ -50,7 +50,7 @@
     "css-minimizer-webpack-plugin": "^7.0.0",
     "path-to-regexp": "^0.1.12",
     "cookie": "^0.7.2",
-    "multer": "^2.0.0"
+    "multer": "^2.0.1"
   },
   "repository": {
     "type": "git",

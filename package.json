@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",
-    "@playwright/test": "^1.52.0",
+    "@playwright/test": "^1.53.0",
     "ajv": "^8.17.1",
     "eslint": "^9.29.0",
     "eslint-plugin-react": "^7.37.5",

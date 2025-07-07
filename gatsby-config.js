@@ -27,7 +27,8 @@ module.exports = {
         githubUserToken: process.env.GITHUB_TOKEN,
         repoFilter: [
           {owner: 'firstcontributions', name: 'first-contributions'},
-          {owner: 'uBlockOrigin', name: 'uAssets'}
+          {owner: 'uBlockOrigin', name: 'uAssets'},
+          {owner: 'webcompat', name: 'web-bugs'}
         ],
         issueFilter: [
           {owner: 'gatsbyjs', name: 'gatsby', number: 36192},

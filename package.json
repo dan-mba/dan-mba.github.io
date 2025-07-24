@@ -50,7 +50,9 @@
     "css-minimizer-webpack-plugin": "^7.0.0",
     "path-to-regexp": "^0.1.12",
     "cookie": "^0.7.2",
-    "multer": "^2.0.1"
+    "multer": "^2.0.1",
+    "rimraf": "^4.4.0",
+    "glob": "^8.1.0"
   },
   "repository": {
     "type": "git",

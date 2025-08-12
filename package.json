@@ -52,7 +52,8 @@
     "cookie": "^0.7.2",
     "multer": "^2.0.1",
     "rimraf": "^4.4.0",
-    "glob": "^8.1.0"
+    "glob": "^8.1.0",
+    "inquirer": "^12.9.0"
   },
   "repository": {
     "type": "git",

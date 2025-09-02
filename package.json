@@ -25,14 +25,14 @@
     "@mui/icons-material": "^5.18.0",
     "@mui/material": "^5.18.0",
     "emoji-js": "^3.8.1",
-    "gatsby": "^5.14.6",
+    "gatsby": "^5.15.0",
     "gatsby-awesome-pagination": "^0.3.8",
-    "gatsby-plugin-image": "^3.14.0",
-    "gatsby-plugin-sharp": "^5.14.0",
-    "gatsby-plugin-sitemap": "^6.14.0",
-    "gatsby-source-filesystem": "^5.14.0",
+    "gatsby-plugin-image": "^3.15.0",
+    "gatsby-plugin-sharp": "^5.15.0",
+    "gatsby-plugin-sitemap": "^6.15.0",
+    "gatsby-source-filesystem": "^5.15.0",
     "gatsby-theme-material-ui": "^5.3.0",
-    "gatsby-transformer-sharp": "^5.14.0",
+    "gatsby-transformer-sharp": "^5.15.0",
     "graphql-request": "^7.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
@@ -48,11 +48,8 @@
   },
   "overrides": {
     "css-minimizer-webpack-plugin": "^7.0.0",
-    "path-to-regexp": "^0.1.12",
     "cookie": "^0.7.2",
-    "multer": "^2.0.1",
     "rimraf": "^4.4.0",
-    "glob": "^8.1.0",
     "inquirer": "^12.9.0"
   },
   "repository": {

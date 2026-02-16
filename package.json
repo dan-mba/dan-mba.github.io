@@ -41,7 +41,7 @@
     "@axe-core/playwright": "^4.11.1",
     "@playwright/test": "^1.58.2",
     "ajv": "^8.17.1",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.0",
     "eslint-plugin-react": "^7.37.5",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.32",
     "globals": "^17.3.0"

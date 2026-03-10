@@ -50,7 +50,8 @@
     "css-minimizer-webpack-plugin": "^7.0.0",
     "cookie": "^0.7.2",
     "rimraf": "^4.4.0",
-    "inquirer": "^12.9.0"
+    "inquirer": "^12.9.0",
+    "immutable": "^3.8.3"
   },
   "repository": {
     "type": "git",

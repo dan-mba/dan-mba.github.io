@@ -51,7 +51,8 @@
     "cookie": "^0.7.2",
     "rimraf": "^4.4.0",
     "inquirer": "^12.9.0",
-    "immutable": "^3.8.3"
+    "immutable": "^3.8.3",
+    "path-to-regexp": "^0.1.13"
   },
   "repository": {
     "type": "git",
